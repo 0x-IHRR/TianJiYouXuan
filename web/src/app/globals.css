@@ -198,22 +198,21 @@
       linear-gradient(90deg, rgba(247, 239, 225, 0.94), rgba(251, 246, 236, 1) 18%, rgba(251, 246, 236, 1) 82%, rgba(237, 226, 209, 0.94)),
       var(--background);
     color: #2e241b;
+    overflow-x: hidden;
   }
 
   .continuous-home-canvas {
     position: relative;
     isolation: isolate;
-    width: min(100vw, 960px);
+    width: 100vw;
     min-width: 320px;
     aspect-ratio: 864 / 1821;
-    margin-inline: auto;
+    margin-inline: 0;
     overflow: hidden;
     background-image: url("/media/homepage-clean-background-v1.png");
     background-size: 100% 100%;
     background-position: center top;
-    box-shadow:
-      0 0 0 1px rgba(102, 76, 44, 0.07),
-      0 24px 100px rgba(86, 61, 32, 0.11);
+    box-shadow: none;
   }
 
   .home-light-field,
