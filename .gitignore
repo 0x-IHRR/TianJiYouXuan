@@ -1,0 +1,7 @@
+.meta-team
+.meta-team-runs/
+.playwright-mcp
+.spec-workflow
+.env
+images/
+video/
