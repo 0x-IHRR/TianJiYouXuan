@@ -101,11 +101,6 @@ function FilmSection() {
           playsInline
           preload="metadata"
         />
-        <div className={styles.filmShade} aria-hidden="true" />
-        <div className={styles.filmCopy}>
-          <p>{siteConfig.film.title}</p>
-          <strong>让每一次消费创造更大的价值</strong>
-        </div>
       </Link>
 
       <aside className={styles.sideNotes} aria-label="价值提示">
