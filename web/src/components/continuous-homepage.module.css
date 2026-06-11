@@ -389,7 +389,7 @@
   position: absolute;
   z-index: 13;
   right: clamp(54px, 8vw, 128px);
-  top: 29.5%;
+  top: 39.2%;
   width: min(18rem, 21vw);
   display: grid;
   gap: clamp(2.1rem, 3.2vw, 3.6rem);
