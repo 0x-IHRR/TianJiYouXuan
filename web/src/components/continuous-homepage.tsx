@@ -105,7 +105,6 @@ function FilmSection() {
         <div className={styles.filmCopy}>
           <p>{siteConfig.film.title}</p>
           <strong>让每一次消费创造更大的价值</strong>
-          <i aria-hidden="true" />
         </div>
       </Link>
 
