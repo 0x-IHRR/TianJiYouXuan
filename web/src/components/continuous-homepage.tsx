@@ -12,7 +12,7 @@ const sideNotes = [
 
 const layerAssets = {
   hero: "/media/homepage-layers/hero-still-life.png",
-  film: "/media/homepage-layers/film-window-compact.png",
+  film: "/media/homepage-layers/film-window-balanced.png",
   doors: "/media/homepage-layers/doorway-band.png",
   table: "/media/homepage-layers/table-invitation.png",
 };

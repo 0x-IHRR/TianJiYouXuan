@@ -271,9 +271,9 @@
 .filmWindow {
   position: absolute;
   z-index: 12;
-  left: 15.1%;
-  top: 36%;
-  width: 31.5%;
+  left: 24.2%;
+  top: 34.4%;
+  width: 37%;
   aspect-ratio: 16 / 9;
   height: auto;
   overflow: hidden;
@@ -678,9 +678,9 @@
   }
 
   .filmWindow {
-    left: 13%;
-    top: 33%;
-    width: 35.2%;
+    left: 23.6%;
+    top: 32.2%;
+    width: 39.8%;
     aspect-ratio: 16 / 9;
     height: auto;
     border-radius: 1.1rem;
@@ -827,9 +827,9 @@
   }
 
   .filmWindow {
-    left: 15.1%;
-    top: calc(100vw * 0.225);
-    width: 31.5%;
+    left: 24.2%;
+    top: calc(100vw * 0.215);
+    width: 37%;
     aspect-ratio: 16 / 9;
     height: auto;
     transform: none;
