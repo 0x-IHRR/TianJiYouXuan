@@ -5,9 +5,9 @@ import { siteConfig } from "@/lib/site-config";
 import styles from "./continuous-homepage.module.css";
 
 const sideNotes = [
-  "真正稀缺的不是更多选择，而是更少后悔。",
-  "线下会所感，不靠喧哗建立身份，而靠稳定的体验建立信任。",
-  "供应链在背后组织确定性，会员在前台感受生活方式。",
+  "会员制，\n不是制造距离，\n而是减少无效选择。",
+  "供应链找来服务的，\n是生活里的确定性。",
+  "申请，\n是彼此确认\n是否适合的开始。",
 ];
 
 const layerAssets = {
@@ -41,17 +41,20 @@ function SiteNav() {
     <header className={styles.nav} aria-label="主导航">
       <Link href="/" className={styles.brand}>
         <span>{siteConfig.name}</span>
-        <small>Members Salon</small>
+        <small>会员俱乐部</small>
       </Link>
 
       <nav className={styles.navLinks}>
-        {siteConfig.navigation.map((item) => (
-          <Link key={item.href} href={item.href}>
-            {item.label}
-          </Link>
-        ))}
-        <Link href="/apply">申请会员</Link>
+        <Link href="/membership">会员体系</Link>
+        <Link href="/philosophy">理念与价值</Link>
+        <Link href="/film">品牌影片</Link>
+        <Link href="/philosophy">关于我们</Link>
       </nav>
+
+      <Link href="/apply" className={styles.navApply}>
+        <span>申请会员</span>
+        <i aria-hidden="true" />
+      </Link>
     </header>
   );
 }
@@ -64,16 +67,12 @@ function HeroSection() {
       </div>
 
       <div className={styles.heroCopy}>
-        <p>{siteConfig.hero.eyebrow}</p>
-        <h1 id="home-title">{siteConfig.hero.title}</h1>
+        <h1 id="home-title">{siteConfig.name}</h1>
         <i aria-hidden="true" />
-        <span>{siteConfig.hero.description}</span>
+        <span>让每一次消费创造更大的价值</span>
       </div>
 
-      <aside className={styles.heroAside} aria-label="首页判断提示">
-        <small>01 / Invitation</small>
-        <p>不是催促你立刻购买，而是让你判断：这里是否值得成为长期关系的一部分。</p>
-      </aside>
+      <div className={styles.heroCue} aria-hidden="true" />
     </section>
   );
 }
@@ -105,12 +104,12 @@ function FilmSection() {
         <div className={styles.filmShade} aria-hidden="true" />
         <div className={styles.filmCopy}>
           <p>{siteConfig.film.title}</p>
-          <strong>先看见气质，再决定是否靠近。</strong>
+          <strong>让每一次消费创造更大的价值</strong>
+          <i aria-hidden="true" />
         </div>
       </Link>
 
       <aside className={styles.sideNotes} aria-label="价值提示">
-        <strong>先判断气质，后判断关系。</strong>
         {sideNotes.map((note, index) => (
           <p key={note}>
             <small>{String(index + 1).padStart(2, "0")}</small>
@@ -132,10 +131,8 @@ function DoorwaySection() {
       <nav className={styles.entranceNav} aria-label="继续了解">
         {siteConfig.entrances.map((item) => (
           <Link key={item.href} href={item.href} className={styles.entranceLink}>
-            <small>{item.index}</small>
             <span>{item.title}</span>
             <i aria-hidden="true" />
-            <em>{item.subtitle}</em>
           </Link>
         ))}
       </nav>
@@ -159,8 +156,12 @@ function ClosingSection() {
       </div>
 
       <Link href="/apply" className={styles.applyCallout}>
-        <small>Membership Application</small>
-        <span>留下轻量意向</span>
+        <small>关注我们</small>
+        <span aria-hidden="true">
+          <i />
+          <i />
+          <i />
+        </span>
       </Link>
     </section>
   );
