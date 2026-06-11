@@ -100,7 +100,7 @@
 .brand span {
   display: block;
   font-size: clamp(1.15rem, 1.65vw, 1.8rem);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1;
 }
 
@@ -238,7 +238,7 @@
   margin: 0;
   max-width: 8em;
   font-size: clamp(3rem, 4.2vw, 4.8rem);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.08;
   letter-spacing: 0;
   text-wrap: pretty;
@@ -371,7 +371,7 @@
   display: block;
   margin: 0;
   font-family: var(--font-serif-sc);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .filmCopy p {
