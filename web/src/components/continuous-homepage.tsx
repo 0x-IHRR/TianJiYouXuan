@@ -147,7 +147,6 @@ function ClosingSection() {
         <p>连接，是一种力量；</p>
         <p>共益，是一种未来。</p>
         <i aria-hidden="true" />
-        <span>{siteConfig.closing.note}</span>
       </div>
 
       <div className={styles.tableImageLayer} aria-hidden="true">
