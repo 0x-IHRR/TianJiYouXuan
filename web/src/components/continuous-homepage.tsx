@@ -152,15 +152,6 @@ function ClosingSection() {
       <div className={styles.tableImageLayer} aria-hidden="true">
         <Image src={layerAssets.table} alt="" width={1672} height={941} />
       </div>
-
-      <Link href="/apply" className={styles.applyCallout}>
-        <small>关注我们</small>
-        <span aria-hidden="true">
-          <i />
-          <i />
-          <i />
-        </span>
-      </Link>
     </section>
   );
 }
@@ -168,16 +159,26 @@ function ClosingSection() {
 function HomeFooter() {
   return (
     <footer className={styles.footer} aria-label="页脚">
-      <div>
+      <div className={styles.footerBrand}>
         <p>{siteConfig.name}</p>
         <span>Logo、社媒链接、联系方式、备案信息待补充。</span>
       </div>
-      <nav>
-        <Link href="/membership">会员体系</Link>
-        <Link href="/philosophy">理念与价值</Link>
-        <Link href="/film">品牌影片</Link>
-        <Link href="/apply">申请会员</Link>
-      </nav>
+      <div className={styles.footerActions}>
+        <nav>
+          <Link href="/membership">会员体系</Link>
+          <Link href="/philosophy">理念与价值</Link>
+          <Link href="/film">品牌影片</Link>
+          <Link href="/apply">申请会员</Link>
+        </nav>
+        <Link href="/apply" className={styles.footerFollow}>
+          <small>关注我们</small>
+          <span aria-hidden="true">
+            <i />
+            <i />
+            <i />
+          </span>
+        </Link>
+      </div>
     </footer>
   );
 }

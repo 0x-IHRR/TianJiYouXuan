@@ -91,7 +91,7 @@
 .navApply,
 .filmWindow,
 .entranceLink,
-.applyCallout,
+.footerFollow,
 .footer a {
   color: inherit;
   text-decoration: none;
@@ -583,51 +583,6 @@
   mask-composite: intersect;
 }
 
-.applyCallout {
-  position: absolute;
-  z-index: 16;
-  right: clamp(50px, 8vw, 130px);
-  bottom: clamp(36px, 4vw, 70px);
-  display: grid;
-  grid-template-columns: auto auto;
-  align-items: center;
-  gap: 1.1rem;
-  min-width: 0;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: rgba(44, 31, 20, 0.72);
-  font-family: var(--font-serif-sc);
-  backdrop-filter: none;
-  transition:
-    transform 220ms ease;
-}
-
-.applyCallout small {
-  color: rgba(115, 77, 36, 0.58);
-  font-size: clamp(0.74rem, 0.92vw, 0.92rem);
-  letter-spacing: 0.12em;
-}
-
-.applyCallout span {
-  display: flex;
-  gap: 0.72rem;
-}
-
-.applyCallout span i {
-  width: clamp(1.75rem, 2.3vw, 2.3rem);
-  aspect-ratio: 1;
-  border: 1px solid rgba(84, 58, 32, 0.32);
-  border-radius: 999px;
-  background:
-    radial-gradient(circle, rgba(77, 51, 27, 0.34) 0 10%, transparent 12%),
-    rgba(255, 244, 222, 0.16);
-}
-
-.applyCallout:hover {
-  transform: translateY(-3px);
-}
-
 .footer {
   position: absolute;
   z-index: 42;
@@ -642,21 +597,65 @@
   font-family: var(--font-serif-sc);
 }
 
-.footer p {
+.footerBrand p {
   margin: 0;
   font-size: clamp(1.08rem, 1.65vw, 1.7rem);
 }
 
-.footer span {
+.footerBrand span {
   display: block;
   margin-top: 0.65rem;
   font-size: clamp(0.64rem, 0.82vw, 0.82rem);
 }
 
-.footer nav {
+.footerActions {
+  display: grid;
+  justify-items: end;
+  gap: clamp(0.9rem, 1.2vw, 1.2rem);
+}
+
+.footerActions nav {
   display: flex;
   gap: clamp(1.2rem, 2.8vw, 3.2rem);
   font-size: clamp(0.66rem, 0.86vw, 0.84rem);
+}
+
+.footerFollow {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 0.9rem;
+  color: rgba(44, 31, 20, 0.58);
+  font-family: var(--font-serif-sc);
+  transition:
+    transform 220ms ease,
+    color 220ms ease;
+}
+
+.footerFollow small {
+  color: rgba(115, 77, 36, 0.56);
+  font-size: clamp(0.68rem, 0.82vw, 0.82rem);
+  letter-spacing: 0.12em;
+}
+
+.footerFollow span {
+  display: flex;
+  gap: 0.56rem;
+}
+
+.footerFollow span i {
+  width: clamp(1.2rem, 1.52vw, 1.52rem);
+  aspect-ratio: 1;
+  border: 1px solid rgba(84, 58, 32, 0.24);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle, rgba(77, 51, 27, 0.22) 0 10%, transparent 12%),
+    rgba(255, 244, 222, 0.1);
+}
+
+.footerFollow:hover {
+  color: rgba(44, 31, 20, 0.76);
+  transform: translateY(-2px);
 }
 
 @keyframes image-breathe {
@@ -901,19 +900,15 @@
     opacity: 0.7;
   }
 
-  .applyCallout {
-    left: 7%;
-    right: auto;
-    top: 53%;
-    min-width: 0;
-    width: 72%;
-  }
-
   .footer {
     grid-template-columns: 1fr;
   }
 
-  .footer nav {
+  .footerActions {
+    justify-items: start;
+  }
+
+  .footerActions nav {
     display: none;
   }
 }
@@ -1074,12 +1069,6 @@
     opacity: 0.68;
   }
 
-  .applyCallout {
-    left: 7%;
-    top: 19.5rem;
-    width: 72%;
-  }
-
   .footer {
     position: relative;
     left: auto;
@@ -1088,7 +1077,7 @@
     padding: 0 7% 2rem;
   }
 
-  .footer span {
+  .footerBrand span {
     display: none;
   }
 }
