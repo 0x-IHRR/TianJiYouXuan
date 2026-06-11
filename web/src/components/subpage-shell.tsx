@@ -1,12 +1,17 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import styles from "@/components/subpage-design.module.css";
 
 type SubpageShellProps = {
   eyebrow: string;
   title: string;
   description: string;
+  visualSrc?: string;
+  visualAlt?: string;
+  visualLabel?: string;
   children: ReactNode;
 };
 
@@ -14,20 +19,37 @@ export function SubpageShell({
   eyebrow,
   title,
   description,
+  visualSrc,
+  visualAlt = "",
+  visualLabel = "Material",
   children,
 }: SubpageShellProps) {
   return (
-    <div className="page-ambient">
+    <div className={styles.shell}>
       <SiteHeader />
-      <main className="flex-1">
-        <section className="section-wrap pt-16 pb-10 sm:pt-20 lg:pt-24">
-          <p className="quiet-label">{eyebrow}</p>
-          <h1 className="mt-6 max-w-4xl font-heading text-[clamp(2.4rem,5vw,4.6rem)] leading-[1.08] text-foreground">
-            {title}
-          </h1>
-          <p className="mt-6 max-w-2xl text-[1.02rem] leading-8 text-muted-foreground">
-            {description}
-          </p>
+      <main className={styles.main}>
+        <section className={styles.hero}>
+          <div className={styles.heroCopy}>
+            <p className={styles.eyebrow}>{eyebrow}</p>
+            <h1 className={styles.title}>{title}</h1>
+            <span className={styles.hairline} />
+            <p className={styles.description}>{description}</p>
+          </div>
+          {visualSrc ? (
+            <div className={styles.visual} aria-hidden={!visualAlt}>
+              <div className={styles.visualFrame}>
+                <Image
+                  src={visualSrc}
+                  alt={visualAlt}
+                  fill
+                  priority
+                  sizes="(max-width: 980px) 100vw, 54vw"
+                  className={styles.visualImage}
+                />
+                <span className={styles.visualLabel}>{visualLabel}</span>
+              </div>
+            </div>
+          ) : null}
         </section>
         {children}
       </main>
