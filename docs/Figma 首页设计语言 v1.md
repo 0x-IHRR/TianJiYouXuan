@@ -23,8 +23,9 @@ https://www.figma.com/design/69ly8C0WaohOPYhmHJ43ZG
 - `8:2` `Hybrid Homepage / Clean Background Master`
   - 无文字、无导航、无按钮、无图标的纯背景母版。
   - 用于真实网页背景层。
-- `8:3` `Hybrid Homepage / Component Placement Guides`
+- `14:2` `Hybrid Homepage / Component Placement Guides v2 measured from sketch`
   - 组件定位参考层。
+  - 基于原始草图 `864x1821` 坐标重新测量，不再从早期结构稿缩放。
   - 用于把真实 HTML 组件覆盖到背景对应位置。
 - `12:3` `TJ Homepage Design Language / Board`
   - 首页设计语言板。
@@ -88,7 +89,7 @@ https://www.figma.com/design/69ly8C0WaohOPYhmHJ43ZG
 ## 实现顺序
 
 1. 以 `web/public/media/homepage-clean-background-v1.png` 替换当前首页视觉底层。
-2. 根据原始草图 `1:2` 和定位层 `8:3` 定点重建真实组件。
+2. 根据原始草图 `1:2` 和定位层 `14:2` 定点重建真实组件。
 3. 先做 PC 首页高保真版本，不急着扩展更多子页面。
 4. 加入光影层、影片静帧层、景深层和语义组件层。
 5. 再处理移动端裁切策略，避免一开始为了响应式牺牲 PC 气质。
@@ -103,4 +104,3 @@ https://www.figma.com/design/69ly8C0WaohOPYhmHJ43ZG
 - 明确影片洞口内容：首版可用品牌影片静帧或极慢 loop，避免明显播放按钮。
 - 明确真实 Logo、社媒链接、备案和联系方式缺口：缺失时隐藏，不填 mock。
 - 实现后必须做截图对照：不能只靠代码编译通过判断视觉完成。
-
