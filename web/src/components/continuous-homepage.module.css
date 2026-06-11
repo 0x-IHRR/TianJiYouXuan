@@ -256,27 +256,29 @@
 
 .filmWallLayer {
   position: absolute;
-  inset: -9% -5% -4% -3%;
+  left: 0;
+  right: 0;
+  top: 2%;
   z-index: 4;
+  width: 100%;
+  aspect-ratio: 1672 / 941;
   opacity: 0.96;
   filter: saturate(0.92) contrast(1.03);
   mask-image:
-    linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.92) 10%, #000 82%, transparent 100%),
-    linear-gradient(90deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
-  mask-composite: intersect;
+    linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.92) 8%, #000 86%, transparent 100%);
 }
 
 .filmWindow {
   position: absolute;
   z-index: 12;
-  left: 18%;
-  top: 32%;
-  width: min(43rem, 46vw);
+  left: 15.1%;
+  top: 36%;
+  width: 31.5%;
   aspect-ratio: 16 / 9;
   height: auto;
   overflow: hidden;
   border: 1px solid rgba(233, 211, 177, 0.32);
-  border-radius: clamp(1.1rem, 2vw, 1.8rem);
+  border-radius: clamp(0.85rem, 1.4vw, 1.35rem);
   background: rgba(12, 8, 5, 0.72);
   box-shadow:
     inset 0 0 38px rgba(0, 0, 0, 0.78),
@@ -669,16 +671,19 @@
   }
 
   .filmWallLayer {
-    inset: -5% -44% -2% -33%;
+    left: -4%;
+    right: auto;
+    top: 10%;
+    width: 112%;
   }
 
   .filmWindow {
-    left: 9%;
-    top: 34%;
-    width: 82%;
+    left: 13%;
+    top: 33%;
+    width: 35.2%;
     aspect-ratio: 16 / 9;
     height: auto;
-    border-radius: 1.65rem;
+    border-radius: 1.1rem;
   }
 
   .filmCopy {
@@ -811,24 +816,24 @@
 
   .filmWallLayer {
     inset: auto;
-    left: 50%;
+    left: 0;
     top: 0;
     width: 100%;
     aspect-ratio: 1672 / 941;
-    transform: translateX(-50%);
+    transform: none;
     opacity: 0.9;
     mask-image:
       linear-gradient(180deg, transparent 0%, #000 10%, #000 88%, transparent 100%);
   }
 
   .filmWindow {
-    left: 50%;
-    top: clamp(8.8rem, 41vw, 10.2rem);
-    width: 84%;
+    left: 15.1%;
+    top: calc(100vw * 0.225);
+    width: 31.5%;
     aspect-ratio: 16 / 9;
     height: auto;
-    transform: translateX(-50%);
-    border-radius: 1.15rem;
+    transform: none;
+    border-radius: 0.55rem;
   }
 
   .filmCopy {
