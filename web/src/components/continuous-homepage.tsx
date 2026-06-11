@@ -129,9 +129,15 @@ function DoorwaySection() {
 
       <nav className={styles.entranceNav} aria-label="继续了解">
         {siteConfig.entrances.map((item) => (
-          <Link key={item.href} href={item.href} className={styles.entranceLink}>
-            <span>{item.title}</span>
-            <i aria-hidden="true" />
+          <Link
+            key={item.href}
+            href={item.href}
+            className={styles.entranceLink}
+            aria-label={`进入${item.title}页`}
+          >
+            <span className={styles.entranceText}>{item.title}</span>
+            <i className={styles.entranceArrow} aria-hidden="true" />
+            <b className={styles.doorHotspot} aria-hidden="true" />
           </Link>
         ))}
       </nav>

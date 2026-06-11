@@ -597,11 +597,9 @@
 
 .entranceLink {
   position: absolute;
-  width: clamp(5.8rem, 7.4vw, 7rem);
-  min-height: 0;
-  display: grid;
-  justify-items: center;
-  gap: 0.48rem;
+  width: clamp(5.3rem, 6.8vw, 7.6rem);
+  height: clamp(17.8rem, 19.6vw, 24rem);
+  display: block;
   padding: 0;
   border: 0;
   background: transparent;
@@ -614,24 +612,27 @@
 }
 
 .entranceLink:nth-child(1) {
-  left: 16.4%;
-  top: 45.6%;
+  left: 25.4%;
+  top: 18.2%;
 }
 
 .entranceLink:nth-child(2) {
-  left: 41.7%;
-  top: 45.8%;
+  left: 51.6%;
+  top: 18.4%;
 }
 
 .entranceLink:nth-child(3) {
-  left: 71%;
-  top: 45.7%;
+  left: 80.6%;
+  top: 18.5%;
 }
 
-.entranceLink span {
-  position: relative;
+.entranceText {
+  position: absolute;
   z-index: 2;
   display: block;
+  left: calc(-1 * clamp(8.4rem, 10.4vw, 11.2rem));
+  top: 50.4%;
+  width: clamp(5.8rem, 7.4vw, 7rem);
   font-family: var(--font-serif-sc);
   font-size: clamp(0.9rem, 1.25vw, 1.28rem);
   line-height: 1.2;
@@ -646,8 +647,8 @@
   content: "";
   position: absolute;
   z-index: 1;
-  left: 50%;
-  bottom: -1.45rem;
+  left: calc(-1 * clamp(5.8rem, 7.1vw, 7.8rem));
+  top: calc(50.4% + 1.35rem);
   width: clamp(8rem, 9.7vw, 9.1rem);
   height: 3.15rem;
   border-radius: 999px;
@@ -662,13 +663,14 @@
     width 360ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.entranceLink i {
-  position: relative;
+.entranceArrow {
+  position: absolute;
+  left: calc(-1 * clamp(7.45rem, 8.8vw, 9.6rem));
+  top: calc(50.4% + 1.72rem);
   z-index: 2;
   display: block;
   width: clamp(3.05rem, 3.85vw, 4rem);
   height: 1px;
-  margin-top: 0.08rem;
   background: rgba(150, 101, 43, 0.76);
   transform-origin: center;
   transition:
@@ -677,7 +679,7 @@
     width 320ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.entranceLink i::after {
+.entranceArrow::after {
   content: "";
   position: absolute;
   right: 0;
@@ -692,6 +694,27 @@
     transform 320ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+.doorHotspot {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: block;
+  border-radius: 999px 999px 0.9rem 0.9rem;
+  background:
+    linear-gradient(180deg, rgba(255, 244, 220, 0.12), transparent 22%, rgba(9, 14, 22, 0.08) 100%),
+    radial-gradient(ellipse at 50% 82%, rgba(255, 238, 200, 0.1), transparent 62%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 239, 206, 0),
+    inset 0 0 28px rgba(5, 8, 13, 0);
+  opacity: 0;
+  mask-image: linear-gradient(180deg, #000 0%, #000 78%, transparent 100%);
+  transform: scaleX(0.92);
+  transition:
+    opacity 300ms ease,
+    box-shadow 340ms ease,
+    transform 360ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
 .entranceLink:nth-child(3)::before {
   width: clamp(9.6rem, 11.4vw, 10.8rem);
   background:
@@ -700,11 +723,11 @@
 
 .entranceLink:hover {
   color: rgba(38, 27, 17, 0.88);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
-.entranceLink:hover span,
-.entranceLink:focus-visible span {
+.entranceLink:hover .entranceText,
+.entranceLink:focus-visible .entranceText {
   letter-spacing: 0.12em;
   text-shadow: 0 8px 22px rgba(75, 46, 18, 0.18);
   transform: translateY(-1px);
@@ -716,17 +739,27 @@
   transform: translateX(-50%) scaleX(1.08);
 }
 
-.entranceLink:hover i,
-.entranceLink:focus-visible i {
+.entranceLink:hover .entranceArrow,
+.entranceLink:focus-visible .entranceArrow {
   width: clamp(3.5rem, 4.4vw, 4.5rem);
   background: rgba(132, 82, 30, 0.92);
   transform: translateX(2px);
 }
 
-.entranceLink:hover i::after,
-.entranceLink:focus-visible i::after {
+.entranceLink:hover .entranceArrow::after,
+.entranceLink:focus-visible .entranceArrow::after {
   border-color: rgba(132, 82, 30, 0.94);
   transform: translateX(1px) rotate(45deg);
+}
+
+.entranceLink:hover .doorHotspot,
+.entranceLink:focus-visible .doorHotspot {
+  opacity: 1;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 239, 206, 0.12),
+    inset 0 0 28px rgba(5, 8, 13, 0.1),
+    0 0 24px rgba(197, 150, 86, 0.08);
+  transform: scaleX(1);
 }
 
 .closingSection {
@@ -1332,8 +1365,36 @@
     font-size: 0.98rem;
   }
 
+  .entranceText {
+    left: 50%;
+    top: 51%;
+    width: 5.6rem;
+    transform: translateX(-50%);
+  }
+
+  .entranceArrow {
+    left: 50%;
+    top: calc(51% + 1.55rem);
+    transform: translateX(-50%);
+  }
+
   .entranceLink i {
     margin-block: 0.42rem;
+  }
+
+  .entranceLink::before {
+    left: 50%;
+    top: calc(51% + 1.05rem);
+  }
+
+  .entranceLink:hover .entranceText,
+  .entranceLink:focus-visible .entranceText {
+    transform: translate(-50%, -1px);
+  }
+
+  .entranceLink:hover .entranceArrow,
+  .entranceLink:focus-visible .entranceArrow {
+    transform: translateX(-45%);
   }
 
   .entranceLink:hover {
