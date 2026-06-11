@@ -20,7 +20,7 @@
   isolation: isolate;
   width: 100%;
   min-width: 100%;
-  min-height: clamp(1840px, 220vw, 3180px);
+  min-height: clamp(1760px, 182vw, 2680px);
   overflow: hidden;
   background:
     radial-gradient(circle at 12% 8%, rgba(255, 250, 236, 0.86), transparent 27rem),
@@ -182,7 +182,7 @@
 
 .heroSection {
   top: 0;
-  height: 34%;
+  height: 26%;
 }
 
 .heroImageLayer {
@@ -261,7 +261,7 @@
   position: absolute;
   z-index: 16;
   left: 26%;
-  bottom: 8.5%;
+  bottom: -2.5%;
   width: 1.1rem;
   height: 1.1rem;
   border-right: 1px solid rgba(60, 40, 22, 0.62);
@@ -271,7 +271,7 @@
 
 .filmSection {
   z-index: 10;
-  top: 28.8%;
+  top: 22.8%;
   height: 30.8%;
 }
 
@@ -441,7 +441,7 @@
 
 .doorwaySection {
   z-index: 11;
-  top: 56.2%;
+  top: 50.6%;
   height: 24%;
 }
 
@@ -515,7 +515,7 @@
 
 .closingSection {
   z-index: 12;
-  top: 76.2%;
+  top: 72.6%;
   height: 23.8%;
 }
 
