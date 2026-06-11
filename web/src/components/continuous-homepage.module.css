@@ -6,8 +6,11 @@
   --plaster-light: #fbf2e2;
   --brass: #ad7b3f;
   --line: rgba(124, 91, 54, 0.22);
-  width: 100%;
-  min-width: 100%;
+  width: 100vw;
+  width: 100dvw;
+  min-width: 100vw;
+  min-width: 100dvw;
+  max-width: none;
   min-height: 100vh;
   overflow-x: hidden;
   background:
@@ -18,8 +21,11 @@
 .scene {
   position: relative;
   isolation: isolate;
-  width: 100%;
-  min-width: 100%;
+  width: 100vw;
+  width: 100dvw;
+  min-width: 100vw;
+  min-width: 100dvw;
+  max-width: none;
   min-height: clamp(1760px, 182vw, 2680px);
   overflow: hidden;
   background:

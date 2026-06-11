@@ -125,6 +125,9 @@
     @apply font-sans scroll-smooth;
     width: 100%;
     min-width: 100%;
+    min-inline-size: 100vw;
+    min-inline-size: 100dvw;
+    min-height: 100%;
     overflow-x: hidden;
     background:
       radial-gradient(circle at 12% 8%, rgba(255, 250, 236, 0.86), transparent 27rem),
@@ -134,6 +137,10 @@
     @apply bg-background text-foreground;
     width: 100%;
     min-width: 100%;
+    min-inline-size: 100vw;
+    min-inline-size: 100dvw;
+    min-height: 100vh;
+    min-height: 100dvh;
     overflow-x: hidden;
     background-image:
       radial-gradient(circle at top, color-mix(in oklch, var(--primary), white 82%) 0%, transparent 38%),
