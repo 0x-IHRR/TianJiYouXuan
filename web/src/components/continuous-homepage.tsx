@@ -81,6 +81,12 @@ function HeroSection() {
 function FilmSection() {
   return (
     <section className={styles.filmSection} aria-label="品牌影片与价值判断">
+      <div className={styles.filmSectionLabel} aria-hidden="true">
+        <span>02</span>
+        <i />
+        <em>Brand Film</em>
+      </div>
+
       <div className={styles.filmWallLayer} aria-hidden="true">
         <Image src={layerAssets.film} alt="" width={1672} height={941} loading="eager" />
       </div>
@@ -104,6 +110,7 @@ function FilmSection() {
       </Link>
 
       <aside className={styles.sideNotes} aria-label="价值提示">
+        <strong>先判断气质，后判断关系。</strong>
         {sideNotes.map((note, index) => (
           <p key={note}>
             <small>{String(index + 1).padStart(2, "0")}</small>

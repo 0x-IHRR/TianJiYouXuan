@@ -250,17 +250,43 @@
 
 .filmSection {
   z-index: 10;
-  top: 28.5%;
-  height: 31.8%;
+  top: 28.8%;
+  height: 30.8%;
+}
+
+.filmSectionLabel {
+  position: absolute;
+  z-index: 14;
+  left: clamp(32px, 6.4vw, 94px);
+  top: 16%;
+  display: grid;
+  grid-template-columns: auto 4.4rem auto;
+  align-items: center;
+  gap: 0.9rem;
+  color: rgba(74, 51, 28, 0.4);
+  font-family: var(--font-sans-sc);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.filmSectionLabel i {
+  display: block;
+  height: 1px;
+  background: rgba(156, 104, 48, 0.34);
+}
+
+.filmSectionLabel em {
+  font-style: normal;
 }
 
 .filmWallLayer {
   position: absolute;
-  left: 0;
+  left: -3%;
   right: 0;
-  top: 2%;
+  top: 3.6%;
   z-index: 4;
-  width: 100%;
+  width: 104%;
   aspect-ratio: 1672 / 941;
   opacity: 0.96;
   filter: saturate(0.92) contrast(1.03);
@@ -271,9 +297,9 @@
 .filmWindow {
   position: absolute;
   z-index: 12;
-  left: 24.2%;
-  top: 34.4%;
-  width: 37%;
+  left: 22.2%;
+  top: 35.6%;
+  width: 38.4%;
   aspect-ratio: 16 / 9;
   height: auto;
   overflow: hidden;
@@ -338,12 +364,31 @@
 .sideNotes {
   position: absolute;
   z-index: 13;
-  right: clamp(40px, 9.4vw, 148px);
-  top: 28%;
-  width: min(20rem, 23vw);
+  right: clamp(56px, 10.2vw, 156px);
+  top: 26.5%;
+  width: min(21rem, 24vw);
   display: grid;
-  gap: clamp(1.35rem, 2.3vw, 2.6rem);
+  gap: clamp(1rem, 1.7vw, 1.8rem);
   font-family: var(--font-serif-sc);
+}
+
+.sideNotes::before {
+  content: "";
+  position: absolute;
+  left: -1.7rem;
+  top: 0.3rem;
+  bottom: 0.6rem;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(156, 104, 48, 0.38), rgba(156, 104, 48, 0.08));
+}
+
+.sideNotes strong {
+  max-width: 16rem;
+  color: rgba(47, 35, 23, 0.74);
+  font-size: clamp(1.1rem, 1.48vw, 1.55rem);
+  font-weight: 500;
+  line-height: 1.62;
+  text-wrap: pretty;
 }
 
 .sideNotes p {
@@ -352,7 +397,7 @@
   gap: 0.9rem;
   margin: 0;
   color: rgba(48, 36, 24, 0.72);
-  font-size: clamp(0.88rem, 1.08vw, 1.08rem);
+  font-size: clamp(0.82rem, 0.98vw, 0.98rem);
   line-height: 1.85;
   text-wrap: pretty;
 }
@@ -670,17 +715,22 @@
     height: 30%;
   }
 
+  .filmSectionLabel {
+    left: 8%;
+    top: 13%;
+  }
+
   .filmWallLayer {
-    left: -4%;
+    left: -8%;
     right: auto;
     top: 10%;
-    width: 112%;
+    width: 118%;
   }
 
   .filmWindow {
-    left: 23.6%;
-    top: 32.2%;
-    width: 39.8%;
+    left: 21.2%;
+    top: 33.5%;
+    width: 41.4%;
     aspect-ratio: 16 / 9;
     height: auto;
     border-radius: 1.1rem;
@@ -693,9 +743,14 @@
   .sideNotes {
     left: 8%;
     right: 8%;
-    top: 69%;
+    top: 68%;
     width: auto;
     gap: 1rem;
+  }
+
+  .sideNotes::before,
+  .sideNotes strong {
+    display: none;
   }
 
   .sideNotes p {
@@ -814,6 +869,12 @@
     margin-top: -6rem;
   }
 
+  .filmSectionLabel {
+    left: 7%;
+    top: 5.6rem;
+    grid-template-columns: auto 3rem auto;
+  }
+
   .filmWallLayer {
     inset: auto;
     left: 0;
@@ -827,9 +888,9 @@
   }
 
   .filmWindow {
-    left: 24.2%;
-    top: calc(100vw * 0.215);
-    width: 37%;
+    left: 22.2%;
+    top: calc(100vw * 0.222);
+    width: 38.4%;
     aspect-ratio: 16 / 9;
     height: auto;
     transform: none;
