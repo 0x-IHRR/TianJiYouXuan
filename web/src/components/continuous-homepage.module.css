@@ -745,6 +745,25 @@
   height: 23.8%;
 }
 
+.closingSection::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  z-index: 10;
+  right: -8%;
+  bottom: -2%;
+  width: min(74rem, 70vw);
+  height: 42%;
+  background:
+    radial-gradient(ellipse at 76% 34%, rgba(180, 158, 132, 0.28), transparent 42%),
+    linear-gradient(180deg, transparent 0%, rgba(183, 162, 138, 0.38) 34%, rgba(103, 86, 70, 0.66) 100%);
+  mask-image:
+    linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.2) 22%, #000 58%, #000 100%),
+    linear-gradient(180deg, transparent 0%, #000 28%, #000 100%);
+  mask-composite: intersect;
+  mix-blend-mode: screen;
+}
+
 .closingCopy {
   position: absolute;
   z-index: 14;
@@ -779,7 +798,7 @@
   filter: saturate(0.92) contrast(1.02);
   mask-image:
     linear-gradient(90deg, transparent 0%, #000 22%, #000 88%, transparent 100%),
-    linear-gradient(180deg, transparent 0%, #000 18%, #000 100%);
+    linear-gradient(180deg, transparent 0%, #000 18%, #000 78%, rgba(0, 0, 0, 0.45) 90%, transparent 100%);
   mask-composite: intersect;
 }
 
