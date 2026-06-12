@@ -126,7 +126,7 @@ export default function Home() {
 
       <FlyThroughGallery />
 
-      <section className="bg-[#0a0a0a] px-0 py-28 md:py-32">
+      <section className="bg-[#0a0a0a] px-0 pb-24 pt-48 md:pb-28 md:pt-64">
         <p className="mb-12 text-center font-serif text-sm uppercase tracking-[0.3em] text-white/50">
           同频的印记
         </p>
