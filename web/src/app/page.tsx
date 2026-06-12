@@ -5,6 +5,7 @@ import { AnimatedText } from "@/components/animations/AnimatedText";
 import { FlyThroughGallery } from "@/components/animations/FlyThroughGallery";
 import { InfiniteMarquee } from "@/components/animations/InfiniteMarquee";
 import { ScrollIndicator } from "@/components/animations/ScrollIndicator";
+import { SilentMetrics } from "@/components/animations/SilentMetrics";
 
 const entrances = [
   {
@@ -30,6 +31,17 @@ const entrances = [
     href: "/apply",
     image: "/media/subpages/apply/hero-application-invitation.png",
     alt: "天机优选申请邀请",
+  },
+];
+
+const archetypeQuotes = [
+  {
+    quote: "在信息过载的时代，我需要一个能替我做减法的地方。",
+    attribution: "医疗科技领域连续创业者",
+  },
+  {
+    quote: "秩序感，是最高级的自由。",
+    attribution: "家族信托合伙人",
   },
 ];
 
@@ -103,6 +115,8 @@ export default function Home() {
         </div>
       </section>
 
+      <SilentMetrics />
+
       <section className="flex min-h-[80vh] items-start justify-center bg-[#0a0a0a] px-6 pb-32 pt-12">
         <AnimatedText
           text="选择，是一种秩序；连接，是一种力量；共益，是一种未来"
@@ -117,6 +131,31 @@ export default function Home() {
           同频的印记
         </p>
         <InfiniteMarquee />
+      </section>
+
+      <section className="bg-[#0a0a0a] px-6 py-28 md:py-36">
+        <div className="mx-auto max-w-6xl">
+          <p className="mb-14 text-center font-serif text-sm uppercase tracking-[0.3em] text-white/50">
+            The Inner Circle
+          </p>
+          <div className="space-y-8 md:space-y-12">
+            {archetypeQuotes.map((item, index) => (
+              <figure
+                key={item.attribution}
+                className={`liquid-glass-strong max-w-3xl rounded-[2rem] p-8 md:p-12 ${
+                  index % 2 === 0 ? "mr-auto" : "ml-auto"
+                }`}
+              >
+                <blockquote className="font-serif text-2xl leading-loose text-white/70 italic text-pretty md:text-3xl">
+                  “{item.quote}”
+                </blockquote>
+                <figcaption className="mt-6 text-xs tracking-widest text-[hsl(var(--accent))]">
+                  — {item.attribution}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="flex min-h-[50vh] flex-col items-center justify-center border-t border-white/5 bg-[#0a0a0a] px-6 py-32">
