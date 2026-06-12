@@ -1,84 +1,114 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 
+import { AnimatedText } from "@/components/animations/AnimatedText";
 import { FadeUp } from "@/components/animations/FadeUp";
 
 export const metadata: Metadata = {
-  title: "理念与价值",
+  title: "真实与长期",
 };
 
-const philosophyCards = [
+const pillars = [
   {
-    index: "01",
-    eyebrow: "Choice",
-    title: "选择是一种秩序",
-    body: "不追求更多选项，而是让可信来源替代反复试错",
-    className: "md:col-span-8 md:min-h-[20rem]",
+    number: "01",
+    label: "Refuse Noise",
+    title: "拒绝快感式消费",
+    body: "我们不把更多选择当作价值。真正稀缺的是可信来源、稳定复访，以及能被时间验证的判断",
+    className: "md:col-span-8 md:min-h-[25rem]",
   },
   {
-    index: "02",
-    eyebrow: "Connection",
-    title: "连接是一种力量",
-    body: "连接发生在真实服务、真实场景和可复访的关系里",
-    className: "md:col-span-4 md:row-span-2 md:min-h-[32rem]",
+    number: "02",
+    label: "Real Scene",
+    title: "回到真实场景",
+    body: "所有连接都必须落在真实服务、真实空间和真实关系里。离开现场，再漂亮的承诺都只是噪音",
+    className: "md:col-span-4 md:min-h-[32rem] md:translate-y-24",
   },
   {
-    index: "03",
-    eyebrow: "Mutual Benefit",
-    title: "共益是一种未来",
-    body: "会员、供应链和会所空间形成稳定互相成就的关系",
-    className: "md:col-span-5 md:min-h-[18rem]",
-  },
-  {
-    index: "04",
-    eyebrow: "Quiet Luxury",
-    title: "高级来自克制",
-    body: "少一点噪音，多一点确认；少一点展示，多一点长期价值",
-    className: "md:col-span-7 md:min-h-[18rem]",
+    number: "03",
+    label: "Long Compounding",
+    title: "让信任复利",
+    body: "会员、供应链、会所空间与活动机制共同形成一个缓慢但稳定的复利系统",
+    className: "md:col-span-12 md:min-h-[22rem]",
   },
 ];
 
 export default function PhilosophyPage() {
   return (
     <main className="overflow-hidden bg-[#0a0a0a]">
-      <section className="mx-auto max-w-7xl px-6 pb-32 pt-40 md:px-10">
-        <FadeUp>
-          <p className="font-display text-xs uppercase tracking-[0.44em] text-[hsl(var(--accent))]">
-            Philosophy
-          </p>
-          <h1 className="text-metal mt-7 max-w-5xl font-serif text-[clamp(3.4rem,8vw,8rem)] leading-none text-white">
-            理念与价值
-          </h1>
-        </FadeUp>
+      <section className="relative flex h-[100vh] items-end overflow-hidden px-6 pb-24 md:px-10">
+        <Image
+          src="/media/subpages/philosophy/hero-philosophy-still-life.png"
+          alt="真实与长期的暗光静物"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-66 saturate-[0.72]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/48 to-black/25" />
 
-        <FadeUp delay={0.12}>
-          <p className="font-wenkai mt-12 max-w-3xl text-xl leading-10 text-white/68 md:text-2xl">
-            高价值生活不是更高频的消费，而是更少噪音、更准判断、更可信的连接
-          </p>
-        </FadeUp>
-
-        <div className="mt-24 grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-24">
-          {philosophyCards.map((card, index) => (
-            <FadeUp key={card.title} delay={0.08 + index * 0.08} className={card.className}>
-              <article className="liquid-glass group relative flex h-full min-h-[18rem] overflow-hidden rounded-[2rem] p-7 transition duration-500 hover:-translate-y-1 hover:bg-white/[0.06] md:p-9">
-                <span className="pointer-events-none absolute -left-6 -top-12 font-display text-[10rem] leading-none text-white/5 md:text-[15rem]">
-                  {card.index}
-                </span>
-                <div className="relative z-10 mt-auto max-w-2xl">
-                  <p className="font-display text-xs uppercase tracking-[0.42em] text-[hsl(var(--accent))]">
-                    {card.eyebrow}
-                  </p>
-                  <h2 className="text-metal mt-5 font-serif text-[clamp(2rem,4vw,4rem)] leading-tight text-white">
-                    {card.title}
-                  </h2>
-                  <p className="mt-5 max-w-md text-sm leading-7 text-muted-foreground opacity-100 transition-opacity duration-500 md:opacity-0 md:group-hover:opacity-100">
-                    {card.body}
-                  </p>
-                </div>
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(255,255,255,0.11),transparent_30%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              </article>
-            </FadeUp>
-          ))}
+        <div className="relative z-10 mx-auto w-full max-w-7xl">
+          <FadeUp>
+            <p className="font-display text-xs uppercase tracking-[0.52em] text-[hsl(var(--accent))]">
+              Philosophy
+            </p>
+            <h1 className="text-metal mt-8 max-w-5xl font-serif text-[clamp(4rem,10vw,10rem)] leading-none text-white">
+              真实与长期
+            </h1>
+            <p className="mt-8 max-w-2xl font-serif text-2xl tracking-[0.16em] text-white/70 md:text-4xl">
+              对抗喧嚣的唯一解药
+            </p>
+          </FadeUp>
         </div>
+      </section>
+
+      <section className="flex min-h-[100vh] items-center justify-center bg-[#0a0a0a] px-6 py-28">
+        <AnimatedText
+          text="我们相信，真正的品质不是被即时刺激推着走，而是在一次次选择里减少噪音。少一点炫耀，多一点确认；少一点占有，多一点复访；少一点短暂热闹，多一点长期同行。"
+          className="max-w-6xl text-center font-serif text-[clamp(2.4rem,5.6vw,6rem)] leading-tight text-white text-pretty"
+        />
+      </section>
+
+      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-14 px-6 py-32 md:grid-cols-12 md:gap-24 md:px-10">
+        {pillars.map((pillar, index) => (
+          <FadeUp key={pillar.title} delay={index * 0.1} className={pillar.className}>
+            <div className="liquid-glass-strong group relative flex h-full min-h-[20rem] overflow-hidden rounded-[2.25rem] p-8 transition duration-700 hover:-translate-y-2 hover:bg-white/[0.055] md:p-10">
+              <span className="pointer-events-none absolute -right-4 -top-10 font-display text-[11rem] leading-none text-white/[0.045] md:text-[16rem]">
+                {pillar.number}
+              </span>
+              <div className="relative z-10 mt-auto max-w-3xl">
+                <p className="font-display text-xs uppercase tracking-[0.45em] text-[hsl(var(--accent))]">
+                  {pillar.label}
+                </p>
+                <h2 className="text-metal mt-6 font-serif text-[clamp(2.6rem,5vw,5.5rem)] leading-tight text-white">
+                  {pillar.title}
+                </h2>
+                <p className="mt-7 max-w-2xl text-sm leading-8 text-white/58 transition-colors duration-500 group-hover:text-white/78">
+                  {pillar.body}
+                </p>
+              </div>
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(255,255,255,0.13),transparent_30%)] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+            </div>
+          </FadeUp>
+        ))}
+      </section>
+
+      <section className="relative flex min-h-[80vh] items-center justify-center overflow-hidden px-6 py-32">
+        <Image
+          src="/media/homepage-layers/film-window-balanced.png"
+          alt="长期关系在暗处显影"
+          fill
+          sizes="100vw"
+          className="object-cover opacity-28 blur-[1px] saturate-[0.8]"
+        />
+        <div className="absolute inset-0 bg-[#0a0a0a]/72" />
+        <FadeUp className="relative z-10 max-w-4xl text-center">
+          <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
+            The Long View
+          </p>
+          <h2 className="text-metal mt-8 font-serif text-[clamp(3rem,7vw,7rem)] leading-none text-white">
+            时间会筛掉大多数答案
+          </h2>
+        </FadeUp>
       </section>
     </main>
   );
