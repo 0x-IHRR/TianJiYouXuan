@@ -61,7 +61,7 @@ export function SilentMetrics() {
     <section className="bg-[#0a0a0a] px-6">
       <div
         ref={ref}
-        className="mx-auto grid max-w-5xl grid-cols-1 gap-12 py-32 md:grid-cols-3"
+        className="mx-auto grid max-w-5xl grid-cols-1 gap-12 pb-32 pt-12 md:grid-cols-3"
         aria-label="天机优选核心数据"
       >
         {metrics.map((metric) => (

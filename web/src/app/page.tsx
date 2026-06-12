@@ -119,8 +119,8 @@ export default function Home() {
 
       <section className="flex min-h-[80vh] items-start justify-center bg-[#0a0a0a] px-6 pb-32 pt-12">
         <AnimatedText
-          text="选择，是一种秩序；连接，是一种力量；共益，是一种未来"
-          className="max-w-5xl text-center font-serif text-[clamp(2rem,4.5vw,4.5rem)] leading-snug text-white text-pretty tracking-widest"
+          text={"选择，是一种秩序；\n连接，是一种力量；\n共益，是一种未来。"}
+          className="max-w-4xl break-words text-center font-serif text-[clamp(2rem,4.5vw,4.5rem)] leading-snug text-white text-balance tracking-widest"
         />
       </section>
 
@@ -149,7 +149,7 @@ export default function Home() {
                 <blockquote className="font-serif text-2xl leading-loose text-white/70 italic text-pretty md:text-3xl">
                   “{item.quote}”
                 </blockquote>
-                <figcaption className="mt-6 text-xs tracking-widest text-[hsl(var(--accent))]">
+                <figcaption className="mt-6 w-full text-right text-xs tracking-widest text-[hsl(var(--accent))]">
                   — {item.attribution}
                 </figcaption>
               </figure>
