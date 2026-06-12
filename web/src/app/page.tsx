@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { AnimatedText } from "@/components/animations/AnimatedText";
 import { FlyThroughGallery } from "@/components/animations/FlyThroughGallery";
+import { HeroVideo } from "@/components/animations/HeroVideo";
 import { InfiniteMarquee } from "@/components/animations/InfiniteMarquee";
 import { ScrollIndicator } from "@/components/animations/ScrollIndicator";
 import { SilentMetrics } from "@/components/animations/SilentMetrics";
@@ -49,21 +50,7 @@ export default function Home() {
   return (
     <main aria-label="天机优选官网首页" className="bg-[#0a0a0a]">
       <section className="relative h-[100dvh] w-full overflow-x-clip">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster="/media/brand-film-cover.png"
-          className="homepage-hero-video absolute inset-0 z-0 h-full w-full scale-100 transform-gpu object-cover transition-transform duration-[600ms] ease-[cubic-bezier(0.76,0,0.24,1)]"
-        >
-          <source src="/media/brand-film-web.mp4" type="video/mp4" />
-          <source
-            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4"
-            type="video/mp4"
-          />
-        </video>
+        <HeroVideo />
 
         <div className="pointer-events-none absolute bottom-0 z-10 h-1/3 w-full bg-gradient-to-t from-[#0A0A0A] to-transparent" />
 

@@ -1,0 +1,146 @@
+"use client";
+
+import { useCallback, useEffect, useRef, useState } from "react";
+
+const sources = [
+  "/media/brand-film-web.mp4",
+  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4",
+];
+
+export function HeroVideo() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const frameRef = useRef<number | null>(null);
+  const [isMuted, setIsMuted] = useState(true);
+  const [isInView, setIsInView] = useState(true);
+
+  const fadeVolume = useCallback(
+    (target: number, duration: number, onComplete?: () => void) => {
+      const video = videoRef.current;
+
+      if (!video) {
+        return;
+      }
+
+      if (frameRef.current) {
+        cancelAnimationFrame(frameRef.current);
+      }
+
+      const start = performance.now();
+      const startVolume = video.volume;
+
+      const tick = (now: number) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        video.volume = startVolume + (target - startVolume) * eased;
+
+        if (progress < 1) {
+          frameRef.current = requestAnimationFrame(tick);
+        } else {
+          frameRef.current = null;
+          onComplete?.();
+        }
+      };
+
+      frameRef.current = requestAnimationFrame(tick);
+    },
+    [],
+  );
+
+  useEffect(() => {
+    const element = containerRef.current;
+
+    if (!element) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting && entry.intersectionRatio > 0.2);
+      },
+      { threshold: [0, 0.2, 0.5, 1] },
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (!video) {
+      return;
+    }
+
+    if (!isInView && !isMuted) {
+      fadeVolume(0, 500, () => {
+        video.muted = true;
+        setIsMuted(true);
+      });
+    }
+
+    if (isInView) {
+      void video.play().catch(() => undefined);
+    }
+  }, [fadeVolume, isInView, isMuted]);
+
+  useEffect(() => {
+    return () => {
+      if (frameRef.current) {
+        cancelAnimationFrame(frameRef.current);
+      }
+    };
+  }, []);
+
+  const toggleAudio = () => {
+    const video = videoRef.current;
+
+    if (!video) {
+      return;
+    }
+
+    if (isMuted) {
+      video.muted = false;
+      video.volume = 0;
+      setIsMuted(false);
+      void video.play().catch(() => undefined);
+      fadeVolume(1, 360);
+      return;
+    }
+
+    fadeVolume(0, 300, () => {
+      video.muted = true;
+      setIsMuted(true);
+    });
+  };
+
+  return (
+    <div ref={containerRef} className="absolute inset-0 z-0">
+      <video
+        ref={videoRef}
+        autoPlay
+        muted={isMuted}
+        loop
+        playsInline
+        preload="metadata"
+        poster="/media/brand-film-cover.png"
+        className="homepage-hero-video absolute inset-0 h-full w-full scale-100 transform-gpu object-cover transition-transform duration-[600ms] ease-[cubic-bezier(0.76,0,0.24,1)]"
+      >
+        {sources.map((src) => (
+          <source key={src} src={src} type="video/mp4" />
+        ))}
+      </video>
+
+      <button
+        type="button"
+        onClick={toggleAudio}
+        className="liquid-glass absolute bottom-8 right-6 z-20 rounded-full px-5 py-3 font-display text-[10px] uppercase tracking-[0.34em] text-white/58 transition-all duration-500 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70 md:bottom-10 md:right-10"
+        aria-label={isMuted ? "开启视频声音" : "关闭视频声音"}
+        aria-pressed={!isMuted}
+      >
+        [ {isMuted ? "Unmute" : "Mute"} ]
+      </button>
+    </div>
+  );
+}
