@@ -51,6 +51,7 @@
 :root {
   --font-sans-sc: "LXGW WenKai", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   --font-serif-sc: "ZCOOL XiaoWei", "LXGW WenKai", "Songti SC", "STSong", serif;
+  --font-display-sc: "Ma Shan Zheng", "ZCOOL XiaoWei", "Songti SC", "STSong", serif;
   --background: oklch(0.972 0.011 79.12);
   --foreground: oklch(0.318 0.026 45.84);
   --card: oklch(0.986 0.008 80.9);

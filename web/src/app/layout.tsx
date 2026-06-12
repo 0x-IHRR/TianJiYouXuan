@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@fontsource/lxgw-wenkai";
+import "@fontsource/ma-shan-zheng";
 import "@fontsource/zcool-xiaowei";
 import "./globals.css";
 

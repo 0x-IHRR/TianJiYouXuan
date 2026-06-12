@@ -14,6 +14,9 @@ importers:
       '@fontsource/lxgw-wenkai':
         specifier: ^5.2.5
         version: 5.2.5
+      '@fontsource/ma-shan-zheng':
+        specifier: ^5.2.9
+        version: 5.2.9
       '@fontsource/zcool-xiaowei':
         specifier: ^5.2.8
         version: 5.2.8
@@ -316,6 +319,9 @@ packages:
 
   '@fontsource/lxgw-wenkai@5.2.5':
     resolution: {integrity: sha512-lIBouZW7qNw3VdVnjc0NC80iDfxjU7OnaKGaz6QHiHjC8z0fv9MyrHpeBMzkPnyEVabcpUu4Wf8DnaihfGVYtw==}
+
+  '@fontsource/ma-shan-zheng@5.2.9':
+    resolution: {integrity: sha512-5Pvpb5q6sq00/g+yLLE8iYWcsAqnoIqCloBsjN0bphkGWU3Wp3EfT0CgTsKOiLsPM8GN3AUP0ZaFM2/JR33C/g==}
 
   '@fontsource/zcool-xiaowei@5.2.8':
     resolution: {integrity: sha512-HppFdc8Y0djYbSpK6FbMFhEaZJwfGE5yIKLN3d5q5V239NQxm3sULJjfbMYyAMKswhG6hNTtXQkt8lOl4OmoLA==}
@@ -3231,6 +3237,8 @@ snapshots:
   '@floating-ui/utils@0.2.11': {}
 
   '@fontsource/lxgw-wenkai@5.2.5': {}
+
+  '@fontsource/ma-shan-zheng@5.2.9': {}
 
   '@fontsource/zcool-xiaowei@5.2.8': {}
 
