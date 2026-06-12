@@ -1,29 +1,29 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-
 import { AnimatedText } from "@/components/animations/AnimatedText";
-import { FadeUp } from "@/components/animations/FadeUp";
+import { EntranceHoverReveal } from "@/components/animations/EntranceHoverReveal";
 import { FlyThroughGallery } from "@/components/animations/FlyThroughGallery";
 import { ScrollIndicator } from "@/components/animations/ScrollIndicator";
 
 const entrances = [
   {
-    label: "01 - MEMBERSHIP",
+    number: "01",
     title: "秩序与边界",
-    description: "了解线下会所与品质消费的连接体系。",
     href: "/membership",
+    image: "/media/subpages/membership/hero-membership-salon.png",
+    alt: "天机优选会员体系空间",
   },
   {
-    label: "02 - PHILOSOPHY",
+    number: "02",
     title: "真实与长期",
-    description: "我们如何通过供应链，减少生活中的试错成本。",
     href: "/philosophy",
+    image: "/media/subpages/philosophy/hero-philosophy-still-life.png",
+    alt: "天机优选理念静物",
   },
   {
-    label: "03 - APPLY",
+    number: "03",
     title: "门槛与同频",
-    description: "申请不是一次仓促的决定，而是彼此选择的开始。",
     href: "/apply",
+    image: "/media/subpages/apply/hero-application-invitation.png",
+    alt: "天机优选申请邀请",
   },
 ];
 
@@ -68,31 +68,8 @@ export default function Home() {
         />
       </section>
 
-      <section className="relative z-20 bg-[#0a0a0a] px-6 pb-40 pt-32">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-3 md:gap-10">
-          {entrances.map((item, index) => (
-            <FadeUp key={item.href} delay={index * 0.15}>
-              <Link
-                href={item.href}
-                className="liquid-glass-strong group relative flex min-h-[23rem] cursor-pointer flex-col overflow-hidden rounded-[2rem] p-8 transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70 sm:p-10"
-              >
-                <span className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--accent))]">
-                  {item.label}
-                </span>
-                <h2 className="mt-4 font-serif text-3xl text-white">
-                  {item.title}
-                </h2>
-                <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground text-pretty">
-                  {item.description}
-                </p>
-                <ArrowRight
-                  className="absolute bottom-8 right-8 size-6 -translate-x-4 text-white opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100"
-                  aria-hidden="true"
-                />
-              </Link>
-            </FadeUp>
-          ))}
-        </div>
+      <section className="relative z-20 bg-[#0a0a0a] px-6 py-32 md:px-10 md:py-40">
+        <EntranceHoverReveal items={entrances} />
       </section>
 
       <section className="flex min-h-[80vh] items-center justify-center bg-[#0a0a0a] px-6 py-32">
