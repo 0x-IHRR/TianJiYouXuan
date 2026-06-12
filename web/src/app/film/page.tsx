@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { FadeUp } from "@/components/animations/FadeUp";
+import { TiltCard } from "@/components/animations/TiltCard";
 
 export const metadata: Metadata = {
   title: "品牌影片",
@@ -23,7 +24,7 @@ export default function FilmPage() {
         </FadeUp>
 
         <FadeUp delay={0.16}>
-          <div className="liquid-glass-strong mt-16 overflow-hidden rounded-[2.5rem] p-3">
+          <TiltCard className="liquid-glass-strong mt-16 overflow-hidden rounded-[2.5rem] p-3">
             <video
               controls
               playsInline
@@ -33,7 +34,7 @@ export default function FilmPage() {
             >
               <source src="/media/brand-film-web.mp4" type="video/mp4" />
             </video>
-          </div>
+          </TiltCard>
         </FadeUp>
       </section>
     </main>

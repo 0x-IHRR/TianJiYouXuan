@@ -6,6 +6,7 @@ import { useRef } from "react";
 
 import { AnimatedText } from "@/components/animations/AnimatedText";
 import { FadeUp } from "@/components/animations/FadeUp";
+import { TiltCard } from "@/components/animations/TiltCard";
 
 const processSteps = [
   {
@@ -64,7 +65,7 @@ export default function CurationPage() {
           className="object-cover opacity-62 saturate-[0.78]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/52 to-black/25" />
-        <div className="pointer-events-none absolute right-[-4rem] top-24 font-display text-[16rem] leading-none text-white/[0.04] md:text-[30rem]">
+        <div className="pointer-events-none absolute right-[-1rem] top-28 font-display text-7xl leading-none text-white/[0.045] md:text-8xl">
           1/10000
         </div>
 
@@ -73,11 +74,13 @@ export default function CurationPage() {
             <p className="font-display text-xs uppercase tracking-[0.52em] text-[hsl(var(--accent))]">
               Supply Chain
             </p>
-            <h1 className="text-metal mt-8 max-w-5xl font-serif text-[clamp(4rem,10vw,10rem)] leading-none text-white">
+            <h1 className="text-metal mt-8 max-w-2xl text-balance font-serif text-6xl leading-tight text-white md:text-8xl">
               极致甄选
             </h1>
-            <p className="mt-8 max-w-2xl font-serif text-2xl tracking-[0.16em] text-white/70 md:text-4xl">
-              深入源头，只取万分之一
+            <p className="mt-8 max-w-xl text-pretty font-serif text-xl leading-loose tracking-[0.16em] text-white/70 md:text-2xl">
+              深入源头，
+              <br className="hidden md:block" />
+              只取万分之一
             </p>
           </FadeUp>
         </div>
@@ -90,15 +93,17 @@ export default function CurationPage() {
               <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
                 The Process
               </p>
-              <h2 className="text-metal mt-6 max-w-4xl font-serif text-[clamp(3rem,6vw,6.5rem)] leading-none text-white">
-                甄选不是推荐，是拆解
+              <h2 className="text-metal mt-6 max-w-2xl text-balance font-serif text-4xl leading-tight text-white md:text-6xl">
+                甄选不是推荐，
+                <br className="hidden md:block" />
+                是拆解
               </h2>
             </FadeUp>
           </div>
 
           <motion.div style={{ x }} className="flex w-max gap-6 md:gap-8">
             {processSteps.map((step) => (
-              <div
+              <TiltCard
                 key={step.title}
                 className="liquid-glass-strong relative h-[58vh] w-[82vw] shrink-0 overflow-hidden rounded-[2.25rem] p-3 md:w-[46rem]"
               >
@@ -111,18 +116,20 @@ export default function CurationPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/36 to-black/10" />
                 <div className="relative z-10 flex h-full flex-col justify-end p-7 md:p-10">
-                  <p className="font-display text-7xl leading-none text-white/12 md:text-9xl">
+                  <p className="font-display text-5xl leading-none text-white/12 md:text-7xl">
                     {step.number}
                   </p>
                   <p className="mt-auto font-display text-xs uppercase tracking-[0.44em] text-[hsl(var(--accent))]">
                     {step.label}
                   </p>
-                  <h3 className="text-metal mt-5 font-serif text-[clamp(2.5rem,5vw,5rem)] leading-none text-white">
+                  <h3 className="text-metal mt-5 max-w-xl text-balance font-serif text-3xl leading-tight text-white md:text-5xl">
                     {step.title}
                   </h3>
-                  <p className="mt-7 max-w-lg text-sm leading-8 text-white/62">{step.body}</p>
+                  <p className="mt-7 max-w-lg text-sm leading-loose text-white/62 text-pretty md:text-base">
+                    {step.body}
+                  </p>
                 </div>
-              </div>
+              </TiltCard>
             ))}
           </motion.div>
         </div>
@@ -132,17 +139,21 @@ export default function CurationPage() {
         <FadeUp className="md:col-span-7">
           <AnimatedText
             text="减少试错成本，不是替你决定生活，而是把不值得浪费时间的选项先挡在门外。"
-            className="text-metal font-serif text-[clamp(2.8rem,5.8vw,6.5rem)] leading-tight text-white text-pretty"
+            className="text-metal max-w-3xl font-serif text-3xl leading-loose text-white text-pretty md:text-5xl"
           />
         </FadeUp>
 
         <div className="space-y-8 md:col-span-5 md:pt-28">
           {signals.map((signal, index) => (
             <FadeUp key={signal.title} delay={index * 0.08}>
-              <div className="liquid-glass-strong rounded-[2rem] p-8">
-                <h3 className="font-serif text-3xl text-white">{signal.title}</h3>
-                <p className="mt-5 text-sm leading-8 text-white/58">{signal.body}</p>
-              </div>
+              <TiltCard className="liquid-glass-strong rounded-[1.75rem] p-8">
+                <h3 className="max-w-sm text-balance font-serif text-2xl leading-tight text-white md:text-3xl">
+                  {signal.title}
+                </h3>
+                <p className="mt-5 max-w-md text-sm leading-loose text-white/58 text-pretty md:text-base">
+                  {signal.body}
+                </p>
+              </TiltCard>
             </FadeUp>
           ))}
         </div>
@@ -158,8 +169,8 @@ export default function CurationPage() {
         />
         <div className="absolute inset-0 bg-black/72" />
         <AnimatedText
-          text="在这里，你不必再做任何消费决策。"
-          className="relative z-10 max-w-5xl text-center font-serif text-[clamp(3rem,7vw,8rem)] leading-tight text-white text-pretty"
+          text="在这里，你不必再做任何消费决策"
+          className="relative z-10 max-w-3xl text-center font-serif text-4xl leading-loose text-white text-pretty md:text-6xl"
         />
       </section>
     </main>

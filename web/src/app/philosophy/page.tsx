@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 
 import { AnimatedText } from "@/components/animations/AnimatedText";
 import { FadeUp } from "@/components/animations/FadeUp";
+import { TiltCard } from "@/components/animations/TiltCard";
 
 export const metadata: Metadata = {
   title: "真实与长期",
@@ -51,11 +52,13 @@ export default function PhilosophyPage() {
             <p className="font-display text-xs uppercase tracking-[0.52em] text-[hsl(var(--accent))]">
               Philosophy
             </p>
-            <h1 className="text-metal mt-8 max-w-5xl font-serif text-[clamp(4rem,10vw,10rem)] leading-none text-white">
+            <h1 className="text-metal mt-8 max-w-2xl text-balance font-serif text-6xl leading-tight text-white md:text-8xl">
               真实与长期
             </h1>
-            <p className="mt-8 max-w-2xl font-serif text-2xl tracking-[0.16em] text-white/70 md:text-4xl">
-              对抗喧嚣的唯一解药
+            <p className="mt-8 max-w-xl text-pretty font-serif text-xl leading-loose tracking-[0.16em] text-white/70 md:text-2xl">
+              对抗喧嚣的
+              <br className="hidden md:block" />
+              唯一解药
             </p>
           </FadeUp>
         </div>
@@ -64,30 +67,33 @@ export default function PhilosophyPage() {
       <section className="flex min-h-[100vh] items-center justify-center bg-[#0a0a0a] px-6 py-28">
         <AnimatedText
           text="我们相信，真正的品质不是被即时刺激推着走，而是在一次次选择里减少噪音。少一点炫耀，多一点确认；少一点占有，多一点复访；少一点短暂热闹，多一点长期同行。"
-          className="max-w-6xl text-center font-serif text-[clamp(2.4rem,5.6vw,6rem)] leading-tight text-white text-pretty"
+          className="max-w-4xl text-center font-serif text-3xl leading-loose text-white text-pretty md:text-5xl"
         />
       </section>
 
       <section className="mx-auto grid max-w-7xl grid-cols-1 gap-14 px-6 py-32 md:grid-cols-12 md:gap-24 md:px-10">
         {pillars.map((pillar, index) => (
-          <FadeUp key={pillar.title} delay={index * 0.1} className={pillar.className}>
-            <div className="liquid-glass-strong group relative flex h-full min-h-[20rem] overflow-hidden rounded-[2.25rem] p-8 transition duration-700 hover:-translate-y-2 hover:bg-white/[0.055] md:p-10">
-              <span className="pointer-events-none absolute -right-4 -top-10 font-display text-[11rem] leading-none text-white/[0.045] md:text-[16rem]">
+          <FadeUp key={pillar.label} delay={index * 0.1} className={pillar.className}>
+            <TiltCard
+              className="liquid-glass-strong group relative h-full min-h-[20rem] overflow-hidden rounded-[2rem] p-8 transition-colors duration-700 hover:bg-white/[0.055] md:p-10"
+              innerClassName="flex h-full"
+            >
+              <span className="pointer-events-none absolute -right-2 -top-6 font-display text-7xl leading-none text-white/[0.05] md:text-9xl">
                 {pillar.number}
               </span>
               <div className="relative z-10 mt-auto max-w-3xl">
                 <p className="font-display text-xs uppercase tracking-[0.45em] text-[hsl(var(--accent))]">
                   {pillar.label}
                 </p>
-                <h2 className="text-metal mt-6 font-serif text-[clamp(2.6rem,5vw,5.5rem)] leading-tight text-white">
+                <h2 className="text-metal mt-6 max-w-2xl text-balance font-serif text-3xl leading-tight text-white md:text-5xl">
                   {pillar.title}
                 </h2>
-                <p className="mt-7 max-w-2xl text-sm leading-8 text-white/58 transition-colors duration-500 group-hover:text-white/78">
+                <p className="mt-7 max-w-xl text-sm leading-loose text-white/58 text-pretty transition-colors duration-500 group-hover:text-white/78 md:text-base">
                   {pillar.body}
                 </p>
               </div>
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(255,255,255,0.13),transparent_30%)] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
-            </div>
+            </TiltCard>
           </FadeUp>
         ))}
       </section>
@@ -105,8 +111,10 @@ export default function PhilosophyPage() {
           <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
             The Long View
           </p>
-          <h2 className="text-metal mt-8 font-serif text-[clamp(3rem,7vw,7rem)] leading-none text-white">
-            时间会筛掉大多数答案
+          <h2 className="text-metal mt-8 text-balance font-serif text-4xl leading-tight text-white md:text-6xl">
+            时间会筛掉
+            <br className="hidden md:block" />
+            大多数答案
           </h2>
         </FadeUp>
       </section>

@@ -6,6 +6,7 @@ import { useRef } from "react";
 
 import { AnimatedText } from "@/components/animations/AnimatedText";
 import { FadeUp } from "@/components/animations/FadeUp";
+import { TiltCard } from "@/components/animations/TiltCard";
 
 const spaceScenes = [
   {
@@ -60,7 +61,7 @@ export default function SpacesPage() {
             <p className="font-display text-xs uppercase tracking-[0.52em] text-[hsl(var(--accent))]">
               The Sanctuary
             </p>
-            <h1 className="text-metal mt-8 max-w-5xl font-serif text-[clamp(4rem,10vw,10rem)] leading-none text-white">
+            <h1 className="text-metal mt-8 max-w-2xl text-balance font-serif text-6xl leading-tight text-white md:text-8xl">
               隐匿之所
             </h1>
           </FadeUp>
@@ -73,8 +74,10 @@ export default function SpacesPage() {
             <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
               Spatial Rhythm
             </p>
-            <h2 className="text-metal mt-6 max-w-4xl font-serif text-[clamp(3rem,6vw,6.5rem)] leading-none text-white">
-              空间不是装饰，是筛选噪音的方式
+            <h2 className="text-metal mt-6 max-w-2xl text-balance font-serif text-4xl leading-tight text-white md:text-6xl">
+              空间不是装饰，
+              <br className="hidden md:block" />
+              是筛选噪音的方式
             </h2>
           </FadeUp>
         </div>
@@ -96,23 +99,32 @@ export default function SpacesPage() {
           <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
             Details
           </p>
-          <h2 className="text-metal mt-8 font-serif text-[clamp(3rem,7vw,7rem)] leading-none text-white">
-            大隐隐于市
+          <h2 className="text-metal mt-8 max-w-xl text-balance font-serif text-4xl leading-tight text-white md:text-6xl">
+            大隐
+            <br className="hidden md:block" />
+            隐于市
           </h2>
         </FadeUp>
 
         <div className="space-y-8 md:col-span-7">
           {details.map((detail, index) => (
             <FadeUp key={detail.title} delay={index * 0.08}>
-              <div className="liquid-glass-strong grid min-h-[12rem] grid-cols-[5rem_1fr] gap-6 rounded-[2rem] p-7 md:grid-cols-[7rem_1fr] md:p-9">
-                <span className="font-display text-5xl leading-none text-white/12 md:text-7xl">
+              <TiltCard
+                className="liquid-glass-strong min-h-[12rem] rounded-[1.75rem] p-7 md:p-9"
+                innerClassName="grid h-full grid-cols-[4rem_1fr] gap-6 md:grid-cols-[5.5rem_1fr]"
+              >
+                <span className="font-display text-4xl leading-none text-white/12 md:text-6xl">
                   {detail.number}
                 </span>
                 <div>
-                  <h3 className="font-serif text-3xl text-white md:text-4xl">{detail.title}</h3>
-                  <p className="mt-5 max-w-lg text-sm leading-8 text-white/58">{detail.body}</p>
+                  <h3 className="max-w-md text-balance font-serif text-2xl leading-tight text-white md:text-3xl">
+                    {detail.title}
+                  </h3>
+                  <p className="mt-5 max-w-lg text-sm leading-loose text-white/58 text-pretty md:text-base">
+                    {detail.body}
+                  </p>
                 </div>
-              </div>
+              </TiltCard>
             </FadeUp>
           ))}
         </div>
@@ -121,7 +133,7 @@ export default function SpacesPage() {
       <section className="flex min-h-[80vh] items-center justify-center bg-black px-6">
         <AnimatedText
           text="真正私密的地方，不需要被所有人看见。它只需要让抵达的人，终于安静下来。"
-          className="max-w-5xl text-center font-serif text-[clamp(2.5rem,5vw,5.5rem)] leading-tight text-white text-pretty"
+          className="max-w-4xl text-center font-serif text-3xl leading-loose text-white text-pretty md:text-5xl"
         />
       </section>
     </main>
@@ -146,7 +158,7 @@ function ParallaxSpaceCard({
   return (
     <motion.div style={{ y }} className={scene.className}>
       <FadeUp delay={index * 0.08}>
-        <div className="liquid-glass-strong group overflow-hidden rounded-[2.25rem] p-3">
+        <TiltCard className="liquid-glass-strong group overflow-hidden rounded-[2rem] p-3">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem]">
             <Image
               src={scene.src}
@@ -160,13 +172,15 @@ function ParallaxSpaceCard({
               <p className="font-display text-xs uppercase tracking-[0.42em] text-[hsl(var(--accent))]">
                 {scene.label}
               </p>
-              <h3 className="mt-4 font-serif text-3xl leading-tight text-white md:text-5xl">
+              <h3 className="mt-4 max-w-md text-balance font-serif text-3xl leading-tight text-white md:text-4xl">
                 {scene.title}
               </h3>
-              <p className="mt-5 max-w-md text-sm leading-8 text-white/62">{scene.body}</p>
+              <p className="mt-5 max-w-md text-sm leading-loose text-white/62 text-pretty md:text-base">
+                {scene.body}
+              </p>
             </div>
           </div>
-        </div>
+        </TiltCard>
       </FadeUp>
     </motion.div>
   );
