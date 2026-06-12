@@ -1,7 +1,4 @@
 import type { Metadata } from "next";
-import "@fontsource/lxgw-wenkai";
-import "@fontsource/ma-shan-zheng";
-import "@fontsource/zcool-xiaowei";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -9,7 +6,7 @@ export const metadata: Metadata = {
     default: "天机优选",
     template: "%s | 天机优选",
   },
-  description: "一个以会员制组织品质生活、线下关系与长期信任的会所式官网。",
+  description: "以品质消费为入口，以学习成长为纽带，以资源链接为核心价值的会员俱乐部官网。",
 };
 
 export default function RootLayout({

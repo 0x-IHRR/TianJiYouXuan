@@ -6,48 +6,48 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 import { Button } from "@/components/ui/button";
 
 const primaryLinkClass =
-  "inline-flex items-center justify-center border border-[color:color-mix(in_oklch,var(--foreground),white_70%)] px-4 py-2 text-sm text-foreground transition hover:border-primary hover:text-primary";
+  "inline-flex items-center justify-center rounded-[6px] border border-primary bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:bg-[color:color-mix(in_oklch,var(--primary),black_18%)]";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-[color:color-mix(in_oklch,var(--border),white_8%)] bg-[rgba(255,253,248,0.88)] backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-[color:color-mix(in_oklch,var(--border),white_4%)] bg-[rgba(255,253,248,0.94)] backdrop-blur-md">
       <div className="section-wrap">
-        <div className="flex items-center justify-between py-4">
-          <Link href="/" className="min-w-0">
-            <span className="block truncate font-heading text-lg tracking-[0.04em] text-foreground">
+        <div className="flex items-center justify-between gap-5 py-4">
+          <Link href="/" className="min-w-0 shrink-0">
+            <span className="block truncate text-lg font-bold tracking-[0.02em] text-foreground">
               {siteConfig.name}
             </span>
-            <span className="hidden text-[0.68rem] tracking-[0.26em] text-muted-foreground sm:block">
+            <span className="hidden text-[0.66rem] font-semibold tracking-[0.16em] text-muted-foreground sm:block">
               {siteConfig.englishName.toUpperCase()}
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-6 md:flex">
+          <nav className="hidden items-center gap-5 lg:flex">
             {siteConfig.navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm text-muted-foreground transition hover:text-foreground"
+                className="text-sm font-medium text-muted-foreground transition hover:text-foreground"
               >
                 {item.label}
               </Link>
             ))}
           </nav>
 
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="hidden items-center gap-3 lg:flex">
             <Link href="/apply" className={primaryLinkClass}>
-              申请会员
+              加入会员
             </Link>
           </div>
 
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Sheet>
               <SheetTrigger
                 render={
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="border border-[color:color-mix(in_oklch,var(--border),white_10%)] bg-transparent"
+                    className="rounded-[6px] border border-[color:color-mix(in_oklch,var(--border),white_10%)] bg-transparent"
                   />
                 }
               >
@@ -63,7 +63,7 @@ export function SiteHeader() {
                     {siteConfig.name}
                   </SheetTitle>
                   <SheetDescription>
-                    一处克制、可信、以长期关系为前提的成员空间。
+                    资源整合、学习成长、事业发展与品质生活的会员俱乐部。
                   </SheetDescription>
                 </SheetHeader>
                 <div className="flex flex-1 flex-col px-4 py-6">
@@ -81,7 +81,7 @@ export function SiteHeader() {
                   </div>
                   <div className="mt-8">
                     <Link href="/apply" className={`${primaryLinkClass} w-full`}>
-                      申请会员
+                      加入会员
                     </Link>
                   </div>
                 </div>

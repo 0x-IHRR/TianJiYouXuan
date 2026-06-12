@@ -49,27 +49,27 @@
 }
 
 :root {
-  --font-sans-sc: "LXGW WenKai", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  --font-serif-sc: "ZCOOL XiaoWei", "LXGW WenKai", "Songti SC", "STSong", serif;
-  --font-display-sc: "Ma Shan Zheng", "ZCOOL XiaoWei", "Songti SC", "STSong", serif;
+  --font-sans-sc: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  --font-serif-sc: var(--font-sans-sc);
+  --font-display-sc: var(--font-sans-sc);
   --background: oklch(0.985 0.006 86);
-  --foreground: oklch(0.22 0.018 52);
+  --foreground: oklch(0.24 0.022 255);
   --card: oklch(0.995 0.004 86);
-  --card-foreground: oklch(0.22 0.018 52);
+  --card-foreground: oklch(0.24 0.022 255);
   --popover: oklch(0.995 0.004 86);
-  --popover-foreground: oklch(0.22 0.018 52);
-  --primary: oklch(0.46 0.048 64);
+  --popover-foreground: oklch(0.24 0.022 255);
+  --primary: oklch(0.56 0.096 72);
   --primary-foreground: oklch(0.99 0.006 86);
   --secondary: oklch(0.954 0.01 82);
-  --secondary-foreground: oklch(0.22 0.018 52);
+  --secondary-foreground: oklch(0.24 0.022 255);
   --muted: oklch(0.96 0.008 84);
-  --muted-foreground: oklch(0.45 0.02 55);
+  --muted-foreground: oklch(0.47 0.024 255);
   --accent: oklch(0.93 0.016 78);
-  --accent-foreground: oklch(0.22 0.018 52);
+  --accent-foreground: oklch(0.24 0.022 255);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.83 0.018 76);
   --input: oklch(0.83 0.018 76);
-  --ring: oklch(0.56 0.04 64);
+  --ring: oklch(0.56 0.096 72);
   --chart-1: oklch(0.76 0.034 74);
   --chart-2: oklch(0.62 0.03 58);
   --chart-3: oklch(0.54 0.034 72);
@@ -77,11 +77,11 @@
   --chart-5: oklch(0.38 0.025 44);
   --radius: 0.625rem;
   --sidebar: oklch(0.995 0.004 86);
-  --sidebar-foreground: oklch(0.22 0.018 52);
-  --sidebar-primary: oklch(0.46 0.048 64);
+  --sidebar-foreground: oklch(0.24 0.022 255);
+  --sidebar-primary: oklch(0.56 0.096 72);
   --sidebar-primary-foreground: oklch(0.99 0.006 86);
   --sidebar-accent: oklch(0.93 0.016 78);
-  --sidebar-accent-foreground: oklch(0.22 0.018 52);
+  --sidebar-accent-foreground: oklch(0.24 0.022 255);
   --sidebar-border: oklch(0.83 0.018 76);
   --sidebar-ring: oklch(0.56 0.04 64);
 }
@@ -144,7 +144,7 @@
     min-height: 100dvh;
     overflow-x: hidden;
     font-family: var(--font-sans-sc);
-    background-image: linear-gradient(180deg, #fffdf8 0%, #fbf8f1 56%, #f7f1e7 100%);
+    background-image: linear-gradient(180deg, #fffdf8 0%, #fbf7ef 64%, #f5efe4 100%);
   }
 }
 
@@ -166,7 +166,7 @@
     inset: 0;
     z-index: -2;
     background:
-      linear-gradient(180deg, #fffdf8 0%, #fbf8f1 58%, #f7f1e7 100%);
+      linear-gradient(180deg, #fffdf8 0%, #fbf7ef 64%, #f5efe4 100%);
   }
 
   .page-ambient::after {
@@ -175,7 +175,7 @@
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    background-image: linear-gradient(rgba(99, 72, 42, 0.035) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(132, 88, 22, 0.035) 1px, transparent 1px);
     background-size: 100% 12rem;
     mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.25), transparent 80%);
   }
@@ -185,7 +185,7 @@
   }
 
   .quiet-label {
-    @apply text-[0.68rem] font-medium tracking-[0.32em] uppercase text-[color:color-mix(in_oklch,var(--foreground),white_48%)];
+    @apply text-[0.68rem] font-bold tracking-[0.18em] uppercase text-[color:color-mix(in_oklch,var(--primary),black_18%)];
   }
 
   .soft-panel {

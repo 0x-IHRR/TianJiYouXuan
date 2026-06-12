@@ -8,9 +8,6 @@ type SubpageShellProps = {
   eyebrow: string;
   title: string;
   description: string;
-  visualSrc?: string;
-  visualAlt?: string;
-  visualLabel?: string;
   children: ReactNode;
 };
 
