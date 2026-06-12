@@ -30,7 +30,7 @@ const entrances = [
 export default function Home() {
   return (
     <main aria-label="天机优选官网首页" className="bg-[#0a0a0a]">
-      <section className="relative flex h-[100dvh] w-full flex-col items-center justify-center overflow-x-clip">
+      <section className="relative h-[100dvh] w-full overflow-x-clip">
         <video
           autoPlay
           muted
@@ -46,25 +46,26 @@ export default function Home() {
             type="video/mp4"
           />
         </video>
-        {/* Dark gradient coming from the bottom */}
-        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/70 to-transparent" />
-        {/* Vignette radial blur mask */}
-        <div className="pointer-events-none absolute inset-0 z-10 backdrop-blur-[8px] [mask-image:radial-gradient(circle_at_center,transparent_40%,black_100%)]" />
 
-        <div className="relative z-20 flex flex-col items-center pt-20">
-          <FadeUp delay={0.2}>
-            <h1 className="text-metal max-w-[min(92vw,64rem)] px-4 text-center font-serif text-[clamp(2.1rem,9vw,5rem)] leading-[1.15] tracking-wide text-white text-pretty md:leading-[1.1]">
-              在可信的选择中，重塑生活秩序。
-            </h1>
-          </FadeUp>
-          <FadeUp delay={0.4}>
-            <p className="mt-8 max-w-2xl px-4 text-center text-[clamp(1rem,1.5vw,1.25rem)] tracking-[0.15em] text-muted-foreground text-pretty">
-              以供应链资源为基础的线下生活方式会所
-            </p>
-          </FadeUp>
+        <div className="pointer-events-none absolute bottom-0 z-10 h-1/3 w-full bg-gradient-to-t from-[#0A0A0A] to-transparent" />
+
+        <div className="absolute bottom-12 left-6 z-20 max-w-sm md:left-12">
+          <p className="text-metal mb-2 font-serif text-2xl text-white">
+            重塑生活秩序。
+          </p>
+          <p className="text-xs tracking-widest text-muted-foreground">
+            以供应链资源为基础的线下生活方式会所
+          </p>
         </div>
 
         <ScrollIndicator />
+      </section>
+
+      <section className="flex min-h-[60vh] items-center justify-center bg-[#0A0A0A] px-6 py-28">
+        <AnimatedText
+          text="在可信的选择中，重塑生活秩序。"
+          className="text-metal max-w-5xl text-center font-serif text-[clamp(2.4rem,6.8vw,7rem)] leading-tight text-white text-pretty md:leading-[1.08]"
+        />
       </section>
 
       <section className="relative z-20 bg-[#0a0a0a] px-6 pb-40 pt-32">

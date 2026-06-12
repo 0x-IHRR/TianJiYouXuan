@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, MotionValue, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { motion, MotionValue, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
 import { useRef } from "react";
 
 const galleryItems = [
@@ -58,6 +58,11 @@ export function FlyThroughGallery() {
     target: sectionRef,
     offset: ["start end", "end start"],
   });
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   return (
     <section ref={sectionRef} className="relative h-[300vh] w-full bg-[#0a0a0a]" aria-label="天机优选影像廊">
@@ -84,7 +89,7 @@ export function FlyThroughGallery() {
               key={item.title}
               item={item}
               index={index}
-              progress={scrollYProgress}
+              progress={smoothProgress}
             />
           ))}
         </div>
@@ -112,17 +117,17 @@ function FlyThroughCard({
     progress,
     [start, mid, end],
     [
-      `translate(-50%, -50%) translate3d(${item.x}vw, ${item.y}vh, -1500px) rotateZ(${item.rotate}deg) scale(0.55)`,
+      `translate(-50%, -50%) translate3d(${item.x}vw, ${item.y}vh, -1500px) rotateZ(${item.rotate}deg) scale(0.5)`,
       `translate(-50%, -50%) translate3d(${item.x * 0.25}vw, ${item.y * 0.2}vh, 0px) rotateZ(${item.rotate * 0.35}deg) scale(1)`,
-      `translate(-50%, -50%) translate3d(${item.x * -0.2}vw, ${item.y * -0.18}vh, 920px) rotateZ(${item.rotate * -0.4}deg) scale(3.4)`,
+      `translate(-50%, -50%) translate3d(${item.x * -0.2}vw, ${item.y * -0.18}vh, 920px) rotateZ(${item.rotate * -0.4}deg) scale(2)`,
     ],
   );
-  const filter = useTransform(progress, [start, mid, end], ["blur(18px)", "blur(0px)", "blur(30px)"]);
-  const opacity = useTransform(progress, [start, start + 0.08, mid, end - 0.08, end], [0, 0.68, 1, 0.4, 0]);
+  const filter = useTransform(progress, [start, mid, end], ["blur(20px)", "blur(0px)", "blur(34px)"]);
+  const opacity = useTransform(progress, [start, start + 0.08, mid, mid + 0.14, end], [0, 0.72, 1, 0.18, 0]);
 
   return (
     <motion.article
-      className="liquid-glass-strong group absolute left-1/2 top-1/2 aspect-[4/5] overflow-hidden rounded-[2rem] p-3"
+      className="liquid-glass-strong group absolute left-1/2 top-1/2 aspect-[4/5] overflow-hidden rounded-[2rem] bg-black p-3"
       style={{
         width: item.width,
         transform: reduceMotion

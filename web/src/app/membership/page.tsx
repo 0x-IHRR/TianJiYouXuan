@@ -50,7 +50,7 @@ export default function MembershipPage() {
           </h1>
         </FadeUp>
 
-        <div className="mt-20 grid grid-cols-1 gap-5 md:grid-cols-12 md:gap-6">
+        <div className="mt-24 grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-24">
           {membershipCards.map((card, index) => (
             <FadeUp key={card.title} delay={index * 0.08} className={card.className}>
               <article className="liquid-glass group relative flex h-full min-h-[18rem] overflow-hidden rounded-[2rem] p-7 transition duration-500 hover:-translate-y-1 hover:bg-white/[0.06] md:p-9">
