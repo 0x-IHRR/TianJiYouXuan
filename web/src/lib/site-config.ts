@@ -4,11 +4,10 @@ export const siteConfig = {
   description:
     "以品质消费为入口，以学习成长为纽带，以资源链接为核心价值的会员俱乐部。",
   navigation: [
-    { label: "首页", href: "/" },
-    { label: "会员俱乐部", href: "/membership" },
-    { label: "活动与资源", href: "/#activities" },
-    { label: "品牌影片", href: "/film" },
     { label: "理念", href: "/philosophy" },
+    { label: "会员", href: "/membership" },
+    { label: "影片", href: "/film" },
+    { label: "加入", href: "/apply" },
   ],
   assets: {
     brandBanner: "/media/style-reference/brand-banner-dark.png",
@@ -82,6 +81,73 @@ export const siteConfig = {
       "投资人与资源方",
       "职场精英",
       "学习型生活方式用户",
+    ],
+    marqueeItems: [
+      {
+        title: "品牌影片",
+        src: "/media/style-reference/film-cover-black.png",
+      },
+      {
+        title: "会员场景",
+        src: "/media/homepage-layers/doorway-band.png",
+      },
+      {
+        title: "品质选择",
+        src: "/media/homepage-layers/hero-still-life.png",
+      },
+      {
+        title: "空间入口",
+        src: "/media/homepage-layers/table-invitation.png",
+      },
+      {
+        title: "长期同行",
+        src: "/media/homepage-layers/film-window-balanced.png",
+      },
+      {
+        title: "资源连接",
+        src: "/media/homepage-layers/film-window-frame.png",
+      },
+    ],
+    pathways: [
+      {
+        title: "会员体系",
+        category: "Members Club",
+        description:
+          "了解天机优选如何把品质消费、持续学习和可信连接组织成会员体验。",
+        href: "/membership",
+        action: "进入会员",
+        images: [
+          "/media/homepage-layers/doorway-band.png",
+          "/media/homepage-layers/table-invitation.png",
+          "/media/style-reference/brand-logo-light.jpeg",
+        ],
+      },
+      {
+        title: "品牌影片",
+        category: "Brand Film",
+        description:
+          "用现有影片进入品牌气质，在真实影像里理解天机优选想建立的关系。",
+        href: "/film",
+        action: "观看影片",
+        images: [
+          "/media/style-reference/film-cover-black.png",
+          "/media/homepage-layers/film-window-compact.png",
+          "/media/homepage-layers/film-window-balanced.png",
+        ],
+      },
+      {
+        title: "加入说明",
+        category: "Join Tianji",
+        description:
+          "加入通道即将开放。先了解路径、边界与后续沟通方式，再决定是否继续深入。",
+        href: "/apply",
+        action: "申请会员",
+        images: [
+          "/media/homepage-layers/hero-still-life.png",
+          "/media/homepage-clean-background-v1.png",
+          "/media/style-reference/brand-banner-dark.png",
+        ],
+      },
     ],
   },
   film: {

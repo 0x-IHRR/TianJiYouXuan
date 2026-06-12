@@ -8,16 +8,35 @@ import { Button } from "@/components/ui/button";
 const primaryLinkClass =
   "inline-flex items-center justify-center rounded-[6px] border border-primary bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:bg-[color:color-mix(in_oklch,var(--primary),black_18%)]";
 
-export function SiteHeader() {
+type SiteHeaderProps = {
+  variant?: "light" | "dark";
+};
+
+export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
+  const isDark = variant === "dark";
+  const headerClass = isDark
+    ? "sticky top-0 z-40 border-b border-white/10 bg-[#0c0c0c]/82 text-[#d7e2ea] backdrop-blur-md"
+    : "sticky top-0 z-40 border-b border-[color:color-mix(in_oklch,var(--border),white_4%)] bg-[rgba(255,253,248,0.94)] backdrop-blur-md";
+  const brandClass = isDark
+    ? "block truncate text-lg font-bold tracking-[0.02em] text-[#f5fbff]"
+    : "block truncate text-lg font-bold tracking-[0.02em] text-foreground";
+  const metaClass = isDark
+    ? "hidden text-[0.66rem] font-semibold tracking-[0.16em] text-[#8f9ca6] sm:block"
+    : "hidden text-[0.66rem] font-semibold tracking-[0.16em] text-muted-foreground sm:block";
+  const navClass = isDark
+    ? "text-sm font-medium text-[#a8b5bf] transition hover:text-[#f5fbff]"
+    : "text-sm font-medium text-muted-foreground transition hover:text-foreground";
+  const mobileButtonClass = isDark
+    ? "rounded-[6px] border border-white/15 bg-white/5 text-[#f5fbff]"
+    : "rounded-[6px] border border-[color:color-mix(in_oklch,var(--border),white_10%)] bg-transparent";
+
   return (
-    <header className="sticky top-0 z-40 border-b border-[color:color-mix(in_oklch,var(--border),white_4%)] bg-[rgba(255,253,248,0.94)] backdrop-blur-md">
+    <header className={headerClass}>
       <div className="section-wrap">
         <div className="flex items-center justify-between gap-5 py-4">
           <Link href="/" className="min-w-0 shrink-0">
-            <span className="block truncate text-lg font-bold tracking-[0.02em] text-foreground">
-              {siteConfig.name}
-            </span>
-            <span className="hidden text-[0.66rem] font-semibold tracking-[0.16em] text-muted-foreground sm:block">
+            <span className={brandClass}>{siteConfig.name}</span>
+            <span className={metaClass}>
               {siteConfig.englishName.toUpperCase()}
             </span>
           </Link>
@@ -27,7 +46,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-muted-foreground transition hover:text-foreground"
+                className={navClass}
               >
                 {item.label}
               </Link>
@@ -47,7 +66,7 @@ export function SiteHeader() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="rounded-[6px] border border-[color:color-mix(in_oklch,var(--border),white_10%)] bg-transparent"
+                    className={mobileButtonClass}
                   />
                 }
               >
