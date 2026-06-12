@@ -9,19 +9,19 @@ export const metadata: Metadata = {
 const steps = [
   {
     title: "提交意向",
-    subtitle: "留下基础信息与所在城市。",
+    subtitle: "留下基础信息与所在城市",
   },
   {
     title: "顾问沟通",
-    subtitle: "确认需求、期望与适配度。",
+    subtitle: "确认需求、期望与适配度",
   },
   {
     title: "资质确认",
-    subtitle: "理解边界，也确认彼此同频。",
+    subtitle: "理解边界，也确认彼此同频",
   },
   {
     title: "正式入会",
-    subtitle: "进入线下会所与会员服务体系。",
+    subtitle: "进入线下会所与会员服务体系",
   },
 ];
 
@@ -37,7 +37,7 @@ export default function ApplyPage() {
           </FadeUp>
           <FadeUp delay={0.12}>
             <p className="mt-6 text-lg tracking-wide text-muted-foreground">
-              提交您的意向，我们的顾问将与您联系。
+              提交您的意向，我们的顾问将与您联系
             </p>
           </FadeUp>
         </div>

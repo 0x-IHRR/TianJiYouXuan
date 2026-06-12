@@ -82,7 +82,7 @@ export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
                     {siteConfig.name}
                   </SheetTitle>
                   <SheetDescription>
-                    资源整合、学习成长、事业发展与品质生活的会员俱乐部。
+                    资源整合、学习成长、事业发展与品质生活的会员俱乐部
                   </SheetDescription>
                 </SheetHeader>
                 <div className="flex flex-1 flex-col px-4 py-6">

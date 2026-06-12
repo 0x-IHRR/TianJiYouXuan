@@ -9,14 +9,14 @@ import "./globals.css";
 const notoSerifSC = Noto_Serif_SC({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-noto-serif-sc",
+  variable: "--font-serif-sc",
   display: "swap",
 });
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-cormorant-garamond",
+  variable: "--font-display-sc",
   display: "swap",
 });
 
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     default: "天机优选",
     template: "%s | 天机优选",
   },
-  description: "以供应链资源为基础的线下生活方式会所。",
+  description: "以供应链资源为基础的线下生活方式会所",
 };
 
 export default function RootLayout({

@@ -122,52 +122,52 @@ const galleryItems = [
   },
 ];
 
-const galleryLoops = 5;
+const galleryLoops = 3;
 
 function wrapUnit(value: number) {
   return ((value % 1) + 1) % 1;
 }
 
 function phaseToDepth(phase: number, item: (typeof galleryItems)[number]) {
-  if (phase < 0.32) {
-    const t = phase / 0.32;
+  if (phase < 0.3) {
+    const t = phase / 0.3;
 
     return {
-      z: -1200 + t * 1120,
-      x: item.x + (item.x * 0.18 - item.x) * t,
-      y: item.y + (item.y * 0.16 - item.y) * t,
-      scale: 0.82 + t * 0.14,
+      z: -1200 + t * 1160,
+      x: item.x + (item.x * 0.14 - item.x) * t,
+      y: item.y + (item.y * 0.12 - item.y) * t,
+      scale: 0.84 + t * 0.14,
       blur: 4 - t * 3.5,
       opacity: Math.min(1, t * 2),
-      rotate: item.rotate + (item.rotate * 0.18 - item.rotate) * t,
+      rotate: item.rotate + (item.rotate * 0.14 - item.rotate) * t,
     };
   }
 
-  if (phase < 0.56) {
-    const t = (phase - 0.32) / 0.24;
+  if (phase < 0.66) {
+    const t = (phase - 0.3) / 0.36;
 
     return {
-      z: -80 + t * 160,
-      x: item.x * 0.18 + (item.x * 0.1 - item.x * 0.18) * t,
-      y: item.y * 0.16 + (item.y * 0.08 - item.y * 0.16) * t,
-      scale: 0.96 + t * 0.08,
+      z: -40 + t * 80,
+      x: item.x * 0.14 + (item.x * 0.08 - item.x * 0.14) * t,
+      y: item.y * 0.12 + (item.y * 0.06 - item.y * 0.12) * t,
+      scale: 0.98 + t * 0.06,
       blur: 0,
       opacity: 1,
-      rotate: item.rotate * 0.18 + (item.rotate * 0.08 - item.rotate * 0.18) * t,
+      rotate: item.rotate * 0.14 + (item.rotate * 0.05 - item.rotate * 0.14) * t,
     };
   }
 
-  if (phase < 0.7) {
-    const t = (phase - 0.56) / 0.14;
+  if (phase < 0.84) {
+    const t = (phase - 0.66) / 0.18;
 
     return {
-      z: 80 + t * 700,
-      x: item.x * 0.1 + (item.x * -0.12 - item.x * 0.1) * t,
-      y: item.y * 0.08 + (item.y * -0.1 - item.y * 0.08) * t,
-      scale: 1.04 + t * 0.42,
+      z: 40 + t * 760,
+      x: item.x * 0.08 + (item.x * -0.1 - item.x * 0.08) * t,
+      y: item.y * 0.06 + (item.y * -0.08 - item.y * 0.06) * t,
+      scale: 1.04 + t * 0.36,
       blur: t * 4,
       opacity: 1 - t,
-      rotate: item.rotate * 0.08 + (item.rotate * -0.16 - item.rotate * 0.08) * t,
+      rotate: item.rotate * 0.05 + (item.rotate * -0.14 - item.rotate * 0.05) * t,
     };
   }
 
@@ -197,19 +197,19 @@ export function FlyThroughGallery() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-[520vh] w-full bg-[#0a0a0a]"
+      className="relative h-[600vh] w-full bg-[#0a0a0a]"
       aria-label="天机优选影像廊"
     >
       <div className="sticky top-0 flex h-[100vh] items-center justify-center overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.12),transparent_28%,rgba(0,0,0,0.62)_76%)]" />
-        <div className="pointer-events-none absolute left-6 top-20 z-50 max-w-sm md:left-10">
-          <p className="font-display text-[0.65rem] uppercase tracking-[0.5em] text-[hsl(var(--accent))]/80">
-            Tianji Depth
-          </p>
-          <h2 className="text-metal mt-3 font-serif text-3xl leading-tight text-white/80 md:text-4xl">
-            看见选择背后的空间
-          </h2>
-        </div>
+        <h2
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/90 text-4xl font-serif tracking-widest z-50 pointer-events-none"
+          style={{
+            textShadow: "0 2px 20px rgba(0,0,0,0.82), 0 0 1px rgba(255,255,255,0.35)",
+          }}
+        >
+          看见选择背后的空间
+        </h2>
 
         <div
           className="relative h-full w-full"

@@ -11,28 +11,28 @@ const philosophyCards = [
     index: "01",
     eyebrow: "Choice",
     title: "选择是一种秩序",
-    body: "不追求更多选项，而是让可信来源替代反复试错。",
+    body: "不追求更多选项，而是让可信来源替代反复试错",
     className: "md:col-span-8 md:min-h-[20rem]",
   },
   {
     index: "02",
     eyebrow: "Connection",
     title: "连接是一种力量",
-    body: "连接发生在真实服务、真实场景和可复访的关系里。",
+    body: "连接发生在真实服务、真实场景和可复访的关系里",
     className: "md:col-span-4 md:row-span-2 md:min-h-[32rem]",
   },
   {
     index: "03",
     eyebrow: "Mutual Benefit",
     title: "共益是一种未来",
-    body: "会员、供应链和会所空间形成稳定互相成就的关系。",
+    body: "会员、供应链和会所空间形成稳定互相成就的关系",
     className: "md:col-span-5 md:min-h-[18rem]",
   },
   {
     index: "04",
     eyebrow: "Quiet Luxury",
     title: "高级来自克制",
-    body: "少一点噪音，多一点确认；少一点展示，多一点长期价值。",
+    body: "少一点噪音，多一点确认；少一点展示，多一点长期价值",
     className: "md:col-span-7 md:min-h-[18rem]",
   },
 ];
@@ -52,7 +52,7 @@ export default function PhilosophyPage() {
 
         <FadeUp delay={0.12}>
           <p className="font-wenkai mt-12 max-w-3xl text-xl leading-10 text-white/68 md:text-2xl">
-            高价值生活不是更高频的消费，而是更少噪音、更准判断、更可信的连接。
+            高价值生活不是更高频的消费，而是更少噪音、更准判断、更可信的连接
           </p>
         </FadeUp>
 

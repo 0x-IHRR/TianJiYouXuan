@@ -9,7 +9,7 @@ const entrances = [
   {
     number: "01",
     title: "秩序与边界",
-    description: "用清晰的会员边界，筛选稳定关系与可信资源。",
+    description: "用清晰的会员边界，筛选稳定关系与可信资源",
     href: "/membership",
     image: "/media/subpages/membership/hero-membership-salon.png",
     alt: "天机优选会员体系空间",
@@ -17,7 +17,7 @@ const entrances = [
   {
     number: "02",
     title: "真实与长期",
-    description: "把供应链、品鉴与线下连接放回真实生活现场。",
+    description: "把供应链、品鉴与线下连接放回真实生活现场",
     href: "/philosophy",
     image: "/media/subpages/philosophy/hero-philosophy-still-life.png",
     alt: "天机优选理念静物",
@@ -25,7 +25,7 @@ const entrances = [
   {
     number: "03",
     title: "门槛与同频",
-    description: "申请不是即时交易，而是彼此确认节奏与价值观。",
+    description: "申请不是即时交易，而是彼此确认节奏与价值观",
     href: "/apply",
     image: "/media/subpages/apply/hero-application-invitation.png",
     alt: "天机优选申请邀请",
@@ -54,13 +54,12 @@ export default function Home() {
 
         <div className="pointer-events-none absolute bottom-0 z-10 h-1/3 w-full bg-gradient-to-t from-[#0A0A0A] to-transparent" />
 
-        <div className="absolute bottom-12 left-6 z-20 max-w-sm md:left-12">
-          <p className="text-metal mb-2 font-serif text-2xl text-white">
-            重塑生活秩序。
-          </p>
-          <p className="text-xs tracking-widest text-muted-foreground">
-            以供应链资源为基础的线下生活方式会所
-          </p>
+        <div className="absolute bottom-12 left-1/2 z-20 flex w-full max-w-lg -translate-x-1/2 flex-col items-center text-center">
+          <h1 className="text-center font-serif text-white/60 text-xl tracking-[0.2em] leading-relaxed">
+            在可信的选择中
+            <br />
+            重塑生活秩序
+          </h1>
         </div>
 
         <ScrollIndicator />
@@ -68,7 +67,7 @@ export default function Home() {
 
       <section className="flex min-h-[60vh] items-center justify-center bg-[#0A0A0A] px-6 py-28">
         <AnimatedText
-          text="在可信的选择中，重塑生活秩序。"
+          text="在可信的选择中，重塑生活秩序"
           className="text-metal max-w-5xl text-center font-serif text-[clamp(2.4rem,6.8vw,7rem)] leading-tight text-white text-pretty md:leading-[1.08]"
         />
       </section>
@@ -111,12 +110,26 @@ export default function Home() {
 
       <section className="flex min-h-[80vh] items-center justify-center bg-[#0a0a0a] px-6 py-32">
         <AnimatedText
-          text="选择，是一种秩序；连接，是一种力量；共益，是一种未来。"
+          text="选择，是一种秩序；连接，是一种力量；共益，是一种未来"
           className="max-w-5xl text-center font-serif text-[clamp(2rem,4.5vw,4.5rem)] leading-snug text-white text-pretty"
         />
       </section>
 
       <FlyThroughGallery />
+
+      <section className="flex min-h-[50vh] flex-col items-center justify-center border-t border-white/5 bg-[#0a0a0a] px-6 py-32">
+        <h2 className="mb-12 text-center font-serif text-4xl tracking-widest text-white md:text-6xl">
+          不从众
+          <br />
+          只同频
+        </h2>
+        <Link
+          href="/apply"
+          className="liquid-glass rounded-full px-10 py-4 text-sm uppercase tracking-[0.2em] text-white/80 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70"
+        >
+          申请加入
+        </Link>
+      </section>
     </main>
   );
 }

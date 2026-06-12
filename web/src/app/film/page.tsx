@@ -18,7 +18,7 @@ export default function FilmPage() {
             品牌影片
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground text-pretty">
-            用真实影像进入天机优选的品牌气质，在克制、私密、可信的场景中理解会员关系。
+            用真实影像进入天机优选的品牌气质，在克制、私密、可信的场景中理解会员关系
           </p>
         </FadeUp>
 
