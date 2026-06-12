@@ -68,10 +68,10 @@ export function Preloader() {
       aria-label="Tianji Curation loading"
     >
       <div className="text-center">
-        <p className="font-display text-[10px] uppercase tracking-[1em] text-white/50 md:text-xs">
+        <p className="whitespace-nowrap font-display text-sm uppercase tracking-[0.55em] text-white/55 md:text-base">
           T I A N J I&nbsp;&nbsp;&nbsp;C U R A T I O N
         </p>
-        <p className="mt-8 font-display text-[10px] tabular-nums tracking-[0.5em] text-white/30">
+        <p className="mt-6 font-display text-2xl font-light tabular-nums tracking-[0.28em] text-white/70 md:text-3xl">
           {String(percent).padStart(2, "0")}%
         </p>
       </div>
