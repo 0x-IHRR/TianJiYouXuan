@@ -22,7 +22,7 @@ const pillars = [
     label: "Real Scene",
     title: "回到真实场景",
     body: "所有连接都必须落在真实服务、真实空间和真实关系里。离开现场，再漂亮的承诺都只是噪音",
-    className: "md:col-span-4 md:min-h-[32rem] md:translate-y-24",
+    className: "md:col-span-4 md:min-h-[32rem]",
   },
   {
     number: "03",
@@ -107,16 +107,17 @@ export default function PhilosophyPage() {
           className="object-cover opacity-28 blur-[1px] saturate-[0.8]"
         />
         <div className="absolute inset-0 bg-[#0a0a0a]/72" />
-        <FadeUp className="relative z-10 max-w-4xl text-center">
-          <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
-            The Long View
-          </p>
-          <h2 className="text-metal mt-8 text-balance font-serif text-4xl leading-tight text-white md:text-6xl">
-            时间会筛掉
-            <br className="hidden md:block" />
-            大多数答案
-          </h2>
-        </FadeUp>
+        <div className="relative z-10 max-w-4xl text-center">
+          <FadeUp>
+            <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
+              The Long View
+            </p>
+          </FadeUp>
+          <AnimatedText
+            text={"时间会筛掉\n大多数答案"}
+            className="text-metal mt-8 text-center font-serif text-4xl leading-tight text-white text-balance md:text-6xl"
+          />
+        </div>
       </section>
     </main>
   );

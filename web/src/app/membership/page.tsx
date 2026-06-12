@@ -91,10 +91,11 @@ export default function MembershipPage() {
                 Threshold
               </p>
               <h2 className="text-metal mt-6 max-w-xl text-balance font-serif text-4xl leading-tight text-white md:text-6xl">
-                同频的
-                <br className="hidden md:block" />
-                门槛
+                同频的门槛
               </h2>
+              <p className="mt-8 max-w-xs text-sm leading-loose tracking-wider text-white/50 text-pretty">
+                我们不以身份标签判断人，而是寻找在时间中被验证过的真实同频者。门槛，是对所有入局者的保护。
+              </p>
             </FadeUp>
           </div>
         </div>
@@ -146,7 +147,7 @@ export default function MembershipPage() {
 
       <section className="flex min-h-[100vh] items-center justify-center bg-black px-6">
         <AnimatedText
-          text="自由，源于我们共同遵守的秩序"
+          text={"自由\n源于我们共同遵守的秩序"}
           className="text-metal max-w-3xl text-center font-serif text-4xl leading-loose text-white text-pretty md:text-6xl"
         />
       </section>
