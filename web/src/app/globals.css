@@ -25,6 +25,8 @@
   --color-ring: hsl(var(--ring));
   --font-sans: var(--font-sans-sc);
   --font-serif: var(--font-serif-sc);
+  --font-display: var(--font-display-sc);
+  --font-heading: var(--font-serif-sc);
   --font-mono: var(--font-sans-sc);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -57,7 +59,9 @@
     --ring: 43 65% 53%;
     --radius: 1rem;
     --font-sans-sc: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
-    --font-serif-sc: "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+    --font-serif-sc: var(--font-noto-serif-sc), "Noto Serif SC", "Songti SC", "STSong", Georgia, serif;
+    --font-display-sc: var(--font-cormorant-garamond), "Cormorant Garamond", Georgia, serif;
+    --font-wenkai-sc: "LXGW WenKai", var(--font-serif-sc);
   }
 
   * {
@@ -67,7 +71,7 @@
   html {
     width: 100%;
     min-height: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
     background: #0a0a0a;
     color-scheme: dark;
     scroll-padding-top: 6rem;
@@ -79,7 +83,7 @@
     min-width: 100%;
     min-height: 100vh;
     min-height: 100dvh;
-    overflow-x: hidden;
+    overflow-x: clip;
     font-family: var(--font-sans-sc);
     background:
       radial-gradient(circle at 50% -10%, rgba(212, 175, 55, 0.13), transparent 36rem),
@@ -107,6 +111,20 @@
 @layer utilities {
   .font-serif {
     font-family: var(--font-serif-sc);
+  }
+
+  .font-display {
+    font-family: var(--font-display-sc);
+  }
+
+  .font-wenkai {
+    font-family: var(--font-wenkai-sc);
+  }
+
+  .text-metal {
+    text-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.8),
+      0 0 1px rgba(255, 255, 255, 0.2);
   }
 
   .liquid-glass {

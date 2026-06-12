@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 import { AnimatedText } from "@/components/animations/AnimatedText";
 import { FadeUp } from "@/components/animations/FadeUp";
+import { FlyThroughGallery } from "@/components/animations/FlyThroughGallery";
 import { ScrollIndicator } from "@/components/animations/ScrollIndicator";
 
 const entrances = [
@@ -45,11 +46,14 @@ export default function Home() {
             type="video/mp4"
           />
         </video>
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-black/30 to-[#0a0a0a]" />
+        {/* Dark gradient coming from the bottom */}
+        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/70 to-transparent" />
+        {/* Vignette radial blur mask */}
+        <div className="pointer-events-none absolute inset-0 z-10 backdrop-blur-[8px] [mask-image:radial-gradient(circle_at_center,transparent_40%,black_100%)]" />
 
-        <div className="relative z-20 flex flex-col items-center">
+        <div className="relative z-20 flex flex-col items-center pt-20">
           <FadeUp delay={0.2}>
-            <h1 className="max-w-5xl px-4 text-center font-serif text-[clamp(2.5rem,6vw,5rem)] leading-[1.1] tracking-wide text-white text-pretty">
+            <h1 className="text-metal max-w-[min(92vw,64rem)] px-4 text-center font-serif text-[clamp(2.1rem,9vw,5rem)] leading-[1.15] tracking-wide text-white text-pretty md:leading-[1.1]">
               在可信的选择中，重塑生活秩序。
             </h1>
           </FadeUp>
@@ -96,6 +100,8 @@ export default function Home() {
           className="max-w-5xl text-center font-serif text-[clamp(2rem,4.5vw,4.5rem)] leading-snug text-white text-pretty"
         />
       </section>
+
+      <FlyThroughGallery />
     </main>
   );
 }
