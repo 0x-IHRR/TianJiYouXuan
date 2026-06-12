@@ -123,48 +123,64 @@ const galleryItems = [
 ];
 
 const galleryLoops = 3;
+const cosmicPaths = [
+  { fromX: -920, fromY: -620, focusX: -260, focusY: -120, outX: 1080, outY: 620 },
+  { fromX: 980, fromY: -540, focusX: 240, focusY: -96, outX: -1120, outY: 560 },
+  { fromX: -820, fromY: 640, focusX: -180, focusY: 150, outX: 1040, outY: -720 },
+  { fromX: 860, fromY: 580, focusX: 210, focusY: 120, outX: -980, outY: -700 },
+  { fromX: -1040, fromY: -120, focusX: -24, focusY: 0, outX: 1120, outY: 120 },
+  { fromX: 1080, fromY: 80, focusX: 28, focusY: 22, outX: -1160, outY: -180 },
+  { fromX: -720, fromY: -760, focusX: -220, focusY: 92, outX: 940, outY: -820 },
+  { fromX: 720, fromY: -720, focusX: 210, focusY: -150, outX: -920, outY: 820 },
+  { fromX: -980, fromY: 360, focusX: -300, focusY: 36, outX: 1180, outY: -420 },
+  { fromX: 1020, fromY: 420, focusX: 300, focusY: 42, outX: -1200, outY: -460 },
+  { fromX: -420, fromY: -820, focusX: -80, focusY: -180, outX: 720, outY: 920 },
+  { fromX: 440, fromY: 820, focusX: 92, focusY: 172, outX: -760, outY: -940 },
+];
 
 function wrapUnit(value: number) {
   return ((value % 1) + 1) % 1;
 }
 
-function phaseToDepth(phase: number, item: (typeof galleryItems)[number]) {
-  if (phase < 0.3) {
-    const t = phase / 0.3;
+function phaseToDepth(phase: number, item: (typeof galleryItems)[number], index: number) {
+  const path = cosmicPaths[index % cosmicPaths.length];
+
+  if (phase < 0.34) {
+    const t = phase / 0.34;
 
     return {
-      z: -1200 + t * 1160,
-      x: item.x + (item.x * 0.14 - item.x) * t,
-      y: item.y + (item.y * 0.12 - item.y) * t,
-      scale: 0.84 + t * 0.14,
+      z: -2000 + t * 1920,
+      x: path.fromX + (path.focusX - path.fromX) * t,
+      y: path.fromY + (path.focusY - path.fromY) * t,
+      scale: 0.68 + t * 0.3,
       blur: 4 - t * 3.5,
       opacity: Math.min(1, t * 2),
       rotate: item.rotate + (item.rotate * 0.14 - item.rotate) * t,
     };
   }
 
-  if (phase < 0.66) {
-    const t = (phase - 0.3) / 0.36;
+  if (phase < 0.68) {
+    const t = (phase - 0.34) / 0.34;
 
     return {
-      z: -40 + t * 80,
-      x: item.x * 0.14 + (item.x * 0.08 - item.x * 0.14) * t,
-      y: item.y * 0.12 + (item.y * 0.06 - item.y * 0.12) * t,
-      scale: 0.98 + t * 0.06,
+      z: -80 + t * 160,
+      x: path.focusX + (path.focusX * 0.62 - path.focusX) * t,
+      y: path.focusY + (path.focusY * 0.58 - path.focusY) * t,
+      scale: 0.98 + t * 0.08,
       blur: 0,
       opacity: 1,
       rotate: item.rotate * 0.14 + (item.rotate * 0.05 - item.rotate * 0.14) * t,
     };
   }
 
-  if (phase < 0.84) {
-    const t = (phase - 0.66) / 0.18;
+  if (phase < 0.9) {
+    const t = (phase - 0.68) / 0.22;
 
     return {
-      z: 40 + t * 760,
-      x: item.x * 0.08 + (item.x * -0.1 - item.x * 0.08) * t,
-      y: item.y * 0.06 + (item.y * -0.08 - item.y * 0.06) * t,
-      scale: 1.04 + t * 0.36,
+      z: 80 + t * 1020,
+      x: path.focusX * 0.62 + (path.outX - path.focusX * 0.62) * t,
+      y: path.focusY * 0.58 + (path.outY - path.focusY * 0.58) * t,
+      scale: 1.06 + t * 0.5,
       blur: t * 4,
       opacity: 1 - t,
       rotate: item.rotate * 0.05 + (item.rotate * -0.14 - item.rotate * 0.05) * t,
@@ -172,10 +188,10 @@ function phaseToDepth(phase: number, item: (typeof galleryItems)[number]) {
   }
 
   return {
-    z: -1200,
-    x: item.x,
-    y: item.y,
-    scale: 0.82,
+    z: -2000,
+    x: path.fromX,
+    y: path.fromY,
+    scale: 0.68,
     blur: 4,
     opacity: 0,
     rotate: item.rotate,
@@ -200,16 +216,12 @@ export function FlyThroughGallery() {
       className="relative h-[600vh] w-full bg-[#0a0a0a]"
       aria-label="天机优选影像廊"
     >
-      <div className="sticky top-0 flex h-[100vh] items-center justify-center overflow-hidden">
+      <h2 className="pointer-events-none sticky top-12 left-1/2 z-50 w-max -translate-x-1/2 font-serif text-2xl tracking-widest text-white/90 md:text-3xl">
+        看见选择背后的空间
+      </h2>
+
+      <div className="sticky top-0 -mt-12 flex h-[100vh] items-center justify-center overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.12),transparent_28%,rgba(0,0,0,0.62)_76%)]" />
-        <h2
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white/90 text-4xl font-serif tracking-widest z-50 pointer-events-none"
-          style={{
-            textShadow: "0 2px 20px rgba(0,0,0,0.82), 0 0 1px rgba(255,255,255,0.35)",
-          }}
-        >
-          看见选择背后的空间
-        </h2>
 
         <div
           className="relative h-full w-full"
@@ -247,19 +259,19 @@ function FlyThroughCard({
   const itemOffset = index / galleryItems.length;
   const transform = useTransform(progress, (value) => {
     const phase = wrapUnit(value * galleryLoops + itemOffset);
-    const depth = phaseToDepth(phase, item);
+    const depth = phaseToDepth(phase, item, index);
 
-    return `translate(-50%, -50%) translate3d(${depth.x}vw, ${depth.y}vh, ${depth.z}px) rotateZ(${depth.rotate}deg) scale(${depth.scale})`;
+    return `translate(-50%, -50%) translate3d(${depth.x}px, ${depth.y}px, ${depth.z}px) rotateZ(${depth.rotate}deg) scale(${depth.scale})`;
   });
   const filter = useTransform(progress, (value) => {
     const phase = wrapUnit(value * galleryLoops + itemOffset);
-    const depth = phaseToDepth(phase, item);
+    const depth = phaseToDepth(phase, item, index);
 
     return `blur(${depth.blur}px)`;
   });
   const opacity = useTransform(progress, (value) => {
     const phase = wrapUnit(value * galleryLoops + itemOffset);
-    const depth = phaseToDepth(phase, item);
+    const depth = phaseToDepth(phase, item, index);
 
     return depth.opacity;
   });
@@ -269,7 +281,7 @@ function FlyThroughCard({
       className="liquid-glass-strong group absolute left-1/2 top-1/2 aspect-[16/9] w-[min(84vw,42rem)] min-w-[40vw] max-w-2xl overflow-hidden rounded-[2rem] bg-black p-3"
       style={{
         transform: reduceMotion
-          ? `translate(-50%, -50%) translate3d(${item.x * 0.2}vw, ${item.y * 0.2}vh, 0px)`
+          ? `translate(-50%, -50%) translate3d(${cosmicPaths[index % cosmicPaths.length].focusX * 0.5}px, ${cosmicPaths[index % cosmicPaths.length].focusY * 0.5}px, 0px)`
           : transform,
         filter: reduceMotion ? "none" : filter,
         opacity: reduceMotion ? 1 : opacity,

@@ -54,22 +54,19 @@ export default function Home() {
 
         <div className="pointer-events-none absolute bottom-0 z-10 h-1/3 w-full bg-gradient-to-t from-[#0A0A0A] to-transparent" />
 
-        <div className="absolute bottom-12 left-1/2 z-20 flex w-full max-w-lg -translate-x-1/2 flex-col items-center text-center">
-          <h1 className="text-center font-serif text-white/60 text-xl tracking-[0.2em] leading-relaxed">
+        <div className="absolute top-1/2 left-6 z-20 -translate-y-1/2 md:left-12">
+          <h1 className="[writing-mode:vertical-lr] font-serif text-3xl tracking-[0.3em] text-white/85 md:text-5xl">
             在可信的选择中
-            <br />
-            重塑生活秩序
           </h1>
         </div>
 
-        <ScrollIndicator />
-      </section>
+        <div className="absolute top-1/2 right-6 z-20 -translate-y-1/2 md:right-12">
+          <p className="[writing-mode:vertical-lr] font-serif text-3xl tracking-[0.3em] text-white/85 md:text-5xl">
+            重塑生活秩序
+          </p>
+        </div>
 
-      <section className="flex min-h-[60vh] items-center justify-center bg-[#0A0A0A] px-6 py-28">
-        <AnimatedText
-          text="在可信的选择中，重塑生活秩序"
-          className="text-metal max-w-5xl text-center font-serif text-[clamp(2.4rem,6.8vw,7rem)] leading-tight text-white text-pretty md:leading-[1.08]"
-        />
+        <ScrollIndicator />
       </section>
 
       <section className="relative z-20 bg-[#0a0a0a] py-32 md:py-40">
@@ -78,7 +75,7 @@ export default function Home() {
             <Link
               key={item.href}
               href={item.href}
-              className="liquid-glass-strong group relative flex flex-1 overflow-hidden rounded-[2rem] bg-black transition-all duration-700 ease-out hover:flex-[3] focus-visible:flex-[3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70"
+              className="liquid-glass-strong group relative flex flex-1 overflow-hidden rounded-[2rem] bg-black transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] hover:flex-[3] focus-visible:flex-[3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70"
             >
               <Image
                 src={item.image}
@@ -118,10 +115,10 @@ export default function Home() {
       <FlyThroughGallery />
 
       <section className="flex min-h-[50vh] flex-col items-center justify-center border-t border-white/5 bg-[#0a0a0a] px-6 py-32">
-        <h2 className="mb-12 text-center font-serif text-4xl tracking-widest text-white md:text-6xl">
-          不从众
-          <br />
-          只同频
+        <h2 className="mb-12 flex items-center justify-center gap-8 text-center font-serif text-3xl tracking-[0.4em] text-white md:text-5xl">
+          <span>不从众</span>
+          <span className="text-xl text-white/30">/</span>
+          <span>只同频</span>
         </h2>
         <Link
           href="/apply"
