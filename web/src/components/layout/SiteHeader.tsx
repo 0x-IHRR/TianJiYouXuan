@@ -51,9 +51,11 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm text-muted-foreground transition-colors duration-300 hover:text-white"
+              className="group font-serif text-sm uppercase tracking-widest text-white/60 transition-colors duration-500 hover:text-white"
             >
-              {item.label}
+              <span className="relative pb-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:shadow-[0_0_12px_rgba(255,255,255,0.55)] after:transition-all after:duration-500 group-hover:after:w-full">
+                {item.label}
+              </span>
             </Link>
           ))}
         </nav>
@@ -62,10 +64,9 @@ export function SiteHeader() {
           <Magnet>
             <Link
               href="/apply"
-              className="liquid-glass flex items-center gap-2 rounded-full px-8 py-2.5 text-sm uppercase tracking-widest text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70"
+              className="liquid-glass rounded-full border !border-white/10 !bg-white/5 px-6 py-2 text-xs tracking-[0.2em] text-white/80 shadow-[0_0_15px_rgba(255,255,255,0)] transition-all duration-300 hover:!bg-white/10 hover:text-white hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70"
             >
-              Apply
-              <ArrowRight className="size-4" aria-hidden="true" />
+              APPLY
             </Link>
           </Magnet>
         </div>
