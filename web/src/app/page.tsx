@@ -59,7 +59,7 @@ export default function Home() {
 
       <section className="flex min-h-[60vh] items-center justify-center bg-[#0a0a0a] px-6 py-20">
         <AnimatedText
-          text="在可信的选择中，重塑生活秩序。真正的奢侈，并非占有更多，而是省去筛选的疲惫"
+          text={"在可信的选择中，重塑生活秩序\n真正的奢侈，并非占有更多，而是省去筛选的疲惫"}
           className="max-w-5xl text-center font-serif text-[clamp(1.8rem,3.5vw,4rem)] leading-snug text-white text-pretty tracking-widest"
         />
       </section>
