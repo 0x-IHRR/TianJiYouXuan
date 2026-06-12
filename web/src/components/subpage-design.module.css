@@ -4,8 +4,9 @@
   min-height: 100vh;
   overflow: hidden;
   background:
-    radial-gradient(circle at 12% 5%, rgba(255, 249, 235, 0.92), transparent 28rem),
-    linear-gradient(180deg, #f8f0e3 0%, #efe2ce 52%, #d9c2a4 100%);
+    radial-gradient(circle at 14% 5%, rgba(255, 255, 248, 0.9), transparent 28rem),
+    radial-gradient(circle at 82% 16%, rgba(205, 185, 150, 0.18), transparent 32rem),
+    linear-gradient(180deg, #fbf7ee 0%, #f2eadc 58%, #e8dcc8 100%);
 }
 
 .shell::before {
@@ -15,9 +16,9 @@
   z-index: -3;
   pointer-events: none;
   background-image:
-    radial-gradient(circle at 18% 16%, rgba(179, 133, 72, 0.12), transparent 28rem),
-    radial-gradient(circle at 82% 24%, rgba(95, 66, 36, 0.18), transparent 32rem),
-    linear-gradient(rgba(112, 78, 41, 0.035) 1px, transparent 1px);
+    radial-gradient(circle at 18% 16%, rgba(205, 184, 150, 0.1), transparent 28rem),
+    radial-gradient(circle at 82% 24%, rgba(95, 72, 45, 0.12), transparent 32rem),
+    linear-gradient(rgba(92, 69, 43, 0.035) 1px, transparent 1px);
   background-size: auto, auto, 100% 9rem;
 }
 
@@ -28,8 +29,8 @@
   z-index: -2;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(251, 245, 233, 0.9) 0%, transparent 28%, rgba(72, 45, 21, 0.08) 100%),
-    radial-gradient(circle at 74% 76%, rgba(58, 34, 18, 0.18), transparent 26rem);
+    linear-gradient(90deg, rgba(255, 252, 244, 0.78) 0%, transparent 30%, rgba(90, 66, 39, 0.05) 100%),
+    radial-gradient(circle at 74% 76%, rgba(88, 66, 40, 0.12), transparent 26rem);
   mix-blend-mode: multiply;
   opacity: 0.72;
 }
@@ -101,11 +102,11 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
-  border: 1px solid rgba(255, 249, 237, 0.44);
-  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: 10px;
   box-shadow:
-    0 34px 90px rgba(83, 55, 26, 0.19),
-    inset 0 0 0 1px rgba(115, 82, 45, 0.08);
+    0 34px 90px rgba(90, 68, 40, 0.14),
+    inset 0 0 0 1px rgba(92, 69, 43, 0.08);
   background: #d8c3a5;
 }
 
@@ -190,7 +191,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
-  border-block: 1px solid rgba(123, 87, 48, 0.16);
+  border-block: 1px solid rgba(118, 91, 58, 0.16);
 }
 
 .pathItem {
@@ -198,16 +199,16 @@
   min-height: 18rem;
   padding: clamp(1.4rem, 3vw, 2.4rem);
   background:
-    linear-gradient(180deg, rgba(255, 249, 238, 0.42), rgba(234, 218, 194, 0.18)),
-    rgba(255, 255, 255, 0.12);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.12)),
+    rgba(255, 255, 255, 0.08);
   transition: background 320ms ease, transform 320ms ease;
 }
 
 .pathItem:hover {
   transform: translateY(-0.35rem);
   background:
-    linear-gradient(180deg, rgba(255, 250, 240, 0.64), rgba(234, 218, 194, 0.26)),
-    rgba(255, 255, 255, 0.18);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.2)),
+    rgba(255, 255, 255, 0.16);
 }
 
 .pathIndex {
@@ -267,7 +268,7 @@
 }
 
 .placeholderPanel {
-  border-left: 1px solid rgba(126, 88, 47, 0.18);
+  border-left: 1px solid rgba(118, 91, 58, 0.18);
   padding-left: clamp(1.35rem, 3vw, 2.4rem);
 }
 
@@ -320,9 +321,9 @@
 .videoFrame {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 249, 237, 0.46);
-  border-radius: 8px;
-  box-shadow: 0 38px 92px rgba(58, 36, 16, 0.24);
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: 10px;
+  box-shadow: 0 36px 90px rgba(74, 53, 28, 0.18);
   background: #20150c;
 }
 

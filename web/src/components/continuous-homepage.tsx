@@ -1,183 +1,197 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowDown, ArrowUpRight, Check, Play } from "lucide-react";
 
+import { Reveal } from "@/components/reveal";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 import { siteConfig } from "@/lib/site-config";
 import styles from "./continuous-homepage.module.css";
 
-const sideNotes = [
-  "会员制，\n不是制造距离，\n而是减少无效选择。",
-  "供应链找来服务的，\n是生活里的确定性。",
-  "申请，\n是彼此确认\n是否适合的开始。",
-];
-
-const layerAssets = {
+const media = {
   hero: "/media/homepage-layers/hero-still-life.png",
-  film: "/media/homepage-layers/film-window-balanced.png",
-  doors: "/media/homepage-layers/doorway-band.png",
-  table: "/media/homepage-layers/table-invitation.png",
+  membership: "/media/homepage-layers/table-invitation.png",
+  film: siteConfig.film.posterSrc,
 };
 
 export function ContinuousHomepage() {
   return (
-    <main className={styles.shell}>
-      <div className={styles.scene} aria-label="天机优选首页">
-        <div className={styles.plasterBase} aria-hidden="true" />
-        <div className={styles.lightSweep} aria-hidden="true" />
-        <div className={styles.filmGrain} aria-hidden="true" />
-
-        <SiteNav />
+    <div className={styles.shell}>
+      <SiteHeader />
+      <main className={styles.main} aria-label="天机优选首页">
         <HeroSection />
+        <ProofSection />
         <FilmSection />
-        <DoorwaySection />
+        <MembershipSection />
+        <EntrancesSection />
         <ClosingSection />
-        <HomeFooter />
-      </div>
-    </main>
-  );
-}
-
-function SiteNav() {
-  return (
-    <header className={styles.nav} aria-label="主导航">
-      <Link href="/" className={styles.brand}>
-        <span>{siteConfig.name}</span>
-      </Link>
-
-      <nav className={styles.navLinks}>
-        <Link href="/membership">会员体系</Link>
-        <Link href="/philosophy">理念与价值</Link>
-        <Link href="/film">品牌影片</Link>
-        <Link href="/philosophy">关于我们</Link>
-      </nav>
-
-      <Link href="/apply" className={styles.navApply}>
-        <span>申请会员</span>
-        <i aria-hidden="true" />
-      </Link>
-    </header>
+      </main>
+      <SiteFooter />
+    </div>
   );
 }
 
 function HeroSection() {
   return (
-    <section className={styles.heroSection} aria-labelledby="home-title">
-      <div className={styles.heroImageLayer} aria-hidden="true">
-        <Image src={layerAssets.hero} alt="" width={1672} height={941} priority />
-      </div>
+    <section className={styles.hero} aria-labelledby="home-title">
+      <Reveal className={styles.heroCopy}>
+        <p className={styles.eyebrow}>{siteConfig.hero.eyebrow}</p>
+        <h1 id="home-title" className={styles.heroTitle}>
+          {siteConfig.hero.title}
+        </h1>
+        <p className={styles.heroDescription}>{siteConfig.hero.description}</p>
+        <a href="#film" className={styles.scrollCue}>
+          <span>{siteConfig.hero.note}</span>
+          <ArrowDown aria-hidden="true" />
+        </a>
+      </Reveal>
 
-      <div className={styles.heroCopy}>
-        <h1 id="home-title">{siteConfig.name}</h1>
-        <i aria-hidden="true" />
-        <span>让每一次消费创造更大的价值</span>
-      </div>
+      <Reveal className={styles.heroMedia} delay={0.08}>
+        <div className={styles.mediaPlate}>
+          <Image
+            src={media.hero}
+            alt="暖色会所静物与木桌场景"
+            fill
+            priority
+            sizes="(max-width: 900px) 100vw, 42vw"
+            className={styles.mediaImage}
+          />
+          <div className={styles.mediaCaption}>
+            <span>01</span>
+            <strong>图片是气质材料，不是页面结构。</strong>
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
 
-      <div className={styles.heroCue} aria-hidden="true" />
+function ProofSection() {
+  return (
+    <section className={styles.proofSection} aria-labelledby="proof-title">
+      <Reveal className={styles.sectionHeader}>
+        <p className={styles.eyebrow}>{siteConfig.home.proof.eyebrow}</p>
+        <h2 id="proof-title">{siteConfig.home.proof.title}</h2>
+        <p>{siteConfig.home.proof.description}</p>
+      </Reveal>
+
+      <div className={styles.proofGrid}>
+        {siteConfig.home.proof.points.map((point, index) => (
+          <Reveal key={point.title} delay={index * 0.06}>
+            <article className={styles.proofItem}>
+              <span>{point.index}</span>
+              <h3>{point.title}</h3>
+              <p>{point.body}</p>
+            </article>
+          </Reveal>
+        ))}
+      </div>
     </section>
   );
 }
 
 function FilmSection() {
   return (
-    <section className={styles.filmSection} aria-label="品牌影片与价值判断">
-      <div className={styles.filmSectionLabel} aria-hidden="true">
-        <span>02</span>
-        <i />
-        <em>Brand Film</em>
-      </div>
+    <section id="film" className={styles.filmSection} aria-labelledby="film-title">
+      <Reveal className={styles.filmHeader}>
+        <div>
+          <p className={styles.eyebrow}>BRAND FILM</p>
+          <h2 id="film-title">真实影像负责建立第一层信任。</h2>
+        </div>
+        <p>
+          {siteConfig.film.description}
+          首页只提供观看入口，不把影片变成首屏背景，也不强制自动播放。
+        </p>
+      </Reveal>
 
-      <div className={styles.filmWallLayer} aria-hidden="true">
-        <Image src={layerAssets.film} alt="" width={1672} height={941} loading="eager" />
-      </div>
-
-      <Link href="/film" className={styles.filmWindow} aria-label="进入品牌影片页">
-        <video
-          className={styles.filmVideo}
-          src={siteConfig.film.videoSrc}
-          poster={siteConfig.film.posterSrc}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-        />
-      </Link>
-
-      <aside className={styles.sideNotes} aria-label="价值提示">
-        {sideNotes.map((note, index) => (
-          <p key={note}>
-            <small>{String(index + 1).padStart(2, "0")}</small>
-            <span>{note}</span>
-          </p>
-        ))}
-      </aside>
+      <Reveal delay={0.08}>
+        <Link href="/film" className={styles.filmCard} aria-label="进入品牌影片页">
+          <Image
+            src={media.film}
+            alt="天机优选品牌影片封面"
+            fill
+            sizes="(max-width: 900px) 100vw, 88vw"
+            className={styles.filmImage}
+          />
+          <span className={styles.filmShade} aria-hidden="true" />
+          <span className={styles.playButton} aria-hidden="true">
+            <Play />
+          </span>
+          <span className={styles.filmMeta}>
+            <small>02 / Brand Film</small>
+            <strong>先看空间、节奏与气质，再决定是否继续靠近。</strong>
+          </span>
+        </Link>
+      </Reveal>
     </section>
   );
 }
 
-function DoorwaySection() {
+function MembershipSection() {
   return (
-    <section className={styles.doorwaySection} aria-label="首页入口">
-      <div className={styles.doorwayImageLayer} aria-hidden="true">
-        <Image src={layerAssets.doors} alt="" width={1672} height={941} />
-      </div>
+    <section className={styles.membershipSection} aria-labelledby="membership-title">
+      <Reveal className={styles.membershipMedia}>
+        <Image
+          src={media.membership}
+          alt="木桌、邀请卡与暖色会所空间"
+          fill
+          sizes="(max-width: 900px) 100vw, 40vw"
+          className={styles.mediaImage}
+        />
+      </Reveal>
 
-      <nav className={styles.entranceNav} aria-label="继续了解">
-        {siteConfig.entrances.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={styles.entranceLink}
-            aria-label={`进入${item.title}页`}
-          >
-            <span className={styles.entranceText}>{item.title}</span>
-            <b className={styles.doorHotspot} aria-hidden="true" />
-          </Link>
+      <Reveal className={styles.membershipCopy} delay={0.08}>
+        <p className={styles.eyebrow}>{siteConfig.home.membership.eyebrow}</p>
+        <h2 id="membership-title">{siteConfig.home.membership.title}</h2>
+        <p>{siteConfig.home.membership.description}</p>
+        <div className={styles.noteGrid}>
+          {siteConfig.home.membership.notes.map((note) => (
+            <span key={note}>
+              <Check aria-hidden="true" />
+              {note}
+            </span>
+          ))}
+        </div>
+        <Link href="/membership" className={styles.quietAction}>
+          <span>查看会员体系</span>
+          <ArrowUpRight aria-hidden="true" />
+        </Link>
+      </Reveal>
+    </section>
+  );
+}
+
+function EntrancesSection() {
+  return (
+    <section className={styles.entrancesSection} aria-labelledby="entrances-title">
+      <Reveal className={styles.sectionHeader}>
+        <p className={styles.eyebrow}>THREE ENTRANCES</p>
+        <h2 id="entrances-title">首页不讲完，只给三条继续进入的路。</h2>
+      </Reveal>
+
+      <div className={styles.entranceGrid}>
+        {siteConfig.entrances.map((item, index) => (
+          <Reveal key={item.href} delay={index * 0.06}>
+            <Link href={item.href} className={styles.entranceCard}>
+              <span>{item.index}</span>
+              <h3>{item.title}</h3>
+              <p>{item.subtitle}</p>
+              <ArrowUpRight aria-hidden="true" />
+            </Link>
+          </Reveal>
         ))}
-      </nav>
+      </div>
     </section>
   );
 }
 
 function ClosingSection() {
   return (
-    <section className={styles.closingSection} aria-label="首页收尾">
-      <div className={styles.closingCopy}>
-        <p>选择，是一种态度；</p>
-        <p>连接，是一种力量；</p>
-        <p>共益，是一种未来。</p>
-        <i aria-hidden="true" />
-      </div>
-
-      <div className={styles.tableImageLayer} aria-hidden="true">
-        <Image src={layerAssets.table} alt="" width={1672} height={941} />
-      </div>
+    <section className={styles.closingSection} aria-label="首页收束">
+      <Reveal className={styles.closingPanel}>
+        <p>{siteConfig.closing.quote}</p>
+        <span>{siteConfig.closing.note}</span>
+      </Reveal>
     </section>
-  );
-}
-
-function HomeFooter() {
-  return (
-    <footer className={styles.footer} aria-label="页脚">
-      <div className={styles.footerBrand}>
-        <p>{siteConfig.name}</p>
-        <span>Logo、社媒链接、联系方式、备案信息待补充。</span>
-      </div>
-      <div className={styles.footerActions}>
-        <nav>
-          <Link href="/membership">会员体系</Link>
-          <Link href="/philosophy">理念与价值</Link>
-          <Link href="/film">品牌影片</Link>
-          <Link href="/apply">申请会员</Link>
-        </nav>
-        <Link href="/apply" className={styles.footerFollow}>
-          <small>关注我们</small>
-          <span aria-hidden="true">
-            <i />
-            <i />
-            <i />
-          </span>
-        </Link>
-      </div>
-    </footer>
   );
 }
