@@ -60,7 +60,7 @@ export default function Home() {
       <section className="flex min-h-[60vh] items-center justify-center bg-[#0a0a0a] px-6 py-20">
         <AnimatedText
           text={"在可信的选择中，重塑生活秩序\n真正的奢侈，并非占有更多，而是省去筛选的疲惫"}
-          className="max-w-5xl text-center font-serif text-[clamp(1.8rem,3.5vw,4rem)] leading-snug text-white text-pretty tracking-widest"
+          className="max-w-5xl text-center font-serif text-[clamp(2rem,4.5vw,4.5rem)] leading-snug text-white text-pretty tracking-widest"
         />
       </section>
 
@@ -102,10 +102,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex min-h-[80vh] items-center justify-center bg-[#0a0a0a] px-6 py-32">
+      <section className="flex min-h-[80vh] items-start justify-center bg-[#0a0a0a] px-6 pb-32 pt-12">
         <AnimatedText
           text="选择，是一种秩序；连接，是一种力量；共益，是一种未来"
-          className="max-w-5xl -translate-y-12 text-center font-serif text-[clamp(2rem,4.5vw,4.5rem)] leading-snug text-white text-pretty md:-translate-y-16"
+          className="max-w-5xl text-center font-serif text-[clamp(2rem,4.5vw,4.5rem)] leading-snug text-white text-pretty tracking-widest"
         />
       </section>
 
