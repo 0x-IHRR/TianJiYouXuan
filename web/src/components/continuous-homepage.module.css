@@ -607,8 +607,8 @@
   position: absolute;
   z-index: 2;
   display: block;
-  left: calc(-1 * clamp(8.4rem, 10.4vw, 11.2rem));
-  top: 50.4%;
+  left: calc(-1 * clamp(7.9rem, 9.65vw, 10.6rem));
+  top: 50.1%;
   width: clamp(5.8rem, 7.4vw, 7rem);
   font-family: var(--font-serif-sc);
   font-size: clamp(0.9rem, 1.25vw, 1.28rem);
@@ -618,57 +618,6 @@
     letter-spacing 260ms ease,
     transform 300ms cubic-bezier(0.19, 1, 0.22, 1),
     text-shadow 260ms ease;
-}
-
-.entranceLink::before {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  left: calc(-1 * clamp(5.8rem, 7.1vw, 7.8rem));
-  top: calc(50.4% + 1.35rem);
-  width: clamp(8rem, 9.7vw, 9.1rem);
-  height: 3.15rem;
-  border-radius: 999px;
-  background:
-    radial-gradient(ellipse at 50% 50%, rgba(222, 204, 174, 0.98) 0%, rgba(222, 204, 174, 0.96) 48%, rgba(222, 204, 174, 0.58) 72%, transparent 94%);
-  backdrop-filter: blur(7px);
-  filter: blur(2.8px);
-  transform: translateX(-50%);
-  transition:
-    opacity 300ms ease,
-    transform 360ms cubic-bezier(0.19, 1, 0.22, 1),
-    width 360ms cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.entranceArrow {
-  position: absolute;
-  left: calc(-1 * clamp(7.45rem, 8.8vw, 9.6rem));
-  top: calc(50.4% + 1.72rem);
-  z-index: 2;
-  display: block;
-  width: clamp(3.05rem, 3.85vw, 4rem);
-  height: 1px;
-  background: rgba(150, 101, 43, 0.76);
-  transform-origin: center;
-  transition:
-    background 260ms ease,
-    transform 320ms cubic-bezier(0.19, 1, 0.22, 1),
-    width 320ms cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.entranceArrow::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: -0.25rem;
-  width: 0.5rem;
-  height: 0.5rem;
-  border-right: 1px solid rgba(150, 101, 43, 0.82);
-  border-top: 1px solid rgba(150, 101, 43, 0.82);
-  transform: rotate(45deg);
-  transition:
-    border-color 260ms ease,
-    transform 320ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .doorHotspot {
@@ -692,12 +641,6 @@
     transform 360ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.entranceLink:nth-child(3)::before {
-  width: clamp(9.6rem, 11.4vw, 10.8rem);
-  background:
-    radial-gradient(ellipse at 50% 50%, rgba(222, 204, 174, 1) 0%, rgba(222, 204, 174, 0.98) 56%, rgba(222, 204, 174, 0.74) 82%, transparent 100%);
-}
-
 .entranceLink:hover {
   color: rgba(38, 27, 17, 0.88);
   transform: translateY(-3px);
@@ -708,25 +651,6 @@
   letter-spacing: 0.12em;
   text-shadow: 0 8px 22px rgba(75, 46, 18, 0.18);
   transform: translateY(-1px);
-}
-
-.entranceLink:hover::before,
-.entranceLink:focus-visible::before {
-  opacity: 0.94;
-  transform: translateX(-50%) scaleX(1.08);
-}
-
-.entranceLink:hover .entranceArrow,
-.entranceLink:focus-visible .entranceArrow {
-  width: clamp(3.5rem, 4.4vw, 4.5rem);
-  background: rgba(132, 82, 30, 0.92);
-  transform: translateX(2px);
-}
-
-.entranceLink:hover .entranceArrow::after,
-.entranceLink:focus-visible .entranceArrow::after {
-  border-color: rgba(132, 82, 30, 0.94);
-  transform: translateX(1px) rotate(45deg);
 }
 
 .entranceLink:hover .doorHotspot,
@@ -1196,10 +1120,6 @@
     padding: 0.9rem 1rem;
   }
 
-  .entranceLink i {
-    margin-block: 0.55rem;
-  }
-
   .entranceLink em {
     max-width: none;
   }
@@ -1360,29 +1280,9 @@
     transform: translateX(-50%);
   }
 
-  .entranceArrow {
-    left: 50%;
-    top: calc(51% + 1.55rem);
-    transform: translateX(-50%);
-  }
-
-  .entranceLink i {
-    margin-block: 0.42rem;
-  }
-
-  .entranceLink::before {
-    left: 50%;
-    top: calc(51% + 1.05rem);
-  }
-
   .entranceLink:hover .entranceText,
   .entranceLink:focus-visible .entranceText {
     transform: translate(-50%, -1px);
-  }
-
-  .entranceLink:hover .entranceArrow,
-  .entranceLink:focus-visible .entranceArrow {
-    transform: translateX(-45%);
   }
 
   .entranceLink:hover {

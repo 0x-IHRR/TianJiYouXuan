@@ -131,7 +131,6 @@ function DoorwaySection() {
             aria-label={`进入${item.title}页`}
           >
             <span className={styles.entranceText}>{item.title}</span>
-            <i className={styles.entranceArrow} aria-hidden="true" />
             <b className={styles.doorHotspot} aria-hidden="true" />
           </Link>
         ))}
