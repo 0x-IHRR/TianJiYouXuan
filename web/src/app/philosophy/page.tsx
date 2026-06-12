@@ -1,84 +1,123 @@
-import { Metadata } from "next";
+import Image from "next/image";
+import type { Metadata } from "next";
 
-import { SubpageShell } from "@/components/subpage-shell";
-import styles from "@/components/subpage-design.module.css";
+import { AnimatedText } from "@/components/animations/AnimatedText";
+import { FadeUp } from "@/components/animations/FadeUp";
+import { TiltCard } from "@/components/animations/TiltCard";
 
 export const metadata: Metadata = {
-  title: "理念与价值",
+  title: "真实与长期",
 };
 
-const principles = [
+const pillars = [
   {
     number: "01",
-    text: "减少试错，比堆更多选择更重要。",
+    label: "Refuse Noise",
+    title: "拒绝快感式消费",
+    body: "我们不把更多选择当作价值。真正稀缺的是可信来源、稳定复访，以及能被时间验证的判断",
+    className: "md:col-span-8 md:min-h-[25rem]",
   },
   {
     number: "02",
-    text: "线下体验，是信任真正成立的地方。",
+    label: "Real Scene",
+    title: "回到真实场景",
+    body: "所有连接都必须落在真实服务、真实空间和真实关系里。离开现场，再漂亮的承诺都只是噪音",
+    className: "md:col-span-4 md:min-h-[32rem] md:translate-y-24",
   },
   {
     number: "03",
-    text: "供应链的价值，最终要翻译成稳定、体面、长期的生活感受。",
+    label: "Long Compounding",
+    title: "让信任复利",
+    body: "会员、供应链、会所空间与活动机制共同形成一个缓慢但稳定的复利系统",
+    className: "md:col-span-12 md:min-h-[22rem]",
   },
 ];
 
-const reservedProofs = ["供应链真实说明", "线下空间素材", "品牌价值短片段", "公开资质与联系方式"];
-
 export default function PhilosophyPage() {
   return (
-    <SubpageShell
-      eyebrow="PHILOSOPHY"
-      title="价值先于说服。"
-      description="我们更关心你为什么愿意留下，而不是如何被说服。理念页先给出价值主张的骨架：稳定来源、线下承接、长期关系，都会比大声宣传更重要。"
-      visualSrc="/media/subpages/philosophy/hero-philosophy-still-life.png"
-      visualAlt="暖色会所书房里的木桌、空白书页、铜尺与陶杯"
-      visualLabel="Philosophy"
-    >
-      <section className={styles.section}>
-        <div className={styles.sectionIntro}>
-          <div>
-            <p className={styles.kicker}>VALUE BEFORE SALES</p>
-            <h2 className={styles.sectionTitle}>让价值先被看见，申请只是之后的动作。</h2>
-          </div>
-          <p className={styles.sectionDescription}>
-            这一页承担的是信任解释，而不是促销说服。它应该帮助潜在会员判断：这套关系是否值得长期靠近。
-          </p>
-        </div>
-        <div className={styles.statementList}>
-          {principles.map((principle) => (
-            <article key={principle.number} className={styles.statement}>
-              <p className={styles.statementNumber}>{principle.number}</p>
-              <p className={styles.statementText}>{principle.text}</p>
-            </article>
-          ))}
+    <main className="overflow-hidden bg-[#0a0a0a]">
+      <section className="relative flex h-[100vh] items-end overflow-hidden px-6 pb-24 md:px-10">
+        <Image
+          src="/media/subpages/philosophy/hero-philosophy-still-life.png"
+          alt="真实与长期的暗光静物"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-66 saturate-[0.72]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/48 to-black/25" />
+
+        <div className="relative z-10 mx-auto w-full max-w-7xl">
+          <FadeUp>
+            <p className="font-display text-xs uppercase tracking-[0.52em] text-[hsl(var(--accent))]">
+              Philosophy
+            </p>
+            <h1 className="text-metal mt-8 max-w-2xl text-balance font-serif text-6xl leading-tight text-white md:text-8xl">
+              真实与长期
+            </h1>
+            <p className="mt-8 max-w-xl text-pretty font-serif text-xl leading-loose tracking-[0.16em] text-white/70 md:text-2xl">
+              对抗喧嚣的
+              <br className="hidden md:block" />
+              唯一解药
+            </p>
+          </FadeUp>
         </div>
       </section>
 
-      <section className={styles.section}>
-        <div className={styles.splitBand}>
-          <div>
-            <p className={styles.kicker}>PROOF RESERVED</p>
-            <h2 className={styles.sectionTitle}>理念最终要回到真实证据。</h2>
-            <p className={styles.sectionDescription}>
-              这里后续不适合放虚构案例或漂亮数字。更适合放真实供应链、线下空间、品牌影片切片和可公开的资质信息。
-            </p>
-          </div>
-          <aside className={styles.placeholderPanel} aria-label="理念页待补充素材">
-            <h3 className={styles.placeholderTitle}>证据素材位</h3>
-            <p className={styles.placeholderText}>
-              当前只确定信息位置，不替品牌编造未经确认的背书。
-            </p>
-            <div className={styles.placeholderList}>
-              {reservedProofs.map((proof) => (
-                <div key={proof} className={styles.placeholderItem}>
-                  <span>{proof}</span>
-                  <span className={styles.pendingTag}>待补充</span>
-                </div>
-              ))}
-            </div>
-          </aside>
-        </div>
+      <section className="flex min-h-[100vh] items-center justify-center bg-[#0a0a0a] px-6 py-28">
+        <AnimatedText
+          text="我们相信，真正的品质不是被即时刺激推着走，而是在一次次选择里减少噪音。少一点炫耀，多一点确认；少一点占有，多一点复访；少一点短暂热闹，多一点长期同行。"
+          className="max-w-4xl text-center font-serif text-3xl leading-loose text-white text-pretty md:text-5xl"
+        />
       </section>
-    </SubpageShell>
+
+      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-14 px-6 py-32 md:grid-cols-12 md:gap-24 md:px-10">
+        {pillars.map((pillar, index) => (
+          <FadeUp key={pillar.label} delay={index * 0.1} className={pillar.className}>
+            <TiltCard
+              className="liquid-glass-strong group relative h-full min-h-[20rem] overflow-hidden rounded-[2rem] p-8 transition-colors duration-700 hover:bg-white/[0.055] md:p-10"
+              innerClassName="flex h-full"
+            >
+              <span className="pointer-events-none absolute -right-2 -top-6 font-display text-7xl leading-none text-white/[0.05] md:text-9xl">
+                {pillar.number}
+              </span>
+              <div className="relative z-10 mt-auto max-w-3xl">
+                <p className="font-display text-xs uppercase tracking-[0.45em] text-[hsl(var(--accent))]">
+                  {pillar.label}
+                </p>
+                <h2 className="text-metal mt-6 max-w-2xl text-balance font-serif text-3xl leading-tight text-white md:text-5xl">
+                  {pillar.title}
+                </h2>
+                <p className="mt-7 max-w-xl text-sm leading-loose text-white/58 text-pretty transition-colors duration-500 group-hover:text-white/78 md:text-base">
+                  {pillar.body}
+                </p>
+              </div>
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(255,255,255,0.13),transparent_30%)] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+            </TiltCard>
+          </FadeUp>
+        ))}
+      </section>
+
+      <section className="relative flex min-h-[80vh] items-center justify-center overflow-hidden px-6 py-32">
+        <Image
+          src="/media/homepage-layers/film-window-balanced.png"
+          alt="长期关系在暗处显影"
+          fill
+          sizes="100vw"
+          className="object-cover opacity-28 blur-[1px] saturate-[0.8]"
+        />
+        <div className="absolute inset-0 bg-[#0a0a0a]/72" />
+        <FadeUp className="relative z-10 max-w-4xl text-center">
+          <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
+            The Long View
+          </p>
+          <h2 className="text-metal mt-8 text-balance font-serif text-4xl leading-tight text-white md:text-6xl">
+            时间会筛掉
+            <br className="hidden md:block" />
+            大多数答案
+          </h2>
+        </FadeUp>
+      </section>
+    </main>
   );
 }

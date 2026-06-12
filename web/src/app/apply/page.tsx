@@ -1,92 +1,118 @@
-import { Metadata } from "next";
-import Link from "next/link";
+import type { Metadata } from "next";
 
-import { SubpageShell } from "@/components/subpage-shell";
-import styles from "@/components/subpage-design.module.css";
+import { FadeUp } from "@/components/animations/FadeUp";
 
 export const metadata: Metadata = {
-  title: "申请会员",
+  title: "申请成为会员",
 };
 
 const steps = [
   {
-    index: "01",
-    title: "先判断是否适合",
-    body: "这里不是把所有人都快速推向注册，而是先确认你是否认同这种更长期、更克制的生活方式关系。",
+    title: "提交意向",
+    subtitle: "留下基础信息与所在城市",
   },
   {
-    index: "02",
-    title: "再进入轻量意向",
-    body: "首版会保留轻量意向的入口位置，字段与隐私说明确认后再接入真实提交。",
+    title: "顾问沟通",
+    subtitle: "确认需求、期望与适配度",
   },
   {
-    index: "03",
-    title: "最后再决定是否继续",
-    body: "商城注册会在后续路径中承接，不会在首页第一秒就把你推到货架和表单前面。",
+    title: "资质确认",
+    subtitle: "理解边界，也确认彼此同频",
+  },
+  {
+    title: "正式入会",
+    subtitle: "进入线下会所与会员服务体系",
   },
 ];
 
-const formAssets = ["意向信息字段", "隐私说明文本", "提交接口", "后续承接方式"];
-
 export default function ApplyPage() {
   return (
-    <SubpageShell
-      eyebrow="APPLY"
-      title="申请，是继续靠近。"
-      description="申请不是一脚踏进去，而是顺理成章地继续往前。真实提交能力会在下一轮接入，不提前伪装成已经可用。"
-      visualSrc="/media/subpages/apply/hero-application-invitation.png"
-      visualAlt="木桌上的空白邀请卡、信封、陶杯与暖色墙面"
-      visualLabel="Application"
-    >
-      <section className={styles.section}>
-        <div className={styles.sectionIntro}>
-          <div>
-            <p className={styles.kicker}>LOW PRESSURE PATH</p>
-            <h2 className={styles.sectionTitle}>轻量意向，不做压迫式转化。</h2>
-          </div>
-          <p className={styles.sectionDescription}>
-            申请页应该承接首页的身份感和信任感。真正的表单字段、隐私说明、提交流程还没确认前，只保留入口结构。
-          </p>
-        </div>
-        <div className={styles.pathGrid}>
-          {steps.map((step) => (
-            <article key={step.title} className={styles.pathItem}>
-              <p className={styles.pathIndex}>{step.index}</p>
-              <h3 className={styles.pathTitle}>{step.title}</h3>
-              <p className={styles.pathText}>{step.body}</p>
-            </article>
-          ))}
+    <main className="bg-[#0a0a0a]">
+      <section className="flex h-[45vh] flex-col justify-end bg-gradient-to-b from-[#111] to-[#0a0a0a] px-6 pb-16 md:px-10">
+        <div className="mx-auto w-full max-w-7xl">
+          <FadeUp>
+            <h1 className="font-serif text-5xl text-white md:text-7xl">
+              申请成为会员
+            </h1>
+          </FadeUp>
+          <FadeUp delay={0.12}>
+            <p className="mt-6 text-lg tracking-wide text-muted-foreground">
+              提交您的意向，我们的顾问将与您联系
+            </p>
+          </FadeUp>
         </div>
       </section>
 
-      <section className={styles.section}>
-        <div className={styles.splitBand}>
-          <div>
-            <p className={styles.kicker}>APPLICATION RESERVED</p>
-            <h2 className={styles.sectionTitle}>真实申请能力下一轮再接入。</h2>
-            <p className={styles.sectionDescription}>
-              这里先不给用户一个“看起来能提交、实际未接通”的假表单。等字段与隐私文本确认后，再换成正式轻量意向表。
+      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 py-20 md:px-10 lg:grid-cols-12">
+        <aside className="lg:col-span-5">
+          <div className="sticky top-32">
+            <p className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--accent))]">
+              Process
             </p>
-            <Link href="/membership" className={styles.quietLink}>
-              先看会员体系
-            </Link>
-          </div>
-          <aside className={styles.placeholderPanel} aria-label="申请页待补充内容">
-            <h3 className={styles.placeholderTitle}>申请模块占位</h3>
-            <p className={styles.placeholderText}>
-              这些是正式上线前必须确认的内容，不使用 mock 表单替代。
-            </p>
-            <div className={styles.placeholderList}>
-              {formAssets.map((asset) => (
-                <div key={asset} className={styles.placeholderItem}>
-                  <span>{asset}</span>
-                  <span className={styles.pendingTag}>待确认</span>
-                </div>
+            <div className="mt-10 space-y-9">
+              {steps.map((step, index) => (
+                <FadeUp key={step.title} delay={index * 0.08}>
+                  <div className="flex">
+                    <span className="font-serif text-3xl text-white/20">
+                      {index + 1}.
+                    </span>
+                    <div>
+                      <h2 className="ml-4 text-lg text-white">{step.title}</h2>
+                      <p className="ml-12 mt-1 block text-sm text-muted-foreground">
+                        {step.subtitle}
+                      </p>
+                    </div>
+                  </div>
+                </FadeUp>
               ))}
             </div>
-          </aside>
-        </div>
+          </div>
+        </aside>
+
+        <FadeUp className="lg:col-span-7" delay={0.14}>
+          <form className="liquid-glass-strong rounded-[2.5rem] p-8 md:p-12">
+            <label className="sr-only" htmlFor="name">
+              Name
+            </label>
+            <input
+              id="name"
+              name="name"
+              autoComplete="name"
+              placeholder="Name"
+              className="mb-10 w-full border-b border-white/10 bg-transparent pb-3 text-lg text-white transition-colors placeholder:text-white/30 focus:border-[hsl(var(--accent))] focus:outline-none"
+            />
+
+            <label className="sr-only" htmlFor="contact">
+              Contact
+            </label>
+            <input
+              id="contact"
+              name="contact"
+              autoComplete="tel"
+              placeholder="Contact (Phone/WeChat)"
+              className="mb-10 w-full border-b border-white/10 bg-transparent pb-3 text-lg text-white transition-colors placeholder:text-white/30 focus:border-[hsl(var(--accent))] focus:outline-none"
+            />
+
+            <label className="sr-only" htmlFor="city">
+              City
+            </label>
+            <input
+              id="city"
+              name="city"
+              autoComplete="address-level2"
+              placeholder="City"
+              className="mb-10 w-full border-b border-white/10 bg-transparent pb-3 text-lg text-white transition-colors placeholder:text-white/30 focus:border-[hsl(var(--accent))] focus:outline-none"
+            />
+
+            <button
+              type="button"
+              className="liquid-glass mt-4 w-full rounded-full py-5 text-white uppercase tracking-widest transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70"
+            >
+              Submit Intention
+            </button>
+          </form>
+        </FadeUp>
       </section>
-    </SubpageShell>
+    </main>
   );
 }

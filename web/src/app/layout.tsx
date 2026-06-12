@@ -1,15 +1,31 @@
 import type { Metadata } from "next";
+import { Cormorant_Garamond, Noto_Serif_SC } from "next/font/google";
+
+import { SiteFooter } from "@/components/layout/SiteFooter";
+import { SiteHeader } from "@/components/layout/SiteHeader";
 import "@fontsource/lxgw-wenkai";
-import "@fontsource/ma-shan-zheng";
-import "@fontsource/zcool-xiaowei";
 import "./globals.css";
+
+const notoSerifSC = Noto_Serif_SC({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-serif-sc",
+  display: "swap",
+});
+
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-display-sc",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
     default: "天机优选",
     template: "%s | 天机优选",
   },
-  description: "一个以会员制组织品质生活、线下关系与长期信任的会所式官网。",
+  description: "以供应链资源为基础的线下生活方式会所",
 };
 
 export default function RootLayout({
@@ -18,9 +34,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN" className="h-full antialiased">
-      <body className="min-h-full flex flex-col bg-background text-foreground">
-        {children}
+    <html
+      lang="zh-CN"
+      className={`${notoSerifSC.variable} ${cormorantGaramond.variable} h-full antialiased`}
+    >
+      <body className="flex min-h-full flex-col bg-background text-foreground">
+        <SiteHeader />
+        <div className="relative z-10 flex-1 bg-[#0a0a0a]">{children}</div>
+        <SiteFooter />
       </body>
     </html>
   );

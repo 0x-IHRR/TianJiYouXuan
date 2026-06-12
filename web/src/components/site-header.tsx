@@ -6,48 +6,67 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 import { Button } from "@/components/ui/button";
 
 const primaryLinkClass =
-  "inline-flex items-center justify-center rounded-full border border-[color:color-mix(in_oklch,var(--border),white_8%)] bg-[color:color-mix(in_oklch,var(--primary),white_12%)] px-4 py-2 text-sm text-primary-foreground transition hover:bg-[color:color-mix(in_oklch,var(--primary),white_5%)]";
+  "inline-flex items-center justify-center rounded-[6px] border border-primary bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:bg-[color:color-mix(in_oklch,var(--primary),black_18%)]";
 
-export function SiteHeader() {
+type SiteHeaderProps = {
+  variant?: "light" | "dark";
+};
+
+export function SiteHeader({ variant = "light" }: SiteHeaderProps) {
+  const isDark = variant === "dark";
+  const headerClass = isDark
+    ? "sticky top-0 z-40 border-b border-white/10 bg-[#0c0c0c]/82 text-[#d7e2ea] backdrop-blur-md"
+    : "sticky top-0 z-40 border-b border-[color:color-mix(in_oklch,var(--border),white_4%)] bg-[rgba(255,253,248,0.94)] backdrop-blur-md";
+  const brandClass = isDark
+    ? "block truncate text-lg font-bold tracking-[0.02em] text-[#f5fbff]"
+    : "block truncate text-lg font-bold tracking-[0.02em] text-foreground";
+  const metaClass = isDark
+    ? "hidden text-[0.66rem] font-semibold tracking-[0.16em] text-[#8f9ca6] sm:block"
+    : "hidden text-[0.66rem] font-semibold tracking-[0.16em] text-muted-foreground sm:block";
+  const navClass = isDark
+    ? "text-sm font-medium text-[#a8b5bf] transition hover:text-[#f5fbff]"
+    : "text-sm font-medium text-muted-foreground transition hover:text-foreground";
+  const mobileButtonClass = isDark
+    ? "rounded-[6px] border border-white/15 bg-white/5 text-[#f5fbff]"
+    : "rounded-[6px] border border-[color:color-mix(in_oklch,var(--border),white_10%)] bg-transparent";
+
   return (
-    <header className="sticky top-0 z-40">
-      <div className="section-wrap pt-4">
-        <div className="soft-panel flex items-center justify-between rounded-full px-4 py-3 sm:px-5">
-          <Link href="/" className="min-w-0">
-            <span className="block truncate font-heading text-lg tracking-[0.06em] text-foreground">
-              {siteConfig.name}
-            </span>
-            <span className="hidden text-[0.68rem] tracking-[0.26em] text-muted-foreground sm:block">
+    <header className={headerClass}>
+      <div className="section-wrap">
+        <div className="flex items-center justify-between gap-5 py-4">
+          <Link href="/" className="min-w-0 shrink-0">
+            <span className={brandClass}>{siteConfig.name}</span>
+            <span className={metaClass}>
               {siteConfig.englishName.toUpperCase()}
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-6 md:flex">
+          <nav className="hidden items-center gap-5 lg:flex">
             {siteConfig.navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm text-muted-foreground transition hover:text-foreground"
+                className={navClass}
               >
                 {item.label}
               </Link>
             ))}
           </nav>
 
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="hidden items-center gap-3 lg:flex">
             <Link href="/apply" className={primaryLinkClass}>
-              申请会员
+              加入会员
             </Link>
           </div>
 
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Sheet>
               <SheetTrigger
                 render={
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="rounded-full border border-white/45 bg-white/40"
+                    className={mobileButtonClass}
                   />
                 }
               >
@@ -56,14 +75,14 @@ export function SiteHeader() {
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="border-l border-white/50 bg-[color:color-mix(in_oklch,var(--background),white_30%)] p-0"
+                className="border-l border-border bg-background p-0"
               >
-                <SheetHeader className="border-b border-white/45 pb-5">
+                <SheetHeader className="border-b border-border pb-5">
                   <SheetTitle className="font-heading text-xl">
                     {siteConfig.name}
                   </SheetTitle>
                   <SheetDescription>
-                    一处克制、可信、以长期关系为前提的成员空间。
+                    资源整合、学习成长、事业发展与品质生活的会员俱乐部
                   </SheetDescription>
                 </SheetHeader>
                 <div className="flex flex-1 flex-col px-4 py-6">
@@ -72,7 +91,7 @@ export function SiteHeader() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="flex items-center justify-between border-b border-white/35 py-3 text-base"
+                        className="flex items-center justify-between border-b border-border py-3 text-base"
                       >
                         <span>{item.label}</span>
                         <ArrowUpRight className="size-4 text-muted-foreground" />
@@ -81,7 +100,7 @@ export function SiteHeader() {
                   </div>
                   <div className="mt-8">
                     <Link href="/apply" className={`${primaryLinkClass} w-full`}>
-                      申请会员
+                      加入会员
                     </Link>
                   </div>
                 </div>
