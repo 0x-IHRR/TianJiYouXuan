@@ -172,6 +172,14 @@
     animation: marquee-right linear infinite;
   }
 
+  body.preloader-active .homepage-hero-video {
+    transform: scale(1.1);
+  }
+
+  body.preloader-revealing .homepage-hero-video {
+    transform: scale(1);
+  }
+
   .text-pretty {
     text-wrap: pretty;
   }

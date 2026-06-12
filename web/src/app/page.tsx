@@ -56,7 +56,7 @@ export default function Home() {
           playsInline
           preload="metadata"
           poster="/media/brand-film-cover.png"
-          className="absolute inset-0 z-0 h-full w-full object-cover"
+          className="homepage-hero-video absolute inset-0 z-0 h-full w-full scale-100 transform-gpu object-cover transition-transform duration-[600ms] ease-[cubic-bezier(0.76,0,0.24,1)]"
         >
           <source src="/media/brand-film-web.mp4" type="video/mp4" />
           <source
