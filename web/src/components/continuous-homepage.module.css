@@ -21,12 +21,11 @@
 .scene {
   position: relative;
   isolation: isolate;
-  width: 100vw;
-  width: 100dvw;
-  min-width: 100vw;
-  min-width: 100dvw;
+  display: flow-root;
+  width: 100%;
+  min-width: 0;
   max-width: none;
-  min-height: clamp(1760px, 182vw, 2680px);
+  min-height: 100svh;
   overflow: hidden;
   background:
     radial-gradient(circle at 12% 8%, rgba(255, 250, 236, 0.86), transparent 27rem),
@@ -216,14 +215,15 @@
 .filmSection,
 .doorwaySection,
 .closingSection {
-  position: absolute;
-  left: 0;
-  right: 0;
+  position: relative;
+  min-height: max(720px, 100svh);
+  overflow: hidden;
 }
 
 .heroSection {
-  top: 0;
-  height: 26%;
+  display: grid;
+  align-items: center;
+  min-height: 100svh;
 }
 
 .heroSection::after {
@@ -234,7 +234,7 @@
   left: 0;
   right: 0;
   bottom: -2.5%;
-  height: 40%;
+  height: clamp(11rem, 26svh, 18rem);
   background:
     radial-gradient(ellipse at 88% 72%, rgba(176, 158, 136, 0.28), transparent 42%),
     linear-gradient(
@@ -254,10 +254,7 @@
 .heroImageLayer {
   position: absolute;
   z-index: 4;
-  top: 2.5%;
-  right: -9%;
-  width: min(74rem, 68vw);
-  aspect-ratio: 1672 / 941;
+  inset: 0 0 0 24%;
   opacity: 0.96;
   filter: saturate(0.9) contrast(1.02);
   mask-image:
@@ -276,11 +273,28 @@
   object-fit: cover;
 }
 
+.heroImageLayer img {
+  object-position: 74% 38%;
+}
+
+.filmWallLayer img {
+  object-position: 50% 50%;
+}
+
+.doorwayImageLayer img {
+  object-position: 50% 50%;
+}
+
+.tableImageLayer img {
+  object-position: 76% 52%;
+}
+
 .heroCopy {
   position: absolute;
   z-index: 12;
   left: clamp(36px, 10.6vw, 154px);
-  top: clamp(186px, 18.4vw, 318px);
+  top: 49%;
+  transform: translateY(-50%);
   width: min(42rem, 48vw);
   font-family: var(--font-serif-sc);
 }
@@ -330,7 +344,7 @@
   position: absolute;
   z-index: 16;
   left: 26%;
-  bottom: -2.5%;
+  bottom: clamp(2rem, 6svh, 4.5rem);
   width: 1.1rem;
   height: 1.1rem;
   border-right: 1px solid rgba(60, 40, 22, 0.62);
@@ -341,8 +355,12 @@
 
 .filmSection {
   z-index: 10;
-  top: 22.8%;
-  height: 30.8%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(15rem, 0.5fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 7rem);
+  padding: clamp(6rem, 10svh, 9rem) clamp(48px, 8vw, 128px);
+  margin-top: clamp(-5.5rem, -8svh, -3rem);
 }
 
 .filmSectionLabel {
@@ -373,12 +391,8 @@
 
 .filmWallLayer {
   position: absolute;
-  left: -3%;
-  right: 0;
-  top: 3.6%;
+  inset: -8% 0 -10%;
   z-index: 4;
-  width: 104%;
-  aspect-ratio: 1672 / 941;
   opacity: 0.96;
   filter: saturate(0.92) contrast(1.03);
   mask-image:
@@ -386,11 +400,12 @@
 }
 
 .filmWindow {
-  position: absolute;
+  position: relative;
   z-index: 12;
-  left: 22.15%;
-  top: 38.9%;
-  width: 36%;
+  grid-column: 1;
+  justify-self: center;
+  width: clamp(29rem, 43vw, 47rem);
+  margin-left: clamp(-7rem, -6vw, -2rem);
   aspect-ratio: 16 / 9;
   height: auto;
   overflow: hidden;
@@ -477,10 +492,10 @@
 }
 
 .sideNotes {
-  position: absolute;
+  position: relative;
   z-index: 13;
-  right: clamp(54px, 8vw, 128px);
-  top: 39.2%;
+  grid-column: 2;
+  justify-self: end;
   width: min(18rem, 21vw);
   display: grid;
   gap: clamp(2.1rem, 3.2vw, 3.6rem);
@@ -535,13 +550,13 @@
 
 .doorwaySection {
   z-index: 11;
-  top: 50.6%;
-  height: 24%;
+  min-height: max(700px, 92svh);
+  margin-top: clamp(-6rem, -9svh, -3.5rem);
 }
 
 .doorwayImageLayer {
   position: absolute;
-  inset: -15% -5% -4% -3%;
+  inset: -4% 0 -6%;
   z-index: 4;
   opacity: 0.96;
   filter: saturate(0.92) contrast(1.02);
@@ -651,8 +666,8 @@
 
 .closingSection {
   z-index: 12;
-  top: 72.6%;
-  height: 23.8%;
+  min-height: max(690px, 92svh);
+  margin-top: clamp(-5rem, -7svh, -2.5rem);
 }
 
 .closingSection::after {
@@ -678,7 +693,7 @@
   position: absolute;
   z-index: 14;
   left: clamp(30px, 8.8vw, 138px);
-  top: 23%;
+  top: 36%;
   width: min(28rem, 34vw);
   font-family: var(--font-serif-sc);
 }
@@ -700,10 +715,10 @@
 .tableImageLayer {
   position: absolute;
   z-index: 9;
-  right: -8%;
-  bottom: -11%;
-  width: min(70rem, 68vw);
-  aspect-ratio: 1672 / 941;
+  right: 0;
+  bottom: 0;
+  width: min(68rem, 62vw);
+  height: 100%;
   opacity: 0.96;
   filter: saturate(0.92) contrast(1.02);
   mask-image:
@@ -952,13 +967,13 @@
   }
 
   .heroImageLayer {
-    right: 0;
-    width: min(52rem, 60vw);
+    inset: 0 0 0 30%;
   }
 
   .heroCopy {
     left: clamp(54px, 8.6vw, 110px);
-    top: clamp(176px, 17.8vw, 228px);
+    top: 50%;
+    transform: translateY(-50%);
     width: min(29rem, 42vw);
   }
 
@@ -967,30 +982,26 @@
   }
 
   .filmWallLayer {
-    left: -1%;
-    width: 102%;
+    inset: -6% 0 -9%;
   }
 
   .filmWindow {
-    left: 22.3%;
-    top: 39.3%;
-    width: 35.4%;
+    width: clamp(27rem, 42vw, 38rem);
+    margin-left: clamp(-4rem, -5vw, -1.5rem);
   }
 
   .sideNotes {
-    right: clamp(36px, 5.5vw, 70px);
     width: min(16.5rem, 22vw);
   }
 
   .tableImageLayer {
-    right: -2%;
     width: min(58rem, 62vw);
   }
 }
 
 @media (max-width: 920px) {
   .scene {
-    min-height: 2280px;
+    min-height: 100svh;
   }
 
   .nav {
@@ -1007,19 +1018,18 @@
   }
 
   .heroSection {
-    height: 31%;
+    min-height: 760px;
   }
 
   .heroImageLayer {
-    top: 15%;
-    right: -42%;
-    width: 116vw;
+    inset: 0 -28% 0 18%;
     opacity: 0.68;
   }
 
   .heroCopy {
     left: 7%;
-    top: 7.6rem;
+    top: 48%;
+    transform: translateY(-50%);
     width: 82%;
   }
 
@@ -1040,8 +1050,10 @@
   }
 
   .filmSection {
-    top: 30%;
-    height: 30%;
+    grid-template-columns: 1fr;
+    min-height: 760px;
+    padding: 7rem 7% 6rem;
+    margin-top: -4rem;
   }
 
   .filmSectionLabel {
@@ -1050,26 +1062,21 @@
   }
 
   .filmWallLayer {
-    left: -8%;
-    right: auto;
-    top: 10%;
-    width: 118%;
+    inset: -2% -24% -6%;
   }
 
   .filmWindow {
-    left: 22.3%;
-    top: 38.8%;
-    width: 35.6%;
+    width: min(72vw, 34rem);
+    margin: 8rem auto 0;
     aspect-ratio: 16 / 9;
     height: auto;
     border-radius: 0.9rem;
   }
 
   .sideNotes {
-    left: 8%;
-    right: 8%;
-    top: 68%;
-    width: auto;
+    width: min(34rem, 86vw);
+    justify-self: start;
+    margin-top: 2rem;
     gap: 1rem;
   }
 
@@ -1085,12 +1092,12 @@
   }
 
   .doorwaySection {
-    top: 61.5%;
-    height: 23%;
+    min-height: 700px;
+    margin-top: -4rem;
   }
 
   .doorwayImageLayer {
-    inset: -6% -49% -4% -40%;
+    inset: -3% -28% -5%;
   }
 
   .entranceNav {
@@ -1111,20 +1118,19 @@
   }
 
   .closingSection {
-    top: 84%;
-    height: 16%;
+    min-height: 660px;
+    margin-top: -3rem;
   }
 
   .closingCopy {
     left: 7%;
-    top: 5%;
+    top: 24%;
     width: 74%;
   }
 
   .tableImageLayer {
-    right: -55%;
-    bottom: -6%;
-    width: 122vw;
+    right: -32%;
+    width: 112vw;
     opacity: 0.7;
   }
 
@@ -1171,9 +1177,7 @@
   }
 
   .heroImageLayer {
-    top: 6rem;
-    right: -36%;
-    width: 112vw;
+    inset: 5rem -34% 0 8%;
     opacity: 0.5;
   }
 
@@ -1193,11 +1197,7 @@
   }
 
   .filmWallLayer {
-    inset: auto;
-    left: 0;
-    top: 0;
-    width: 100%;
-    aspect-ratio: 1672 / 941;
+    inset: 0 -12% -4%;
     transform: none;
     opacity: 0.9;
     mask-image:
@@ -1205,9 +1205,8 @@
   }
 
   .filmWindow {
-    left: 24%;
-    top: calc(100vw * 0.246);
-    width: 34.4%;
+    width: min(76vw, 25rem);
+    margin: 8rem auto 0;
     aspect-ratio: 16 / 9;
     height: auto;
     transform: none;
@@ -1228,12 +1227,8 @@
   }
 
   .doorwayImageLayer {
-    inset: auto;
-    left: 50%;
-    top: 0;
-    width: 100%;
-    aspect-ratio: 1672 / 941;
-    transform: translateX(-50%);
+    inset: 0 -18% -4%;
+    transform: none;
     opacity: 0.92;
     mask-image:
       linear-gradient(180deg, transparent 0%, #000 10%, #000 82%, transparent 100%);
@@ -1295,9 +1290,9 @@
   }
 
   .tableImageLayer {
-    right: -19%;
+    right: -28%;
     bottom: 2.8rem;
-    width: 112vw;
+    width: 118vw;
     opacity: 0.68;
   }
 
