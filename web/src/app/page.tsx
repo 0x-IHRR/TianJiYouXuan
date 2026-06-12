@@ -103,7 +103,7 @@ export default function Home() {
       <section className="flex min-h-[80vh] items-center justify-center bg-[#0a0a0a] px-6 py-32">
         <AnimatedText
           text="选择，是一种秩序；连接，是一种力量；共益，是一种未来"
-          className="max-w-5xl text-center font-serif text-[clamp(2rem,4.5vw,4.5rem)] leading-snug text-white text-pretty"
+          className="max-w-5xl -translate-y-12 text-center font-serif text-[clamp(2rem,4.5vw,4.5rem)] leading-snug text-white text-pretty md:-translate-y-16"
         />
       </section>
 
