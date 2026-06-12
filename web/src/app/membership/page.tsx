@@ -23,7 +23,7 @@ export default function MembershipPage() {
             <h2 className={styles.sectionTitle}>会员价值来自真实场景。</h2>
           </div>
           <p className={styles.sectionDescription}>
-            官网先说明俱乐部的价值结构，不提前承诺价格、等级或未经确认的权益。
+            资源、学习、活动与关系连接共同构成会员体验，帮助会员在真实场景中持续成长。
           </p>
         </div>
         <div className={styles.pathGrid}>
@@ -48,16 +48,15 @@ export default function MembershipPage() {
               查看加入说明
             </Link>
           </div>
-          <aside className={styles.placeholderPanel} aria-label="会员价值关键词">
-            <h3 className={styles.placeholderTitle}>会员关键词</h3>
-            <p className={styles.placeholderText}>
-              这些关键词来自现有内容资产，后续可替换为已确认的正式权益。
+          <aside className={styles.infoPanel} aria-label="会员价值关键词">
+            <h3 className={styles.infoTitle}>会员关键词</h3>
+            <p className={styles.infoText}>
+              围绕高价值人群的长期同行，持续连接资源、认知、事业与财富成长。
             </p>
-            <div className={styles.placeholderList}>
+            <div className={styles.infoList}>
               {siteConfig.hero.pillars.map((item) => (
-                <div key={item} className={styles.placeholderItem}>
+                <div key={item} className={styles.infoItem}>
                   <span>{item}</span>
-                  <span className={styles.pendingTag}>待细化</span>
                 </div>
               ))}
             </div>

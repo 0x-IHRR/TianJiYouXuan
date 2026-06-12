@@ -12,7 +12,7 @@ export function SiteFooter() {
             {siteConfig.description}
           </p>
           <p className="mt-4 text-xs font-semibold tracking-[0.14em] text-muted-foreground uppercase">
-            联系方式、备案信息、社媒链接待补充
+            © 2026 TIANJI SELECTION
           </p>
         </div>
         <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted-foreground">

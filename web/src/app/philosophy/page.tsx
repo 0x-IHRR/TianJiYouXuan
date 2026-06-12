@@ -22,7 +22,7 @@ export default function PhilosophyPage() {
             <h2 className={styles.sectionTitle}>让消费、学习与资源连接成为一套方法。</h2>
           </div>
           <p className={styles.sectionDescription}>
-            这页不做抽象宣言，而是解释天机优选为什么要把品质消费、认知成长和圈层连接放在一起。
+            品质消费、认知成长与圈层连接彼此支撑，共同构成天机优选的长期价值。
           </p>
         </div>
         <div className={styles.statementList}>

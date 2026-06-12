@@ -93,7 +93,7 @@ function ValueSection() {
       <SectionHeader
         eyebrow="MEMBER VALUE"
         title="会员价值不止于消费。"
-        description="官网需要让用户快速理解：天机优选把消费、学习、资源、人群和机会组织到同一个会员系统中。"
+        description="从品质生活到认知成长，天机优选为会员提供更高效的选择与连接。"
       />
       <div className={styles.valueGrid}>
         {siteConfig.home.values.map((value, index) => {
@@ -119,7 +119,7 @@ function ActivitiesSection() {
       <SectionHeader
         eyebrow="ACTIVITIES & RESOURCES"
         title="用真实活动承接资源与关系。"
-        description="活动不是装饰，而是会员俱乐部发生连接的核心场景。正式活动日期、人数和报名方式确认前，官网只展示活动类型。"
+        description="主题分享、资源对接、学习沙龙与生活品鉴，让交流从线上认识走向真实场景。"
       />
       <div className={styles.activityGrid}>
         {siteConfig.home.activities.map((activity, index) => {
@@ -154,9 +154,9 @@ function SpacesSection() {
       </Reveal>
       <Reveal className={styles.spaceCopy} delay={0.08}>
         <p className={styles.eyebrow}>CLUB SCENES</p>
-        <h2 id="spaces-title">官网要呈现可进入的会员场景。</h2>
+        <h2 id="spaces-title">会员场景连接生活、学习与事业。</h2>
         <p>
-          从现有资产看，天机优选需要传达的是一个可承接商务交流、学习分享、生活品鉴和项目对接的会员空间，而不是单张海报里的视觉氛围。
+          围绕商务交流、学习分享、生活品鉴和项目对接，天机优选让每一次相遇都有更清晰的价值方向。
         </p>
         <div className={styles.tagList}>
           {siteConfig.home.spaces.map((space) => (
@@ -215,9 +215,9 @@ function JoinSection() {
     <section className={styles.joinSection} aria-labelledby="join-title">
       <Reveal className={styles.joinPanel}>
         <p className={styles.eyebrow}>JOIN TIANJI SELECTION</p>
-        <h2 id="join-title">加入前，先了解这是不是你的圈层。</h2>
+        <h2 id="join-title">加入天机优选，开启高价值同行。</h2>
         <p>
-          当前官网不接真实提交。正式申请入口、隐私文本和人工承接方式确认后，再开放加入流程。
+          欢迎先了解会员俱乐部与品牌影片，加入通道开放后将提供更完整的会员沟通方式。
         </p>
         <Link href="/apply" className={styles.primaryAction}>
           查看加入说明

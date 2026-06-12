@@ -38,8 +38,7 @@
 }
 
 .eyebrow,
-.kicker,
-.pendingTag {
+.kicker {
   margin: 0;
   color: var(--page-gold-dark);
   font-size: 0.72rem;
@@ -50,7 +49,7 @@
 
 .title,
 .sectionTitle,
-.placeholderTitle {
+.infoTitle {
   margin: 0;
   color: var(--page-ink);
   font-family: var(--font-sans-sc);
@@ -107,7 +106,7 @@
 
 .sectionDescription,
 .pathText,
-.placeholderText {
+.infoText {
   color: var(--page-muted);
   font-size: 0.98rem;
   line-height: 1.8;
@@ -173,29 +172,29 @@
   text-wrap: pretty;
 }
 
-.placeholderPanel {
+.infoPanel {
   border: 1px solid var(--page-line);
   border-radius: 8px;
   background: #fff;
   padding: clamp(1.2rem, 2.4vw, 1.7rem);
 }
 
-.placeholderTitle {
+.infoTitle {
   font-size: clamp(1.2rem, 1.8vw, 1.55rem);
 }
 
-.placeholderText {
+.infoText {
   margin: 0.8rem 0 0;
 }
 
-.placeholderList {
+.infoList {
   display: grid;
   gap: 0;
   margin-top: 1.4rem;
   border-top: 1px solid var(--page-line);
 }
 
-.placeholderItem {
+.infoItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -256,6 +255,21 @@
   transform: translateY(-1px);
 }
 
+.secondaryLink {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 1.1rem;
+  color: var(--page-gold-dark);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.secondaryLink:hover,
+.secondaryLink:focus-visible {
+  color: var(--page-ink);
+}
+
 @media (max-width: 980px) {
   .sectionIntro,
   .splitBand,
@@ -282,7 +296,7 @@
     font-size: clamp(2.2rem, 11vw, 3.25rem);
   }
 
-  .placeholderItem {
+  .infoItem {
     align-items: flex-start;
     flex-direction: column;
   }
