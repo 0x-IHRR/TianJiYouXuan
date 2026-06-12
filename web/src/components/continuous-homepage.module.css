@@ -559,7 +559,7 @@
 .entranceLink {
   position: absolute;
   width: clamp(5.3rem, 6.8vw, 7.6rem);
-  height: clamp(17.8rem, 19.6vw, 24rem);
+  height: clamp(22.5rem, 25.4vw, 30rem);
   display: block;
   padding: 0;
   border: 0;
@@ -574,17 +574,17 @@
 
 .entranceLink:nth-child(1) {
   left: 25.4%;
-  top: 18.2%;
+  top: 21.4%;
 }
 
 .entranceLink:nth-child(2) {
   left: 51.6%;
-  top: 18.4%;
+  top: 21.6%;
 }
 
 .entranceLink:nth-child(3) {
   left: 80.6%;
-  top: 18.5%;
+  top: 21.7%;
 }
 
 .entranceText {
