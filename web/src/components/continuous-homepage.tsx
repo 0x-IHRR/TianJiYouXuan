@@ -41,7 +41,6 @@ function SiteNav() {
     <header className={styles.nav} aria-label="主导航">
       <Link href="/" className={styles.brand}>
         <span>{siteConfig.name}</span>
-        <small>会员俱乐部</small>
       </Link>
 
       <nav className={styles.navLinks}>
