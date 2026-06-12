@@ -40,7 +40,7 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <SiteHeader />
-        <div className="flex-1">{children}</div>
+        <div className="relative z-10 flex-1 bg-[#0a0a0a]">{children}</div>
         <SiteFooter />
       </body>
     </html>
