@@ -144,6 +144,34 @@
       0 8px 32px rgba(0, 0, 0, 0.4);
   }
 
+  @keyframes marquee-left {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  @keyframes marquee-right {
+    from {
+      transform: translate3d(-50%, 0, 0);
+    }
+
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .marquee-track[data-direction="left"] {
+    animation: marquee-left linear infinite;
+  }
+
+  .marquee-track[data-direction="right"] {
+    animation: marquee-right linear infinite;
+  }
+
   .text-pretty {
     text-wrap: pretty;
   }

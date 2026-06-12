@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { AnimatedText } from "@/components/animations/AnimatedText";
 import { FlyThroughGallery } from "@/components/animations/FlyThroughGallery";
+import { InfiniteMarquee } from "@/components/animations/InfiniteMarquee";
 import { ScrollIndicator } from "@/components/animations/ScrollIndicator";
 
 const entrances = [
@@ -110,6 +111,13 @@ export default function Home() {
       </section>
 
       <FlyThroughGallery />
+
+      <section className="bg-[#0a0a0a] px-0 py-28 md:py-32">
+        <p className="mb-12 text-center font-serif text-sm uppercase tracking-[0.3em] text-white/50">
+          同频的印记
+        </p>
+        <InfiniteMarquee />
+      </section>
 
       <section className="flex min-h-[50vh] flex-col items-center justify-center border-t border-white/5 bg-[#0a0a0a] px-6 py-32">
         <h2 className="mb-12 flex items-center justify-center gap-8 text-center font-serif text-3xl tracking-[0.4em] text-white md:text-5xl">
