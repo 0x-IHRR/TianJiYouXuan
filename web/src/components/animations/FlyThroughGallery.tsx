@@ -6,7 +6,6 @@ import {
   MotionValue,
   useReducedMotion,
   useScroll,
-  useSpring,
   useTransform,
 } from "motion/react";
 import { useRef } from "react";
@@ -153,8 +152,7 @@ function phaseToDepth(phase: number, item: (typeof galleryItems)[number], index:
       x: path.fromX + (path.focusX - path.fromX) * t,
       y: path.fromY + (path.focusY - path.fromY) * t,
       scale: 0.68 + t * 0.3,
-      blur: 2 - t * 2,
-      opacity: Math.min(1, t * 2),
+      opacity: Math.max(0.12, Math.min(1, t * 2)),
       rotate: item.rotate + (item.rotate * 0.14 - item.rotate) * t,
     };
   }
@@ -167,7 +165,6 @@ function phaseToDepth(phase: number, item: (typeof galleryItems)[number], index:
       x: path.focusX + (path.focusX * 0.62 - path.focusX) * t,
       y: path.focusY + (path.focusY * 0.58 - path.focusY) * t,
       scale: 0.98 + t * 0.08,
-      blur: 0,
       opacity: 1,
       rotate: item.rotate * 0.14 + (item.rotate * 0.05 - item.rotate * 0.14) * t,
     };
@@ -181,7 +178,6 @@ function phaseToDepth(phase: number, item: (typeof galleryItems)[number], index:
       x: path.focusX * 0.62 + (path.outX - path.focusX * 0.62) * t,
       y: path.focusY * 0.58 + (path.outY - path.focusY * 0.58) * t,
       scale: 1.06 + t * 0.5,
-      blur: t * 2,
       opacity: 1 - t,
       rotate: item.rotate * 0.05 + (item.rotate * -0.14 - item.rotate * 0.05) * t,
     };
@@ -192,7 +188,6 @@ function phaseToDepth(phase: number, item: (typeof galleryItems)[number], index:
     x: path.fromX,
     y: path.fromY,
     scale: 0.68,
-    blur: 2,
     opacity: 0,
     rotate: item.rotate,
   };
@@ -204,16 +199,12 @@ export function FlyThroughGallery() {
     target: sectionRef,
     offset: ["start end", "end start"],
   });
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
 
   return (
     <section
       ref={sectionRef}
       className="relative h-[600vh] w-full bg-[#0a0a0a]"
+      style={{ contentVisibility: "auto" }}
       aria-label="天机优选影像廊"
     >
       <div className="sticky top-0 flex h-[100vh] items-center justify-center overflow-hidden">
@@ -232,7 +223,7 @@ export function FlyThroughGallery() {
               key={item.title}
               item={item}
               index={index}
-              progress={smoothProgress}
+              progress={scrollYProgress}
             />
           ))}
         </div>
@@ -260,12 +251,6 @@ function FlyThroughCard({
 
     return `translate(-50%, -50%) translate3d(${depth.x}px, ${depth.y}px, ${depth.z}px) rotateZ(${depth.rotate}deg) scale(${depth.scale})`;
   });
-  const filter = useTransform(progress, (value) => {
-    const phase = wrapUnit(value * galleryLoops + itemOffset);
-    const depth = phaseToDepth(phase, item, index);
-
-    return `blur(${depth.blur}px)`;
-  });
   const opacity = useTransform(progress, (value) => {
     const phase = wrapUnit(value * galleryLoops + itemOffset);
     const depth = phaseToDepth(phase, item, index);
@@ -275,15 +260,14 @@ function FlyThroughCard({
 
   return (
     <motion.article
-      className="liquid-glass-strong group absolute left-1/2 top-1/2 aspect-[16/9] w-[min(84vw,42rem)] min-w-[40vw] max-w-2xl transform-gpu overflow-hidden rounded-[2rem] bg-black p-3 will-change-[filter] will-change-transform"
+      className="liquid-glass-strong group absolute left-1/2 top-1/2 aspect-[16/9] w-[min(84vw,42rem)] min-w-[40vw] max-w-2xl transform-gpu overflow-hidden rounded-[2rem] bg-black p-3 will-change-transform"
       style={{
         transform: reduceMotion
           ? `translate(-50%, -50%) translate3d(${cosmicPaths[index % cosmicPaths.length].focusX * 0.5}px, ${cosmicPaths[index % cosmicPaths.length].focusY * 0.5}px, 0px)`
           : transform,
-        filter: reduceMotion ? "none" : filter,
         opacity: reduceMotion ? 1 : opacity,
         transformStyle: "preserve-3d",
-        willChange: "transform, filter, opacity",
+        willChange: "transform",
       }}
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect();
@@ -303,10 +287,10 @@ function FlyThroughCard({
           alt={item.subtitle}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          priority={index < 3}
-          loading={index < 3 ? undefined : "lazy"}
-          className="transform-gpu object-cover opacity-90 saturate-[0.88] transition-[opacity,transform,filter] duration-700 will-change-transform group-hover:scale-105 group-hover:opacity-100 group-hover:saturate-100"
-          style={{ willChange: "transform, opacity, filter" }}
+          priority={index === 0}
+          loading={index === 0 ? undefined : "lazy"}
+          className="transform-gpu object-cover opacity-90 saturate-[0.88] transition-[opacity,transform] duration-700 will-change-transform group-hover:scale-105 group-hover:opacity-100 group-hover:saturate-100"
+          style={{ willChange: "transform" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/68 via-black/6 to-white/5" />
         <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 [background:radial-gradient(circle_at_var(--mx,50%)_var(--my,20%),rgba(255,255,255,0.28),transparent_30%)]" />
