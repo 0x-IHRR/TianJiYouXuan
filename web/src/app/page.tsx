@@ -1,5 +1,7 @@
+import Image from "next/image";
+import Link from "next/link";
+
 import { AnimatedText } from "@/components/animations/AnimatedText";
-import { EntranceHoverReveal } from "@/components/animations/EntranceHoverReveal";
 import { FlyThroughGallery } from "@/components/animations/FlyThroughGallery";
 import { ScrollIndicator } from "@/components/animations/ScrollIndicator";
 
@@ -7,6 +9,7 @@ const entrances = [
   {
     number: "01",
     title: "秩序与边界",
+    description: "用清晰的会员边界，筛选稳定关系与可信资源。",
     href: "/membership",
     image: "/media/subpages/membership/hero-membership-salon.png",
     alt: "天机优选会员体系空间",
@@ -14,6 +17,7 @@ const entrances = [
   {
     number: "02",
     title: "真实与长期",
+    description: "把供应链、品鉴与线下连接放回真实生活现场。",
     href: "/philosophy",
     image: "/media/subpages/philosophy/hero-philosophy-still-life.png",
     alt: "天机优选理念静物",
@@ -21,6 +25,7 @@ const entrances = [
   {
     number: "03",
     title: "门槛与同频",
+    description: "申请不是即时交易，而是彼此确认节奏与价值观。",
     href: "/apply",
     image: "/media/subpages/apply/hero-application-invitation.png",
     alt: "天机优选申请邀请",
@@ -68,8 +73,40 @@ export default function Home() {
         />
       </section>
 
-      <section className="relative z-20 bg-[#0a0a0a] px-6 py-32 md:px-10 md:py-40">
-        <EntranceHoverReveal items={entrances} />
+      <section className="relative z-20 bg-[#0a0a0a] py-32 md:py-40">
+        <div className="mx-auto flex h-[60vh] max-w-7xl flex-col gap-4 px-6 md:flex-row">
+          {entrances.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="liquid-glass-strong group relative flex flex-1 overflow-hidden rounded-[2rem] bg-black transition-all duration-700 ease-out hover:flex-[3] focus-visible:flex-[3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70"
+            >
+              <Image
+                src={item.image}
+                alt={item.alt}
+                fill
+                sizes="(max-width: 768px) 100vw, 45vw"
+                className="object-cover opacity-55 saturate-[0.78] transition duration-700 ease-out group-hover:scale-105 group-hover:opacity-[0.86] group-hover:saturate-100 group-focus-visible:scale-105 group-focus-visible:opacity-[0.86]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/28 to-white/5 transition duration-700 group-hover:from-black/80 group-hover:via-black/12 group-focus-visible:from-black/80 group-focus-visible:via-black/12" />
+              <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100 group-focus-visible:opacity-100 [background:radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.2),transparent_34%)]" />
+
+              <div className="relative z-10 flex h-full w-full flex-col justify-end p-6 md:p-8">
+                <div className="flex items-baseline gap-4 md:gap-5">
+                  <span className="font-display text-sm tracking-[0.34em] text-[hsl(var(--accent))]/80 md:text-base">
+                    {item.number}
+                  </span>
+                  <h2 className="text-metal font-serif text-3xl leading-none text-white md:text-[clamp(2rem,3.2vw,4rem)]">
+                    {item.title}
+                  </h2>
+                </div>
+                <p className="mt-5 max-w-md translate-y-4 text-sm leading-relaxed text-white/72 opacity-0 transition-all duration-700 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 md:text-base">
+                  {item.description}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="flex min-h-[80vh] items-center justify-center bg-[#0a0a0a] px-6 py-32">

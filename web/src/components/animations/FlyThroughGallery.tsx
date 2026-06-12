@@ -1,7 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { motion, MotionValue, useReducedMotion, useScroll, useSpring, useTransform } from "motion/react";
+import {
+  motion,
+  MotionValue,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "motion/react";
 import { useRef } from "react";
 
 const galleryItems = [
@@ -122,40 +129,54 @@ function wrapUnit(value: number) {
 }
 
 function phaseToDepth(phase: number, item: (typeof galleryItems)[number]) {
-  if (phase < 0.42) {
-    const t = phase / 0.42;
+  if (phase < 0.32) {
+    const t = phase / 0.32;
 
     return {
-      z: -1700 + t * 1700,
-      x: item.x + (item.x * 0.24 - item.x) * t,
-      y: item.y + (item.y * 0.2 - item.y) * t,
-      scale: 0.5 + t * 0.5,
-      blur: 22 - t * 22,
-      opacity: Math.min(1, t * 1.7),
-      rotate: item.rotate + (item.rotate * 0.35 - item.rotate) * t,
+      z: -1200 + t * 1120,
+      x: item.x + (item.x * 0.18 - item.x) * t,
+      y: item.y + (item.y * 0.16 - item.y) * t,
+      scale: 0.82 + t * 0.14,
+      blur: 4 - t * 3.5,
+      opacity: Math.min(1, t * 2),
+      rotate: item.rotate + (item.rotate * 0.18 - item.rotate) * t,
     };
   }
 
-  if (phase < 0.58) {
-    const t = (phase - 0.42) / 0.16;
+  if (phase < 0.56) {
+    const t = (phase - 0.32) / 0.24;
 
     return {
-      z: t * 920,
-      x: item.x * 0.24 + (item.x * -0.2 - item.x * 0.24) * t,
-      y: item.y * 0.2 + (item.y * -0.18 - item.y * 0.2) * t,
-      scale: 1 + t,
-      blur: t * 34,
+      z: -80 + t * 160,
+      x: item.x * 0.18 + (item.x * 0.1 - item.x * 0.18) * t,
+      y: item.y * 0.16 + (item.y * 0.08 - item.y * 0.16) * t,
+      scale: 0.96 + t * 0.08,
+      blur: 0,
+      opacity: 1,
+      rotate: item.rotate * 0.18 + (item.rotate * 0.08 - item.rotate * 0.18) * t,
+    };
+  }
+
+  if (phase < 0.7) {
+    const t = (phase - 0.56) / 0.14;
+
+    return {
+      z: 80 + t * 700,
+      x: item.x * 0.1 + (item.x * -0.12 - item.x * 0.1) * t,
+      y: item.y * 0.08 + (item.y * -0.1 - item.y * 0.08) * t,
+      scale: 1.04 + t * 0.42,
+      blur: t * 4,
       opacity: 1 - t,
-      rotate: item.rotate * 0.35 + (item.rotate * -0.4 - item.rotate * 0.35) * t,
+      rotate: item.rotate * 0.08 + (item.rotate * -0.16 - item.rotate * 0.08) * t,
     };
   }
 
   return {
-    z: -1700,
+    z: -1200,
     x: item.x,
     y: item.y,
-    scale: 0.5,
-    blur: 22,
+    scale: 0.82,
+    blur: 4,
     opacity: 0,
     rotate: item.rotate,
   };
@@ -174,14 +195,18 @@ export function FlyThroughGallery() {
   });
 
   return (
-    <section ref={sectionRef} className="relative h-[520vh] w-full bg-[#0a0a0a]" aria-label="天机优选影像廊">
+    <section
+      ref={sectionRef}
+      className="relative h-[520vh] w-full bg-[#0a0a0a]"
+      aria-label="天机优选影像廊"
+    >
       <div className="sticky top-0 flex h-[100vh] items-center justify-center overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.12),transparent_28%,rgba(0,0,0,0.62)_76%)]" />
-        <div className="absolute left-1/2 top-48 z-20 w-[min(42rem,calc(100vw-3rem))] -translate-x-1/2 text-center md:top-56">
-          <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]/80">
+        <div className="pointer-events-none absolute left-6 top-20 z-50 max-w-sm md:left-10">
+          <p className="font-display text-[0.65rem] uppercase tracking-[0.5em] text-[hsl(var(--accent))]/80">
             Tianji Depth
           </p>
-          <h2 className="text-metal mt-5 font-serif text-[clamp(2.25rem,5vw,5.4rem)] leading-none text-white">
+          <h2 className="text-metal mt-3 font-serif text-3xl leading-tight text-white/80 md:text-4xl">
             看见选择背后的空间
           </h2>
         </div>
@@ -241,9 +266,8 @@ function FlyThroughCard({
 
   return (
     <motion.article
-      className="liquid-glass-strong group absolute left-1/2 top-1/2 aspect-[4/5] overflow-hidden rounded-[2rem] bg-black p-3"
+      className="liquid-glass-strong group absolute left-1/2 top-1/2 aspect-[16/9] w-[min(84vw,42rem)] min-w-[40vw] max-w-2xl overflow-hidden rounded-[2rem] bg-black p-3"
       style={{
-        width: item.width,
         transform: reduceMotion
           ? `translate(-50%, -50%) translate3d(${item.x * 0.2}vw, ${item.y * 0.2}vh, 0px)`
           : transform,
@@ -269,10 +293,10 @@ function FlyThroughCard({
           alt={item.subtitle}
           fill
           loading="eager"
-          sizes="(max-width: 768px) 72vw, 32vw"
-          className="object-cover opacity-82 saturate-[0.78] transition duration-700 group-hover:scale-105 group-hover:opacity-100 group-hover:saturate-100"
+          sizes="(max-width: 768px) 84vw, 42rem"
+          className="object-cover opacity-90 saturate-[0.88] transition duration-700 group-hover:scale-105 group-hover:opacity-100 group-hover:saturate-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-white/5" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/68 via-black/6 to-white/5" />
         <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 [background:radial-gradient(circle_at_var(--mx,50%)_var(--my,20%),rgba(255,255,255,0.28),transparent_30%)]" />
         <div className="absolute inset-x-0 bottom-0 p-5">
           <p className="font-display text-[0.7rem] uppercase tracking-[0.34em] text-[hsl(var(--accent))]">
