@@ -668,6 +668,10 @@
   z-index: 12;
   min-height: max(690px, 92svh);
   margin-top: clamp(-5rem, -7svh, -2.5rem);
+  background:
+    radial-gradient(ellipse at 72% 28%, rgba(236, 223, 200, 0.44), transparent 38%),
+    radial-gradient(ellipse at 24% 50%, rgba(255, 245, 224, 0.26), transparent 42%),
+    linear-gradient(180deg, #d4bea2 0%, #c2aa8f 54%, #b49b83 100%);
 }
 
 .closingSection::after {
