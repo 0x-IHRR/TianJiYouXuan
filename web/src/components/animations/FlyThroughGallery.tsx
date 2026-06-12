@@ -216,11 +216,7 @@ export function FlyThroughGallery() {
       className="relative h-[600vh] w-full bg-[#0a0a0a]"
       aria-label="天机优选影像廊"
     >
-      <h2 className="pointer-events-none sticky top-12 left-1/2 z-50 w-max -translate-x-1/2 font-serif text-2xl tracking-widest text-white/90 md:text-3xl">
-        看见选择背后的空间
-      </h2>
-
-      <div className="sticky top-0 -mt-12 flex h-[100vh] items-center justify-center overflow-hidden">
+      <div className="sticky top-0 flex h-[100vh] items-center justify-center overflow-hidden">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.12),transparent_28%,rgba(0,0,0,0.62)_76%)]" />
 
         <div

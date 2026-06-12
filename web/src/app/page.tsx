@@ -54,29 +54,14 @@ export default function Home() {
 
         <div className="pointer-events-none absolute bottom-0 z-10 h-1/3 w-full bg-gradient-to-t from-[#0A0A0A] to-transparent" />
 
-        <div className="absolute top-1/2 left-6 z-20 -translate-y-1/2 md:left-12">
-          <h1 className="[writing-mode:vertical-lr] font-serif text-3xl md:text-5xl text-white/10 hover:text-white/40 transition-colors duration-1000 tracking-[0.3em]">
-            在可信的选择中
-          </h1>
-        </div>
-
-        <div className="absolute top-1/2 right-6 z-20 -translate-y-1/2 md:right-12">
-          <p className="[writing-mode:vertical-lr] font-serif text-3xl md:text-5xl text-white/10 hover:text-white/40 transition-colors duration-1000 tracking-[0.3em]">
-            重塑生活秩序
-          </p>
-        </div>
-
         <ScrollIndicator />
       </section>
 
-      <section className="min-h-[40vh] flex items-center justify-center bg-[#0a0a0a] px-6">
-        <div className="max-w-4xl text-center">
-          <p className="font-serif text-2xl md:text-4xl text-white/80 leading-loose tracking-[0.2em] text-pretty">
-            真正的奢侈，
-            <br className="md:hidden" />
-            并非占有更多，而是省去筛选的疲惫
-          </p>
-        </div>
+      <section className="flex min-h-[60vh] items-center justify-center bg-[#0a0a0a] px-6 py-20">
+        <AnimatedText
+          text="在可信的选择中，重塑生活秩序。真正的奢侈，并非占有更多，而是省去筛选的疲惫"
+          className="max-w-5xl text-center font-serif text-[clamp(1.8rem,3.5vw,4rem)] leading-snug text-white text-pretty tracking-widest"
+        />
       </section>
 
       <section className="relative z-20 bg-[#0a0a0a] py-32 md:py-40">
