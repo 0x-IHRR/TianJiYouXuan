@@ -692,7 +692,7 @@
   position: absolute;
   z-index: 14;
   left: clamp(30px, 8.8vw, 138px);
-  top: 17%;
+  top: 23%;
   width: min(28rem, 34vw);
   font-family: var(--font-serif-sc);
 }
