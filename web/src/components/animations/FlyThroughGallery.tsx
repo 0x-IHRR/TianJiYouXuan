@@ -153,7 +153,7 @@ function phaseToDepth(phase: number, item: (typeof galleryItems)[number], index:
       x: path.fromX + (path.focusX - path.fromX) * t,
       y: path.fromY + (path.focusY - path.fromY) * t,
       scale: 0.68 + t * 0.3,
-      blur: 4 - t * 3.5,
+      blur: 2 - t * 2,
       opacity: Math.min(1, t * 2),
       rotate: item.rotate + (item.rotate * 0.14 - item.rotate) * t,
     };
@@ -181,7 +181,7 @@ function phaseToDepth(phase: number, item: (typeof galleryItems)[number], index:
       x: path.focusX * 0.62 + (path.outX - path.focusX * 0.62) * t,
       y: path.focusY * 0.58 + (path.outY - path.focusY * 0.58) * t,
       scale: 1.06 + t * 0.5,
-      blur: t * 4,
+      blur: t * 2,
       opacity: 1 - t,
       rotate: item.rotate * 0.05 + (item.rotate * -0.14 - item.rotate * 0.05) * t,
     };
@@ -192,7 +192,7 @@ function phaseToDepth(phase: number, item: (typeof galleryItems)[number], index:
     x: path.fromX,
     y: path.fromY,
     scale: 0.68,
-    blur: 4,
+    blur: 2,
     opacity: 0,
     rotate: item.rotate,
   };
@@ -220,10 +220,11 @@ export function FlyThroughGallery() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.12),transparent_28%,rgba(0,0,0,0.62)_76%)]" />
 
         <div
-          className="relative h-full w-full"
+          className="relative h-full w-full transform-gpu will-change-transform"
           style={{
             perspective: "1200px",
             transformStyle: "preserve-3d",
+            willChange: "transform",
           }}
         >
           {galleryItems.map((item, index) => (
@@ -274,7 +275,7 @@ function FlyThroughCard({
 
   return (
     <motion.article
-      className="liquid-glass-strong group absolute left-1/2 top-1/2 aspect-[16/9] w-[min(84vw,42rem)] min-w-[40vw] max-w-2xl overflow-hidden rounded-[2rem] bg-black p-3"
+      className="liquid-glass-strong group absolute left-1/2 top-1/2 aspect-[16/9] w-[min(84vw,42rem)] min-w-[40vw] max-w-2xl transform-gpu overflow-hidden rounded-[2rem] bg-black p-3 will-change-[filter] will-change-transform"
       style={{
         transform: reduceMotion
           ? `translate(-50%, -50%) translate3d(${cosmicPaths[index % cosmicPaths.length].focusX * 0.5}px, ${cosmicPaths[index % cosmicPaths.length].focusY * 0.5}px, 0px)`
@@ -282,6 +283,7 @@ function FlyThroughCard({
         filter: reduceMotion ? "none" : filter,
         opacity: reduceMotion ? 1 : opacity,
         transformStyle: "preserve-3d",
+        willChange: "transform, filter, opacity",
       }}
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect();
@@ -295,14 +297,16 @@ function FlyThroughCard({
         event.currentTarget.style.setProperty("--my", "20%");
       }}
     >
-      <div className="relative h-full overflow-hidden rounded-[1.55rem]">
+      <div className="relative h-full transform-gpu overflow-hidden rounded-[1.55rem] will-change-transform">
         <Image
           src={item.src}
           alt={item.subtitle}
           fill
-          loading="eager"
-          sizes="(max-width: 768px) 84vw, 42rem"
-          className="object-cover opacity-90 saturate-[0.88] transition duration-700 group-hover:scale-105 group-hover:opacity-100 group-hover:saturate-100"
+          sizes="(max-width: 768px) 100vw, 50vw"
+          priority={index < 3}
+          loading={index < 3 ? undefined : "lazy"}
+          className="transform-gpu object-cover opacity-90 saturate-[0.88] transition-[opacity,transform,filter] duration-700 will-change-transform group-hover:scale-105 group-hover:opacity-100 group-hover:saturate-100"
+          style={{ willChange: "transform, opacity, filter" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/68 via-black/6 to-white/5" />
         <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 [background:radial-gradient(circle_at_var(--mx,50%)_var(--my,20%),rgba(255,255,255,0.28),transparent_30%)]" />

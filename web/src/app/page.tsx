@@ -70,14 +70,16 @@ export default function Home() {
             <Link
               key={item.href}
               href={item.href}
-              className="liquid-glass-strong group relative flex flex-1 overflow-hidden rounded-[2rem] bg-black transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] hover:flex-[3] focus-visible:flex-[3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70"
+              className="liquid-glass-strong group relative flex flex-1 transform-gpu overflow-hidden rounded-[2rem] bg-black transition-[flex-grow,opacity,transform] duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] will-change-transform hover:flex-[3] focus-visible:flex-[3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70"
+              style={{ willChange: "flex-grow, transform, opacity" }}
             >
               <Image
                 src={item.image}
                 alt={item.alt}
                 fill
-                sizes="(max-width: 768px) 100vw, 45vw"
-                className="object-cover opacity-55 saturate-[0.78] transition duration-700 ease-out group-hover:scale-105 group-hover:opacity-[0.86] group-hover:saturate-100 group-focus-visible:scale-105 group-focus-visible:opacity-[0.86]"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="transform-gpu object-cover opacity-55 saturate-[0.78] transition-[opacity,transform,filter] duration-700 ease-out will-change-transform group-hover:scale-105 group-hover:opacity-[0.86] group-hover:saturate-100 group-focus-visible:scale-105 group-focus-visible:opacity-[0.86]"
+                style={{ willChange: "transform, opacity, filter" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/28 to-white/5 transition duration-700 group-hover:from-black/80 group-hover:via-black/12 group-focus-visible:from-black/80 group-focus-visible:via-black/12" />
               <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100 group-focus-visible:opacity-100 [background:radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.2),transparent_34%)]" />
@@ -91,7 +93,7 @@ export default function Home() {
                     {item.title}
                   </h2>
                 </div>
-                <p className="mt-5 max-w-md translate-y-4 text-sm leading-relaxed text-white/72 opacity-0 transition-all duration-700 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 md:text-base">
+                <p className="mt-5 max-w-md translate-y-4 text-sm leading-relaxed text-white/72 opacity-0 transition-[opacity,transform] duration-700 ease-out will-change-transform group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 md:text-base">
                   {item.description}
                 </p>
               </div>
