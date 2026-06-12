@@ -6,13 +6,13 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 import { Button } from "@/components/ui/button";
 
 const primaryLinkClass =
-  "inline-flex items-center justify-center rounded-full border border-[color:color-mix(in_oklch,var(--primary),white_36%)] bg-[color:color-mix(in_oklch,var(--primary),white_14%)] px-4 py-2 text-sm text-primary-foreground shadow-[0_10px_28px_rgba(88,66,40,0.12)] transition hover:-translate-y-0.5 hover:bg-[color:color-mix(in_oklch,var(--primary),white_7%)]";
+  "inline-flex items-center justify-center border border-[color:color-mix(in_oklch,var(--foreground),white_70%)] px-4 py-2 text-sm text-foreground transition hover:border-primary hover:text-primary";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-transparent">
-      <div className="section-wrap pt-4">
-        <div className="flex items-center justify-between rounded-full border border-white/65 bg-[rgba(255,252,244,0.72)] px-4 py-3 shadow-[0_18px_60px_rgba(93,70,42,0.08)] backdrop-blur-xl sm:px-5">
+    <header className="sticky top-0 z-40 border-b border-[color:color-mix(in_oklch,var(--border),white_8%)] bg-[rgba(255,253,248,0.88)] backdrop-blur-md">
+      <div className="section-wrap">
+        <div className="flex items-center justify-between py-4">
           <Link href="/" className="min-w-0">
             <span className="block truncate font-heading text-lg tracking-[0.04em] text-foreground">
               {siteConfig.name}
@@ -27,7 +27,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm text-muted-foreground transition hover:-translate-y-0.5 hover:text-foreground"
+                className="text-sm text-muted-foreground transition hover:text-foreground"
               >
                 {item.label}
               </Link>
@@ -47,7 +47,7 @@ export function SiteHeader() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="rounded-full border border-white/60 bg-white/55"
+                    className="border border-[color:color-mix(in_oklch,var(--border),white_10%)] bg-transparent"
                   />
                 }
               >
@@ -56,9 +56,9 @@ export function SiteHeader() {
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="border-l border-white/60 bg-[color:color-mix(in_oklch,var(--background),white_36%)] p-0"
+                className="border-l border-border bg-background p-0"
               >
-                <SheetHeader className="border-b border-white/45 pb-5">
+                <SheetHeader className="border-b border-border pb-5">
                   <SheetTitle className="font-heading text-xl">
                     {siteConfig.name}
                   </SheetTitle>
@@ -72,7 +72,7 @@ export function SiteHeader() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="flex items-center justify-between border-b border-white/35 py-3 text-base"
+                        className="flex items-center justify-between border-b border-border py-3 text-base"
                       >
                         <span>{item.label}</span>
                         <ArrowUpRight className="size-4 text-muted-foreground" />

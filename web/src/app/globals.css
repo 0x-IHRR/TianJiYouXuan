@@ -52,38 +52,38 @@
   --font-sans-sc: "LXGW WenKai", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   --font-serif-sc: "ZCOOL XiaoWei", "LXGW WenKai", "Songti SC", "STSong", serif;
   --font-display-sc: "Ma Shan Zheng", "ZCOOL XiaoWei", "Songti SC", "STSong", serif;
-  --background: oklch(0.955 0.016 82);
-  --foreground: oklch(0.298 0.024 54);
-  --card: oklch(0.99 0.006 88);
-  --card-foreground: oklch(0.298 0.024 54);
-  --popover: oklch(0.99 0.006 88);
-  --popover-foreground: oklch(0.298 0.024 54);
-  --primary: oklch(0.455 0.043 67);
-  --primary-foreground: oklch(0.988 0.006 88);
-  --secondary: oklch(0.92 0.018 82);
-  --secondary-foreground: oklch(0.298 0.024 54);
-  --muted: oklch(0.938 0.014 82);
-  --muted-foreground: oklch(0.53 0.027 56);
-  --accent: oklch(0.89 0.025 82);
-  --accent-foreground: oklch(0.298 0.024 54);
+  --background: oklch(0.985 0.006 86);
+  --foreground: oklch(0.22 0.018 52);
+  --card: oklch(0.995 0.004 86);
+  --card-foreground: oklch(0.22 0.018 52);
+  --popover: oklch(0.995 0.004 86);
+  --popover-foreground: oklch(0.22 0.018 52);
+  --primary: oklch(0.46 0.048 64);
+  --primary-foreground: oklch(0.99 0.006 86);
+  --secondary: oklch(0.954 0.01 82);
+  --secondary-foreground: oklch(0.22 0.018 52);
+  --muted: oklch(0.96 0.008 84);
+  --muted-foreground: oklch(0.45 0.02 55);
+  --accent: oklch(0.93 0.016 78);
+  --accent-foreground: oklch(0.22 0.018 52);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.84 0.018 75);
-  --input: oklch(0.84 0.018 75);
-  --ring: oklch(0.58 0.04 66);
+  --border: oklch(0.83 0.018 76);
+  --input: oklch(0.83 0.018 76);
+  --ring: oklch(0.56 0.04 64);
   --chart-1: oklch(0.76 0.034 74);
   --chart-2: oklch(0.62 0.03 58);
   --chart-3: oklch(0.54 0.034 72);
   --chart-4: oklch(0.45 0.03 52);
   --chart-5: oklch(0.38 0.025 44);
   --radius: 0.625rem;
-  --sidebar: oklch(0.99 0.006 88);
-  --sidebar-foreground: oklch(0.298 0.024 54);
-  --sidebar-primary: oklch(0.455 0.043 67);
-  --sidebar-primary-foreground: oklch(0.988 0.006 88);
-  --sidebar-accent: oklch(0.89 0.025 82);
-  --sidebar-accent-foreground: oklch(0.298 0.024 54);
-  --sidebar-border: oklch(0.84 0.018 75);
-  --sidebar-ring: oklch(0.58 0.04 66);
+  --sidebar: oklch(0.995 0.004 86);
+  --sidebar-foreground: oklch(0.22 0.018 52);
+  --sidebar-primary: oklch(0.46 0.048 64);
+  --sidebar-primary-foreground: oklch(0.99 0.006 86);
+  --sidebar-accent: oklch(0.93 0.016 78);
+  --sidebar-accent-foreground: oklch(0.22 0.018 52);
+  --sidebar-border: oklch(0.83 0.018 76);
+  --sidebar-ring: oklch(0.56 0.04 64);
 }
 
 .dark {
@@ -132,9 +132,7 @@
     min-inline-size: 100dvw;
     min-height: 100%;
     overflow-x: hidden;
-    background:
-      radial-gradient(circle at 12% 8%, rgba(255, 255, 248, 0.9), transparent 28rem),
-      linear-gradient(180deg, #fbf7ee 0%, #f2eadc 58%, #e8dcc8 100%);
+    background: #fffdf8;
   }
   body {
     @apply bg-background text-foreground;
@@ -146,10 +144,7 @@
     min-height: 100dvh;
     overflow-x: hidden;
     font-family: var(--font-sans-sc);
-    background-image:
-      radial-gradient(circle at 16% 4%, rgba(255, 255, 249, 0.82) 0%, transparent 34%),
-      radial-gradient(circle at 86% 12%, rgba(205, 187, 154, 0.16) 0%, transparent 32%),
-      linear-gradient(180deg, color-mix(in oklch, var(--background), white 5%) 0%, var(--background) 54%, color-mix(in oklch, var(--background), var(--primary) 6%) 100%);
+    background-image: linear-gradient(180deg, #fffdf8 0%, #fbf8f1 56%, #f7f1e7 100%);
   }
 }
 
@@ -171,9 +166,7 @@
     inset: 0;
     z-index: -2;
     background:
-      radial-gradient(circle at 18% 8%, rgba(255, 255, 248, 0.84), transparent 28%),
-      radial-gradient(circle at 88% 24%, rgba(203, 184, 150, 0.16), transparent 26%),
-      linear-gradient(180deg, rgba(255, 252, 246, 0.96) 0%, rgba(248, 242, 231, 0.98) 52%, rgba(237, 228, 214, 1) 100%);
+      linear-gradient(180deg, #fffdf8 0%, #fbf8f1 58%, #f7f1e7 100%);
   }
 
   .page-ambient::after {
@@ -182,9 +175,9 @@
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    background-image: linear-gradient(rgba(108, 79, 49, 0.05) 1px, transparent 1px);
-    background-size: 100% 11rem;
-    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent 85%);
+    background-image: linear-gradient(rgba(99, 72, 42, 0.035) 1px, transparent 1px);
+    background-size: 100% 12rem;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.25), transparent 80%);
   }
 
   .section-wrap {

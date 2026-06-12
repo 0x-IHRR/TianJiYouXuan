@@ -8,14 +8,14 @@ export const metadata: Metadata = {
   title: "品牌影片",
 };
 
-const pendingMaterials = ["影片正式标题", "影片文字简介", "幕后花絮素材", "社媒发布链接"];
+const pendingMaterials = ["正式标题", "短简介", "幕后素材", "发布链接"];
 
 export default function FilmPage() {
   return (
     <SubpageShell
       eyebrow="BRAND FILM"
       title="先看见气质。"
-      description="空间、节奏与靠近的理由，先交给真实影像。影片页不额外制造营销话术，只让真实素材承担第一层判断。"
+      description="空间、节奏与靠近的理由，先交给真实影像。"
       visualSrc={siteConfig.film.posterSrc}
       visualAlt="天机优选品牌影片封面"
       visualLabel="Brand Film"
@@ -27,16 +27,15 @@ export default function FilmPage() {
               controls
               playsInline
               preload="metadata"
-              poster={siteConfig.film.posterSrc}
               className={styles.video}
             >
               <source src={siteConfig.film.videoSrc} type="video/mp4" />
             </video>
           </div>
           <aside className={styles.placeholderPanel} aria-label="品牌影片待补充素材">
-            <h2 className={styles.placeholderTitle}>影片资产位</h2>
+            <h2 className={styles.placeholderTitle}>影片之外，先留白。</h2>
             <p className={styles.placeholderText}>
-              已接入现有品牌影片与封面。其余传播素材先留出位置，等真实素材到位后再替换。
+              其余素材等真实内容到位后再补，不用文字抢影片的工作。
             </p>
             <div className={styles.placeholderList}>
               {pendingMaterials.map((material) => (

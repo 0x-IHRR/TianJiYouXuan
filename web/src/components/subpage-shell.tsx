@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import Image from "next/image";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -19,9 +18,6 @@ export function SubpageShell({
   eyebrow,
   title,
   description,
-  visualSrc,
-  visualAlt = "",
-  visualLabel = "Material",
   children,
 }: SubpageShellProps) {
   return (
@@ -35,21 +31,6 @@ export function SubpageShell({
             <span className={styles.hairline} />
             <p className={styles.description}>{description}</p>
           </div>
-          {visualSrc ? (
-            <div className={styles.visual} aria-hidden={!visualAlt}>
-              <div className={styles.visualFrame}>
-                <Image
-                  src={visualSrc}
-                  alt={visualAlt}
-                  fill
-                  priority
-                  sizes="(max-width: 980px) 100vw, 54vw"
-                  className={styles.visualImage}
-                />
-                <span className={styles.visualLabel}>{visualLabel}</span>
-              </div>
-            </div>
-          ) : null}
         </section>
         {children}
       </main>
