@@ -15,8 +15,6 @@ const galleryItems = [
     title: "Sanctuary Lobby",
     subtitle: "隐匿之所的第一道安静",
     src: "/media/generated/tianji/spaces-lobby-sanctuary.png",
-    x: -36,
-    y: -22,
     rotate: -8,
     width: "clamp(14rem, 24vw, 28rem)",
   },
@@ -24,8 +22,6 @@ const galleryItems = [
     title: "Gifting Token",
     subtitle: "商务馈赠的克制凭证",
     src: "/media/generated/tianji/curation-black-gift-card.png",
-    x: 28,
-    y: -10,
     rotate: 7,
     width: "clamp(13rem, 20vw, 24rem)",
   },
@@ -33,8 +29,6 @@ const galleryItems = [
     title: "Threshold",
     subtitle: "秩序感来自边界",
     src: "/media/generated/tianji/membership-threshold-tunnel.png",
-    x: -18,
-    y: 18,
     rotate: 5,
     width: "clamp(15rem, 25vw, 30rem)",
   },
@@ -42,8 +36,6 @@ const galleryItems = [
     title: "Long View",
     subtitle: "真实关系慢慢显影",
     src: "/media/generated/tianji/philosophy-hourglass-black-sand.png",
-    x: 34,
-    y: 24,
     rotate: -5,
     width: "clamp(12rem, 19vw, 23rem)",
   },
@@ -51,8 +43,6 @@ const galleryItems = [
     title: "Weekly Rhythm",
     subtitle: "同频关系在圆桌中沉淀",
     src: "/media/generated/tianji/events-blurred-roundtable.png",
-    x: 0,
-    y: 0,
     rotate: 0,
     width: "clamp(16rem, 28vw, 34rem)",
   },
@@ -60,8 +50,6 @@ const galleryItems = [
     title: "Tea Silence",
     subtitle: "空间秩序里的低声交流",
     src: "/media/generated/tianji/spaces-tea-ceremony.png",
-    x: -30,
-    y: 8,
     rotate: -3,
     width: "clamp(13rem, 22vw, 27rem)",
   },
@@ -69,8 +57,6 @@ const galleryItems = [
     title: "Inner Pass",
     subtitle: "圈层通行凭证",
     src: "/media/generated/tianji/curation-silver-card-walnut.png",
-    x: 24,
-    y: 18,
     rotate: 6,
     width: "clamp(14rem, 23vw, 28rem)",
   },
@@ -78,8 +64,6 @@ const galleryItems = [
     title: "Film Frame",
     subtitle: "品牌影像的窗口",
     src: "/media/homepage-layers/film-window-frame.png",
-    x: -8,
-    y: -26,
     rotate: 4,
     width: "clamp(12rem, 20vw, 25rem)",
   },
@@ -87,8 +71,6 @@ const galleryItems = [
     title: "Compact Film",
     subtitle: "关系在暗处显影",
     src: "/media/homepage-layers/film-window-compact.png",
-    x: 38,
-    y: -20,
     rotate: -7,
     width: "clamp(12rem, 19vw, 23rem)",
   },
@@ -96,8 +78,6 @@ const galleryItems = [
     title: "Clean Field",
     subtitle: "选择之前的留白",
     src: "/media/homepage-clean-background-v1.png",
-    x: -34,
-    y: 24,
     rotate: 8,
     width: "clamp(15rem, 26vw, 32rem)",
   },
@@ -105,8 +85,6 @@ const galleryItems = [
     title: "Banner Dark",
     subtitle: "私密会所的底色",
     src: "/media/style-reference/brand-banner-dark.png",
-    x: 16,
-    y: -4,
     rotate: -2,
     width: "clamp(16rem, 28vw, 34rem)",
   },
@@ -114,80 +92,78 @@ const galleryItems = [
     title: "Brand Mark",
     subtitle: "身份不是噪音",
     src: "/media/style-reference/brand-logo-light.jpeg",
-    x: -24,
-    y: -14,
     rotate: 5,
     width: "clamp(12rem, 18vw, 22rem)",
   },
 ];
 
-const galleryLoops = 3;
-const cosmicPaths = [
-  { fromX: -920, fromY: -620, focusX: -260, focusY: -120, outX: 1080, outY: 620 },
-  { fromX: 980, fromY: -540, focusX: 240, focusY: -96, outX: -1120, outY: 560 },
-  { fromX: -820, fromY: 640, focusX: -180, focusY: 150, outX: 1040, outY: -720 },
-  { fromX: 860, fromY: 580, focusX: 210, focusY: 120, outX: -980, outY: -700 },
-  { fromX: -1040, fromY: -120, focusX: -24, focusY: 0, outX: 1120, outY: 120 },
-  { fromX: 1080, fromY: 80, focusX: 28, focusY: 22, outX: -1160, outY: -180 },
-  { fromX: -720, fromY: -760, focusX: -220, focusY: 92, outX: 940, outY: -820 },
-  { fromX: 720, fromY: -720, focusX: 210, focusY: -150, outX: -920, outY: 820 },
-  { fromX: -980, fromY: 360, focusX: -300, focusY: 36, outX: 1180, outY: -420 },
-  { fromX: 1020, fromY: 420, focusX: 300, focusY: 42, outX: -1200, outY: -460 },
-  { fromX: -420, fromY: -820, focusX: -80, focusY: -180, outX: 720, outY: 920 },
-  { fromX: 440, fromY: 820, focusX: 92, focusY: 172, outX: -760, outY: -940 },
-];
+const galleryLoops = 1;
+const orderedPaths = galleryItems.map((_, index) => ({
+  fromX: 0,
+  fromY: 0,
+  outX: index % 2 === 0 ? -1200 : 1200,
+  outY: 0,
+  exitRotate: index % 2 === 0 ? -3 : 3,
+}));
 
-function wrapUnit(value: number) {
-  return ((value % 1) + 1) % 1;
+const itemDuration = 0.14;
+const itemSpacing = (1 - itemDuration) / (galleryItems.length - 1);
+
+function clampUnit(value: number) {
+  return Math.max(0, Math.min(1, value));
+}
+
+function easeInOut(value: number) {
+  return value * value * (3 - 2 * value);
 }
 
 function phaseToDepth(phase: number, item: (typeof galleryItems)[number], index: number) {
-  const path = cosmicPaths[index % cosmicPaths.length];
+  const path = orderedPaths[index % orderedPaths.length];
 
-  if (phase < 0.34) {
-    const t = phase / 0.34;
+  if (phase < 0.42) {
+    const t = easeInOut(phase / 0.42);
 
     return {
-      z: -2000 + t * 1920,
-      x: path.fromX + (path.focusX - path.fromX) * t,
-      y: path.fromY + (path.focusY - path.fromY) * t,
-      scale: 0.68 + t * 0.3,
-      opacity: Math.max(0.12, Math.min(1, t * 2)),
-      rotate: item.rotate + (item.rotate * 0.14 - item.rotate) * t,
+      z: -2000 + t * 1900,
+      x: path.fromX,
+      y: path.fromY,
+      scale: 0.72 + t * 0.26,
+      opacity: clampUnit(t * 1.18),
+      rotate: item.rotate + (item.rotate * 0.16 - item.rotate) * t,
     };
   }
 
   if (phase < 0.68) {
-    const t = (phase - 0.34) / 0.34;
+    const t = easeInOut((phase - 0.42) / 0.26);
 
     return {
-      z: -80 + t * 160,
-      x: path.focusX + (path.focusX * 0.62 - path.focusX) * t,
-      y: path.focusY + (path.focusY * 0.58 - path.focusY) * t,
-      scale: 0.98 + t * 0.08,
+      z: -100 + t * 120,
+      x: 0,
+      y: 0,
+      scale: 0.98 + t * 0.02,
       opacity: 1,
-      rotate: item.rotate * 0.14 + (item.rotate * 0.05 - item.rotate * 0.14) * t,
+      rotate: item.rotate * 0.16 + (item.rotate * 0.02 - item.rotate * 0.16) * t,
     };
   }
 
-  if (phase < 0.9) {
-    const t = (phase - 0.68) / 0.22;
+  if (phase < 1) {
+    const t = easeInOut((phase - 0.68) / 0.32);
 
     return {
-      z: 80 + t * 1020,
-      x: path.focusX * 0.62 + (path.outX - path.focusX * 0.62) * t,
-      y: path.focusY * 0.58 + (path.outY - path.focusY * 0.58) * t,
-      scale: 1.06 + t * 0.5,
+      z: 20 + t * 360,
+      x: path.outX * t,
+      y: path.outY,
+      scale: 1 - t * 0.08,
       opacity: 1 - t,
-      rotate: item.rotate * 0.05 + (item.rotate * -0.14 - item.rotate * 0.05) * t,
+      rotate: item.rotate * 0.02 + (path.exitRotate - item.rotate * 0.02) * t,
     };
   }
 
   return {
     z: -2000,
-    x: path.fromX,
-    y: path.fromY,
-    scale: 0.68,
+    x: 0,
+    y: 0,
+    scale: 0.72,
     opacity: 0,
     rotate: item.rotate,
   };
@@ -203,7 +179,7 @@ export function FlyThroughGallery() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-[600vh] w-full bg-[#0a0a0a]"
+      className="relative h-[400vh] w-full bg-[#0a0a0a]"
       style={{ contentVisibility: "auto" }}
       aria-label="天机优选影像廊"
     >
@@ -244,15 +220,23 @@ function FlyThroughCard({
   progress: MotionValue<number>;
 }) {
   const reduceMotion = useReducedMotion();
-  const itemOffset = index / galleryItems.length;
+  const itemStart = index * itemSpacing;
+  const resolvePhase = (value: number) =>
+    clampUnit((value * galleryLoops - itemStart) / itemDuration);
   const transform = useTransform(progress, (value) => {
-    const phase = wrapUnit(value * galleryLoops + itemOffset);
+    const phase = resolvePhase(value);
     const depth = phaseToDepth(phase, item, index);
 
     return `translate(-50%, -50%) translate3d(${depth.x}px, ${depth.y}px, ${depth.z}px) rotateZ(${depth.rotate}deg) scale(${depth.scale})`;
   });
   const opacity = useTransform(progress, (value) => {
-    const phase = wrapUnit(value * galleryLoops + itemOffset);
+    const rawPhase = (value * galleryLoops - itemStart) / itemDuration;
+
+    if (rawPhase < 0 || rawPhase > 1) {
+      return 0;
+    }
+
+    const phase = clampUnit(rawPhase);
     const depth = phaseToDepth(phase, item, index);
 
     return depth.opacity;
@@ -263,11 +247,12 @@ function FlyThroughCard({
       className="liquid-glass-strong group absolute left-1/2 top-1/2 aspect-[16/9] w-[min(84vw,42rem)] min-w-[40vw] max-w-2xl transform-gpu overflow-hidden rounded-[2rem] bg-black p-3 will-change-transform"
       style={{
         transform: reduceMotion
-          ? `translate(-50%, -50%) translate3d(${cosmicPaths[index % cosmicPaths.length].focusX * 0.5}px, ${cosmicPaths[index % cosmicPaths.length].focusY * 0.5}px, 0px)`
+          ? "translate(-50%, -50%) translate3d(0px, 0px, 0px)"
           : transform,
-        opacity: reduceMotion ? 1 : opacity,
+        opacity: reduceMotion ? (index === 0 ? 1 : 0) : opacity,
         transformStyle: "preserve-3d",
         willChange: "transform",
+        width: item.width,
       }}
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect();
