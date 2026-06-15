@@ -48,10 +48,42 @@ const criteria = [
   },
 ];
 
-const tiers = [
-  { name: "Observer", value: "01", text: "先进入少量开放场景，观察是否同频" },
-  { name: "Member", value: "02", text: "进入稳定会所活动与甄选服务体系" },
-  { name: "Circle", value: "03", text: "参与更深层资源协同与私密议题讨论" },
+const membershipTiers = [
+  {
+    number: "01",
+    name: "星火",
+    identity: "天机同行者",
+    price: "500",
+    boundary: "先进入少量开放场景，确认节奏是否同频",
+  },
+  {
+    number: "02",
+    name: "远见",
+    identity: "天机探索者",
+    price: "3,000",
+    boundary: "进入稳定学习与趋势交流，建立长期判断",
+  },
+  {
+    number: "03",
+    name: "领航",
+    identity: "天机赋能者",
+    price: "10,000",
+    boundary: "参与资源链接、项目交流与更高密度的会员场景",
+  },
+  {
+    number: "04",
+    name: "共创",
+    identity: "天机共创者",
+    price: "50,000",
+    boundary: "进入私董会、企业参访与高端圈层协同",
+  },
+  {
+    number: "05",
+    name: "天机会成员",
+    identity: "天机理事",
+    price: "100,000+",
+    boundary: "共建核心资源圈，参与品牌、资源与生态的长期共创",
+  },
 ];
 
 export default function MembershipPage() {
@@ -125,24 +157,52 @@ export default function MembershipPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-24 md:grid-cols-12 md:px-10">
-        {tiers.map((tier, index) => (
-          <FadeUp
-            key={tier.name}
-            delay={index * 0.08}
-            className={index === 1 ? "md:col-span-5" : "md:col-span-3"}
-          >
-            <TiltCard className="liquid-glass relative min-h-[16rem] overflow-hidden rounded-[1.75rem] p-7 md:p-8">
-              <p className="font-display text-5xl text-white/10 md:text-6xl">{tier.value}</p>
-              <h3 className="mt-10 font-display text-xs uppercase tracking-[0.46em] text-[hsl(var(--accent))]">
-                {tier.name}
-              </h3>
-              <p className="mt-5 max-w-sm text-pretty font-serif text-xl leading-loose text-white md:text-2xl">
-                {tier.text}
-              </p>
-            </TiltCard>
-          </FadeUp>
-        ))}
+      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 py-28 md:grid-cols-12 md:gap-24 md:px-10 md:py-36">
+        <FadeUp className="md:col-span-4">
+          <div className="sticky top-32">
+            <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
+              Identity Stack
+            </p>
+            <h2 className="text-metal mt-8 max-w-sm text-balance font-serif text-4xl leading-tight text-white md:text-6xl">
+              身份，
+              <br className="hidden md:block" />
+              不是价格
+            </h2>
+          </div>
+        </FadeUp>
+
+        <div className="space-y-7 md:col-span-8">
+          {membershipTiers.map((tier, index) => (
+            <FadeUp key={tier.name} delay={index * 0.06}>
+              <TiltCard className="liquid-glass-strong group relative min-h-[13rem] overflow-hidden rounded-[2rem] p-7 transition-colors duration-700 hover:bg-white/[0.055] md:p-9">
+                <span className="absolute right-7 top-7 font-display text-[10px] uppercase tracking-[0.42em] text-white/20">
+                  ¥ {tier.price}
+                </span>
+                <div className="pointer-events-none absolute -right-6 bottom-[-2rem] font-display text-[8rem] leading-none text-white/[0.035] transition-colors duration-700 group-hover:text-[hsl(var(--accent))]/10 md:text-[10rem]">
+                  {tier.number}
+                </div>
+                <div className="relative z-10 grid gap-8 md:grid-cols-[10rem_1fr] md:items-end">
+                  <div>
+                    <p className="font-display text-xs uppercase tracking-[0.42em] text-[hsl(var(--accent))]">
+                      Tier {tier.number}
+                    </p>
+                    <h3 className="text-metal mt-6 font-serif text-4xl leading-none text-white md:text-6xl">
+                      {tier.name}
+                    </h3>
+                  </div>
+                  <div>
+                    <p className="font-serif text-2xl leading-tight tracking-[0.18em] text-white/86 md:text-3xl">
+                      {tier.identity}
+                    </p>
+                    <p className="mt-5 max-w-2xl text-sm leading-loose tracking-wider text-white/52 text-pretty md:text-base">
+                      {tier.boundary}
+                    </p>
+                  </div>
+                </div>
+              </TiltCard>
+            </FadeUp>
+          ))}
+        </div>
       </section>
 
       <section className="flex min-h-[100vh] items-center justify-center bg-black px-6">

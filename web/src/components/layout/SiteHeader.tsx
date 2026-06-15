@@ -19,6 +19,9 @@ import { Button } from "@/components/ui/button";
 const navLinks = [
   { label: "会员体系", href: "/membership" },
   { label: "理念与价值", href: "/philosophy" },
+  { label: "隐匿之所", href: "/spaces" },
+  { label: "极致甄选", href: "/curation" },
+  { label: "每周节奏", href: "/events" },
 ];
 
 export function SiteHeader() {
@@ -34,8 +37,8 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full transition-all duration-500 ${
-        scrolled ? "liquid-glass" : ""
+      className={`fixed top-0 z-50 w-full bg-black/40 backdrop-blur-md transition-all duration-500 ${
+        scrolled ? "shadow-[0_18px_60px_rgba(0,0,0,0.28)]" : "shadow-none"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 pb-4 pt-6 md:px-10 md:pt-8">
@@ -46,7 +49,7 @@ export function SiteHeader() {
           天机优选
         </Link>
 
-        <nav className="hidden items-center gap-10 md:flex">
+        <nav className="hidden items-center gap-6 lg:gap-8 md:flex">
           {navLinks.map((item) => (
             <Link
               key={item.href}

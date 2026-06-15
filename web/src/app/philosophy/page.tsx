@@ -14,21 +14,21 @@ const pillars = [
     number: "01",
     label: "Refuse Noise",
     title: "拒绝快感式消费",
-    body: "我们不把更多选择当作价值。真正稀缺的是可信来源、稳定复访，以及能被时间验证的判断",
+    body: "更多选择不是价值",
     className: "md:col-span-8 md:min-h-[25rem]",
   },
   {
     number: "02",
     label: "Real Scene",
     title: "回到真实场景",
-    body: "所有连接都必须落在真实服务、真实空间和真实关系里。离开现场，再漂亮的承诺都只是噪音",
+    body: "离开现场，承诺只是噪音",
     className: "md:col-span-4 md:min-h-[32rem]",
   },
   {
     number: "03",
     label: "Long Compounding",
     title: "让信任复利",
-    body: "会员、供应链、会所空间与活动机制共同形成一个缓慢但稳定的复利系统",
+    body: "长期关系会自己筛选答案",
     className: "md:col-span-12 md:min-h-[22rem]",
   },
 ];
@@ -64,10 +64,10 @@ export default function PhilosophyPage() {
         </div>
       </section>
 
-      <section className="flex min-h-[100vh] items-center justify-center bg-[#0a0a0a] px-6 py-28">
+      <section className="flex min-h-[100vh] items-center justify-center bg-black px-6 py-28">
         <AnimatedText
-          text="我们相信，真正的品质不是被即时刺激推着走，而是在一次次选择里减少噪音。少一点炫耀，多一点确认；少一点占有，多一点复访；少一点短暂热闹，多一点长期同行。"
-          className="max-w-4xl text-center font-serif text-3xl leading-loose text-white text-pretty md:text-5xl"
+          text="我们不是普通消费者，我们是新时代的觉醒者。"
+          className="text-metal max-w-5xl text-center font-serif text-[clamp(2.5rem,6vw,6rem)] leading-snug tracking-widest text-white text-pretty"
         />
       </section>
 
@@ -88,7 +88,7 @@ export default function PhilosophyPage() {
                 <h2 className="text-metal mt-6 max-w-2xl text-balance font-serif text-3xl leading-tight text-white md:text-5xl">
                   {pillar.title}
                 </h2>
-                <p className="mt-7 max-w-xl text-sm leading-loose text-white/58 text-pretty transition-colors duration-500 group-hover:text-white/78 md:text-base">
+                <p className="mt-7 max-w-xl font-serif text-xl leading-loose tracking-[0.16em] text-white/52 text-pretty transition-colors duration-500 group-hover:text-white/78 md:text-2xl">
                   {pillar.body}
                 </p>
               </div>

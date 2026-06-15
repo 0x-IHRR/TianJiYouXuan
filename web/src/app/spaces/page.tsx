@@ -1,187 +1,139 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
 
 import { AnimatedText } from "@/components/animations/AnimatedText";
 import { FadeUp } from "@/components/animations/FadeUp";
 import { TiltCard } from "@/components/animations/TiltCard";
 
-const spaceScenes = [
+const spaces = [
   {
+    number: "01",
+    title: "接待大厅",
+    label: "Reception",
+    body: "商务接待、洽谈交流、活动签到，在抵达的第一刻完成身份确认与节奏切换",
+    className: "md:col-span-5",
+  },
+  {
+    number: "02",
+    title: "商务会议室",
+    label: "Board Room",
+    body: "会议培训、项目路演、团队讨论，为需要深度判断的对话保留完整时间",
+    className: "md:col-span-7 md:mt-24",
+  },
+  {
+    number: "03",
+    title: "学习交流区",
+    label: "Reading",
+    body: "自主学习、阅读充电、思想碰撞，让认知先于表达发生",
+    className: "md:col-span-4 md:col-start-2",
+  },
+  {
+    number: "04",
+    title: "茶室空间",
     label: "Tea Room",
-    title: "低声交谈的茶室",
-    body: "光线被压低，时间被放慢，关系在没有打扰的地方自然展开",
-    src: "/media/homepage-layers/table-invitation.png",
-    className: "md:col-start-2 md:col-span-5",
-    speed: -120,
+    body: "茶道品茗、商务洽谈、静心交流，适合低声、缓慢、彼此留白的关系建立",
+    className: "md:col-span-5 md:mt-32",
   },
   {
-    label: "Reading Room",
-    title: "只为停留而设的阅读室",
-    body: "书、器物与少量座席构成安静的缓冲区，让判断先于表达发生",
-    src: "/media/homepage-layers/film-window-balanced.png",
-    className: "md:col-start-7 md:col-span-5 md:mt-44",
-    speed: 120,
+    number: "05",
+    title: "培训教室",
+    label: "Learning",
+    body: "课程培训、主题分享、专业讲座，让每一次聚集都有可沉淀的内容",
+    className: "md:col-span-6 md:col-start-1",
   },
   {
-    label: "Private Lounge",
-    title: "隐于城市背面的会客厅",
-    body: "没有公开展示，没有过度招牌，只有被邀请者才知道的抵达路径",
-    src: "/media/homepage-layers/doorway-band.png",
-    className: "md:col-start-4 md:col-span-6 md:mt-20",
-    speed: -80,
+    number: "06",
+    title: "休闲洽谈区",
+    label: "Lounge",
+    body: "轻松交流、朋友会面、放松身心，把正式会谈之外的信任慢慢留住",
+    className: "md:col-span-6 md:mt-20",
   },
-];
-
-const details = [
-  { number: "01", title: "无声抵达", body: "路径克制，入口隐蔽，让每次到访都避开不必要的围观" },
-  { number: "02", title: "分区停留", body: "茶、阅读、私享与小型会谈互不干扰，形成不同节奏的关系容器" },
-  { number: "03", title: "极少席位", body: "空间不追求热闹，只保留足够深的停留感与判断密度" },
 ];
 
 export default function SpacesPage() {
-  const galleryRef = useRef<HTMLElement>(null);
-
   return (
     <main className="overflow-hidden bg-[#0a0a0a]">
-      <section className="relative flex h-[100vh] items-end overflow-hidden px-6 pb-24 md:px-10">
+      <section className="relative flex min-h-[90vh] items-end overflow-hidden px-6 pb-24 pt-32 md:px-10 md:pb-28">
         <Image
           src="/media/homepage-layers/doorway-band.png"
           alt="隐匿之所的暗光入口"
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-62 saturate-[0.78]"
+          className="object-cover opacity-55 saturate-[0.72]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/64 to-black/35" />
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
+
         <div className="relative z-10 mx-auto w-full max-w-7xl">
           <FadeUp>
-            <p className="font-display text-xs uppercase tracking-[0.52em] text-[hsl(var(--accent))]">
+            <p className="font-display text-xs uppercase tracking-[0.56em] text-[hsl(var(--accent))]">
               The Sanctuary
             </p>
-            <h1 className="text-metal mt-8 max-w-2xl text-balance font-serif text-6xl leading-tight text-white md:text-8xl">
+            <h1 className="text-metal mt-8 max-w-3xl text-balance font-serif text-6xl leading-tight text-white md:text-8xl">
               隐匿之所
             </h1>
-          </FadeUp>
-        </div>
-      </section>
-
-      <section ref={galleryRef} className="relative min-h-[220vh] bg-[#0a0a0a] px-6 py-32 md:px-10">
-        <div className="sticky top-24 z-20 mx-auto max-w-7xl">
-          <FadeUp>
-            <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
-              Spatial Rhythm
+            <p className="mt-8 max-w-xl text-pretty font-serif text-xl leading-loose tracking-[0.18em] text-white/68 md:text-2xl">
+              合理使用资源，共享美好空间
             </p>
-            <h2 className="text-metal mt-6 max-w-2xl text-balance font-serif text-4xl leading-tight text-white md:text-6xl">
-              空间不是装饰，
-              <br className="hidden md:block" />
-              是筛选噪音的方式
-            </h2>
           </FadeUp>
-        </div>
-
-        <div className="mx-auto mt-40 grid max-w-7xl grid-cols-1 gap-20 md:grid-cols-12 md:gap-y-32">
-          {spaceScenes.map((scene, index) => (
-            <ParallaxSpaceCard
-              key={scene.title}
-              scene={scene}
-              index={index}
-              targetRef={galleryRef}
-            />
-          ))}
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-32 md:grid-cols-12 md:gap-20 md:px-10">
+      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 pb-20 pt-32 md:grid-cols-12 md:gap-x-8 md:gap-y-28 md:px-10 md:pt-44">
         <FadeUp className="md:col-span-5">
           <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
-            Details
+            Spaces
           </p>
           <h2 className="text-metal mt-8 max-w-xl text-balance font-serif text-4xl leading-tight text-white md:text-6xl">
-            大隐
+            空间不负责热闹
             <br className="hidden md:block" />
-            隐于市
+            只负责让关系安静发生
           </h2>
         </FadeUp>
 
-        <div className="space-y-8 md:col-span-7">
-          {details.map((detail, index) => (
-            <FadeUp key={detail.title} delay={index * 0.08}>
-              <TiltCard
-                className="liquid-glass-strong min-h-[12rem] rounded-[1.75rem] p-7 md:p-9"
-                innerClassName="grid h-full grid-cols-[4rem_1fr] gap-6 md:grid-cols-[5.5rem_1fr]"
-              >
-                <span className="font-display text-4xl leading-none text-white/12 md:text-6xl">
-                  {detail.number}
-                </span>
-                <div>
-                  <h3 className="max-w-md text-balance font-serif text-2xl leading-tight text-white md:text-3xl">
-                    {detail.title}
-                  </h3>
-                  <p className="mt-5 max-w-lg text-sm leading-loose text-white/58 text-pretty md:text-base">
-                    {detail.body}
-                  </p>
-                </div>
-              </TiltCard>
-            </FadeUp>
-          ))}
-        </div>
+        <FadeUp className="md:col-span-5 md:col-start-8 md:pt-16" delay={0.12}>
+          <p className="max-w-md text-sm leading-loose tracking-wider text-white/50 text-pretty md:text-base">
+            会所的边界并非冷漠，而是对每一次到访、每一段谈话和每一位会员的保护。不同空间承载不同密度的交流，避免噪音覆盖真正重要的判断。
+          </p>
+        </FadeUp>
+
+        {spaces.map((space, index) => (
+          <FadeUp key={space.title} delay={index * 0.06} className={space.className}>
+            <TiltCard className="liquid-glass-strong group relative min-h-[18rem] overflow-hidden rounded-[2rem] p-7 transition-colors duration-700 hover:bg-white/[0.055] md:p-9">
+              <div className="pointer-events-none absolute -right-10 -top-12 font-display text-[9rem] leading-none text-white/[0.035] transition-colors duration-700 group-hover:text-[hsl(var(--accent))]/10 md:text-[12rem]">
+                {space.number}
+              </div>
+              <p className="font-display text-xs uppercase tracking-[0.46em] text-[hsl(var(--accent))]">
+                {space.label}
+              </p>
+              <h3 className="text-metal mt-7 max-w-md text-balance font-serif text-3xl leading-tight text-white md:text-5xl">
+                {space.title}
+              </h3>
+              <p className="mt-8 max-w-lg text-sm leading-loose text-white/56 text-pretty md:text-base">
+                {space.body}
+              </p>
+            </TiltCard>
+          </FadeUp>
+        ))}
       </section>
 
-      <section className="flex min-h-[80vh] items-center justify-center bg-black px-6">
+      <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden px-6 py-28">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.11),transparent_34rem)]" />
         <AnimatedText
-          text="真正私密的地方，不需要被所有人看见。它只需要让抵达的人，终于安静下来。"
-          className="max-w-4xl text-center font-serif text-3xl leading-loose text-white text-pretty md:text-5xl"
+          text="真正的共享空间，先由共同遵守的秩序保护"
+          className="relative z-10 max-w-4xl text-center font-serif text-[clamp(2rem,4.5vw,4.5rem)] leading-snug tracking-widest text-white text-pretty"
         />
       </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-40 pt-10 md:px-10 md:pb-52">
+        <FadeUp>
+          <p className="border-y border-white/10 py-16 text-center font-serif text-3xl tracking-widest text-white/40 md:py-24 md:text-5xl">
+            预约优先&nbsp;&nbsp;|&nbsp;&nbsp;保持安静&nbsp;&nbsp;|&nbsp;&nbsp;会员专属
+          </p>
+        </FadeUp>
+      </section>
     </main>
-  );
-}
-
-function ParallaxSpaceCard({
-  scene,
-  index,
-  targetRef,
-}: {
-  scene: (typeof spaceScenes)[number];
-  index: number;
-  targetRef: React.RefObject<HTMLElement | null>;
-}) {
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [scene.speed, scene.speed * -1]);
-
-  return (
-    <motion.div style={{ y }} className={scene.className}>
-      <FadeUp delay={index * 0.08}>
-        <TiltCard className="liquid-glass-strong group overflow-hidden rounded-[2rem] p-3">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem]">
-            <Image
-              src={scene.src}
-              alt={scene.title}
-              fill
-              sizes="(max-width: 768px) 100vw, 45vw"
-              className="object-cover opacity-86 saturate-[0.82] transition duration-700 group-hover:scale-105 group-hover:opacity-100"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/78 via-black/12 to-white/5" />
-            <div className="absolute inset-x-0 bottom-0 p-7">
-              <p className="font-display text-xs uppercase tracking-[0.42em] text-[hsl(var(--accent))]">
-                {scene.label}
-              </p>
-              <h3 className="mt-4 max-w-md text-balance font-serif text-3xl leading-tight text-white md:text-4xl">
-                {scene.title}
-              </h3>
-              <p className="mt-5 max-w-md text-sm leading-loose text-white/62 text-pretty md:text-base">
-                {scene.body}
-              </p>
-            </div>
-          </div>
-        </TiltCard>
-      </FadeUp>
-    </motion.div>
   );
 }
