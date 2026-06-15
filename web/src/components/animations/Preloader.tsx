@@ -71,7 +71,7 @@ export function Preloader() {
         <p className="whitespace-nowrap font-display text-sm uppercase tracking-[0.55em] text-white/55 md:text-base">
           T I A N J I&nbsp;&nbsp;&nbsp;C U R A T I O N
         </p>
-        <p className="mt-10 font-display text-xl font-light tabular-nums tracking-[0.28em] text-white/70 md:text-2xl">
+        <p className="mt-14 font-display text-lg font-light tabular-nums tracking-[0.28em] text-white/65 md:text-xl">
           {String(percent).padStart(2, "0")}%
         </p>
       </div>
