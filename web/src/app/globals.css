@@ -2,6 +2,17 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@font-face {
+  font-family: "Alimama ShuHei";
+  src:
+    url("https://s3.teambition.net/fonts/Alimama_ShuHei-700-Normal.woff2") format("woff2"),
+    url("https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlimamaShuHei-Bold/AlimamaShuHei-Bold.woff2")
+      format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -26,6 +37,7 @@
   --font-sans: var(--font-sans-sc);
   --font-serif: var(--font-serif-sc);
   --font-display: var(--font-display-sc);
+  --font-logo: "Alimama ShuHei", var(--font-sans-sc), sans-serif;
   --font-heading: var(--font-serif-sc);
   --font-mono: var(--font-sans-sc);
   --radius-sm: calc(var(--radius) * 0.6);

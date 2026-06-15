@@ -89,7 +89,7 @@ const membershipTiers = [
 export default function MembershipPage() {
   return (
     <main className="overflow-hidden bg-[#0a0a0a]">
-      <section className="relative flex h-[100vh] items-end overflow-hidden px-6 pb-24 md:px-10">
+      <section className="relative flex min-h-[100dvh] items-end overflow-hidden px-6 pb-24 md:px-10">
         <Image
           src="/media/generated/tianji/membership-threshold-tunnel.png"
           alt="象征会员门槛与秩序边界的暗光长廊"
@@ -99,7 +99,7 @@ export default function MembershipPage() {
           className="object-cover opacity-64 saturate-[0.82]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/55 to-black/25" />
-        <div className="pointer-events-none absolute -left-4 top-24 font-display text-7xl leading-none text-white/[0.045] md:text-8xl">
+        <div className="pointer-events-none absolute left-2 top-24 font-display text-7xl leading-none text-white/[0.045] md:left-0 md:text-8xl">
           01
         </div>
 
@@ -115,24 +115,29 @@ export default function MembershipPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 py-28 md:grid-cols-12 md:gap-24 md:px-10">
-        <div className="md:col-span-5">
-          <div className="sticky top-32">
+      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 py-28 md:grid-cols-[5rem_1fr] md:gap-20 md:px-10">
+        <div>
+          <div className="md:sticky md:top-24">
             <FadeUp>
-              <p className="font-display text-xs uppercase tracking-[0.45em] text-[hsl(var(--accent))]">
+              <p className="font-display text-xs uppercase tracking-[0.45em] text-[hsl(var(--accent))] md:hidden">
                 Threshold
               </p>
-              <h2 className="text-metal mt-6 max-w-xl text-balance font-serif text-4xl leading-tight text-white md:text-6xl">
+              <h2 className="text-metal mt-6 font-serif text-4xl leading-tight text-white [line-break:strict] [word-break:keep-all] md:[text-orientation:upright] md:[writing-mode:vertical-rl] md:text-6xl md:leading-none md:tracking-[0.18em]">
                 同频的门槛
               </h2>
-              <p className="mt-8 max-w-xs text-sm leading-loose tracking-wider text-white/50 text-pretty">
+              <p className="mt-8 max-w-xs text-sm leading-loose tracking-wider text-white/50 text-pretty md:hidden">
                 我们不以身份标签判断人，而是寻找在时间中被验证过的真实同频者。门槛，是对所有入局者的保护。
               </p>
             </FadeUp>
           </div>
         </div>
 
-        <div className="space-y-10 md:col-span-7">
+        <div className="space-y-10">
+          <FadeUp>
+            <p className="hidden max-w-2xl text-sm leading-loose tracking-wider text-white/52 text-pretty md:block md:text-base">
+              我们不以身份标签判断人，而是寻找在时间中被验证过的真实同频者。门槛，是对所有入局者的保护。
+            </p>
+          </FadeUp>
           {criteria.map((item, index) => (
             <FadeUp key={item.label} delay={index * 0.08}>
               <TiltCard className="liquid-glass-strong group relative min-h-[16rem] overflow-hidden rounded-[1.75rem] p-7 transition-colors duration-700 hover:bg-white/[0.055] md:p-9">
@@ -157,21 +162,19 @@ export default function MembershipPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 py-28 md:grid-cols-12 md:gap-24 md:px-10 md:py-36">
-        <FadeUp className="md:col-span-4">
-          <div className="sticky top-32">
-            <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
+      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 py-28 md:grid-cols-[5rem_1fr] md:gap-20 md:px-10 md:py-36">
+        <FadeUp>
+          <div className="md:sticky md:top-24">
+            <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))] md:hidden">
               Identity Stack
             </p>
-            <h2 className="text-metal mt-8 max-w-sm text-balance font-serif text-4xl leading-tight text-white md:text-6xl">
-              身份，
-              <br className="hidden md:block" />
-              不是价格
+            <h2 className="text-metal mt-8 font-serif text-4xl leading-tight text-white [line-break:strict] [word-break:keep-all] md:[text-orientation:upright] md:[writing-mode:vertical-rl] md:text-6xl md:leading-none md:tracking-[0.18em]">
+              身份不是价格
             </h2>
           </div>
         </FadeUp>
 
-        <div className="space-y-7 md:col-span-8">
+        <div className="space-y-7">
           {membershipTiers.map((tier, index) => (
             <FadeUp key={tier.name} delay={index * 0.06}>
               <TiltCard className="liquid-glass-strong group relative min-h-[13rem] overflow-hidden rounded-[2rem] p-7 transition-colors duration-700 hover:bg-white/[0.055] md:p-9">
@@ -205,7 +208,7 @@ export default function MembershipPage() {
         </div>
       </section>
 
-      <section className="flex min-h-[100vh] items-center justify-center bg-black px-6">
+      <section className="flex min-h-[100dvh] items-center justify-center bg-black px-6">
         <AnimatedText
           text={"自由\n源于我们共同遵守的秩序"}
           className="text-metal max-w-3xl text-center font-serif text-4xl leading-loose text-white text-pretty md:text-6xl"

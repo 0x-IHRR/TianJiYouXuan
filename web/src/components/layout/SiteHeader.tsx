@@ -37,14 +37,16 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full bg-black/40 backdrop-blur-md transition-all duration-500 ${
-        scrolled ? "shadow-[0_18px_60px_rgba(0,0,0,0.28)]" : "shadow-none"
+      className={`fixed top-0 z-50 w-full transition-all duration-500 ${
+        scrolled
+          ? "bg-black/60 shadow-[0_18px_60px_rgba(0,0,0,0.28)] backdrop-blur-md"
+          : "bg-transparent shadow-none"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 pb-4 pt-6 md:px-10 md:pt-8">
         <Link
           href="/"
-          className="font-serif text-xl tracking-[0.2em] text-white transition-colors duration-300 hover:text-[hsl(var(--accent))]"
+          className="font-logo text-2xl font-bold italic tracking-widest text-white transition-colors duration-300 hover:text-[hsl(var(--accent))]"
         >
           天机优选
         </Link>
@@ -93,7 +95,7 @@ export function SiteHeader() {
               className="liquid-glass-strong w-[86vw] border-l border-white/10 bg-[#0a0a0a]/92 p-0 text-white"
             >
               <SheetHeader className="border-b border-white/10 p-6 text-left">
-                <SheetTitle className="font-serif text-2xl tracking-[0.16em] text-white">
+                <SheetTitle className="font-logo whitespace-nowrap text-2xl tracking-[0.4em] text-white">
                   天机优选
                 </SheetTitle>
                 <SheetDescription className="text-sm leading-7 text-muted-foreground">

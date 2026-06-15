@@ -81,42 +81,43 @@ export default function SpacesPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 pb-20 pt-32 md:grid-cols-12 md:gap-x-8 md:gap-y-28 md:px-10 md:pt-44">
-        <FadeUp className="md:col-span-5">
-          <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
-            Spaces
-          </p>
-          <h2 className="text-metal mt-8 max-w-xl text-balance font-serif text-4xl leading-tight text-white md:text-6xl">
-            空间不负责热闹
-            <br className="hidden md:block" />
-            只负责让关系安静发生
-          </h2>
+      <section className="mx-auto max-w-7xl px-6 pb-20 pt-32 md:px-10 md:pt-44">
+        <FadeUp>
+          <div className="mx-auto max-w-6xl text-center">
+            <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
+              Spaces
+            </p>
+            <h2 className="text-metal mx-auto mt-8 max-w-5xl font-serif text-[clamp(1.9rem,5.4vw,5.8rem)] leading-tight tracking-[0.04em] text-white [line-break:strict] [word-break:keep-all] md:tracking-[0.08em]">
+              <span className="whitespace-nowrap">空间不负责热闹，</span>
+              <br />
+              <span className="whitespace-nowrap">只负责让关系安静发生</span>
+            </h2>
+            <p className="mx-auto mt-10 max-w-2xl text-sm leading-loose tracking-wider text-white/52 text-pretty md:text-base">
+              会所的边界并非冷漠，而是对每一次到访、每一段谈话和每一位会员的保护。不同空间承载不同密度的交流，避免噪音覆盖真正重要的判断。
+            </p>
+          </div>
         </FadeUp>
 
-        <FadeUp className="md:col-span-5 md:col-start-8 md:pt-16" delay={0.12}>
-          <p className="max-w-md text-sm leading-loose tracking-wider text-white/50 text-pretty md:text-base">
-            会所的边界并非冷漠，而是对每一次到访、每一段谈话和每一位会员的保护。不同空间承载不同密度的交流，避免噪音覆盖真正重要的判断。
-          </p>
-        </FadeUp>
-
-        {spaces.map((space, index) => (
-          <FadeUp key={space.title} delay={index * 0.06} className={space.className}>
-            <TiltCard className="liquid-glass-strong group relative min-h-[18rem] overflow-hidden rounded-[2rem] p-7 transition-colors duration-700 hover:bg-white/[0.055] md:p-9">
-              <div className="pointer-events-none absolute -right-10 -top-12 font-display text-[9rem] leading-none text-white/[0.035] transition-colors duration-700 group-hover:text-[hsl(var(--accent))]/10 md:text-[12rem]">
-                {space.number}
-              </div>
-              <p className="font-display text-xs uppercase tracking-[0.46em] text-[hsl(var(--accent))]">
-                {space.label}
-              </p>
-              <h3 className="text-metal mt-7 max-w-md text-balance font-serif text-3xl leading-tight text-white md:text-5xl">
-                {space.title}
-              </h3>
-              <p className="mt-8 max-w-lg text-sm leading-loose text-white/56 text-pretty md:text-base">
-                {space.body}
-              </p>
-            </TiltCard>
-          </FadeUp>
-        ))}
+        <div className="mt-28 grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-x-8 md:gap-y-24">
+          {spaces.map((space, index) => (
+            <FadeUp key={space.title} delay={index * 0.06} className={space.className}>
+              <TiltCard className="liquid-glass-strong group relative min-h-[18rem] overflow-hidden rounded-[2rem] p-7 transition-colors duration-700 hover:bg-white/[0.055] md:p-9">
+                <div className="pointer-events-none absolute -right-10 -top-12 font-display text-[9rem] leading-none text-white/[0.035] transition-colors duration-700 group-hover:text-[hsl(var(--accent))]/10 md:text-[12rem]">
+                  {space.number}
+                </div>
+                <p className="font-display text-xs uppercase tracking-[0.46em] text-[hsl(var(--accent))]">
+                  {space.label}
+                </p>
+                <h3 className="text-metal mt-7 max-w-md text-balance font-serif text-3xl leading-tight text-white md:text-5xl">
+                  {space.title}
+                </h3>
+                <p className="mt-8 max-w-lg text-sm leading-loose text-white/56 text-pretty md:text-base">
+                  {space.body}
+                </p>
+              </TiltCard>
+            </FadeUp>
+          ))}
+        </div>
       </section>
 
       <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden px-6 py-28">

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Noto_Serif_SC } from "next/font/google";
+import { Cormorant_Garamond, Noto_Serif_SC, ZCOOL_XiaoWei } from "next/font/google";
 
 import { Preloader } from "@/components/animations/Preloader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
@@ -21,6 +21,13 @@ const cormorantGaramond = Cormorant_Garamond({
   display: "swap",
 });
 
+const zcoolXiaoWei = ZCOOL_XiaoWei({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-logo-sc",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
     default: "天机优选",
@@ -37,7 +44,7 @@ export default function RootLayout({
   return (
     <html
       lang="zh-CN"
-      className={`${notoSerifSC.variable} ${cormorantGaramond.variable} h-full antialiased`}
+      className={`${notoSerifSC.variable} ${cormorantGaramond.variable} ${zcoolXiaoWei.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
