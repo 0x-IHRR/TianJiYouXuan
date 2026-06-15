@@ -56,12 +56,12 @@ export default function SpacesPage() {
     <main className="overflow-hidden bg-[#0a0a0a]">
       <section className="relative flex min-h-[90vh] items-end overflow-hidden px-6 pb-24 pt-32 md:px-10 md:pb-28">
         <Image
-          src="/media/homepage-layers/doorway-band.png"
-          alt="隐匿之所的暗光入口"
+          src="/media/generated/tianji/spaces-lobby-sanctuary.png"
+          alt="隐匿之所的暗光接待大厅"
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-55 saturate-[0.72]"
+          className="object-cover opacity-58 saturate-[0.76]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/64 to-black/35" />
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
@@ -120,6 +120,14 @@ export default function SpacesPage() {
       </section>
 
       <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden px-6 py-28">
+        <Image
+          src="/media/generated/tianji/spaces-tea-ceremony.png"
+          alt="安静茶室中的一盏热茶"
+          fill
+          sizes="100vw"
+          className="object-cover opacity-24 saturate-[0.7]"
+        />
+        <div className="absolute inset-0 bg-[#0a0a0a]/66" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.11),transparent_34rem)]" />
         <AnimatedText
           text="真正的共享空间，先由共同遵守的秩序保护"

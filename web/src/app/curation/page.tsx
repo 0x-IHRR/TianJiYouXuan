@@ -134,6 +134,29 @@ export default function CurationPage() {
             </h2>
           </FadeUp>
 
+          <FadeUp delay={0.08}>
+            <div className="liquid-glass-strong relative mt-20 min-h-[38vh] overflow-hidden rounded-[2rem] md:min-h-[52vh]">
+              <Image
+                src="/media/generated/tianji/curation-silver-card-walnut.png"
+                alt="象征商务馈赠与圈层通行凭证的银色卡片"
+                fill
+                sizes="(max-width: 768px) 100vw, 80vw"
+                className="object-cover opacity-72 saturate-[0.78]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/78 via-[#0a0a0a]/16 to-black/20" />
+              <div className="absolute bottom-8 left-8 max-w-xl md:bottom-10 md:left-10">
+                <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
+                  Social Currency
+                </p>
+                <p className="mt-5 font-serif text-3xl leading-tight tracking-widest text-white md:text-5xl">
+                  商务馈赠
+                  <br />
+                  圈层通行凭证
+                </p>
+              </div>
+            </div>
+          </FadeUp>
+
           <div className="mt-24 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-16">
             {giftingTiers.map((tier, index) => (
               <FadeUp

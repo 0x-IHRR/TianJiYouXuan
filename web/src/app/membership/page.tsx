@@ -91,12 +91,12 @@ export default function MembershipPage() {
     <main className="overflow-hidden bg-[#0a0a0a]">
       <section className="relative flex h-[100vh] items-end overflow-hidden px-6 pb-24 md:px-10">
         <Image
-          src="/media/subpages/membership/hero-membership-salon.png"
-          alt="暗光会所空间"
+          src="/media/generated/tianji/membership-threshold-tunnel.png"
+          alt="象征会员门槛与秩序边界的暗光长廊"
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-60 saturate-[0.82]"
+          className="object-cover opacity-64 saturate-[0.82]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/55 to-black/25" />
         <div className="pointer-events-none absolute -left-4 top-24 font-display text-7xl leading-none text-white/[0.045] md:text-8xl">

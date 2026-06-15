@@ -38,12 +38,12 @@ export default function PhilosophyPage() {
     <main className="overflow-hidden bg-[#0a0a0a]">
       <section className="relative flex h-[100vh] items-end overflow-hidden px-6 pb-24 md:px-10">
         <Image
-          src="/media/subpages/philosophy/hero-philosophy-still-life.png"
-          alt="真实与长期的暗光静物"
+          src="/media/generated/tianji/philosophy-hourglass-black-sand.png"
+          alt="象征真实与长期的黑沙漏"
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-66 saturate-[0.72]"
+          className="object-cover opacity-64 saturate-[0.72]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/48 to-black/25" />
 
@@ -100,11 +100,11 @@ export default function PhilosophyPage() {
 
       <section className="relative flex min-h-[80vh] items-center justify-center overflow-hidden px-6 py-32">
         <Image
-          src="/media/homepage-layers/film-window-balanced.png"
+          src="/media/generated/tianji/philosophy-hourglass-black-sand.png"
           alt="长期关系在暗处显影"
           fill
           sizes="100vw"
-          className="object-cover opacity-28 blur-[1px] saturate-[0.8]"
+          className="object-cover opacity-24 blur-[1px] saturate-[0.8]"
         />
         <div className="absolute inset-0 bg-[#0a0a0a]/72" />
         <div className="relative z-10 max-w-4xl text-center">
