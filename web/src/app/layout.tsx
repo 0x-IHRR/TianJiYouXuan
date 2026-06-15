@@ -38,6 +38,7 @@ export default function RootLayout({
     <html
       lang="zh-CN"
       className={`${notoSerifSC.variable} ${cormorantGaramond.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
         <SiteHeader />
