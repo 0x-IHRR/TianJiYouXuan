@@ -25,8 +25,8 @@ const navLinks = [
   { label: "每周节奏", href: "/events" },
 ];
 
-const xiaochengLogoStyle: CSSProperties = {
-  fontFamily: '"Xiaocheng", var(--font-sans-sc), sans-serif',
+const xuanzongLogoStyle: CSSProperties = {
+  fontFamily: '"XuanZong", var(--font-sans-sc), sans-serif',
   fontStyle: "normal",
   fontWeight: 400,
 };
@@ -53,8 +53,8 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 pb-4 pt-6 md:px-10 md:pt-8">
         <style>{`
           @font-face {
-            font-family: "Xiaocheng";
-            src: url("/fonts/xiaocheng.ttf") format("truetype");
+            font-family: "XuanZong";
+            src: url("/fonts/xuanzong.otf") format("opentype");
             font-weight: normal;
             font-style: normal;
             font-display: swap;
@@ -62,7 +62,7 @@ export function SiteHeader() {
         `}</style>
         <Link
           href="/"
-          className="flex items-center gap-3 transition-opacity duration-300 hover:opacity-80"
+          className="group/logo flex items-center gap-3 transition-opacity duration-300"
         >
           <Image
             src="/media/logo-transparent.png"
@@ -73,8 +73,8 @@ export function SiteHeader() {
             priority
           />
           <span
-            className="font-xiaocheng -translate-y-[3px] text-[1.7rem] leading-none tracking-[0.18em] text-white md:text-[1.9rem]"
-            style={xiaochengLogoStyle}
+            className="font-xuanzong -translate-y-[3px] text-[1.58rem] leading-none tracking-[0.18em] text-white transition-colors duration-500 group-hover/logo:text-[#b88a2a] md:text-[1.76rem]"
+            style={xuanzongLogoStyle}
           >
             天机优选
           </span>
@@ -125,8 +125,8 @@ export function SiteHeader() {
             >
               <SheetHeader className="border-b border-white/10 p-6 text-left">
                 <SheetTitle
-                  className="font-xiaocheng whitespace-nowrap text-2xl tracking-[0.4em] text-white"
-                  style={xiaochengLogoStyle}
+                  className="font-xuanzong whitespace-nowrap text-2xl tracking-[0.4em] text-white"
+                  style={xuanzongLogoStyle}
                 >
                   天机优选
                 </SheetTitle>

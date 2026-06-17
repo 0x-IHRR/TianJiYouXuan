@@ -17,6 +17,7 @@ export function HeroVideo() {
     if (video) {
       video.defaultMuted = true;
       video.muted = true;
+      video.volume = 0;
       video.play().catch(() => {
         console.warn("Mobile autoplay prevented by browser.");
       });
@@ -39,9 +40,9 @@ export function HeroVideo() {
       const startVolume = video.volume;
 
       const tick = (now: number) => {
-        const progress = Math.min((now - start) / duration, 1);
+        const progress = Math.min(Math.max((now - start) / duration, 0), 1);
         const eased = 1 - Math.pow(1 - progress, 3);
-        video.volume = startVolume + (target - startVolume) * eased;
+        video.volume = Math.min(Math.max(startVolume + (target - startVolume) * eased, 0), 1);
 
         if (progress < 1) {
           frameRef.current = requestAnimationFrame(tick);
