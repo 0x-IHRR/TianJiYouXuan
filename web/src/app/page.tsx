@@ -65,12 +65,12 @@ export default function Home() {
       </section>
 
       <section className="relative z-20 bg-[#0a0a0a] py-32 md:py-40">
-        <div className="mx-auto flex min-h-[85svh] max-w-7xl flex-col gap-4 px-6 md:h-[60vh] md:flex-row">
+        <div className="flex h-[100svh] w-full snap-y snap-mandatory flex-col overflow-y-auto overflow-x-hidden md:mx-auto md:h-[70vh] md:max-w-7xl md:snap-none md:flex-row md:gap-4 md:overflow-visible md:px-6">
           {entrances.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="liquid-glass-strong group relative flex flex-1 transform-gpu overflow-hidden rounded-[2rem] bg-black transition-[flex-grow,opacity,transform] duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] will-change-transform hover:flex-[3] focus-visible:flex-[3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70"
+              className="group relative h-[100svh] w-full shrink-0 snap-start overflow-hidden md:h-full md:flex-1 md:rounded-[2rem]"
               style={{ willChange: "flex-grow, transform, opacity" }}
             >
               <Image
@@ -93,7 +93,7 @@ export default function Home() {
                     {item.title}
                   </h2>
                 </div>
-                <p className="mt-5 max-w-md translate-y-2 text-sm leading-relaxed text-white/72 opacity-60 transition-[opacity,transform] duration-700 ease-out will-change-transform md:translate-y-4 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 focus-visible:translate-y-0 focus-visible:opacity-100 md:group-focus-visible:translate-y-0 md:group-focus-visible:opacity-100 md:text-base">
+                <p className="mt-5 max-w-md translate-y-2 text-sm leading-relaxed text-white/80 opacity-70 transition-all duration-700 ease-out md:translate-y-4 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:text-base">
                   {item.description}
                 </p>
               </div>
