@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const sources = ["/media/brand-film-web.mp4"];
-const nativeMutedProps = { defaultMuted: true } as { defaultMuted: boolean };
 
 export function HeroVideo() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -12,15 +11,22 @@ export function HeroVideo() {
   const [isMuted, setIsMuted] = useState(true);
   const [isInView, setIsInView] = useState(true);
 
+  const setVideoElement = useCallback((element: HTMLVideoElement | null) => {
+    videoRef.current = element;
+
+    if (element) {
+      element.defaultMuted = true;
+      element.muted = true;
+      element.setAttribute("muted", "");
+    }
+  }, []);
+
   useEffect(() => {
     const video = videoRef.current;
 
     if (video) {
       video.defaultMuted = true;
       video.muted = true;
-      video.play().catch(() => {
-        console.warn("Mobile autoplay prevented by browser.");
-      });
     }
   }, []);
 
@@ -128,9 +134,8 @@ export function HeroVideo() {
   return (
     <div ref={containerRef} className="absolute inset-0 z-0">
       <video
-        ref={videoRef}
+        ref={setVideoElement}
         autoPlay
-        {...nativeMutedProps}
         muted={isMuted}
         loop
         playsInline

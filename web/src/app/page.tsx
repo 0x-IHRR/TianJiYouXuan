@@ -80,13 +80,13 @@ export default function Home() {
         />
       </section>
 
-      <section className="relative z-20 bg-[#0a0a0a] py-32 md:py-40">
-        <div className="flex h-[100svh] w-full snap-y snap-mandatory flex-col overflow-y-auto overflow-x-hidden md:mx-auto md:h-[70vh] md:max-w-7xl md:snap-none md:flex-row md:gap-4 md:overflow-visible md:px-6">
+      <section className="relative z-20 bg-[#0a0a0a] py-0 md:py-40">
+        <div className="flex w-full flex-col gap-1 md:mx-auto md:h-[70vh] md:max-w-7xl md:flex-row md:gap-4 md:px-6">
           {entrances.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="group relative h-[100svh] w-full shrink-0 snap-start overflow-hidden md:h-full md:flex-1 md:rounded-[2rem]"
+              className="group relative h-[100svh] w-full shrink-0 overflow-hidden md:h-full md:flex-1 md:rounded-[2rem]"
               style={{ willChange: "flex-grow, transform, opacity" }}
             >
               <Image
