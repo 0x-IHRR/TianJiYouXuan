@@ -6,8 +6,10 @@ import { Magnet } from "@/components/animations/Magnet";
 
 const footerLinks = [
   { label: "会员体系", href: "/membership" },
-  { label: "理念与价值", href: "/philosophy" },
-  { label: "申请会员", href: "/apply" },
+  { label: "理念价值", href: "/philosophy" },
+  { label: "隐匿之所", href: "/spaces" },
+  { label: "极致甄选", href: "/curation" },
+  { label: "每周节奏", href: "/events" },
 ];
 
 export function SiteFooter() {

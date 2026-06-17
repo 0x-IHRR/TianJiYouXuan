@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { label: "会员体系", href: "/membership" },
-  { label: "理念与价值", href: "/philosophy" },
+  { label: "理念价值", href: "/philosophy" },
   { label: "隐匿之所", href: "/spaces" },
   { label: "极致甄选", href: "/curation" },
   { label: "每周节奏", href: "/events" },
