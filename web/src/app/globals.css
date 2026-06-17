@@ -93,6 +93,7 @@
     min-width: 100%;
     min-height: 100vh;
     min-height: 100dvh;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
     overflow-x: clip;
     font-family: var(--font-sans-sc);
     background:
@@ -190,6 +191,18 @@
 
   body.preloader-revealing .homepage-hero-video {
     transform: scale(1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .group:hover .hover-safe-card-media {
+      opacity: 0.86;
+      filter: saturate(1);
+      transform: scale(1.05);
+    }
+
+    .group:hover .hover-safe-card-spotlight {
+      opacity: 1;
+    }
   }
 
   .text-pretty {

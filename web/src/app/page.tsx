@@ -73,20 +73,20 @@ export default function Home() {
         <ScrollIndicator />
       </section>
 
-      <section className="flex min-h-[60vh] items-center justify-center bg-[#0a0a0a] px-6 py-20">
+      <section className="flex min-h-[60vh] items-center justify-center bg-[#0a0a0a] px-6 py-12 md:py-20">
         <AnimatedText
           text={"在可信的选择中，重塑生活秩序\n真正的奢侈，并非占有更多，而是省去筛选的疲惫"}
-          className="max-w-5xl text-center font-serif text-[clamp(1.5rem,6vw,4.5rem)] leading-snug text-white text-pretty tracking-widest"
+          className="max-w-5xl text-center font-serif text-3xl leading-snug text-white text-pretty tracking-widest md:text-[clamp(1.5rem,6vw,4.5rem)]"
         />
       </section>
 
       <section className="relative z-20 bg-[#0a0a0a] py-0 md:py-40">
-        <div className="flex w-full flex-col gap-1 md:mx-auto md:h-[70vh] md:max-w-7xl md:flex-row md:gap-4 md:px-6">
+        <div className="flex w-full flex-nowrap gap-4 overflow-x-auto snap-x snap-mandatory px-4 pb-8 [scrollbar-width:none] md:mx-auto md:h-[70vh] md:max-w-7xl md:flex-row md:gap-4 md:overflow-visible md:px-6">
           {entrances.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="group relative h-[100svh] w-full shrink-0 overflow-hidden md:h-full md:flex-1 md:rounded-[2rem]"
+              className="group relative h-[65vh] w-[82vw] snap-center shrink-0 overflow-hidden rounded-[2rem] md:h-full md:w-auto md:flex-1"
               style={{ willChange: "flex-grow, transform, opacity" }}
             >
               <Image
@@ -94,11 +94,11 @@ export default function Home() {
                 alt={item.alt}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="transform-gpu object-cover opacity-55 saturate-[0.78] transition-[opacity,transform] duration-700 ease-out will-change-transform group-hover:scale-105 group-hover:opacity-[0.86] group-hover:saturate-100 group-focus-visible:scale-105 group-focus-visible:opacity-[0.86]"
+                className="hover-safe-card-media transform-gpu object-cover opacity-55 saturate-[0.78] transition-[opacity,transform] duration-700 ease-out will-change-transform group-focus-visible:scale-105 group-focus-visible:opacity-[0.86]"
                 style={{ willChange: "transform" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/28 to-white/5 transition duration-700 group-hover:from-black/80 group-hover:via-black/12 group-focus-visible:from-black/80 group-focus-visible:via-black/12" />
-              <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100 group-focus-visible:opacity-100 [background:radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.2),transparent_34%)]" />
+              <div className="hover-safe-card-spotlight pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-focus-visible:opacity-100 [background:radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.2),transparent_34%)]" />
 
               <div className="relative z-10 flex h-full w-full flex-col justify-end p-6 md:p-8">
                 <div className="flex items-baseline gap-4 md:gap-5">
@@ -123,20 +123,20 @@ export default function Home() {
       <section className="flex min-h-[80vh] items-start justify-center bg-[#0a0a0a] px-6 pb-32 pt-12">
         <AnimatedText
           text={"选择，是一种秩序；\n连接，是一种力量；\n共益，是一种未来。"}
-          className="max-w-4xl break-words text-center font-serif text-[clamp(1.5rem,6vw,4.5rem)] leading-snug text-white text-balance tracking-widest"
+          className="max-w-4xl break-words text-center font-serif text-3xl leading-snug text-white text-balance tracking-widest md:text-[clamp(1.5rem,6vw,4.5rem)]"
         />
       </section>
 
       <FlyThroughGallery />
 
-      <section className="bg-[#0a0a0a] px-0 pb-24 pt-48 md:pb-28 md:pt-64">
+      <section className="bg-[#0a0a0a] px-0 pb-16 pt-20 md:pb-28 md:pt-64">
         <p className="mb-12 text-center font-serif text-sm uppercase tracking-[0.3em] text-white/50">
           同频的印记
         </p>
         <InfiniteMarquee />
       </section>
 
-      <section className="bg-[#0a0a0a] px-6 py-28 md:py-36">
+      <section className="bg-[#0a0a0a] px-6 py-20 md:py-36">
         <div className="mx-auto max-w-6xl">
           <p className="mb-14 text-center font-serif text-sm uppercase tracking-[0.3em] text-white/50">
             The Inner Circle
@@ -161,7 +161,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex min-h-[50vh] flex-col items-center justify-center border-t border-white/5 bg-[#0a0a0a] px-6 py-32">
+      <section className="flex min-h-[50vh] flex-col items-center justify-center border-t border-white/5 bg-[#0a0a0a] px-6 py-20 md:py-32">
         <h2 className="mb-12 flex items-center justify-center gap-8 text-center font-serif text-3xl tracking-[0.4em] text-white md:text-5xl">
           <span>不从众</span>
           <span className="text-xl text-white/30">/</span>
