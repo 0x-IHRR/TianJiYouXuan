@@ -2,6 +2,7 @@
 .meta-team-runs/
 .playwright-mcp
 .spec-workflow
+.DS_Store
 .env
 images/
 video/
