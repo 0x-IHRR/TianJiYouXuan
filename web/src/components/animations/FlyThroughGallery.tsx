@@ -179,7 +179,7 @@ export function FlyThroughGallery() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-[400vh] w-full bg-[#0a0a0a]"
+      className="relative h-[200svh] w-full bg-[#0a0a0a] md:h-[350vh]"
       style={{ contentVisibility: "auto" }}
       aria-label="天机优选影像廊"
     >

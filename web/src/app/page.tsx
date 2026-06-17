@@ -60,12 +60,12 @@ export default function Home() {
       <section className="flex min-h-[60vh] items-center justify-center bg-[#0a0a0a] px-6 py-20">
         <AnimatedText
           text={"在可信的选择中，重塑生活秩序\n真正的奢侈，并非占有更多，而是省去筛选的疲惫"}
-          className="max-w-5xl text-center font-serif text-[clamp(2rem,4.5vw,4.5rem)] leading-snug text-white text-pretty tracking-widest"
+          className="max-w-5xl text-center font-serif text-[clamp(1.5rem,6vw,4.5rem)] leading-snug text-white text-pretty tracking-widest"
         />
       </section>
 
       <section className="relative z-20 bg-[#0a0a0a] py-32 md:py-40">
-        <div className="mx-auto flex h-[60vh] max-w-7xl flex-col gap-4 px-6 md:flex-row">
+        <div className="mx-auto flex min-h-[85svh] max-w-7xl flex-col gap-4 px-6 md:h-[60vh] md:flex-row">
           {entrances.map((item) => (
             <Link
               key={item.href}
@@ -93,7 +93,7 @@ export default function Home() {
                     {item.title}
                   </h2>
                 </div>
-                <p className="mt-5 max-w-md translate-y-4 text-sm leading-relaxed text-white/72 opacity-0 transition-[opacity,transform] duration-700 ease-out will-change-transform group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 md:text-base">
+                <p className="mt-5 max-w-md translate-y-2 text-sm leading-relaxed text-white/72 opacity-60 transition-[opacity,transform] duration-700 ease-out will-change-transform md:translate-y-4 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 focus-visible:translate-y-0 focus-visible:opacity-100 md:group-focus-visible:translate-y-0 md:group-focus-visible:opacity-100 md:text-base">
                   {item.description}
                 </p>
               </div>
@@ -107,7 +107,7 @@ export default function Home() {
       <section className="flex min-h-[80vh] items-start justify-center bg-[#0a0a0a] px-6 pb-32 pt-12">
         <AnimatedText
           text={"选择，是一种秩序；\n连接，是一种力量；\n共益，是一种未来。"}
-          className="max-w-4xl break-words text-center font-serif text-[clamp(2rem,4.5vw,4.5rem)] leading-snug text-white text-balance tracking-widest"
+          className="max-w-4xl break-words text-center font-serif text-[clamp(1.5rem,6vw,4.5rem)] leading-snug text-white text-balance tracking-widest"
         />
       </section>
 
