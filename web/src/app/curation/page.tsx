@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 
+import { AnimatedText } from "@/components/animations/AnimatedText";
 import { FadeUp } from "@/components/animations/FadeUp";
 import { TiltCard } from "@/components/animations/TiltCard";
 
@@ -76,31 +77,24 @@ export default function CurationPage() {
       </section>
 
       <section className="flex min-h-[70vh] items-center justify-center bg-[#0a0a0a] px-6 py-24">
-        <FadeUp>
-          <h2 className="mx-auto max-w-6xl text-center font-serif text-[clamp(1.8rem,4.4vw,4.6rem)] leading-[1.45] tracking-[0.14em] text-white [line-break:strict] [word-break:keep-all] md:leading-[1.28] md:tracking-[0.18em]">
-            <span className="whitespace-nowrap">每一次消费，</span>
-            <span className="whitespace-nowrap">都是一次价值交换；</span>
-            <br className="hidden md:block" />
-            <span className="whitespace-nowrap">让消费产生价值，</span>
-            <span className="whitespace-nowrap">让资源创造财富。</span>
-          </h2>
-        </FadeUp>
+        <AnimatedText
+          text={"每一次消费，都是一次价值交换；\n让消费产生价值，让资源创造财富。"}
+          className="mx-auto max-w-6xl text-center font-serif text-[clamp(1.8rem,4.4vw,4.6rem)] leading-[1.45] tracking-[0.14em] text-white text-balance md:leading-[1.28] md:tracking-[0.18em]"
+        />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-32 md:px-10 md:py-44">
-        <FadeUp>
-          <div className="mx-auto max-w-5xl text-center">
+        <div className="mx-auto max-w-5xl text-center">
+          <FadeUp>
             <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
               Curation Logic
             </p>
-            <h2 className="text-metal mx-auto mt-8 max-w-5xl font-serif text-[clamp(2rem,5.2vw,5.8rem)] leading-tight text-white md:whitespace-nowrap">
-              不增加选择
-              <span className="mx-5 text-white/18">/</span>
-              <br className="md:hidden" />
-              只减少试错
-            </h2>
-          </div>
-        </FadeUp>
+          </FadeUp>
+          <AnimatedText
+            text={"不增加选择 / \n只减少试错"}
+            className="text-metal mx-auto mt-8 max-w-5xl font-serif text-[clamp(2rem,5.2vw,5.8rem)] leading-tight text-white text-balance md:whitespace-nowrap"
+          />
+        </div>
 
         <div className="mx-auto mt-24 max-w-5xl space-y-8">
           {curationSignals.map((signal, index) => (
@@ -133,10 +127,11 @@ export default function CurationPage() {
             <p className="text-center font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
               Gifting Mechanism
             </p>
-            <h2 className="text-metal mx-auto mt-8 max-w-3xl text-center font-serif text-4xl leading-tight text-white md:text-6xl">
-              礼遇机制
-            </h2>
           </FadeUp>
+          <AnimatedText
+            text="礼遇机制"
+            className="text-metal mx-auto mt-8 max-w-3xl text-center font-serif text-4xl leading-tight text-white text-balance md:text-6xl"
+          />
 
           <FadeUp delay={0.08}>
             <div className="liquid-glass-strong relative mt-20 min-h-[38vh] overflow-hidden rounded-[2rem] md:min-h-[52vh]">
@@ -161,20 +156,24 @@ export default function CurationPage() {
             </div>
           </FadeUp>
 
-          <div className="mx-auto mt-24 max-w-5xl space-y-8">
+          <div className="mx-auto mt-24 grid max-w-6xl grid-cols-1 gap-6 pb-24 md:grid-cols-2 md:gap-10">
             {giftingTiers.map((tier, index) => (
-              <FadeUp key={tier.value} delay={index * 0.08}>
+              <FadeUp
+                key={tier.value}
+                delay={index * 0.08}
+                className={index % 2 !== 0 ? "md:translate-y-24" : ""}
+              >
                 <TiltCard className="liquid-glass group relative overflow-hidden rounded-[2rem] p-8 md:p-10">
                   <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.14),transparent_28%,rgba(212,175,55,0.18)_54%,transparent_72%)] opacity-45 transition-opacity duration-700 group-hover:opacity-75" />
                   <div className="absolute -right-24 -top-24 size-56 rounded-full bg-[hsl(var(--accent))]/12 blur-3xl" />
-                  <div className="relative z-10 grid gap-8 md:grid-cols-[16rem_1fr] md:items-end">
+                  <div className="relative z-10 flex h-full min-h-[24rem] flex-col justify-between gap-12">
                     <div>
                       <p className="font-display text-xs uppercase tracking-[0.48em] text-[hsl(var(--accent))]">
                         Private Gifting
                       </p>
-                      <div className="mt-12 flex items-end gap-4">
+                      <div className="mt-6 flex items-end gap-4">
                         <span className="pb-4 font-display text-4xl text-white/55">¥</span>
-                        <span className="font-display text-7xl leading-none text-white md:text-9xl">
+                        <span className="font-display text-7xl leading-none text-white md:text-8xl">
                           {tier.value}
                         </span>
                       </div>

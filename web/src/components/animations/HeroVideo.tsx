@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const sources = ["/media/brand-film-web.mp4"];
-const nativeMutedProps = { defaultMuted: true } as { defaultMuted: boolean };
 
 export function HeroVideo() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -130,7 +129,6 @@ export function HeroVideo() {
       <video
         ref={videoRef}
         autoPlay
-        {...nativeMutedProps}
         muted={isMuted}
         loop
         playsInline

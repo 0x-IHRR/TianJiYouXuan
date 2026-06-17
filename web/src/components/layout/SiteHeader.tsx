@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { type CSSProperties, useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Menu } from "lucide-react";
@@ -25,6 +25,12 @@ const navLinks = [
   { label: "每周节奏", href: "/events" },
 ];
 
+const xiaochengLogoStyle: CSSProperties = {
+  fontFamily: '"Xiaocheng", var(--font-sans-sc), sans-serif',
+  fontStyle: "normal",
+  fontWeight: 400,
+};
+
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -45,6 +51,15 @@ export function SiteHeader() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 pb-4 pt-6 md:px-10 md:pt-8">
+        <style>{`
+          @font-face {
+            font-family: "Xiaocheng";
+            src: url("/fonts/xiaocheng.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+          }
+        `}</style>
         <Link
           href="/"
           className="flex items-center gap-3 transition-opacity duration-300 hover:opacity-80"
@@ -57,7 +72,10 @@ export function SiteHeader() {
             className="size-8 object-contain"
             priority
           />
-          <span className="font-logo text-2xl font-bold italic tracking-widest text-white">
+          <span
+            className="font-xiaocheng -translate-y-[3px] text-[1.7rem] leading-none tracking-[0.18em] text-white md:text-[1.9rem]"
+            style={xiaochengLogoStyle}
+          >
             天机优选
           </span>
         </Link>
@@ -106,7 +124,10 @@ export function SiteHeader() {
               className="liquid-glass-strong w-[86vw] border-l border-white/10 bg-[#0a0a0a]/92 p-0 text-white"
             >
               <SheetHeader className="border-b border-white/10 p-6 text-left">
-                <SheetTitle className="font-logo whitespace-nowrap text-2xl tracking-[0.4em] text-white">
+                <SheetTitle
+                  className="font-xiaocheng whitespace-nowrap text-2xl tracking-[0.4em] text-white"
+                  style={xiaochengLogoStyle}
+                >
                   天机优选
                 </SheetTitle>
                 <SheetDescription className="text-sm leading-7 text-muted-foreground">

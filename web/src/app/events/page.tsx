@@ -86,22 +86,22 @@ export default function EventsPage() {
       <section className="relative bg-[#0a0a0a] px-6 pb-32 md:px-10 md:pb-44">
         <div className="mx-auto max-w-7xl">
           <div className="flex min-h-[72vh] items-center justify-center">
-            <FadeUp>
-              <div className="mx-auto max-w-5xl text-center">
+            <div className="mx-auto max-w-5xl text-center">
+              <FadeUp>
                 <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
                   Not A Calendar
                 </p>
-                <h2 className="text-metal mx-auto mt-8 max-w-5xl font-serif text-[clamp(2rem,5.2vw,5.8rem)] leading-tight text-white md:whitespace-nowrap">
-                  不是排期
-                  <span className="mx-5 text-white/18">/</span>
-                  <br className="md:hidden" />
-                  是筛选同频的节奏
-                </h2>
+              </FadeUp>
+              <AnimatedText
+                text={"不是排期 / \n是筛选同频的节奏"}
+                className="text-metal mx-auto mt-8 max-w-5xl font-serif text-[clamp(2rem,5.2vw,5.8rem)] leading-tight text-white text-balance md:whitespace-nowrap"
+              />
+              <FadeUp>
                 <p className="mx-auto mt-10 max-w-2xl text-sm leading-loose tracking-wider text-white/50 text-pretty md:text-base">
                   七天主题不是为了制造热闹，而是让学习、交流、合作与成长在固定节奏中持续发生。
                 </p>
-              </div>
-            </FadeUp>
+              </FadeUp>
+            </div>
           </div>
 
           <div className="relative mx-auto max-w-6xl">

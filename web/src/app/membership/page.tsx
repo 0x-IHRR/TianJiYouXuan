@@ -115,31 +115,31 @@ export default function MembershipPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 py-28 md:grid-cols-[5rem_1fr] md:gap-20 md:px-10">
-        <div>
-          <div className="md:sticky md:top-24">
-            <FadeUp>
-              <p className="font-display text-xs uppercase tracking-[0.45em] text-[hsl(var(--accent))] md:hidden">
-                Threshold
-              </p>
-              <h2 className="text-metal mt-6 font-serif text-4xl leading-tight text-white [line-break:strict] [word-break:keep-all] md:[text-orientation:upright] md:[writing-mode:vertical-rl] md:text-6xl md:leading-none md:tracking-[0.18em]">
-                同频的门槛
-              </h2>
-              <p className="mt-8 max-w-xs text-sm leading-loose tracking-wider text-white/50 text-pretty md:hidden">
-                我们不以身份标签判断人，而是寻找在时间中被验证过的真实同频者。门槛，是对所有入局者的保护。
-              </p>
-            </FadeUp>
-          </div>
-        </div>
-
-        <div className="space-y-10">
+      <section className="mx-auto max-w-7xl px-6 py-28 md:px-10">
+        <div className="text-center">
           <FadeUp>
-            <p className="hidden max-w-2xl text-sm leading-loose tracking-wider text-white/52 text-pretty md:block md:text-base">
+            <p className="font-display text-xs uppercase tracking-[0.45em] text-[hsl(var(--accent))]">
+              Threshold
+            </p>
+          </FadeUp>
+          <AnimatedText
+            text="同频的门槛"
+            className="text-metal mx-auto mt-6 font-serif text-[clamp(2.5rem,6vw,6rem)] leading-tight text-white md:tracking-[0.18em]"
+          />
+          <FadeUp>
+            <p className="mx-auto mt-8 max-w-2xl text-sm leading-loose tracking-wider text-white/52 text-pretty md:text-base">
               我们不以身份标签判断人，而是寻找在时间中被验证过的真实同频者。门槛，是对所有入局者的保护。
             </p>
           </FadeUp>
+        </div>
+
+        <div className="mt-24 grid grid-cols-1 gap-8 pb-20 md:grid-cols-2 md:gap-12">
           {criteria.map((item, index) => (
-            <FadeUp key={item.label} delay={index * 0.08}>
+            <FadeUp
+              key={item.label}
+              delay={index * 0.08}
+              className={index % 2 !== 0 ? "md:translate-y-20" : ""}
+            >
               <TiltCard className="liquid-glass-strong group relative min-h-[16rem] overflow-hidden rounded-[1.75rem] p-7 transition-colors duration-700 hover:bg-white/[0.055] md:p-9">
                 <span className="absolute right-6 top-5 font-display text-6xl leading-none text-white/[0.045] md:text-8xl">
                   {item.number}
@@ -162,42 +162,43 @@ export default function MembershipPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 py-28 md:grid-cols-[5rem_1fr] md:gap-20 md:px-10 md:py-36">
-        <FadeUp>
-          <div className="md:sticky md:top-24">
-            <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))] md:hidden">
+      <section className="mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-36">
+        <div className="text-center">
+          <FadeUp>
+            <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
               Identity Stack
             </p>
-            <h2 className="text-metal mt-8 font-serif text-4xl leading-tight text-white [line-break:strict] [word-break:keep-all] md:[text-orientation:upright] md:[writing-mode:vertical-rl] md:text-6xl md:leading-none md:tracking-[0.18em]">
-              身份不是价格
-            </h2>
-          </div>
-        </FadeUp>
+          </FadeUp>
+          <AnimatedText
+            text="身份不是价格"
+            className="text-metal mx-auto mt-6 font-serif text-[clamp(2.5rem,6vw,6rem)] leading-tight text-white md:tracking-[0.18em]"
+          />
+        </div>
 
-        <div className="space-y-7">
+        <div className="mt-24 space-y-12">
           {membershipTiers.map((tier, index) => (
             <FadeUp key={tier.name} delay={index * 0.06}>
-              <TiltCard className="liquid-glass-strong group relative min-h-[13rem] overflow-hidden rounded-[2rem] p-7 transition-colors duration-700 hover:bg-white/[0.055] md:p-9">
+              <TiltCard className="liquid-glass-strong group relative min-h-[13rem] overflow-hidden rounded-[2rem] p-8 transition-colors duration-700 hover:bg-white/[0.055] md:p-12 lg:p-16">
                 <span className="absolute right-7 top-7 font-display text-[10px] uppercase tracking-[0.42em] text-white/20">
                   ¥ {tier.price}
                 </span>
                 <div className="pointer-events-none absolute -right-6 bottom-[-2rem] font-display text-[8rem] leading-none text-white/[0.035] transition-colors duration-700 group-hover:text-[hsl(var(--accent))]/10 md:text-[10rem]">
                   {tier.number}
                 </div>
-                <div className="relative z-10 grid gap-8 md:grid-cols-[10rem_1fr] md:items-end">
-                  <div>
+                <div className="relative z-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between md:gap-16">
+                  <div className="shrink-0">
                     <p className="font-display text-xs uppercase tracking-[0.42em] text-[hsl(var(--accent))]">
                       Tier {tier.number}
                     </p>
-                    <h3 className="text-metal mt-6 font-serif text-4xl leading-none text-white md:text-6xl">
+                    <h3 className="text-metal mt-6 font-serif text-5xl leading-tight text-white md:text-7xl">
                       {tier.name}
                     </h3>
                   </div>
-                  <div>
+                  <div className="max-w-xl md:text-right">
                     <p className="font-serif text-2xl leading-tight tracking-[0.18em] text-white/86 md:text-3xl">
                       {tier.identity}
                     </p>
-                    <p className="mt-5 max-w-2xl text-sm leading-loose tracking-wider text-white/52 text-pretty md:text-base">
+                    <p className="mt-5 text-sm leading-loose tracking-wider text-white/52 text-pretty md:text-base">
                       {tier.boundary}
                     </p>
                   </div>

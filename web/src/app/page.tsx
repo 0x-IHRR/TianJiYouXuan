@@ -86,7 +86,7 @@ export default function Home() {
             <Link
               key={item.href}
               href={item.href}
-              className="group relative h-[100svh] w-full shrink-0 snap-start overflow-hidden md:h-full md:flex-1 md:rounded-[2rem]"
+              className="group relative h-[100svh] w-full shrink-0 snap-start overflow-hidden transition-[flex-grow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] md:h-full md:flex-1 md:rounded-[2rem] md:hover:flex-[2.5] md:focus-visible:flex-[2.5]"
               style={{ willChange: "flex-grow, transform, opacity" }}
             >
               <Image

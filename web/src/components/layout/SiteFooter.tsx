@@ -4,12 +4,10 @@ import Link from "next/link";
 
 import { Magnet } from "@/components/animations/Magnet";
 
-const footerLinks = [
-  { label: "会员体系", href: "/membership" },
-  { label: "理念价值", href: "/philosophy" },
-  { label: "隐匿之所", href: "/spaces" },
-  { label: "极致甄选", href: "/curation" },
-  { label: "每周节奏", href: "/events" },
+const ruleLinks = [
+  { label: "会员公约", href: "/rules/conduct" },
+  { label: "服务协议", href: "/rules/terms" },
+  { label: "隐私政策", href: "/rules/privacy" },
 ];
 
 export function SiteFooter() {
@@ -22,10 +20,10 @@ export function SiteFooter() {
         <div className="grid gap-10 border-y border-white/10 py-10 md:grid-cols-3 md:gap-16 md:py-12">
           <div>
             <p className="font-display text-[10px] uppercase tracking-[0.5em] text-white/30">
-              Navigate
+              Protocols
             </p>
             <nav className="mt-6 flex flex-col items-start gap-4">
-              {footerLinks.map((item) => (
+              {ruleLinks.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -69,9 +67,50 @@ export function SiteFooter() {
           <p className="text-center font-display text-[10px] uppercase tracking-[0.5em] text-white/30">
             T I A N J I &nbsp; C U R A T I O N
           </p>
-          <p className="text-metal mt-5 text-center font-serif text-[clamp(4rem,15vw,12rem)] leading-none tracking-widest text-white/90">
-            天机优选
-          </p>
+
+          <div className="relative mx-auto mt-5 w-fit text-center font-logo font-black text-[clamp(4.5rem,16vw,13rem)] leading-none tracking-[0.15em]">
+            {/* Local Engine with Slow-Motion Timeline (Kept from V58) */}
+            <style>{`
+              @keyframes mercury-sweep-engine {
+                0% { background-position: 200% center; }   
+                50% { background-position: -100% center; } 
+                100% { background-position: -100% center; } 
+              }
+            `}</style>
+
+            {/* Base Layer: 3D Extrusion & Deep Shadows */}
+            <span
+              className="absolute left-0 top-[3px] select-none text-[#1a1a1a]"
+              style={{
+                /* Slightly lightened the first layer of bevel to match the brighter platinum top */
+                textShadow:
+                  "0 1px 0 #555, 0 2px 0 #222, 0 8px 24px rgba(0,0,0,1), 0 12px 32px rgba(0,0,0,0.8)",
+              }}
+              aria-hidden="true"
+            >
+              天机优选
+            </span>
+
+            {/* Surface Layer: Platinum Base with Razor-Thin Champagne Flow */}
+            <span
+              className="relative z-10 block"
+              style={{
+                backgroundColor: "#7a7a7c", /* Premium Titanium Platinum Base */
+                /* Razor-thin highlight (48.5% to 51.5%) tinted with Champagne (#fffaf0) */
+                backgroundImage: "linear-gradient(110deg, transparent 48.5%, #fffaf0 50%, transparent 51.5%)",
+                backgroundSize: "200% 100%",
+                backgroundRepeat: "no-repeat",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                color: "transparent",
+                /* Extreme Slow-Motion: Total 20s cycle (10 seconds of slow crawling light) */
+                animation: "mercury-sweep-engine 20s ease-in-out infinite",
+              }}
+            >
+              天机优选
+            </span>
+          </div>
 
           <Magnet
             strength={5}

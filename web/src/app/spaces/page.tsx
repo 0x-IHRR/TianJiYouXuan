@@ -82,21 +82,22 @@ export default function SpacesPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-20 pt-32 md:px-10 md:pt-44">
-        <FadeUp>
-          <div className="mx-auto max-w-6xl text-center">
+        <div className="mx-auto max-w-6xl text-center">
+          <FadeUp>
             <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
               Spaces
             </p>
-            <h2 className="text-metal mx-auto mt-8 max-w-5xl font-serif text-[clamp(1.9rem,5.4vw,5.8rem)] leading-tight tracking-[0.04em] text-white [line-break:strict] [word-break:keep-all] md:tracking-[0.08em]">
-              <span className="whitespace-nowrap">空间不负责热闹，</span>
-              <br />
-              <span className="whitespace-nowrap">只负责让关系安静发生</span>
-            </h2>
+          </FadeUp>
+          <AnimatedText
+            text={"空间不负责热闹，\n只负责让关系安静发生"}
+            className="text-metal mx-auto mt-8 max-w-5xl font-serif text-[clamp(1.9rem,5.4vw,5.8rem)] leading-tight tracking-[0.04em] text-white text-balance md:tracking-[0.08em]"
+          />
+          <FadeUp>
             <p className="mx-auto mt-10 max-w-2xl text-sm leading-loose tracking-wider text-white/52 text-pretty md:text-base">
               会所的边界并非冷漠，而是对每一次到访、每一段谈话和每一位会员的保护。不同空间承载不同密度的交流，避免噪音覆盖真正重要的判断。
             </p>
-          </div>
-        </FadeUp>
+          </FadeUp>
+        </div>
 
         <div className="mt-28 grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-x-8 md:gap-y-24">
           {spaces.map((space, index) => (
@@ -137,11 +138,10 @@ export default function SpacesPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-40 pt-10 md:px-10 md:pb-52">
-        <FadeUp>
-          <p className="border-y border-white/10 py-16 text-center font-serif text-3xl tracking-widest text-white/40 md:py-24 md:text-5xl">
-            预约优先&nbsp;&nbsp;|&nbsp;&nbsp;保持安静&nbsp;&nbsp;|&nbsp;&nbsp;会员专属
-          </p>
-        </FadeUp>
+        <AnimatedText
+          text="预约优先  |  保持安静  |  会员专属"
+          className="border-y border-white/10 py-16 text-center font-serif text-3xl tracking-widest text-white/40 md:py-24 md:text-5xl"
+        />
       </section>
     </main>
   );

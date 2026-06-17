@@ -65,14 +65,10 @@ export default function PhilosophyPage() {
       </section>
 
       <section className="flex min-h-[100dvh] items-center justify-center bg-black px-6 py-28">
-        <FadeUp>
-          <h2 className="text-metal mx-auto max-w-6xl text-center font-serif text-[clamp(1.9rem,5.4vw,5.7rem)] leading-[1.35] tracking-[0.14em] text-white [line-break:strict] [word-break:keep-all] md:leading-[1.22] md:tracking-[0.18em]">
-            <span className="whitespace-nowrap">我们不是普通消费者，</span>
-            <br className="hidden md:block" />
-            <span className="whitespace-nowrap">我们是新时代的</span>
-            <span className="whitespace-nowrap">觉醒者。</span>
-          </h2>
-        </FadeUp>
+        <AnimatedText
+          text={"我们不是普通消费者，\n我们是新时代的觉醒者。"}
+          className="text-metal mx-auto max-w-6xl text-center font-serif text-[clamp(1.9rem,5.4vw,5.7rem)] leading-[1.35] tracking-[0.14em] text-white text-balance md:leading-[1.22] md:tracking-[0.18em]"
+        />
       </section>
 
       <section className="mx-auto grid max-w-7xl grid-cols-1 gap-14 px-6 py-32 md:grid-cols-12 md:gap-24 md:px-10">
