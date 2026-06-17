@@ -79,7 +79,7 @@ export function SiteFooter() {
               type="button"
               aria-label="返回顶部"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="liquid-glass flex size-20 items-center justify-center rounded-full border border-white/10 text-xs uppercase tracking-[0.28em] text-white/60 transition-all duration-500 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70"
+              className="flex items-center justify-center text-xs uppercase tracking-[0.3em] text-white/40 transition-all duration-500 hover:text-white focus-visible:outline-none"
             >
               Top
             </button>

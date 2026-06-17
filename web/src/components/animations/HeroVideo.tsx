@@ -135,7 +135,7 @@ export function HeroVideo() {
       <button
         type="button"
         onClick={toggleAudio}
-        className="liquid-glass absolute bottom-8 right-6 z-20 rounded-full px-5 py-3 font-display text-[10px] uppercase tracking-[0.34em] text-white/58 transition-all duration-500 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70 md:bottom-10 md:right-10"
+        className="liquid-glass-strong absolute bottom-12 right-6 z-20 flex items-center gap-3 rounded-full border border-[hsl(var(--accent))]/40 bg-[hsl(var(--accent))]/10 px-6 py-3 font-display text-[12px] uppercase tracking-[0.4em] text-[hsl(var(--accent))] shadow-[0_0_30px_rgba(212,175,55,0.15)] transition-all duration-500 hover:bg-[hsl(var(--accent))]/20 hover:text-white focus-visible:outline-none animate-pulse md:bottom-16 md:right-12"
         aria-label={isMuted ? "开启视频声音" : "关闭视频声音"}
         aria-pressed={!isMuted}
       >

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Menu } from "lucide-react";
 import { motion } from "motion/react";
 
@@ -46,9 +47,19 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 pb-4 pt-6 md:px-10 md:pt-8">
         <Link
           href="/"
-          className="font-logo text-2xl font-bold italic tracking-widest text-white transition-colors duration-300 hover:text-[hsl(var(--accent))]"
+          className="flex items-center gap-3 transition-opacity duration-300 hover:opacity-80"
         >
-          天机优选
+          <Image
+            src="/media/logo-transparent.png"
+            alt="Tianji Logo"
+            width={32}
+            height={32}
+            className="size-8 object-contain"
+            priority
+          />
+          <span className="font-logo text-2xl font-bold italic tracking-widest text-white">
+            天机优选
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-6 lg:gap-8 md:flex">

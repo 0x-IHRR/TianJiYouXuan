@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { FadeUp } from "@/components/animations/FadeUp";
 
@@ -49,7 +50,7 @@ export default function ApplyPage() {
             <p className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--accent))]">
               Process
             </p>
-            <div className="mt-10 space-y-9">
+            <div className="mt-10 space-y-16">
               {steps.map((step, index) => (
                 <FadeUp key={step.title} delay={index * 0.08}>
                   <div className="flex">
@@ -110,6 +111,26 @@ export default function ApplyPage() {
             >
               Submit Intention
             </button>
+
+            <div className="mt-12 flex items-center justify-between gap-6 border-t border-white/10 pt-8">
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--accent))]">
+                  Direct Connect
+                </p>
+                <p className="mt-2 text-sm text-white/40">
+                  或直接扫码添加专属顾问微信
+                </p>
+              </div>
+              <div className="liquid-glass relative size-20 shrink-0 overflow-hidden rounded-xl border border-white/10 p-1">
+                <Image
+                  src="/media/qr-tianji-club.png"
+                  alt="专属顾问微信"
+                  width={80}
+                  height={80}
+                  className="size-full object-cover opacity-70 mix-blend-luminosity transition-all duration-500 hover:opacity-100 hover:mix-blend-normal"
+                />
+              </div>
+            </div>
           </form>
         </FadeUp>
       </section>

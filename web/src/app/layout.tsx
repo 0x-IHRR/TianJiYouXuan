@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Noto_Serif_SC, ZCOOL_XiaoWei } from "next/font/google";
 
+import { LiveWhispers } from "@/components/animations/LiveWhispers";
 import { Preloader } from "@/components/animations/Preloader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -51,6 +52,7 @@ export default function RootLayout({
         <SiteHeader />
         <div className="relative z-10 flex-1 bg-[#0a0a0a]">{children}</div>
         <SiteFooter />
+        <LiveWhispers />
         <Preloader />
       </body>
     </html>
