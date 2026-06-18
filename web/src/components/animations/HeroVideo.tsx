@@ -4,14 +4,18 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const sources = ["/media/brand-film-web.mp4"];
+const mobileSource = "/media/brand-film-mobile.mp4";
 const mobileFallbackImage = "/media/homepage-clean-background-v1.png";
 
 export function HeroVideo() {
   const containerRef = useRef<HTMLDivElement>(null);
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
   const frameRef = useRef<number | null>(null);
+  const [activeVideoKind, setActiveVideoKind] = useState<"desktop" | "mobile">("desktop");
   const [isMuted, setIsMuted] = useState(true);
   const [isInView, setIsInView] = useState(true);
+  const [isMobileVideoPortrait, setIsMobileVideoPortrait] = useState(false);
 
   const prepareVideoElement = useCallback((element: HTMLVideoElement | null) => {
     if (element) {
@@ -29,13 +33,40 @@ export function HeroVideo() {
     [prepareVideoElement],
   );
 
+  const setMobileVideoElement = useCallback(
+    (element: HTMLVideoElement | null) => {
+      mobileVideoRef.current = element;
+      prepareVideoElement(element);
+    },
+    [prepareVideoElement],
+  );
+
+  const getActiveVideo = useCallback(() => {
+    if (activeVideoKind === "mobile") {
+      return isMobileVideoPortrait ? mobileVideoRef.current : null;
+    }
+
+    return desktopVideoRef.current;
+  }, [activeVideoKind, isMobileVideoPortrait]);
+
   useEffect(() => {
     prepareVideoElement(desktopVideoRef.current);
+    prepareVideoElement(mobileVideoRef.current);
   }, [prepareVideoElement]);
+
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 768px)");
+    const syncActiveVideo = () => setActiveVideoKind(query.matches ? "desktop" : "mobile");
+
+    syncActiveVideo();
+    query.addEventListener("change", syncActiveVideo);
+
+    return () => query.removeEventListener("change", syncActiveVideo);
+  }, []);
 
   const fadeVolume = useCallback(
     (target: number, duration: number, onComplete?: () => void) => {
-      const video = desktopVideoRef.current;
+      const video = getActiveVideo();
 
       if (!video) {
         return;
@@ -63,7 +94,7 @@ export function HeroVideo() {
 
       frameRef.current = requestAnimationFrame(tick);
     },
-    [],
+    [getActiveVideo],
   );
 
   useEffect(() => {
@@ -86,7 +117,7 @@ export function HeroVideo() {
   }, []);
 
   useEffect(() => {
-    const video = desktopVideoRef.current;
+    const video = getActiveVideo();
 
     if (!video) {
       return;
@@ -102,7 +133,7 @@ export function HeroVideo() {
     if (isInView) {
       void video.play().catch(() => undefined);
     }
-  }, [fadeVolume, isInView, isMuted]);
+  }, [fadeVolume, getActiveVideo, isInView, isMuted]);
 
   useEffect(() => {
     return () => {
@@ -113,13 +144,19 @@ export function HeroVideo() {
   }, []);
 
   const toggleAudio = () => {
-    const video = desktopVideoRef.current;
+    const video = getActiveVideo();
 
     if (!video) {
       return;
     }
 
     if (isMuted) {
+      const inactiveVideo = video === desktopVideoRef.current ? mobileVideoRef.current : desktopVideoRef.current;
+
+      if (inactiveVideo) {
+        inactiveVideo.muted = true;
+      }
+
       video.muted = false;
       video.volume = 0;
       setIsMuted(false);
@@ -134,13 +171,28 @@ export function HeroVideo() {
     });
   };
 
+  const handleMobileVideoMetadata = () => {
+    const video = mobileVideoRef.current;
+
+    if (!video) {
+      return;
+    }
+
+    const isPortrait = video.videoHeight > video.videoWidth;
+    setIsMobileVideoPortrait(isPortrait);
+
+    if (!isPortrait) {
+      video.pause();
+    }
+  };
+
   return (
     <div ref={containerRef} className="absolute inset-0 z-0">
       {/* 桌面端横版视频 */}
       <video
         ref={setDesktopVideoElement}
         autoPlay
-        muted={isMuted}
+        muted={activeVideoKind === "desktop" ? isMuted : true}
         loop
         playsInline
         preload="metadata"
@@ -150,6 +202,7 @@ export function HeroVideo() {
         <source src={sources[0]} type="video/mp4" />
       </video>
 
+      {/* 移动端竖版视频，后续替换为正式竖屏素材 */}
       <Image
         src={mobileFallbackImage}
         alt=""
@@ -158,6 +211,22 @@ export function HeroVideo() {
         sizes="(max-width: 767px) 100vw, 1px"
         className="homepage-hero-video absolute inset-0 block h-full w-full object-cover opacity-70 transition-transform duration-700 md:hidden"
       />
+      <video
+        ref={setMobileVideoElement}
+        autoPlay
+        muted={activeVideoKind === "mobile" ? isMuted : true}
+        loop
+        playsInline
+        preload="metadata"
+        poster={mobileFallbackImage}
+        onLoadedMetadata={handleMobileVideoMetadata}
+        onError={() => setIsMobileVideoPortrait(false)}
+        className={`homepage-hero-video absolute inset-0 block h-full w-full object-cover transition-[opacity,transform] duration-700 md:hidden ${
+          isMobileVideoPortrait ? "opacity-70" : "opacity-0"
+        }`}
+      >
+        <source src={mobileSource} type="video/mp4" />
+      </video>
       <div className="absolute inset-0 block bg-gradient-to-b from-black/45 via-black/60 to-[#0a0a0a]/95 md:hidden" />
       <div className="absolute inset-0 block bg-[radial-gradient(circle_at_50%_35%,transparent_0%,rgba(0,0,0,0.58)_70%)] md:hidden" />
 

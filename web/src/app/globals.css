@@ -203,6 +203,16 @@
     .group:hover .hover-safe-card-spotlight {
       opacity: 1;
     }
+
+    .group:hover .hover-safe-gallery-media {
+      opacity: 1;
+      filter: saturate(1);
+      transform: scale(1.05);
+    }
+
+    .group:hover .hover-safe-gallery-spotlight {
+      opacity: 1;
+    }
   }
 
   .text-pretty {

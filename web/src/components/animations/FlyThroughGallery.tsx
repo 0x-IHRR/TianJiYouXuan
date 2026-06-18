@@ -179,7 +179,7 @@ export function FlyThroughGallery() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-[200svh] w-full bg-[#0a0a0a] md:h-[350vh]"
+      className="relative h-[150svh] w-full bg-[#0a0a0a] md:h-[350vh]"
       style={{ contentVisibility: "auto" }}
       aria-label="天机优选影像廊"
     >
@@ -274,11 +274,11 @@ function FlyThroughCard({
           sizes="(max-width: 768px) 100vw, 50vw"
           priority={index === 0}
           loading={index === 0 ? undefined : "lazy"}
-          className="transform-gpu object-cover opacity-90 saturate-[0.88] transition-[opacity,transform] duration-700 will-change-transform group-hover:scale-105 group-hover:opacity-100 group-hover:saturate-100"
+          className="hover-safe-gallery-media transform-gpu object-cover opacity-90 saturate-[0.88] transition-[opacity,transform] duration-700 will-change-transform"
           style={{ willChange: "transform" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/68 via-black/6 to-white/5" />
-        <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 [background:radial-gradient(circle_at_var(--mx,50%)_var(--my,20%),rgba(255,255,255,0.28),transparent_30%)]" />
+        <div className="hover-safe-gallery-spotlight pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 [background:radial-gradient(circle_at_var(--mx,50%)_var(--my,20%),rgba(255,255,255,0.28),transparent_30%)]" />
         <div className="absolute inset-x-0 bottom-0 p-5">
           <p className="font-display text-[0.7rem] uppercase tracking-[0.34em] text-[hsl(var(--accent))]">
             {item.title}

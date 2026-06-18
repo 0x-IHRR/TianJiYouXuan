@@ -35,7 +35,7 @@ export function InfiniteMarquee() {
               {[...row.items, ...row.items].map((item, index) => (
                 <article
                   key={`${row.direction}-${item.label}-${index}`}
-                  className="liquid-glass-strong relative h-40 w-64 shrink-0 overflow-hidden rounded-[1.5rem] p-5 md:h-44 md:w-72"
+                  className="liquid-glass-strong relative h-32 w-52 shrink-0 overflow-hidden rounded-[1.5rem] p-4 md:h-44 md:w-72 md:p-5"
                 >
                   <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(255,255,255,0.14),transparent_32%),linear-gradient(135deg,rgba(212,175,55,0.12),transparent_45%)]" />
                   <div className="relative z-10 flex h-full flex-col justify-between">
@@ -43,7 +43,7 @@ export function InfiniteMarquee() {
                       {item.label}
                     </p>
                     <div>
-                      <h3 className="font-serif text-2xl leading-tight text-white/84 md:text-3xl">
+                      <h3 className="font-serif text-xl leading-tight text-white/84 md:text-3xl">
                         {item.title}
                       </h3>
                       <p className="mt-3 font-display text-[0.65rem] uppercase tracking-[0.28em] text-white/32">

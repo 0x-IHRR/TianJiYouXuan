@@ -97,7 +97,7 @@ export default function Home() {
                 className="hover-safe-card-media transform-gpu object-cover opacity-55 saturate-[0.78] transition-[opacity,transform] duration-700 ease-out will-change-transform group-focus-visible:scale-105 group-focus-visible:opacity-[0.86]"
                 style={{ willChange: "transform" }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/28 to-white/5 transition duration-700 group-hover:from-black/80 group-hover:via-black/12 group-focus-visible:from-black/80 group-focus-visible:via-black/12" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/28 to-white/5 transition duration-700 md:group-hover:from-black/80 md:group-hover:via-black/12 group-focus-visible:from-black/80 group-focus-visible:via-black/12" />
               <div className="hover-safe-card-spotlight pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-focus-visible:opacity-100 [background:radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.2),transparent_34%)]" />
 
               <div className="relative z-10 flex h-full w-full flex-col justify-end p-6 md:p-8">
@@ -120,7 +120,7 @@ export default function Home() {
 
       <SilentMetrics />
 
-      <section className="flex min-h-[80vh] items-start justify-center bg-[#0a0a0a] px-6 pb-32 pt-12">
+      <section className="flex min-h-[80vh] items-start justify-center bg-[#0a0a0a] px-6 pb-20 pt-12 md:pb-32">
         <AnimatedText
           text={"选择，是一种秩序；\n连接，是一种力量；\n共益，是一种未来。"}
           className="max-w-4xl break-words text-center font-serif text-3xl leading-snug text-white text-balance tracking-widest md:text-[clamp(1.5rem,6vw,4.5rem)]"
@@ -169,7 +169,7 @@ export default function Home() {
         </h2>
         <Link
           href="/apply"
-          className="liquid-glass rounded-full px-10 py-4 text-sm uppercase tracking-[0.2em] text-white/80 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70"
+          className="liquid-glass rounded-full px-10 py-4 text-sm uppercase tracking-[0.2em] text-white/80 transition-colors md:hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70"
         >
           申请加入
         </Link>
