@@ -129,16 +129,17 @@ export function SiteHeader() {
                       }}
                     >
                       <SheetClose
+                        nativeButton={false}
                         render={
                           <Link
                             href={item.href}
                             className="flex items-center justify-between border-b border-white/10 py-5 font-serif text-xl text-white transition-colors md:hover:text-[hsl(var(--accent))]"
-                          />
+                          >
+                            <span>{item.label}</span>
+                            <ArrowRight className="size-5" aria-hidden="true" />
+                          </Link>
                         }
-                      >
-                        <span>{item.label}</span>
-                        <ArrowRight className="size-5" aria-hidden="true" />
-                      </SheetClose>
+                      />
                     </motion.div>
                   ))}
                 </div>
