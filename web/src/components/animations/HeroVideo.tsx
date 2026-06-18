@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const sources = ["/media/brand-film-web.mp4"];
-const mobileSource = "/media/brand-film-mobile.mp4";
+const sources = ["https://35m9rnelqiifkj12.public.blob.vercel-storage.com/media/brand-film-web.mp4"];
+const mobileSource = "https://35m9rnelqiifkj12.public.blob.vercel-storage.com/media/brand-film-mobile.mp4";
 
 export function HeroVideo() {
   const containerRef = useRef<HTMLDivElement>(null);

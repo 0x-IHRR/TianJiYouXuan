@@ -3,19 +3,8 @@
 @import "shadcn/tailwind.css";
 
 @font-face {
-  font-family: "Alimama ShuHei";
-  src:
-    url("https://s3.teambition.net/fonts/Alimama_ShuHei-700-Normal.woff2") format("woff2"),
-    url("https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlimamaShuHei-Bold/AlimamaShuHei-Bold.woff2")
-      format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "Xiaocheng";
-  src: url("/fonts/xiaocheng.ttf") format("truetype");
+  src: url("/fonts/xiaocheng-site.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -23,7 +12,7 @@
 
 @font-face {
   font-family: "XuanZong";
-  src: url("/fonts/xuanzong.otf") format("opentype");
+  src: url("/fonts/xuanzong-brand.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -53,7 +42,7 @@
   --font-sans: var(--font-sans-sc);
   --font-serif: var(--font-serif-sc);
   --font-display: var(--font-display-sc);
-  --font-logo: "Alimama ShuHei", var(--font-sans-sc), sans-serif;
+  --font-logo: var(--font-logo-sc), var(--font-sans-sc), sans-serif;
   --font-xiaocheng: "Xiaocheng", var(--font-sans-sc), sans-serif;
   --font-xuanzong: "XuanZong", var(--font-sans-sc), sans-serif;
   --font-heading: var(--font-serif-sc);

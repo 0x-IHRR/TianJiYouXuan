@@ -154,7 +154,7 @@ export const siteConfig = {
     title: "品牌影片",
     description: "用真实影像呈现天机优选的品牌主张与会员俱乐部方向",
     posterSrc: "/media/style-reference/film-cover-black.png",
-    videoSrc: "/media/brand-film-web.mp4",
+    videoSrc: "https://35m9rnelqiifkj12.public.blob.vercel-storage.com/media/brand-film-web.mp4",
   },
   membership: {
     title: "会员俱乐部介绍",

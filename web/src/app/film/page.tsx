@@ -32,7 +32,10 @@ export default function FilmPage() {
               poster="/media/style-reference/film-cover-black.png"
               className="aspect-video w-full rounded-[2rem] object-cover"
             >
-              <source src="/media/brand-film-web.mp4" type="video/mp4" />
+              <source
+                src="https://35m9rnelqiifkj12.public.blob.vercel-storage.com/media/brand-film-web.mp4"
+                type="video/mp4"
+              />
             </video>
           </TiltCard>
         </FadeUp>

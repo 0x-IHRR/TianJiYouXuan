@@ -5,7 +5,6 @@ import { LiveWhispers } from "@/components/animations/LiveWhispers";
 import { Preloader } from "@/components/animations/Preloader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
-import "@fontsource/lxgw-wenkai";
 import "./globals.css";
 
 const notoSerifSC = Noto_Serif_SC({

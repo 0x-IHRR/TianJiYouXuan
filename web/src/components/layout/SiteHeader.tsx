@@ -55,7 +55,7 @@ export function SiteHeader() {
         <style>{`
           @font-face {
             font-family: "XuanZong";
-            src: url("/fonts/xuanzong.otf") format("opentype");
+            src: url("/fonts/xuanzong-brand.woff2") format("woff2");
             font-weight: normal;
             font-style: normal;
             font-display: swap;
