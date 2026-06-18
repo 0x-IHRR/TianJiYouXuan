@@ -29,7 +29,7 @@ export function SiteFooter() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="font-serif text-sm tracking-widest text-white/52 transition-colors duration-500 hover:text-white"
+                  className="font-serif text-sm tracking-widest text-white/52 transition-colors duration-500 md:hover:text-white"
                 >
                   {item.label}
                 </Link>
@@ -55,7 +55,7 @@ export function SiteFooter() {
             <div className="mt-6 space-y-3 text-xs tracking-widest text-white/40">
               <a
                 href="mailto:invite@tianjiyouxuan.com"
-                className="transition-colors duration-500 hover:text-white"
+                className="transition-colors duration-500 md:hover:text-white"
               >
                 invite@tianjiyouxuan.com
               </a>
@@ -69,7 +69,7 @@ export function SiteFooter() {
           <p className="text-center font-display text-[10px] uppercase tracking-[0.5em] text-white/30">
             T I A N J I &nbsp; C U R A T I O N
           </p>
-          <p className="text-metal mt-5 text-center font-serif text-[clamp(4rem,15vw,12rem)] leading-none tracking-widest text-white/90">
+          <p className="text-metal mt-5 text-center font-logo text-5xl leading-none tracking-widest text-white/90 md:font-serif md:text-[clamp(4rem,15vw,12rem)]">
             天机优选
           </p>
 
@@ -81,7 +81,7 @@ export function SiteFooter() {
               type="button"
               aria-label="返回顶部"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="flex items-center justify-center text-xs uppercase tracking-[0.3em] text-white/40 transition-all duration-500 hover:text-white focus-visible:outline-none"
+              className="flex items-center justify-center text-xs uppercase tracking-[0.3em] text-white/40 transition-all duration-500 md:hover:text-white focus-visible:outline-none"
             >
               Top
             </button>

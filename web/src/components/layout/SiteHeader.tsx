@@ -47,7 +47,7 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 pb-4 pt-6 md:px-10 md:pt-8">
         <Link
           href="/"
-          className="flex items-center gap-3 transition-opacity duration-300 hover:opacity-80"
+          className="flex items-center gap-3 transition-opacity duration-300 md:hover:opacity-80"
         >
           <Image
             src="/media/logo-transparent.png"
@@ -57,7 +57,7 @@ export function SiteHeader() {
             className="size-8 object-contain"
             priority
           />
-          <span className="font-logo text-2xl font-bold italic tracking-widest text-white">
+          <span className="font-logo text-lg font-bold italic tracking-widest text-white md:text-2xl">
             天机优选
           </span>
         </Link>
@@ -67,9 +67,9 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="group font-serif text-sm uppercase tracking-widest text-white/60 transition-colors duration-500 hover:text-white"
+              className="group font-serif text-sm uppercase tracking-widest text-white/60 transition-colors duration-500 md:hover:text-white"
             >
-              <span className="relative pb-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:shadow-[0_0_12px_rgba(255,255,255,0.55)] after:transition-all after:duration-500 group-hover:after:w-full">
+              <span className="relative pb-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:shadow-[0_0_12px_rgba(255,255,255,0.55)] after:transition-all after:duration-500 md:group-hover:after:w-full">
                 {item.label}
               </span>
             </Link>
@@ -80,7 +80,7 @@ export function SiteHeader() {
           <Magnet>
             <Link
               href="/apply"
-              className="liquid-glass rounded-full border !border-white/10 !bg-white/5 px-6 py-2 text-xs tracking-[0.2em] text-white/80 shadow-[0_0_15px_rgba(255,255,255,0)] transition-all duration-300 hover:!bg-white/10 hover:text-white hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70"
+              className="liquid-glass rounded-full border !border-white/10 !bg-white/5 px-6 py-2 text-xs tracking-[0.2em] text-white/80 shadow-[0_0_15px_rgba(255,255,255,0)] transition-all duration-300 md:hover:!bg-white/10 md:hover:text-white md:hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70"
             >
               APPLY
             </Link>
@@ -94,7 +94,7 @@ export function SiteHeader() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="liquid-glass size-11 rounded-full text-white hover:bg-white/10"
+                  className="liquid-glass size-11 rounded-full text-white md:hover:bg-white/10"
                 />
               }
             >
@@ -106,7 +106,7 @@ export function SiteHeader() {
               className="liquid-glass-strong w-[86vw] border-l border-white/10 bg-[#0a0a0a]/92 p-0 text-white"
             >
               <SheetHeader className="border-b border-white/10 p-6 text-left">
-                <SheetTitle className="font-logo whitespace-nowrap text-2xl tracking-[0.4em] text-white">
+                <SheetTitle className="font-logo whitespace-nowrap text-xl font-bold italic tracking-[0.32em] text-white">
                   天机优选
                 </SheetTitle>
                 <SheetDescription className="text-sm leading-7 text-muted-foreground">
@@ -129,7 +129,7 @@ export function SiteHeader() {
                     >
                       <Link
                         href={item.href}
-                        className="flex items-center justify-between border-b border-white/10 py-5 font-serif text-2xl text-white transition-colors hover:text-[hsl(var(--accent))]"
+                        className="flex items-center justify-between border-b border-white/10 py-5 font-serif text-2xl text-white transition-colors md:hover:text-[hsl(var(--accent))]"
                       >
                         <span>{item.label}</span>
                         <ArrowRight className="size-5" aria-hidden="true" />
