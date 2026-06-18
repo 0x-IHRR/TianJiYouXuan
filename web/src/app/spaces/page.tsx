@@ -71,7 +71,7 @@ export default function SpacesPage() {
             <p className="font-display text-xs uppercase tracking-[0.56em] text-[hsl(var(--accent))]">
               The Sanctuary
             </p>
-            <h1 className="text-metal mt-8 max-w-3xl text-balance font-serif text-4xl leading-tight text-white md:text-8xl">
+            <h1 className="text-metal mt-8 max-w-3xl text-balance font-serif text-2xl leading-tight text-white md:text-8xl">
               隐匿之所
             </h1>
             <p className="mt-6 max-w-xl text-pretty font-serif text-base leading-loose tracking-[0.18em] text-white/68 md:mt-8 md:text-2xl">
@@ -90,7 +90,7 @@ export default function SpacesPage() {
           </FadeUp>
           <AnimatedText
             text={"空间不负责热闹，\n只负责让关系安静发生"}
-            className="text-metal mx-auto mt-8 max-w-5xl font-serif text-3xl leading-tight tracking-[0.04em] text-white text-balance md:text-[clamp(1.9rem,5.4vw,5.8rem)] md:tracking-[0.08em]"
+            className="text-metal mx-auto mt-8 max-w-5xl font-serif text-2xl leading-tight tracking-[0.04em] text-white text-balance md:text-[clamp(1.9rem,5.4vw,5.8rem)] md:tracking-[0.08em]"
           />
           <FadeUp>
             <p className="mx-auto mt-10 max-w-2xl text-sm leading-loose tracking-wider text-white/52 text-pretty md:text-base">
@@ -103,13 +103,13 @@ export default function SpacesPage() {
           {spaces.map((space, index) => (
             <FadeUp key={space.title} delay={index * 0.06} className={space.className}>
               <TiltCard className="liquid-glass-strong group relative min-h-[18rem] overflow-hidden rounded-[2rem] p-7 transition-colors duration-700 md:p-9 md:hover:bg-white/[0.055]">
-                <div className="pointer-events-none absolute -right-10 -top-12 font-display text-[9rem] leading-none text-white/[0.035] transition-colors duration-700 md:text-[12rem] md:group-hover:text-[hsl(var(--accent))]/10">
+                <div className="pointer-events-none absolute -right-8 -top-8 font-display text-[6rem] leading-none text-white/[0.035] transition-colors duration-700 md:-right-10 md:-top-12 md:text-[12rem] md:group-hover:text-[hsl(var(--accent))]/10">
                   {space.number}
                 </div>
                 <p className="font-display text-xs uppercase tracking-[0.46em] text-[hsl(var(--accent))]">
                   {space.label}
                 </p>
-                <h3 className="text-metal mt-7 max-w-md text-balance font-serif text-3xl leading-tight text-white md:text-5xl">
+                <h3 className="text-metal mt-7 max-w-md text-balance font-serif text-2xl leading-tight text-white md:text-5xl">
                   {space.title}
                 </h3>
                 <p className="mt-8 max-w-lg text-sm leading-loose text-white/56 text-pretty md:text-base">
@@ -133,14 +133,14 @@ export default function SpacesPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.11),transparent_34rem)]" />
         <AnimatedText
           text="真正的共享空间，先由共同遵守的秩序保护"
-          className="relative z-10 max-w-4xl text-center font-serif text-3xl leading-snug tracking-widest text-white text-pretty md:text-[clamp(2rem,4.5vw,4.5rem)]"
+          className="relative z-10 max-w-4xl text-center font-serif text-2xl leading-snug tracking-widest text-white text-pretty md:text-[clamp(2rem,4.5vw,4.5rem)]"
         />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 pb-40 pt-10 md:px-10 md:pb-52">
         <AnimatedText
-          text="预约优先  |  保持安静  |  会员专属"
-          className="border-y border-white/10 py-16 text-center font-serif text-3xl tracking-widest text-white/40 md:py-24 md:text-5xl"
+          text="预约优先 | 保持安静 | 会员专属"
+          className="border-y border-white/10 py-16 text-center font-serif text-base tracking-[0.2em] text-white/40 whitespace-nowrap md:py-24 md:text-5xl md:tracking-widest"
         />
       </section>
     </main>
