@@ -58,7 +58,7 @@ export function SiteHeader() {
             className="size-8 object-contain"
             priority
           />
-          <span className="font-logo text-lg font-bold italic tracking-widest text-white md:text-2xl">
+          <span className="font-xuanzong text-lg leading-none tracking-widest text-white md:text-2xl">
             天机优选
           </span>
         </Link>
@@ -107,7 +107,7 @@ export function SiteHeader() {
               className="liquid-glass-strong w-[86vw] border-l border-white/10 bg-[#0a0a0a]/92 p-0 text-white"
             >
               <SheetHeader className="border-b border-white/10 p-6 text-left">
-                <SheetTitle className="font-logo whitespace-nowrap text-xl font-bold italic tracking-[0.32em] text-white">
+                <SheetTitle className="font-xuanzong whitespace-nowrap text-xl tracking-[0.32em] text-white">
                   天机优选
                 </SheetTitle>
                 <SheetDescription className="text-sm leading-7 text-muted-foreground">

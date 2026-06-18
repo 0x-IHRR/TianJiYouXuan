@@ -13,6 +13,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "XuanZong";
+  src: url("/fonts/xuanzong.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -38,6 +46,7 @@
   --font-serif: var(--font-serif-sc);
   --font-display: var(--font-display-sc);
   --font-logo: "Alimama ShuHei", var(--font-sans-sc), sans-serif;
+  --font-xuanzong: "XuanZong", var(--font-sans-sc), sans-serif;
   --font-heading: var(--font-serif-sc);
   --font-mono: var(--font-sans-sc);
   --radius-sm: calc(var(--radius) * 0.6);
@@ -126,6 +135,12 @@
 
   .font-display {
     font-family: var(--font-display-sc), "Cormorant Garamond", Georgia, serif;
+  }
+
+  .font-xuanzong {
+    font-family: "XuanZong", var(--font-sans-sc), sans-serif;
+    font-style: normal;
+    font-weight: 400;
   }
 
   .font-wenkai {

@@ -29,22 +29,22 @@ const steps = [
 export default function ApplyPage() {
   return (
     <main className="bg-[#0a0a0a]">
-      <section className="flex h-[45vh] flex-col justify-end bg-gradient-to-b from-[#111] to-[#0a0a0a] px-6 pb-16 md:px-10">
+      <section className="flex h-[34vh] min-h-[18rem] flex-col justify-end bg-gradient-to-b from-[#111] to-[#0a0a0a] px-6 pb-10 md:h-[45vh] md:px-10 md:pb-16">
         <div className="mx-auto w-full max-w-7xl">
           <FadeUp>
-            <h1 className="font-serif text-5xl text-white md:text-7xl">
+            <h1 className="font-serif text-4xl text-white md:text-7xl">
               申请成为会员
             </h1>
           </FadeUp>
           <FadeUp delay={0.12}>
-            <p className="mt-6 text-lg tracking-wide text-muted-foreground">
+            <p className="mt-4 text-sm tracking-wide text-muted-foreground md:mt-6 md:text-lg">
               提交您的意向，我们的顾问将与您联系
             </p>
           </FadeUp>
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 py-20 md:px-10 lg:grid-cols-12">
+      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-12 md:gap-16 md:px-10 md:py-20 lg:grid-cols-12">
         <aside className="lg:col-span-5">
           <div className="sticky top-32">
             <p className="text-xs uppercase tracking-[0.2em] text-[hsl(var(--accent))]">
@@ -58,7 +58,7 @@ export default function ApplyPage() {
                       {index + 1}.
                     </span>
                     <div>
-                      <h2 className="ml-4 text-lg text-white">{step.title}</h2>
+                      <h2 className="ml-4 text-base text-white md:text-lg">{step.title}</h2>
                       <p className="ml-12 mt-1 block text-sm text-muted-foreground">
                         {step.subtitle}
                       </p>
@@ -71,7 +71,7 @@ export default function ApplyPage() {
         </aside>
 
         <FadeUp className="lg:col-span-7" delay={0.14}>
-          <form className="liquid-glass-strong rounded-[2.5rem] p-8 md:p-12">
+          <form className="liquid-glass-strong rounded-[2rem] p-6 md:rounded-[2.5rem] md:p-12">
             <label className="sr-only" htmlFor="name">
               Name
             </label>
@@ -80,7 +80,7 @@ export default function ApplyPage() {
               name="name"
               autoComplete="name"
               placeholder="Name"
-              className="mb-10 w-full border-b border-white/10 bg-transparent pb-3 text-lg text-white transition-colors placeholder:text-white/30 focus:border-[hsl(var(--accent))] focus:outline-none"
+              className="mb-8 w-full border-b border-white/10 bg-transparent pb-3 text-base text-white transition-colors placeholder:text-white/30 focus:border-[hsl(var(--accent))] focus:outline-none md:mb-10 md:text-lg"
             />
 
             <label className="sr-only" htmlFor="contact">
@@ -91,7 +91,7 @@ export default function ApplyPage() {
               name="contact"
               autoComplete="tel"
               placeholder="Contact (Phone/WeChat)"
-              className="mb-10 w-full border-b border-white/10 bg-transparent pb-3 text-lg text-white transition-colors placeholder:text-white/30 focus:border-[hsl(var(--accent))] focus:outline-none"
+              className="mb-8 w-full border-b border-white/10 bg-transparent pb-3 text-base text-white transition-colors placeholder:text-white/30 focus:border-[hsl(var(--accent))] focus:outline-none md:mb-10 md:text-lg"
             />
 
             <label className="sr-only" htmlFor="city">
@@ -102,12 +102,12 @@ export default function ApplyPage() {
               name="city"
               autoComplete="address-level2"
               placeholder="City"
-              className="mb-10 w-full border-b border-white/10 bg-transparent pb-3 text-lg text-white transition-colors placeholder:text-white/30 focus:border-[hsl(var(--accent))] focus:outline-none"
+              className="mb-8 w-full border-b border-white/10 bg-transparent pb-3 text-base text-white transition-colors placeholder:text-white/30 focus:border-[hsl(var(--accent))] focus:outline-none md:mb-10 md:text-lg"
             />
 
             <button
               type="button"
-              className="liquid-glass mt-4 w-full rounded-full py-5 text-white uppercase tracking-widest transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70"
+              className="liquid-glass mx-auto mt-4 block w-[85%] max-w-sm rounded-full py-4 text-xs uppercase tracking-widest text-white transition-colors md:w-full md:max-w-none md:py-5 md:text-base md:hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70"
             >
               Submit Intention
             </button>
@@ -127,7 +127,7 @@ export default function ApplyPage() {
                   alt="专属顾问微信"
                   width={80}
                   height={80}
-                  className="size-full object-cover opacity-70 mix-blend-luminosity transition-all duration-500 hover:opacity-100 hover:mix-blend-normal"
+                  className="size-full object-cover opacity-70 mix-blend-luminosity transition-all duration-500 md:hover:opacity-100 md:hover:mix-blend-normal"
                 />
               </div>
             </div>

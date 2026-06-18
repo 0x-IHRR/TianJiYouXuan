@@ -69,7 +69,7 @@ export function SiteFooter() {
           <p className="text-center font-display text-[10px] uppercase tracking-[0.2em] text-white/30 md:tracking-[0.5em]">
             T I A N J I &nbsp; C U R A T I O N
           </p>
-          <p className="text-metal mt-5 text-center font-logo text-5xl leading-none tracking-widest text-white/90 md:font-serif md:text-[clamp(4rem,15vw,12rem)]">
+          <p className="text-metal mt-5 text-center font-xuanzong text-5xl leading-none tracking-widest text-white/90 md:font-serif md:text-[clamp(4rem,15vw,12rem)]">
             天机优选
           </p>
 

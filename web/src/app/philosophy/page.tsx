@@ -36,7 +36,7 @@ const pillars = [
 export default function PhilosophyPage() {
   return (
     <main className="overflow-hidden bg-[#0a0a0a]">
-      <section className="relative flex min-h-[100dvh] items-end overflow-hidden px-6 pb-24 md:px-10">
+      <section className="relative flex min-h-[86dvh] items-end overflow-hidden px-6 pb-20 md:min-h-[100dvh] md:px-10 md:pb-24">
         <Image
           src="/media/generated/tianji/philosophy-hourglass-black-sand.png"
           alt="象征真实与长期的黑沙漏"
@@ -52,10 +52,10 @@ export default function PhilosophyPage() {
             <p className="font-display text-xs uppercase tracking-[0.52em] text-[hsl(var(--accent))]">
               Philosophy
             </p>
-            <h1 className="text-metal mt-8 max-w-2xl text-balance font-serif text-6xl leading-tight text-white md:text-8xl">
+            <h1 className="text-metal mt-8 max-w-2xl text-balance font-serif text-4xl leading-tight text-white md:text-8xl">
               真实与长期
             </h1>
-            <p className="mt-8 max-w-xl text-pretty font-serif text-xl leading-loose tracking-[0.16em] text-white/70 md:text-2xl">
+            <p className="mt-6 max-w-xl text-pretty font-serif text-base leading-loose tracking-[0.16em] text-white/70 md:mt-8 md:text-2xl">
               对抗喧嚣的
               <br className="hidden md:block" />
               唯一解药
@@ -64,9 +64,9 @@ export default function PhilosophyPage() {
         </div>
       </section>
 
-      <section className="flex min-h-[100dvh] items-center justify-center bg-black px-6 py-28">
+      <section className="flex min-h-[62vh] items-center justify-center bg-black px-6 py-16 md:min-h-[100dvh] md:py-28">
         <FadeUp>
-          <h2 className="text-metal mx-auto max-w-6xl text-center font-serif text-[clamp(1.9rem,5.4vw,5.7rem)] leading-[1.35] tracking-[0.14em] text-white [line-break:strict] [word-break:keep-all] md:leading-[1.22] md:tracking-[0.18em]">
+          <h2 className="text-metal mx-auto max-w-6xl text-center font-serif text-3xl leading-[1.35] tracking-[0.14em] text-white [line-break:strict] [word-break:keep-all] md:text-[clamp(1.9rem,5.4vw,5.7rem)] md:leading-[1.22] md:tracking-[0.18em]">
             <span className="whitespace-nowrap">我们不是普通消费者，</span>
             <br className="hidden md:block" />
             <span className="whitespace-nowrap">我们是新时代的</span>
@@ -75,11 +75,11 @@ export default function PhilosophyPage() {
         </FadeUp>
       </section>
 
-      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-14 px-6 py-32 md:grid-cols-12 md:gap-24 md:px-10">
+      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-20 md:grid-cols-12 md:gap-24 md:px-10 md:py-32">
         {pillars.map((pillar, index) => (
           <FadeUp key={pillar.label} delay={index * 0.1} className={pillar.className}>
             <TiltCard
-              className="liquid-glass-strong group relative h-full min-h-[20rem] overflow-hidden rounded-[2rem] p-8 transition-colors duration-700 hover:bg-white/[0.055] md:p-10"
+              className="liquid-glass-strong group relative h-full min-h-[20rem] overflow-hidden rounded-[2rem] p-8 transition-colors duration-700 md:p-10 md:hover:bg-white/[0.055]"
               innerClassName="flex h-full"
             >
               <span className="pointer-events-none absolute -right-2 -top-6 font-display text-7xl leading-none text-white/[0.05] md:text-9xl">
@@ -92,17 +92,17 @@ export default function PhilosophyPage() {
                 <h2 className="text-metal mt-6 max-w-2xl text-balance font-serif text-3xl leading-tight text-white md:text-5xl">
                   {pillar.title}
                 </h2>
-                <p className="mt-7 max-w-xl font-serif text-xl leading-loose tracking-[0.16em] text-white/52 text-pretty transition-colors duration-500 group-hover:text-white/78 md:text-2xl">
+                <p className="mt-7 max-w-xl font-serif text-xl leading-loose tracking-[0.16em] text-white/52 text-pretty transition-colors duration-500 md:text-2xl md:group-hover:text-white/78">
                   {pillar.body}
                 </p>
               </div>
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(255,255,255,0.13),transparent_30%)] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(255,255,255,0.13),transparent_30%)] opacity-0 transition-opacity duration-700 md:group-hover:opacity-100" />
             </TiltCard>
           </FadeUp>
         ))}
       </section>
 
-      <section className="relative flex min-h-[80vh] items-center justify-center overflow-hidden px-6 py-32">
+      <section className="relative flex min-h-[56vh] items-center justify-center overflow-hidden px-6 py-16 md:min-h-[80vh] md:py-32">
         <Image
           src="/media/generated/tianji/philosophy-hourglass-black-sand.png"
           alt="长期关系在暗处显影"

@@ -115,7 +115,7 @@ export default function MembershipPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 py-28 md:grid-cols-[5rem_1fr] md:gap-20 md:px-10">
+      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-20 md:grid-cols-[5rem_1fr] md:gap-20 md:px-10 md:py-28">
         <div>
           <div className="md:sticky md:top-24">
             <FadeUp>
@@ -140,7 +140,7 @@ export default function MembershipPage() {
           </FadeUp>
           {criteria.map((item, index) => (
             <FadeUp key={item.label} delay={index * 0.08}>
-              <TiltCard className="liquid-glass-strong group relative min-h-[16rem] overflow-hidden rounded-[1.75rem] p-7 transition-colors duration-700 hover:bg-white/[0.055] md:p-9">
+              <TiltCard className="liquid-glass-strong group relative min-h-[16rem] overflow-hidden rounded-[1.75rem] p-7 transition-colors duration-700 md:p-9 md:hover:bg-white/[0.055]">
                 <span className="absolute right-6 top-5 font-display text-6xl leading-none text-white/[0.045] md:text-8xl">
                   {item.number}
                 </span>
@@ -151,18 +151,18 @@ export default function MembershipPage() {
                   <h3 className="text-metal mt-8 max-w-lg text-balance font-serif text-3xl leading-tight text-white md:text-5xl">
                     {item.title}
                   </h3>
-                  <p className="mt-7 max-w-md text-sm leading-loose text-white/58 text-pretty transition-opacity duration-500 group-hover:text-white/78 md:text-base">
+                  <p className="mt-7 max-w-md text-sm leading-loose text-white/58 text-pretty transition-opacity duration-500 md:text-base md:group-hover:text-white/78">
                     {item.body}
                   </p>
                 </div>
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(212,175,55,0.16),transparent_28%)] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(212,175,55,0.16),transparent_28%)] opacity-0 transition-opacity duration-700 md:group-hover:opacity-100" />
               </TiltCard>
             </FadeUp>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 py-28 md:grid-cols-[5rem_1fr] md:gap-20 md:px-10 md:py-36">
+      <section className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-20 md:grid-cols-[5rem_1fr] md:gap-20 md:px-10 md:py-36">
         <FadeUp>
           <div className="md:sticky md:top-24">
             <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))] md:hidden">
@@ -177,11 +177,11 @@ export default function MembershipPage() {
         <div className="space-y-7">
           {membershipTiers.map((tier, index) => (
             <FadeUp key={tier.name} delay={index * 0.06}>
-              <TiltCard className="liquid-glass-strong group relative min-h-[13rem] overflow-hidden rounded-[2rem] p-7 transition-colors duration-700 hover:bg-white/[0.055] md:p-9">
+              <TiltCard className="liquid-glass-strong group relative min-h-[13rem] overflow-hidden rounded-[2rem] p-7 transition-colors duration-700 md:p-9 md:hover:bg-white/[0.055]">
                 <span className="absolute right-7 top-7 font-display text-[10px] uppercase tracking-[0.42em] text-white/20">
                   ¥ {tier.price}
                 </span>
-                <div className="pointer-events-none absolute -right-6 bottom-[-2rem] font-display text-[8rem] leading-none text-white/[0.035] transition-colors duration-700 group-hover:text-[hsl(var(--accent))]/10 md:text-[10rem]">
+                <div className="pointer-events-none absolute -right-6 bottom-[-2rem] font-display text-[8rem] leading-none text-white/[0.035] transition-colors duration-700 md:text-[10rem] md:group-hover:text-[hsl(var(--accent))]/10">
                   {tier.number}
                 </div>
                 <div className="relative z-10 grid gap-8 md:grid-cols-[10rem_1fr] md:items-end">
