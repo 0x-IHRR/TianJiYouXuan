@@ -194,12 +194,12 @@ export function HeroVideo() {
         playsInline
         preload="metadata"
         poster="/media/brand-film-cover.png"
-        className="homepage-hero-video absolute inset-0 block h-full w-full scale-[1.35] object-cover opacity-70 transition-transform duration-700 md:hidden md:scale-100"
+        className="homepage-hero-video absolute inset-0 block h-full w-full scale-[1.35] object-cover opacity-90 brightness-110 contrast-105 transition-transform duration-700 md:hidden md:scale-100"
       >
         <source src={mobileSource} type="video/mp4" />
       </video>
-      <div className="absolute inset-0 block bg-gradient-to-b from-black/45 via-black/60 to-[#0a0a0a]/95 md:hidden" />
-      <div className="absolute inset-0 block bg-[radial-gradient(circle_at_50%_35%,transparent_0%,rgba(0,0,0,0.58)_70%)] md:hidden" />
+      <div className="absolute inset-0 block bg-gradient-to-b from-black/28 via-black/38 to-[#0a0a0a]/82 md:hidden" />
+      <div className="absolute inset-0 block bg-[radial-gradient(circle_at_50%_35%,transparent_0%,rgba(0,0,0,0.36)_72%)] md:hidden" />
 
       <button
         type="button"
