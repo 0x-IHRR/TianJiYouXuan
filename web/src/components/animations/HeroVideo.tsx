@@ -1,11 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const sources = ["/media/brand-film-web.mp4"];
 const mobileSource = "/media/brand-film-mobile.mp4";
-const mobileFallbackImage = "/media/homepage-clean-background-v1.png";
 
 export function HeroVideo() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -15,7 +13,6 @@ export function HeroVideo() {
   const [activeVideoKind, setActiveVideoKind] = useState<"desktop" | "mobile">("desktop");
   const [isMuted, setIsMuted] = useState(true);
   const [isInView, setIsInView] = useState(true);
-  const [isMobileVideoPortrait, setIsMobileVideoPortrait] = useState(false);
 
   const prepareVideoElement = useCallback((element: HTMLVideoElement | null) => {
     if (element) {
@@ -43,11 +40,11 @@ export function HeroVideo() {
 
   const getActiveVideo = useCallback(() => {
     if (activeVideoKind === "mobile") {
-      return isMobileVideoPortrait ? mobileVideoRef.current : null;
+      return mobileVideoRef.current;
     }
 
     return desktopVideoRef.current;
-  }, [activeVideoKind, isMobileVideoPortrait]);
+  }, [activeVideoKind]);
 
   useEffect(() => {
     prepareVideoElement(desktopVideoRef.current);
@@ -171,23 +168,8 @@ export function HeroVideo() {
     });
   };
 
-  const handleMobileVideoMetadata = () => {
-    const video = mobileVideoRef.current;
-
-    if (!video) {
-      return;
-    }
-
-    const isPortrait = video.videoHeight > video.videoWidth;
-    setIsMobileVideoPortrait(isPortrait);
-
-    if (!isPortrait) {
-      video.pause();
-    }
-  };
-
   return (
-    <div ref={containerRef} className="absolute inset-0 z-0">
+    <div ref={containerRef} className="absolute inset-0 z-0 overflow-hidden">
       {/* 桌面端横版视频 */}
       <video
         ref={setDesktopVideoElement}
@@ -197,20 +179,12 @@ export function HeroVideo() {
         playsInline
         preload="metadata"
         poster="/media/brand-film-cover.png"
-        className="homepage-hero-video absolute inset-0 hidden h-full w-full object-cover transition-transform duration-700 md:block"
+        className="homepage-hero-video absolute inset-0 hidden h-full w-full scale-100 object-cover transition-transform duration-700 md:block"
       >
         <source src={sources[0]} type="video/mp4" />
       </video>
 
-      {/* 移动端竖版视频，后续替换为正式竖屏素材 */}
-      <Image
-        src={mobileFallbackImage}
-        alt=""
-        fill
-        priority
-        sizes="(max-width: 767px) 100vw, 1px"
-        className="homepage-hero-video absolute inset-0 block h-full w-full object-cover opacity-70 transition-transform duration-700 md:hidden"
-      />
+      {/* 移动端竖版视频 */}
       <video
         ref={setMobileVideoElement}
         autoPlay
@@ -218,12 +192,8 @@ export function HeroVideo() {
         loop
         playsInline
         preload="metadata"
-        poster={mobileFallbackImage}
-        onLoadedMetadata={handleMobileVideoMetadata}
-        onError={() => setIsMobileVideoPortrait(false)}
-        className={`homepage-hero-video absolute inset-0 block h-full w-full object-cover transition-[opacity,transform] duration-700 md:hidden ${
-          isMobileVideoPortrait ? "opacity-70" : "opacity-0"
-        }`}
+        poster="/media/brand-film-cover.png"
+        className="homepage-hero-video absolute inset-0 block h-full w-full scale-[1.35] object-cover opacity-70 transition-transform duration-700 md:hidden md:scale-100"
       >
         <source src={mobileSource} type="video/mp4" />
       </video>
