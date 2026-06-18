@@ -9,6 +9,7 @@ import { motion } from "motion/react";
 import { Magnet } from "@/components/animations/Magnet";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetHeader,
@@ -127,13 +128,17 @@ export function SiteHeader() {
                         ease: [0.22, 1, 0.36, 1],
                       }}
                     >
-                      <Link
-                        href={item.href}
-                        className="flex items-center justify-between border-b border-white/10 py-5 font-serif text-2xl text-white transition-colors md:hover:text-[hsl(var(--accent))]"
+                      <SheetClose
+                        render={
+                          <Link
+                            href={item.href}
+                            className="flex items-center justify-between border-b border-white/10 py-5 font-serif text-xl text-white transition-colors md:hover:text-[hsl(var(--accent))]"
+                          />
+                        }
                       >
                         <span>{item.label}</span>
                         <ArrowRight className="size-5" aria-hidden="true" />
-                      </Link>
+                      </SheetClose>
                     </motion.div>
                   ))}
                 </div>

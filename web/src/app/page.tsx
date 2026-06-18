@@ -76,7 +76,7 @@ export default function Home() {
       <section className="flex min-h-[60vh] items-center justify-center bg-[#0a0a0a] px-6 py-12 md:py-20">
         <AnimatedText
           text={"在可信的选择中，重塑生活秩序\n真正的奢侈，并非占有更多，而是省去筛选的疲惫"}
-          className="max-w-5xl text-center font-serif text-3xl leading-snug text-white text-pretty tracking-widest md:text-[clamp(1.5rem,6vw,4.5rem)]"
+          className="max-w-5xl text-center font-serif text-xl leading-snug text-white text-pretty tracking-widest md:text-[clamp(1.5rem,6vw,4.5rem)]"
         />
       </section>
 
@@ -102,14 +102,14 @@ export default function Home() {
 
               <div className="relative z-10 flex h-full w-full flex-col justify-end p-6 md:p-8">
                 <div className="flex items-baseline gap-4 md:gap-5">
-                  <span className="font-display text-sm tracking-[0.34em] text-[hsl(var(--accent))]/80 md:text-base">
+                  <span className="font-display text-xs tracking-[0.34em] text-[hsl(var(--accent))]/80 md:text-base">
                     {item.number}
                   </span>
-                  <h2 className="text-metal font-serif text-3xl leading-none text-white md:text-[clamp(2rem,3.2vw,4rem)]">
+                  <h2 className="text-metal font-serif text-2xl leading-none text-white md:text-[clamp(2rem,3.2vw,4rem)]">
                     {item.title}
                   </h2>
                 </div>
-                <p className="mt-5 max-w-md translate-y-2 text-sm leading-relaxed text-white/80 opacity-70 transition-all duration-700 ease-out md:translate-y-4 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:text-base">
+                <p className="mt-4 max-w-md translate-y-2 text-xs leading-relaxed text-white/75 opacity-70 transition-all duration-700 ease-out md:mt-5 md:translate-y-4 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:text-base">
                   {item.description}
                 </p>
               </div>
@@ -123,33 +123,33 @@ export default function Home() {
       <section className="flex min-h-[80vh] items-start justify-center bg-[#0a0a0a] px-6 pb-20 pt-12 md:pb-32">
         <AnimatedText
           text={"选择，是一种秩序；\n连接，是一种力量；\n共益，是一种未来。"}
-          className="max-w-4xl break-words text-center font-serif text-3xl leading-snug text-white text-balance tracking-widest md:text-[clamp(1.5rem,6vw,4.5rem)]"
+          className="max-w-4xl break-words text-center font-serif text-xl leading-snug text-white text-balance tracking-widest md:text-[clamp(1.5rem,6vw,4.5rem)]"
         />
       </section>
 
       <FlyThroughGallery />
 
       <section className="bg-[#0a0a0a] px-0 pb-16 pt-20 md:pb-28 md:pt-64">
-        <p className="mb-12 text-center font-serif text-sm uppercase tracking-[0.3em] text-white/50">
+        <p className="mb-8 text-center font-serif text-xs uppercase tracking-[0.3em] text-white/50 md:mb-12 md:text-sm">
           同频的印记
         </p>
         <InfiniteMarquee />
       </section>
 
-      <section className="bg-[#0a0a0a] px-6 py-20 md:py-36">
+      <section className="bg-[#0a0a0a] px-6 py-12 md:py-36">
         <div className="mx-auto max-w-6xl">
-          <p className="mb-14 text-center font-serif text-sm uppercase tracking-[0.3em] text-white/50">
+          <p className="hidden mb-14 text-center font-serif text-sm uppercase tracking-[0.3em] text-white/50 md:block">
             The Inner Circle
           </p>
           <div className="space-y-8 md:space-y-12">
             {archetypeQuotes.map((item, index) => (
               <figure
                 key={item.attribution}
-                className={`liquid-glass-strong max-w-3xl rounded-[2rem] p-8 md:p-12 ${
+                className={`liquid-glass-strong max-w-3xl rounded-[2rem] p-6 md:p-12 ${
                   index % 2 === 0 ? "mr-auto" : "ml-auto"
                 }`}
               >
-                <blockquote className="font-serif text-2xl leading-loose text-white/70 italic text-pretty md:text-3xl">
+                <blockquote className="font-serif text-lg leading-loose text-white/70 italic text-pretty md:text-3xl">
                   “{item.quote}”
                 </blockquote>
                 <figcaption className="mt-6 w-full text-right text-xs tracking-widest text-[hsl(var(--accent))]">
@@ -161,10 +161,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex min-h-[50vh] flex-col items-center justify-center border-t border-white/5 bg-[#0a0a0a] px-6 py-20 md:py-32">
-        <h2 className="mb-12 flex items-center justify-center gap-8 text-center font-serif text-3xl tracking-[0.4em] text-white md:text-5xl">
+      <section className="flex min-h-[50vh] flex-col items-center justify-center border-t border-white/5 bg-[#0a0a0a] px-6 py-16 md:py-32">
+        <h2 className="mb-8 flex items-center justify-center gap-4 text-center font-serif text-2xl tracking-[0.32em] text-white md:mb-12 md:gap-8 md:text-5xl md:tracking-[0.4em]">
           <span>不从众</span>
-          <span className="text-xl text-white/30">/</span>
+          <span className="text-base text-white/30 md:text-xl">/</span>
           <span>只同频</span>
         </h2>
         <Link
