@@ -19,7 +19,7 @@ export function SiteFooter() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0a0a0a] to-transparent" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-end">
-        <div className="grid gap-10 border-y border-white/10 py-10 md:grid-cols-3 md:gap-16 md:py-12">
+        <div className="grid gap-6 border-y border-white/10 py-6 md:grid-cols-3 md:gap-16 md:py-12">
           <div>
             <p className="font-display text-[10px] uppercase tracking-[0.5em] text-white/30">
               Navigate
@@ -66,7 +66,7 @@ export function SiteFooter() {
         </div>
 
         <div className="relative py-10 md:py-12">
-          <p className="text-center font-display text-[10px] uppercase tracking-[0.5em] text-white/30">
+          <p className="text-center font-display text-[10px] uppercase tracking-[0.2em] text-white/30 md:tracking-[0.5em]">
             T I A N J I &nbsp; C U R A T I O N
           </p>
           <p className="text-metal mt-5 text-center font-logo text-5xl leading-none tracking-widest text-white/90 md:font-serif md:text-[clamp(4rem,15vw,12rem)]">
@@ -88,7 +88,7 @@ export function SiteFooter() {
           </Magnet>
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-white/10 pt-5 text-[10px] uppercase tracking-[0.34em] text-white/24 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-2 border-t border-white/10 pt-5 text-[10px] uppercase tracking-[0.2em] text-white/24 md:flex-row md:items-center md:justify-between md:tracking-[0.34em]">
           <p>© 2026 Tianji Youxuan</p>
           <p>Private Offline Lifestyle Club</p>
         </div>

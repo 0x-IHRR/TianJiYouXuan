@@ -68,7 +68,7 @@ export function Preloader() {
       aria-label="Tianji Curation loading"
     >
       <div className="text-center">
-        <p className="whitespace-nowrap font-display text-sm uppercase tracking-[0.55em] text-white/55 md:text-base">
+        <p className="whitespace-nowrap font-display text-[10px] uppercase tracking-[0.3em] text-white/55 md:text-base md:tracking-[0.55em]">
           T I A N J I&nbsp;&nbsp;&nbsp;C U R A T I O N
         </p>
         <p className="mt-14 font-display text-lg font-light tabular-nums tracking-[0.28em] text-white/65 md:text-xl">
