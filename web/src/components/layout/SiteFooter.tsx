@@ -112,24 +112,25 @@ export function SiteFooter() {
             </span>
           </div>
 
-          <Magnet
-            strength={5}
-            className="absolute right-0 top-[calc(50%-2.5rem)] hidden md:block"
-          >
-            <button
-              type="button"
-              aria-label="返回顶部"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="flex items-center justify-center text-xs uppercase tracking-[0.3em] text-white/40 transition-all duration-500 md:hover:text-white focus-visible:outline-none"
-            >
-              Top
-            </button>
-          </Magnet>
         </div>
 
-        <div className="flex flex-col gap-2 border-t border-white/10 pt-5 text-[10px] uppercase tracking-[0.2em] text-white/24 md:flex-row md:items-center md:justify-between md:tracking-[0.34em]">
-          <p>© 2026 Tianji Youxuan</p>
-          <p>Private Offline Lifestyle Club</p>
+        <div className="relative flex flex-col gap-2 border-t border-white/10 pt-5 text-[10px] uppercase tracking-[0.2em] text-white/24 md:flex-row md:items-center md:justify-between md:tracking-[0.34em]">
+          <p className="md:flex-1 md:text-left">© 2026 Tianji Youxuan</p>
+
+          <p className="md:flex-1 md:text-center">Private Offline Lifestyle Club</p>
+
+          <div className="md:flex md:flex-1 md:justify-end">
+            <Magnet strength={5} className="hidden w-fit md:block">
+              <button
+                type="button"
+                aria-label="返回顶部"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="flex items-center justify-center text-xs uppercase tracking-[0.3em] text-white/40 transition-all duration-500 md:hover:text-white focus-visible:outline-none"
+              >
+                Top
+              </button>
+            </Magnet>
+          </div>
         </div>
       </div>
     </footer>
