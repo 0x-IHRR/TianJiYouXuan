@@ -179,7 +179,7 @@ export function FlyThroughGallery() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-[200svh] w-full bg-[#0a0a0a] md:h-[350vh]"
+      className="relative h-[150svh] w-full bg-[#0a0a0a] md:h-[350vh]"
       style={{ contentVisibility: "auto" }}
       aria-label="天机优选影像廊"
     >
@@ -244,7 +244,7 @@ function FlyThroughCard({
 
   return (
     <motion.article
-      className="liquid-glass-strong group absolute left-1/2 top-1/2 aspect-[16/9] w-[min(84vw,42rem)] min-w-[40vw] max-w-2xl transform-gpu overflow-hidden rounded-[2rem] bg-black p-3 will-change-transform"
+      className="liquid-glass-strong group absolute left-1/2 top-1/2 aspect-[16/9] w-[min(84vw,42rem)] min-w-[40vw] max-w-2xl transform-gpu overflow-hidden rounded-[1.25rem] bg-black p-2 will-change-transform md:rounded-[2rem] md:p-3"
       style={{
         transform: reduceMotion
           ? "translate(-50%, -50%) translate3d(0px, 0px, 0px)"
@@ -266,7 +266,7 @@ function FlyThroughCard({
         event.currentTarget.style.setProperty("--my", "20%");
       }}
     >
-      <div className="relative h-full transform-gpu overflow-hidden rounded-[1.55rem] will-change-transform">
+      <div className="relative h-full transform-gpu overflow-hidden rounded-[1rem] will-change-transform md:rounded-[1.55rem]">
         <Image
           src={item.src}
           alt={item.subtitle}
@@ -274,16 +274,16 @@ function FlyThroughCard({
           sizes="(max-width: 768px) 100vw, 50vw"
           priority={index === 0}
           loading={index === 0 ? undefined : "lazy"}
-          className="transform-gpu object-cover opacity-90 saturate-[0.88] transition-[opacity,transform] duration-700 will-change-transform group-hover:scale-105 group-hover:opacity-100 group-hover:saturate-100"
+          className="hover-safe-gallery-media transform-gpu object-cover opacity-90 saturate-[0.88] transition-[opacity,transform] duration-700 will-change-transform"
           style={{ willChange: "transform" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/68 via-black/6 to-white/5" />
-        <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 [background:radial-gradient(circle_at_var(--mx,50%)_var(--my,20%),rgba(255,255,255,0.28),transparent_30%)]" />
-        <div className="absolute inset-x-0 bottom-0 p-5">
-          <p className="font-display text-[0.7rem] uppercase tracking-[0.34em] text-[hsl(var(--accent))]">
+        <div className="hover-safe-gallery-spotlight pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 [background:radial-gradient(circle_at_var(--mx,50%)_var(--my,20%),rgba(255,255,255,0.28),transparent_30%)]" />
+        <div className="absolute inset-x-0 bottom-0 p-3 md:p-5">
+          <p className="font-display text-[8px] uppercase tracking-[0.24em] text-[hsl(var(--accent))] md:text-[0.7rem] md:tracking-[0.34em]">
             {item.title}
           </p>
-          <p className="mt-2 font-serif text-xl text-white">{item.subtitle}</p>
+          <p className="mt-1 font-serif text-sm text-white md:mt-2 md:text-xl">{item.subtitle}</p>
         </div>
       </div>
     </motion.article>

@@ -47,7 +47,7 @@ const usage = ["商务馈赠", "线下场景通行", "价值不浪费", "资源�
 export default function CurationPage() {
   return (
     <main className="overflow-hidden bg-[#0a0a0a]">
-      <section className="relative flex min-h-[92vh] items-end overflow-hidden px-6 pb-24 pt-32 md:px-10 md:pb-28">
+      <section className="relative flex min-h-[82vh] items-end overflow-hidden px-6 pb-20 pt-24 md:min-h-[92vh] md:px-10 md:pb-28 md:pt-32">
         <Image
           src="/media/generated/tianji/curation-black-gift-card.png"
           alt="极致甄选的暗光静物"
@@ -66,24 +66,24 @@ export default function CurationPage() {
             <p className="font-display text-xs uppercase tracking-[0.56em] text-[hsl(var(--accent))]">
               Supply Chain
             </p>
-            <h1 className="text-metal mt-8 max-w-3xl text-balance font-serif text-6xl leading-tight text-white md:text-8xl">
+            <h1 className="text-metal mt-8 max-w-3xl text-balance font-serif text-4xl leading-tight text-white md:text-8xl">
               极致甄选
             </h1>
-            <p className="mt-8 max-w-xl text-pretty font-serif text-xl leading-loose tracking-[0.18em] text-white/68 md:text-2xl">
+            <p className="mt-6 max-w-xl text-pretty font-serif text-base leading-loose tracking-[0.18em] text-white/68 md:mt-8 md:text-2xl">
               深入源头，只取少数答案
             </p>
           </FadeUp>
         </div>
       </section>
 
-      <section className="flex min-h-[70vh] items-center justify-center bg-[#0a0a0a] px-6 py-24">
+      <section className="flex min-h-[56vh] items-center justify-center bg-[#0a0a0a] px-6 py-16 md:min-h-[70vh] md:py-24">
         <AnimatedText
           text={"每一次消费，都是一次价值交换；\n让消费产生价值，让资源创造财富。"}
-          className="mx-auto max-w-6xl text-center font-serif text-[clamp(1.8rem,4.4vw,4.6rem)] leading-[1.45] tracking-[0.14em] text-white text-balance md:leading-[1.28] md:tracking-[0.18em]"
+          className="mx-auto max-w-6xl text-center font-serif text-3xl leading-[1.45] tracking-[0.14em] text-white text-balance md:text-[clamp(1.8rem,4.4vw,4.6rem)] md:leading-[1.28] md:tracking-[0.18em]"
         />
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-32 md:px-10 md:py-44">
+      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-44">
         <div className="mx-auto max-w-5xl text-center">
           <FadeUp>
             <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
@@ -92,11 +92,11 @@ export default function CurationPage() {
           </FadeUp>
           <AnimatedText
             text={"不增加选择 / \n只减少试错"}
-            className="text-metal mx-auto mt-8 max-w-5xl font-serif text-[clamp(2rem,5.2vw,5.8rem)] leading-tight text-white text-balance md:whitespace-nowrap"
+            className="text-metal mx-auto mt-8 max-w-5xl font-serif text-3xl leading-tight text-white text-balance md:text-[clamp(2rem,5.2vw,5.8rem)] md:whitespace-nowrap"
           />
         </div>
 
-        <div className="mx-auto mt-24 max-w-5xl space-y-8">
+        <div className="mx-auto mt-16 max-w-5xl space-y-8 md:mt-24">
           {curationSignals.map((signal, index) => (
             <FadeUp key={signal.title} delay={index * 0.08}>
               <TiltCard
@@ -120,7 +120,7 @@ export default function CurationPage() {
         </div>
       </section>
 
-      <section className="relative px-6 py-32 md:px-10 md:py-48">
+      <section className="relative px-6 py-20 md:px-10 md:py-48">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(212,175,55,0.12),transparent_34rem)]" />
         <div className="relative z-10 mx-auto max-w-7xl">
           <FadeUp>
@@ -164,7 +164,7 @@ export default function CurationPage() {
                 className={index % 2 !== 0 ? "md:translate-y-24" : ""}
               >
                 <TiltCard className="liquid-glass group relative overflow-hidden rounded-[2rem] p-8 md:p-10">
-                  <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.14),transparent_28%,rgba(212,175,55,0.18)_54%,transparent_72%)] opacity-45 transition-opacity duration-700 group-hover:opacity-75" />
+                  <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.14),transparent_28%,rgba(212,175,55,0.18)_54%,transparent_72%)] opacity-45 transition-opacity duration-700 md:group-hover:opacity-75" />
                   <div className="absolute -right-24 -top-24 size-56 rounded-full bg-[hsl(var(--accent))]/12 blur-3xl" />
                   <div className="relative z-10 flex h-full min-h-[24rem] flex-col justify-between gap-12">
                     <div>

@@ -115,7 +115,7 @@ export default function MembershipPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-28 md:px-10">
+      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-28">
         <div className="text-center">
           <FadeUp>
             <p className="font-display text-xs uppercase tracking-[0.45em] text-[hsl(var(--accent))]">
@@ -124,7 +124,7 @@ export default function MembershipPage() {
           </FadeUp>
           <AnimatedText
             text="同频的门槛"
-            className="text-metal mx-auto mt-6 font-serif text-[clamp(2.5rem,6vw,6rem)] leading-tight text-white md:tracking-[0.18em]"
+            className="text-metal mx-auto mt-6 font-serif text-4xl leading-tight text-white md:text-[clamp(2.5rem,6vw,6rem)] md:tracking-[0.18em]"
           />
           <FadeUp>
             <p className="mx-auto mt-8 max-w-2xl text-sm leading-loose tracking-wider text-white/52 text-pretty md:text-base">
@@ -133,14 +133,14 @@ export default function MembershipPage() {
           </FadeUp>
         </div>
 
-        <div className="mt-24 grid grid-cols-1 gap-8 pb-20 md:grid-cols-2 md:gap-12">
+        <div className="mt-16 grid grid-cols-1 gap-8 pb-20 md:mt-24 md:grid-cols-2 md:gap-12">
           {criteria.map((item, index) => (
             <FadeUp
               key={item.label}
               delay={index * 0.08}
               className={index % 2 !== 0 ? "md:translate-y-20" : ""}
             >
-              <TiltCard className="liquid-glass-strong group relative min-h-[16rem] overflow-hidden rounded-[1.75rem] p-7 transition-colors duration-700 hover:bg-white/[0.055] md:p-9">
+              <TiltCard className="liquid-glass-strong group relative min-h-[16rem] overflow-hidden rounded-[1.75rem] p-7 transition-colors duration-700 md:p-9 md:hover:bg-white/[0.055]">
                 <span className="absolute right-6 top-5 font-display text-6xl leading-none text-white/[0.045] md:text-8xl">
                   {item.number}
                 </span>
@@ -151,18 +151,18 @@ export default function MembershipPage() {
                   <h3 className="text-metal mt-8 max-w-lg text-balance font-serif text-3xl leading-tight text-white md:text-5xl">
                     {item.title}
                   </h3>
-                  <p className="mt-7 max-w-md text-sm leading-loose text-white/58 text-pretty transition-opacity duration-500 group-hover:text-white/78 md:text-base">
+                  <p className="mt-7 max-w-md text-sm leading-loose text-white/58 text-pretty transition-opacity duration-500 md:text-base md:group-hover:text-white/78">
                     {item.body}
                   </p>
                 </div>
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(212,175,55,0.16),transparent_28%)] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(212,175,55,0.16),transparent_28%)] opacity-0 transition-opacity duration-700 md:group-hover:opacity-100" />
               </TiltCard>
             </FadeUp>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-28 md:px-10 md:py-36">
+      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-36">
         <div className="text-center">
           <FadeUp>
             <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
@@ -171,18 +171,18 @@ export default function MembershipPage() {
           </FadeUp>
           <AnimatedText
             text="身份不是价格"
-            className="text-metal mx-auto mt-6 font-serif text-[clamp(2.5rem,6vw,6rem)] leading-tight text-white md:tracking-[0.18em]"
+            className="text-metal mx-auto mt-6 font-serif text-4xl leading-tight text-white md:text-[clamp(2.5rem,6vw,6rem)] md:tracking-[0.18em]"
           />
         </div>
 
-        <div className="mt-24 space-y-12">
+        <div className="mt-16 space-y-8 md:mt-24 md:space-y-12">
           {membershipTiers.map((tier, index) => (
             <FadeUp key={tier.name} delay={index * 0.06}>
-              <TiltCard className="liquid-glass-strong group relative min-h-[13rem] overflow-hidden rounded-[2rem] p-8 transition-colors duration-700 hover:bg-white/[0.055] md:p-12 lg:p-16">
+              <TiltCard className="liquid-glass-strong group relative min-h-[13rem] overflow-hidden rounded-[2rem] p-7 transition-colors duration-700 md:p-12 md:hover:bg-white/[0.055] lg:p-16">
                 <span className="absolute right-7 top-7 font-display text-[10px] uppercase tracking-[0.42em] text-white/20">
                   ¥ {tier.price}
                 </span>
-                <div className="pointer-events-none absolute -right-6 bottom-[-2rem] font-display text-[8rem] leading-none text-white/[0.035] transition-colors duration-700 group-hover:text-[hsl(var(--accent))]/10 md:text-[10rem]">
+                <div className="pointer-events-none absolute -right-6 bottom-[-2rem] font-display text-[8rem] leading-none text-white/[0.035] transition-colors duration-700 md:text-[10rem] md:group-hover:text-[hsl(var(--accent))]/10">
                   {tier.number}
                 </div>
                 <div className="relative z-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between md:gap-16">

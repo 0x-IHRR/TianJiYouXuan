@@ -61,7 +61,7 @@ export function SilentMetrics() {
     <section className="bg-[#0a0a0a] px-6">
       <div
         ref={ref}
-        className="mx-auto grid max-w-5xl grid-cols-1 gap-12 pb-32 pt-12 md:grid-cols-3"
+        className="mx-auto grid max-w-5xl grid-cols-1 gap-8 pb-20 pt-12 md:grid-cols-3 md:gap-12 md:pb-32"
         aria-label="天机优选核心数据"
       >
         {metrics.map((metric) => (
@@ -84,10 +84,10 @@ function MetricCounter({
 
   return (
     <div className="text-center" aria-label={metric.ariaLabel}>
-      <p className="font-display text-6xl leading-none text-white/90 md:text-8xl">
+      <p className="font-display text-4xl leading-none text-white/90 md:text-8xl">
         {displayValue}
       </p>
-      <p className="mt-4 text-xs uppercase tracking-[0.3em] text-white/40">
+      <p className="mt-3 text-[10px] uppercase tracking-[0.24em] text-white/40 md:mt-4 md:text-xs md:tracking-[0.3em]">
         {metric.label}
       </p>
     </div>

@@ -83,12 +83,12 @@ export function EntranceHoverReveal({ items }: EntranceHoverRevealProps) {
             onMouseLeave={() => setActiveIndex(null)}
             onFocus={() => setActiveIndex(index)}
             onBlur={() => setActiveIndex(null)}
-            className="group flex w-full items-baseline gap-5 border-t border-white/10 py-9 text-white/40 transition-colors duration-500 last:border-b hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70 md:gap-10 md:py-12"
+            className="group flex w-full items-baseline gap-5 border-t border-white/10 py-9 text-white/40 transition-colors duration-500 last:border-b md:hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--accent))]/70 md:gap-10 md:py-12"
           >
             <span className="font-display text-xl tracking-[0.28em] text-[hsl(var(--accent))]/70 md:text-2xl">
               {item.number}
             </span>
-            <span className="text-metal font-serif text-5xl leading-none transition-transform duration-500 group-hover:translate-x-3 md:text-7xl">
+            <span className="text-metal font-serif text-5xl leading-none transition-transform duration-500 md:group-hover:translate-x-3 md:text-7xl">
               {item.title}
             </span>
           </Link>

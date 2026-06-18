@@ -3,30 +3,68 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const sources = ["/media/brand-film-web.mp4"];
+const mobileSource = "/media/brand-film-mobile.mp4";
 
 export function HeroVideo() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const desktopVideoRef = useRef<HTMLVideoElement>(null);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
   const frameRef = useRef<number | null>(null);
+  const [activeVideoKind, setActiveVideoKind] = useState<"desktop" | "mobile">("desktop");
   const [isMuted, setIsMuted] = useState(true);
   const [isInView, setIsInView] = useState(true);
 
-  useEffect(() => {
-    const video = videoRef.current;
-
-    if (video) {
-      video.defaultMuted = true;
-      video.muted = true;
-      video.volume = 0;
-      video.play().catch(() => {
-        console.warn("Mobile autoplay prevented by browser.");
-      });
+  const prepareVideoElement = useCallback((element: HTMLVideoElement | null) => {
+    if (element) {
+      element.defaultMuted = true;
+      element.muted = true;
+      element.setAttribute("muted", "");
+      element.volume = 0;
     }
+  }, []);
+
+  const setDesktopVideoElement = useCallback(
+    (element: HTMLVideoElement | null) => {
+      desktopVideoRef.current = element;
+      prepareVideoElement(element);
+    },
+    [prepareVideoElement],
+  );
+
+  const setMobileVideoElement = useCallback(
+    (element: HTMLVideoElement | null) => {
+      mobileVideoRef.current = element;
+      prepareVideoElement(element);
+    },
+    [prepareVideoElement],
+  );
+
+  const getActiveVideo = useCallback(() => {
+    if (activeVideoKind === "mobile") {
+      return mobileVideoRef.current;
+    }
+
+    return desktopVideoRef.current;
+  }, [activeVideoKind]);
+
+  useEffect(() => {
+    prepareVideoElement(desktopVideoRef.current);
+    prepareVideoElement(mobileVideoRef.current);
+  }, [prepareVideoElement]);
+
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 768px)");
+    const syncActiveVideo = () => setActiveVideoKind(query.matches ? "desktop" : "mobile");
+
+    syncActiveVideo();
+    query.addEventListener("change", syncActiveVideo);
+
+    return () => query.removeEventListener("change", syncActiveVideo);
   }, []);
 
   const fadeVolume = useCallback(
     (target: number, duration: number, onComplete?: () => void) => {
-      const video = videoRef.current;
+      const video = getActiveVideo();
 
       if (!video) {
         return;
@@ -54,7 +92,7 @@ export function HeroVideo() {
 
       frameRef.current = requestAnimationFrame(tick);
     },
-    [],
+    [getActiveVideo],
   );
 
   useEffect(() => {
@@ -77,7 +115,7 @@ export function HeroVideo() {
   }, []);
 
   useEffect(() => {
-    const video = videoRef.current;
+    const video = getActiveVideo();
 
     if (!video) {
       return;
@@ -93,7 +131,7 @@ export function HeroVideo() {
     if (isInView) {
       void video.play().catch(() => undefined);
     }
-  }, [fadeVolume, isInView, isMuted]);
+  }, [fadeVolume, getActiveVideo, isInView, isMuted]);
 
   useEffect(() => {
     return () => {
@@ -104,13 +142,19 @@ export function HeroVideo() {
   }, []);
 
   const toggleAudio = () => {
-    const video = videoRef.current;
+    const video = getActiveVideo();
 
     if (!video) {
       return;
     }
 
     if (isMuted) {
+      const inactiveVideo = video === desktopVideoRef.current ? mobileVideoRef.current : desktopVideoRef.current;
+
+      if (inactiveVideo) {
+        inactiveVideo.muted = true;
+      }
+
       video.muted = false;
       video.volume = 0;
       setIsMuted(false);
@@ -126,26 +170,41 @@ export function HeroVideo() {
   };
 
   return (
-    <div ref={containerRef} className="absolute inset-0 z-0">
+    <div ref={containerRef} className="absolute inset-0 z-0 overflow-hidden">
+      {/* 桌面端横版视频 */}
       <video
-        ref={videoRef}
+        ref={setDesktopVideoElement}
         autoPlay
-        muted={isMuted}
+        muted={activeVideoKind === "desktop" ? isMuted : true}
         loop
         playsInline
         preload="metadata"
         poster="/media/brand-film-cover.png"
-        className="homepage-hero-video absolute inset-0 h-full w-full scale-100 transform-gpu object-cover transition-transform duration-[600ms] ease-[cubic-bezier(0.76,0,0.24,1)]"
+        className="homepage-hero-video absolute inset-0 hidden h-full w-full scale-100 object-cover transition-transform duration-700 md:block"
       >
-        {sources.map((src) => (
-          <source key={src} src={src} type="video/mp4" />
-        ))}
+        <source src={sources[0]} type="video/mp4" />
       </video>
+
+      {/* 移动端竖版视频 */}
+      <video
+        ref={setMobileVideoElement}
+        autoPlay
+        muted={activeVideoKind === "mobile" ? isMuted : true}
+        loop
+        playsInline
+        preload="metadata"
+        poster="/media/brand-film-cover.png"
+        className="homepage-hero-video absolute inset-0 block h-full w-full scale-[1.35] object-cover opacity-70 transition-transform duration-700 md:hidden md:scale-100"
+      >
+        <source src={mobileSource} type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 block bg-gradient-to-b from-black/45 via-black/60 to-[#0a0a0a]/95 md:hidden" />
+      <div className="absolute inset-0 block bg-[radial-gradient(circle_at_50%_35%,transparent_0%,rgba(0,0,0,0.58)_70%)] md:hidden" />
 
       <button
         type="button"
         onClick={toggleAudio}
-        className="liquid-glass-strong absolute bottom-12 right-6 z-20 flex items-center gap-3 rounded-full border border-[hsl(var(--accent))]/40 bg-[hsl(var(--accent))]/10 px-6 py-3 font-display text-[12px] uppercase tracking-[0.4em] text-[hsl(var(--accent))] shadow-[0_0_30px_rgba(212,175,55,0.15)] transition-all duration-500 hover:bg-[hsl(var(--accent))]/20 hover:text-white focus-visible:outline-none animate-pulse md:bottom-16 md:right-12"
+        className="liquid-glass-strong absolute bottom-12 right-6 z-20 hidden items-center gap-3 rounded-full border border-[hsl(var(--accent))]/40 bg-[hsl(var(--accent))]/10 px-6 py-3 font-display text-[12px] uppercase tracking-[0.4em] text-[hsl(var(--accent))] shadow-[0_0_30px_rgba(212,175,55,0.15)] transition-all duration-500 md:hover:bg-[hsl(var(--accent))]/20 md:hover:text-white focus-visible:outline-none animate-pulse md:bottom-16 md:right-12 md:flex"
         aria-label={isMuted ? "开启视频声音" : "关闭视频声音"}
         aria-pressed={!isMuted}
       >

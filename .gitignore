@@ -4,6 +4,7 @@
 .spec-workflow
 .DS_Store
 .env
+.DS_Store
 images/
 video/
 Reference-Design-Style/

@@ -16,7 +16,7 @@
 @font-face {
   font-family: "Xiaocheng";
   src: url("/fonts/xiaocheng.ttf") format("truetype");
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -24,7 +24,7 @@
 @font-face {
   font-family: "XuanZong";
   src: url("/fonts/xuanzong.otf") format("opentype");
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -111,6 +111,7 @@
     min-width: 100%;
     min-height: 100vh;
     min-height: 100dvh;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
     overflow-x: clip;
     font-family: var(--font-sans-sc);
     background:
@@ -143,6 +144,12 @@
 
   .font-display {
     font-family: var(--font-display-sc), "Cormorant Garamond", Georgia, serif;
+  }
+
+  .font-xuanzong {
+    font-family: "XuanZong", var(--font-sans-sc), sans-serif;
+    font-style: normal;
+    font-weight: 400;
   }
 
   .font-wenkai {
@@ -249,6 +256,28 @@
 
   body.preloader-revealing .homepage-hero-video {
     transform: scale(1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .group:hover .hover-safe-card-media {
+      opacity: 0.86;
+      filter: saturate(1);
+      transform: scale(1.05);
+    }
+
+    .group:hover .hover-safe-card-spotlight {
+      opacity: 1;
+    }
+
+    .group:hover .hover-safe-gallery-media {
+      opacity: 1;
+      filter: saturate(1);
+      transform: scale(1.05);
+    }
+
+    .group:hover .hover-safe-gallery-spotlight {
+      opacity: 1;
+    }
   }
 
   .text-pretty {

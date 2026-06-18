@@ -54,7 +54,7 @@ const spaces = [
 export default function SpacesPage() {
   return (
     <main className="overflow-hidden bg-[#0a0a0a]">
-      <section className="relative flex min-h-[90vh] items-end overflow-hidden px-6 pb-24 pt-32 md:px-10 md:pb-28">
+      <section className="relative flex min-h-[82vh] items-end overflow-hidden px-6 pb-20 pt-24 md:min-h-[90vh] md:px-10 md:pb-28 md:pt-32">
         <Image
           src="/media/generated/tianji/spaces-lobby-sanctuary.png"
           alt="隐匿之所的暗光接待大厅"
@@ -71,17 +71,17 @@ export default function SpacesPage() {
             <p className="font-display text-xs uppercase tracking-[0.56em] text-[hsl(var(--accent))]">
               The Sanctuary
             </p>
-            <h1 className="text-metal mt-8 max-w-3xl text-balance font-serif text-6xl leading-tight text-white md:text-8xl">
+            <h1 className="text-metal mt-8 max-w-3xl text-balance font-serif text-4xl leading-tight text-white md:text-8xl">
               隐匿之所
             </h1>
-            <p className="mt-8 max-w-xl text-pretty font-serif text-xl leading-loose tracking-[0.18em] text-white/68 md:text-2xl">
+            <p className="mt-6 max-w-xl text-pretty font-serif text-base leading-loose tracking-[0.18em] text-white/68 md:mt-8 md:text-2xl">
               合理使用资源，共享美好空间
             </p>
           </FadeUp>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-20 pt-32 md:px-10 md:pt-44">
+      <section className="mx-auto max-w-7xl px-6 pb-16 pt-20 md:px-10 md:pb-20 md:pt-44">
         <div className="mx-auto max-w-6xl text-center">
           <FadeUp>
             <p className="font-display text-xs uppercase tracking-[0.5em] text-[hsl(var(--accent))]">
@@ -90,7 +90,7 @@ export default function SpacesPage() {
           </FadeUp>
           <AnimatedText
             text={"空间不负责热闹，\n只负责让关系安静发生"}
-            className="text-metal mx-auto mt-8 max-w-5xl font-serif text-[clamp(1.9rem,5.4vw,5.8rem)] leading-tight tracking-[0.04em] text-white text-balance md:tracking-[0.08em]"
+            className="text-metal mx-auto mt-8 max-w-5xl font-serif text-3xl leading-tight tracking-[0.04em] text-white text-balance md:text-[clamp(1.9rem,5.4vw,5.8rem)] md:tracking-[0.08em]"
           />
           <FadeUp>
             <p className="mx-auto mt-10 max-w-2xl text-sm leading-loose tracking-wider text-white/52 text-pretty md:text-base">
@@ -99,11 +99,11 @@ export default function SpacesPage() {
           </FadeUp>
         </div>
 
-        <div className="mt-28 grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-x-8 md:gap-y-24">
+        <div className="mt-16 grid grid-cols-1 gap-10 md:mt-28 md:grid-cols-12 md:gap-x-8 md:gap-y-24">
           {spaces.map((space, index) => (
             <FadeUp key={space.title} delay={index * 0.06} className={space.className}>
-              <TiltCard className="liquid-glass-strong group relative min-h-[18rem] overflow-hidden rounded-[2rem] p-7 transition-colors duration-700 hover:bg-white/[0.055] md:p-9">
-                <div className="pointer-events-none absolute -right-10 -top-12 font-display text-[9rem] leading-none text-white/[0.035] transition-colors duration-700 group-hover:text-[hsl(var(--accent))]/10 md:text-[12rem]">
+              <TiltCard className="liquid-glass-strong group relative min-h-[18rem] overflow-hidden rounded-[2rem] p-7 transition-colors duration-700 md:p-9 md:hover:bg-white/[0.055]">
+                <div className="pointer-events-none absolute -right-10 -top-12 font-display text-[9rem] leading-none text-white/[0.035] transition-colors duration-700 md:text-[12rem] md:group-hover:text-[hsl(var(--accent))]/10">
                   {space.number}
                 </div>
                 <p className="font-display text-xs uppercase tracking-[0.46em] text-[hsl(var(--accent))]">
@@ -121,7 +121,7 @@ export default function SpacesPage() {
         </div>
       </section>
 
-      <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden px-6 py-28">
+      <section className="relative flex min-h-[56vh] items-center justify-center overflow-hidden px-6 py-16 md:min-h-[70vh] md:py-28">
         <Image
           src="/media/generated/tianji/spaces-tea-ceremony.png"
           alt="安静茶室中的一盏热茶"
@@ -133,7 +133,7 @@ export default function SpacesPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.11),transparent_34rem)]" />
         <AnimatedText
           text="真正的共享空间，先由共同遵守的秩序保护"
-          className="relative z-10 max-w-4xl text-center font-serif text-[clamp(2rem,4.5vw,4.5rem)] leading-snug tracking-widest text-white text-pretty"
+          className="relative z-10 max-w-4xl text-center font-serif text-3xl leading-snug tracking-widest text-white text-pretty md:text-[clamp(2rem,4.5vw,4.5rem)]"
         />
       </section>
 

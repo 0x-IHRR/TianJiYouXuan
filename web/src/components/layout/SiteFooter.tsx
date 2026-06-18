@@ -17,7 +17,7 @@ export function SiteFooter() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0a0a0a] to-transparent" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col justify-end">
-        <div className="grid gap-10 border-y border-white/10 py-10 md:grid-cols-3 md:gap-16 md:py-12">
+        <div className="grid gap-6 border-y border-white/10 py-6 md:grid-cols-3 md:gap-16 md:py-12">
           <div>
             <p className="font-display text-[10px] uppercase tracking-[0.5em] text-white/30">
               Protocols
@@ -27,7 +27,7 @@ export function SiteFooter() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="font-serif text-sm tracking-widest text-white/52 transition-colors duration-500 hover:text-white"
+                  className="font-serif text-sm tracking-widest text-white/52 transition-colors duration-500 md:hover:text-white"
                 >
                   {item.label}
                 </Link>
@@ -53,7 +53,7 @@ export function SiteFooter() {
             <div className="mt-6 space-y-3 text-xs tracking-widest text-white/40">
               <a
                 href="mailto:invite@tianjiyouxuan.com"
-                className="transition-colors duration-500 hover:text-white"
+                className="transition-colors duration-500 md:hover:text-white"
               >
                 invite@tianjiyouxuan.com
               </a>
@@ -64,11 +64,11 @@ export function SiteFooter() {
         </div>
 
         <div className="relative py-10 md:py-12">
-          <p className="text-center font-display text-[10px] uppercase tracking-[0.5em] text-white/30">
+          <p className="text-center font-display text-[10px] uppercase tracking-[0.2em] text-white/30 md:tracking-[0.5em]">
             T I A N J I &nbsp; C U R A T I O N
           </p>
 
-          <div className="relative mx-auto mt-5 w-fit text-center font-logo font-black text-[clamp(4.5rem,16vw,13rem)] leading-none tracking-[0.15em]">
+          <div className="relative mx-auto mt-5 w-fit text-center font-xuanzong text-5xl leading-none tracking-widest md:font-logo md:text-[clamp(4.5rem,16vw,13rem)] md:font-black md:tracking-[0.15em]">
             {/* Local Engine with Slow-Motion Timeline (Kept from V58) */}
             <style>{`
               @keyframes mercury-sweep-engine {
@@ -120,14 +120,14 @@ export function SiteFooter() {
               type="button"
               aria-label="返回顶部"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="flex items-center justify-center text-xs uppercase tracking-[0.3em] text-white/40 transition-all duration-500 hover:text-white focus-visible:outline-none"
+              className="flex items-center justify-center text-xs uppercase tracking-[0.3em] text-white/40 transition-all duration-500 md:hover:text-white focus-visible:outline-none"
             >
               Top
             </button>
           </Magnet>
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-white/10 pt-5 text-[10px] uppercase tracking-[0.34em] text-white/24 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-2 border-t border-white/10 pt-5 text-[10px] uppercase tracking-[0.2em] text-white/24 md:flex-row md:items-center md:justify-between md:tracking-[0.34em]">
           <p>© 2026 Tianji Youxuan</p>
           <p>Private Offline Lifestyle Club</p>
         </div>
