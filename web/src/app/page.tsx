@@ -101,7 +101,7 @@ export default function Home() {
               <div className="hover-safe-card-spotlight pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-focus-visible:opacity-100 [background:radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.2),transparent_34%)]" />
 
               <div className="relative z-10 flex h-full w-full flex-col justify-end p-6 md:p-8">
-                <div className="flex items-baseline gap-4 md:gap-5">
+                <div className="flex items-baseline gap-4 md:mb-14 md:gap-5">
                   <span className="font-display text-xs tracking-[0.34em] text-[hsl(var(--accent))]/80 md:text-base">
                     {item.number}
                   </span>
@@ -109,7 +109,7 @@ export default function Home() {
                     {item.title}
                   </h2>
                 </div>
-                <p className="mt-4 max-w-md translate-y-2 text-xs leading-relaxed text-white/75 opacity-70 transition-all duration-700 ease-out md:mt-5 md:translate-y-4 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:text-base">
+                <p className="mt-4 max-w-md translate-y-2 text-xs leading-relaxed text-white/75 opacity-70 transition-all duration-700 ease-out md:absolute md:bottom-8 md:left-8 md:right-8 md:mt-0 md:translate-y-4 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:text-base">
                   {item.description}
                 </p>
               </div>
